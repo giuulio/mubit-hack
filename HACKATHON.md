@@ -1,7 +1,6 @@
 # Night Shift London — event & Mubit notes
 
-Collected 23 Oct 2026 from Luma, the Mubit Discord, mubit.ai and docs.mubit.ai.
-Where Discord and Luma disagree, Discord (Max) wins — it is newer.
+Collected 23 Oct 2026 from Luma, the Mubit Discord, mubit.ai and docs.mubit.ai. Where Discord and Luma disagree, Discord (Max) wins — it is newer.
 
 ## Event
 
@@ -22,8 +21,7 @@ Where Discord and Luma disagree, Discord (Max) wins — it is newer.
 | Sun 12:30 | Finalist demos on stage |
 | Sun 13:30 | Awards |
 
-Luma says code freeze is Sun 10:00; Max's rules say 05:00. Plan for 05:00.
-Late check-ins count until the freeze. Resubmitting is allowed; the latest counts.
+Luma says code freeze is Sun 10:00; Max's rules say 05:00. Plan for 05:00. Late check-ins count until the freeze. Resubmitting is allowed; the latest counts.
 
 ### Submission
 
@@ -33,8 +31,7 @@ Late check-ins count until the freeze. Resubmitting is allowed; the latest count
 ### Rules
 
 - All project code written during the event. OSS libraries and personal tooling are fine.
-- **Every LLM call must route through Mubit.** Closed models are fine. Image/video
-  models (e.g. GPT Image, Seedance) are called directly — Mubit only proxies LLM APIs.
+- **Every LLM call must route through Mubit.** Closed models are fine. Image/video models (e.g. GPT Image, Seedance) are called directly — Mubit only proxies LLM APIs.
 - Teams of 1–4; at least one member present at Sunday demos to win. 18+, in person.
 
 ### Max (the event's AI on Discord)
@@ -53,8 +50,7 @@ Late check-ins count until the freeze. Resubmitting is allowed; the latest count
 ### Tracks
 
 1. **Recurring tasks** — turn corrections into model updates for a repeated task
-2. **Own your intelligence layer** — move a closed-model workload to a task-adapted open
-   model; compare quality, cost, latency
+2. **Own your intelligence layer** — move a closed-model workload to a task-adapted open model; compare quality, cost, latency
 3. **Fast refresh** — keep model updates current for changing workloads
 
 ### Judging (equal weight)
@@ -66,28 +62,19 @@ Late check-ins count until the freeze. Resubmitting is allowed; the latest count
 
 ### Side quests
 
-- **#1 Model Card:** `/upload you@email` in Discord, then upload Claude Code
-  (`~/.claude/projects/`) or Codex (`~/.codex/sessions/`) JSONL logs. Mubit emails a model
-  card. Post on X (@MubitLabs) + LinkedIn, drop links in `#modelcards`. One entry per person.
-  A subset of logs is fine. Prizes: Switch 2, $100, $25 Mubit credits.
+- **#1 Model Card:** `/upload you@email` in Discord, then upload Claude Code (`~/.claude/projects/`) or Codex (`~/.codex/sessions/`) JSONL logs. Mubit emails a model card. Post on X (@MubitLabs) + LinkedIn, drop links in `#modelcards`. One entry per person. A subset of logs is fine. Prizes: Switch 2, $100, $25 Mubit credits.
 - Staff hinted that sessions created during Night Shift feed a separate, unannounced quest.
 
 ### Launched today
 
-- **Banyan Sapling** — open-weight model that verifies claims against policies/evidence and
-  abstains when evidence is insufficient: https://huggingface.co/MubitLabs/banyan-sapling
-- **Latte Bench** — benchmark of whether models improve from feedback across attempts:
-  https://github.com/MubitLabs/latte-bench
+- **Banyan Sapling** — open-weight model that verifies claims against policies/evidence and abstains when evidence is insufficient: https://huggingface.co/MubitLabs/banyan-sapling
+- **Latte Bench** — benchmark of whether models improve from feedback across attempts: https://github.com/MubitLabs/latte-bench
 
 ## Mubit
 
 ### What it is
 
-A proxy in front of OpenAI / Anthropic / Gemini. Swap the base URL and use a Mubit key
-(`mbt_…`); model IDs stay the same. Mubit records every call, groups calls into **tasks**,
-and trains an **adapter** (small task-specific model) per task once it has enough kept
-examples (default **25**). Each adapter version is tested against the provider model's
-answers; passing versions can be compared in the console's **Try models**.
+A proxy in front of OpenAI / Anthropic / Gemini. Swap the base URL and use a Mubit key (`mbt_…`); model IDs stay the same. Mubit records every call, groups calls into **tasks**, and trains an **adapter** (small task-specific model) per task once it has enough kept examples (default **25**). Each adapter version is tested against the provider model's answers; passing versions can be compared in the console's **Try models**.
 
 - Console: https://app.mubit.ai (Requests, Tasks, Adapters, Try models, Provider keys, Connect)
 - API: https://api.mubit.ai — server-side only (no CORS)
@@ -103,9 +90,7 @@ answers; passing versions can be compared in the console's **Try models**.
 | OpenAI SDK on Gemini | `https://api.mubit.ai/gemini/v1beta/openai` |
 | OpenRouter / Groq / Together / Mistral | `https://api.mubit.ai/compat/{service}/v1` |
 
-Send only the Mubit key (`x-api-key` or `Authorization: Bearer` for Anthropic). Any
-other credential alongside it → `401`. Unset `ANTHROPIC_API_KEY` / `ANTHROPIC_AUTH_TOKEN`
-if they hold something else.
+Send only the Mubit key (`x-api-key` or `Authorization: Bearer` for Anthropic). Any other credential alongside it → `401`. Unset `ANTHROPIC_API_KEY` / `ANTHROPIC_AUTH_TOKEN` if they hold something else.
 
 ```python
 import os
@@ -116,13 +101,9 @@ client = Anthropic(base_url="https://api.mubit.ai/anthropic", api_key=os.environ
 
 ### What makes a task
 
-Calls share a task when they share **instructions (system prompt), tools, tool choice,
-output format and model**. Messages, temperature, max_tokens don't count. Numbers, dates
-and IDs in the instructions don't split a task; other changing words do — keep per-call
-variation in the user message.
+Calls share a task when they share **instructions (system prompt), tools, tool choice, output format and model**. Messages, temperature, max_tokens don't count. Numbers, dates and IDs in the instructions don't split a task; other changing words do — keep per-call variation in the user message.
 
-Sessions come from `metadata.user_id` (Anthropic) or `metadata.session_id` /
-`thread_id` / `conversation_id` (OpenAI). Test cases are held out by session.
+Sessions come from `metadata.user_id` (Anthropic) or `metadata.session_id` / `thread_id` / `conversation_id` (OpenAI). Test cases are held out by session.
 
 You cannot call an adapter by model ID; compare it in Try models.
 
@@ -133,25 +114,17 @@ You cannot call an adapter by model ID; compare it in Try models.
 
 ### Other
 
-- Starter credit serves a fixed model list (e.g. `gpt-6-luna`); otherwise add your own
-  provider key in the console.
-- Claude Code / Codex / Gemini CLI / Aider can route through Mubit (docs: guides/claude-code).
-  Claude Code needs an Anthropic API key in the console, not a Pro/Max login.
+- Starter credit serves a fixed model list (e.g. `gpt-6-luna`); otherwise add your own provider key in the console.
+- Claude Code / Codex / Gemini CLI / Aider can route through Mubit (docs: guides/claude-code). Claude Code needs an Anthropic API key in the console, not a Pro/Max login.
 - Import past calls from Langfuse, Braintrust, Pydantic Logfire.
 - Pricing: $5 per 1,000 runs (run = ≤ 8K tokens), no token markup.
 
 ### Open question: corrections
 
-Judging needs "a correction becomes a model update", but the public docs don't explain how
-corrections/rules reach an adapter. Only a `Rating` column in Requests and "grading" are
-mentioned. An unanswered #support thread asks: how to write a correction/rule (API or
-console), whether a Bad rating removes a call from training, whether one adapter version
-can be called directly, and whether a deterministic check can replace the grading model.
-**Ask the Mubit team early.**
+Judging needs "a correction becomes a model update", but the public docs don't explain how corrections/rules reach an adapter. Only a `Rating` column in Requests and "grading" are mentioned. An unanswered #support thread asks: how to write a correction/rule (API or console), whether a Bad rating removes a call from training, whether one adapter version can be called directly, and whether a deterministic check can replace the grading model. **Ask the Mubit team early.**
 
 ### Docs
 
 - Index: https://docs.mubit.ai/llms.txt — append `.md` to any docs path for markdown
 - Full dump: https://docs.mubit.ai/llms-full.txt
-- Links on mubit.ai/llms.txt and the agent-skills SKILL.md (`/getting-started`, `/sdk/…`,
-  `/patterns/…`) are stale and 404.
+- Links on mubit.ai/llms.txt and the agent-skills SKILL.md (`/getting-started`, `/sdk/…`, `/patterns/…`) are stale and 404.
