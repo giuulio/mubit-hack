@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Guidance for AI agents (Claude Code, Codex and others) working in this repo. It is a living document: refine it as the project takes shape. `CLAUDE.md` imports this file.
+Guidance for AI agents (Claude Code, Codex and others) working in this repo. It is a living document: refine it as the project takes shape.
 
 ## Context
 
@@ -22,7 +22,6 @@ Hard constraints:
 | `research/` | Objective research notes. Format: [research/README.md](research/README.md) |
 | `ideas/` | Project ideas, one per file. Format: [ideas/README.md](ideas/README.md) |
 | `AGENTS.md` | This file |
-| `CLAUDE.md` | Imports this file for Claude Code |
 
 Code layout is to be decided once an idea is chosen; record it here when it is.
 
