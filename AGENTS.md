@@ -38,5 +38,7 @@ Code layout is to be decided once an idea is chosen; record it here when it is.
 - Mubit docs: start from https://docs.mubit.ai/llms.txt and append `.md` to any docs path. Links on mubit.ai and its agent-skills SKILL.md are stale and 404.
 - Secrets live in environment variables (`MUBIT_API_KEY` and so on). Never commit keys or `.env` files, and never print them in logs or output.
 - Mubit records request and reply content by default, so send synthetic or public data only.
-- Agents running in parallel work on their own branch, only create or edit their own files, and never edit another agent's research or idea file; add a new file instead.
+- Agents running in parallel work on their own branch, only create or edit their own files, and never edit another agent's research or idea file; add a new file instead. Topic assignments are in [research/README.md](research/README.md).
+- Shared files (`AGENTS.md`, `HACKATHON.md`, `README.md`, the folder READMEs) change only when a human asks.
+- When a batch of work is done (for example, all your research files), push it to `main`: `git fetch origin main`, `git rebase origin/main`, then `git push origin HEAD:main`. Never force-push `main`. If you can only open pull requests, open one against `main` instead.
 - Commits are small, with an imperative subject line.
