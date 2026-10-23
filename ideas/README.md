@@ -9,7 +9,7 @@ Project ideas for Night Shift, one per file, all in the same format so they can 
 - **No scores, rankings or recommendations**, within a file or across files. Describe the idea plainly; don't sell it.
 - Link facts to files in `research/` or to sources. Keep each section short; the whole file should read in under two minutes.
 - Data must be public or synthetic, because Mubit records request and reply content.
-- Never edit another author's idea.
+- Only add new files. Never edit or delete a file once it is on `main`, your own included; to revise an idea, add a new file that links to the original.
 
 ## Who writes what
 

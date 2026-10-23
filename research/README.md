@@ -10,7 +10,7 @@ Objective notes that feed ideation. One topic per file.
 - Quote numbers, limits and dates exactly, with units. Write "not found" rather than guessing.
 - **Stay inside your assigned topics** (table below) so agents don't overlap. A new topic that no row covers is fine: give it its own file.
 - Keep each file skimmable: under about 250 lines, summary first.
-- Never edit another author's file. To extend or correct one, write a new file that links to the original; the only edit allowed in the original is one line under its title: `> Corrected by [<file>](<file>)`.
+- Only add new files. Never edit or delete a file once it is on `main`, your own included. To extend or correct one, write a new file that links to the original.
 
 ## File naming
 
