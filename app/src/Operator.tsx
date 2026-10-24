@@ -1,14 +1,14 @@
 // The operator drawer: the hand-driven steps behind the demo, kept off camera. Sending training calls, recording adapter
 // versions from the Mubit console, and pasting adapter outputs from Try models, since adapters cannot be called by model ID.
 import { useEffect, useState } from 'react'
-import { api, waitFor, type Lesson, type Project } from './api'
-import { clock, fmt } from './routes'
+import { api, waitFor, type Lesson } from './api'
+import { clock, fmt, type View } from './routes'
 import { Button, Fold, Glyph, Icon } from './ui'
 
-type Props = { project: Project; reload: () => Promise<void>; notify: (text: string) => void; close: () => void }
+type Props = { project: View; reload: () => Promise<void>; notify: (text: string) => void; close: () => void }
 
-const copyMessage = async (project: Project, concept: string, mode: 'bare' | 'routed', notify: (t: string) => void, without?: string) => {
-  const { message } = await api.message(project.id, concept, mode, without)
+const copyMessage = async (project: View, concept: string, mode: 'bare' | 'routed', notify: (t: string) => void, without?: string) => {
+  const { message } = await api.message(project.id, project.cid, concept, mode, without)
   await navigator.clipboard.writeText(message)
   notify('Copied')
 }
@@ -33,7 +33,7 @@ export function Operator({ project, reload, notify, close }: Props) {
     }
   }
 
-  const owned = project.lessons.filter((l) => l.status === 'active' && l.route === 'B')
+  const owned = project.whole.lessons.filter((l) => l.status === 'active' && l.route === 'B')
   const comparison = project.comparisons?.at(-1)
 
   return (
@@ -47,8 +47,8 @@ export function Operator({ project, reload, notify, close }: Props) {
       <Fold title="Training calls" open aside={<span className="faint">{project.training.reduce((n, b) => n + b.calls, 0)} kept</span>}>
         <div className="row">
           <span className="faint grow">Kept in full under the approved context</span>
-          <Button small kind="primary" busy={busy === 'train'} onClick={() => run('train', async () => waitFor(await api.train(project.id, 40)), 'Sent')}>
-            <Icon name="train" /> Send 40
+          <Button small kind="primary" busy={busy === 'train'} onClick={() => run('train', async () => waitFor(await api.train(project.id, project.cid, 40)), 'Sent')}>
+            <Icon name="train" /> Send 40 in {project.contextName}
           </Button>
         </div>
         {project.training.length ? (
@@ -90,7 +90,7 @@ export function Operator({ project, reload, notify, close }: Props) {
 }
 
 // Absorption test for a Weights lesson: adapter outputs from Try models on its probes, without the lesson in context.
-function Absorb({ project, lesson, probes, notify, reload }: { project: Project; lesson: Lesson; probes: string[]; notify: (t: string) => void; reload: () => Promise<void> }) {
+function Absorb({ project, lesson, probes, notify, reload }: { project: View; lesson: Lesson; probes: string[]; notify: (t: string) => void; reload: () => Promise<void> }) {
   const [pasted, setPasted] = useState<Record<string, string>>({})
   const [busy, setBusy] = useState(false)
   const example = project.examples.find((e) => e.lesson_id === lesson.id)
@@ -124,7 +124,7 @@ function Absorb({ project, lesson, probes, notify, reload }: { project: Project;
 }
 
 // The adapter's answer for the latest comparison on Results.
-function ComparePaste({ project, notify, reload }: { project: Project; notify: (t: string) => void; reload: () => Promise<void> }) {
+function ComparePaste({ project, notify, reload }: { project: View; notify: (t: string) => void; reload: () => Promise<void> }) {
   const comparison = project.comparisons!.at(-1)!
   const [text, setText] = useState('')
   const [busy, setBusy] = useState(false)
@@ -152,11 +152,11 @@ function ComparePaste({ project, notify, reload }: { project: Project; notify: (
 }
 
 // Adapter outputs for the held-out set, pasted from Try models; they are scored at the next evaluation.
-function HeldOut({ project, reload, notify }: { project: Project; reload: () => Promise<void>; notify: (t: string) => void }) {
+function HeldOut({ project, reload, notify }: { project: View; reload: () => Promise<void>; notify: (t: string) => void }) {
   const [concepts, setConcepts] = useState<string[]>([])
   const [mode, setMode] = useState<'bare' | 'routed'>('bare')
   const config = mode === 'bare' ? 'adapter' : 'adapter + routed context'
-  const saved = JSON.stringify(project.imports[config] ?? [])
+  const saved = JSON.stringify(project.contextImports[config] ?? [])
   const fields = (json: string) => Object.fromEntries((JSON.parse(json) as { concept: string; content: string | null }[]).map((i) => [i.concept, i.content ?? '']))
   const [pasted, setPasted] = useState<Record<string, string>>(() => fields(saved))
   const [shown, setShown] = useState(saved)
@@ -171,7 +171,7 @@ function HeldOut({ project, reload, notify }: { project: Project; reload: () => 
   const save = async () => {
     setBusy(true)
     try {
-      await api.importOutputs(project.id, config, Object.entries(pasted).filter(([, v]) => v.trim()).map(([concept, content]) => ({ concept, content })))
+      await api.importOutputs(project.id, project.cid, config, Object.entries(pasted).filter(([, v]) => v.trim()).map(([concept, content]) => ({ concept, content })))
       await reload()
       notify('Saved')
     } catch (e) {
@@ -180,7 +180,7 @@ function HeldOut({ project, reload, notify }: { project: Project; reload: () => 
       setBusy(false)
     }
   }
-  const imported = (key: string) => project.imports[key]?.length ?? 0
+  const imported = (key: string) => project.contextImports[key]?.length ?? 0
   return (
     <Fold title="Held-out adapter outputs" aside={<span className="faint">{imported('adapter')} bare · {imported('adapter + routed context')} routed</span>}>
       <div className="row">

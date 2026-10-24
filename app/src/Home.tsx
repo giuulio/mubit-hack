@@ -1,10 +1,10 @@
-// Home: the thesis, the architecture, and the projects built on the platform.
+// Home: the thesis, the architecture, and the models built on the platform, each with its contexts.
 import type { ProjectSummary } from './api'
 import { go } from './routes'
 import { Schematic } from './Schematic'
-import { Button, Glyph, Icon } from './ui'
+import { Button, Dot, Glyph, Icon } from './ui'
 
-export function Home({ projects }: { projects: ProjectSummary[] }) {
+export function Home({ projects, create }: { projects: ProjectSummary[]; create: () => void }) {
   return (
     <div className="stack home" style={{ gap: '2.5rem' }}>
       <div className="stack hero">
@@ -21,6 +21,7 @@ export function Home({ projects }: { projects: ProjectSummary[] }) {
         {projects.map((p) => (
           <button key={p.id} className="project-card" onClick={() => go(p.id)}>
             <div className="row"><Icon name="model" size={15} /><h3 className="grow">{p.name}</h3><span className="faint">{p.domain}</span></div>
+            <div className="row wrap" style={{ gap: '0.375rem' }}>{p.contexts.map((c) => <span key={c.id} className="chip"><Dot route="A" />{c.name}</span>)}</div>
             <div className="row samples">{p.samples.map((s, i) => <Glyph key={i} svg={s} size="small" />)}</div>
             <div className="row numbers">
               <span><b>{p.lessons}</b> lessons</span>
@@ -29,6 +30,7 @@ export function Home({ projects }: { projects: ProjectSummary[] }) {
             </div>
           </button>
         ))}
+        <button className="project-card new" onClick={create}><Icon name="plus" /> New model</button>
       </div>
     </div>
   )

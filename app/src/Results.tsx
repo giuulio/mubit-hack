@@ -1,11 +1,11 @@
 // Results: one concept through every configuration side by side, then the held-out evaluation. The adapter's answers
 // come from Mubit's Try models and are pasted in through the operator drawer.
 import { useState } from 'react'
-import { api, waitFor, type Comparison, type EvalRow, type Project } from './api'
-import { clock, describe, fmt, routeColor, routeInk, type Described } from './routes'
+import { api, waitFor, type Comparison, type EvalRow } from './api'
+import { clock, describe, fmt, routeColor, routeInk, type Described, type View } from './routes'
 import { Button, Glyph, Head, Icon } from './ui'
 
-type Props = { project: Project; reload: () => Promise<void>; notify: (text: string) => void }
+type Props = { project: View; reload: () => Promise<void>; notify: (text: string) => void }
 
 const columns = ['frontier', 'frontier + full context', 'provider + routed context', 'adapter']
 const score = (v: number | null) => (v === null ? '—' : v.toFixed(2))
@@ -28,7 +28,7 @@ function Compare({ project, reload, notify }: Props) {
     setBusy(concept)
     setConcept('')
     try {
-      await api.compare(project.id, concept)
+      await api.compare(project.id, project.cid, concept)
       await reload()
     } catch (e) {
       notify(String(e instanceof Error ? e.message : e))
@@ -38,7 +38,7 @@ function Compare({ project, reload, notify }: Props) {
   }
   return (
     <section className="stack section">
-      <Head center title="Compare" tip="One new concept through every configuration; not kept for training">
+      <Head title="Compare" tip="One new concept through every configuration; not kept for training">
         <div className="row">
           <input className="input" style={{ width: '16rem' }} placeholder="heat pump" value={concept} onChange={(e) => setConcept(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && submit()} />
           <Button kind="primary" busy={busy !== null} disabled={!concept.trim()} onClick={submit} tip="Draw it in every configuration"><Icon name="generate" /></Button>
@@ -62,7 +62,7 @@ function Compare({ project, reload, notify }: Props) {
   )
 }
 
-function Row({ project, comparison, concept }: { project: Project; comparison: Comparison | null; concept: string }) {
+function Row({ project, comparison, concept }: { project: View; comparison: Comparison | null; concept: string }) {
   return (
     <div className="stack" style={{ gap: '0.75rem' }}>
       <h3 className="center-text">{concept}</h3>
@@ -101,7 +101,7 @@ function Evaluation({ project, reload, notify }: Props) {
   const evaluate = async () => {
     setBusy(true)
     try {
-      await waitFor(await api.evaluate(project.id, 12))
+      await waitFor(await api.evaluate(project.id, project.cid, 12))
       await reload()
       notify('Evaluation done')
     } catch (e) {
@@ -131,7 +131,7 @@ function Evaluation({ project, reload, notify }: Props) {
 
   return (
     <section className="stack section">
-      <Head center title="Held-out" tip="Concepts never used in training, scored 1–5 by a blind judge">
+      <Head title="Held-out" tip="Concepts never used in training, scored 1–5 by a blind judge">
         <div className="row">
           {evaluation ? <span className="faint">n = {evaluation.concepts.length} · {clock(evaluation.t)}</span> : null}
           <Button small busy={busy} onClick={evaluate} tip="Run the held-out evaluation"><Icon name="chart" /> Evaluate</Button>

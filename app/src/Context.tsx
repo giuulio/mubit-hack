@@ -2,23 +2,23 @@
 // Numbers first (tokens per call, split by route, what is left once the weights hold the Weights lessons); the rules
 // open on demand, and the full prompt opens in a sheet.
 import { useEffect, useState } from 'react'
-import { api, type Lesson, type Project } from './api'
+import { api, type Lesson } from './api'
 import { Spark } from './charts'
-import { fmt, perDay, routeColor } from './routes'
+import { fmt, perDay, routeColor, type View } from './routes'
 import { Count, Dot, Glyph, Icon, Sheet } from './ui'
 
 const tokens = (lessons: Lesson[]) => lessons.reduce((n, l) => n + (l.signals?.tokens ?? 0), 0)
 const newest = (a: Lesson, b: Lesson) => (b.confirmed ?? '').localeCompare(a.confirmed ?? '')
 
-export function Context({ project, landed }: { project: Project; landed: string | null }) {
+export function Context({ project, landed }: { project: View; landed: string | null }) {
   const [open, setOpen] = useState(false)
   const [showPrompt, setShowPrompt] = useState(false)
   const [prompt, setPrompt] = useState('')
   // Refetch only when the context changes, not on every poll.
   const version = project.context_history.length
   useEffect(() => {
-    if (showPrompt) api.message(project.id, 'example', 'routed').then((r) => setPrompt(r.message)).catch(() => setPrompt(''))
-  }, [project.id, version, showPrompt])
+    if (showPrompt) api.message(project.id, project.cid, 'example', 'routed').then((r) => setPrompt(r.message)).catch(() => setPrompt(''))
+  }, [project.id, project.cid, version, showPrompt])
 
   const active = project.lessons.filter((l) => l.status === 'active')
   const rules = active.filter((l) => l.in_context && (l.route === 'A' || l.route === 'A∧B') && l.expressible_as !== 'parameter').sort(newest)
@@ -42,7 +42,7 @@ export function Context({ project, landed }: { project: Project; landed: string 
   return (
     <section className="rail-block" id="dest-context">
       <div className="rail-head">
-        <h2 className="ink-context grow"><span data-tip="This context only: updated instantly, paid on every call">Context</span></h2>
+        <h2 className="ink-context grow"><span data-tip={`What ${project.contextName} sends on every call: its own lessons plus the model-wide ones; updated instantly`}>Context</span></h2>
         <button className="icon-btn" data-tip="Prompt" aria-label="Prompt" onClick={() => setShowPrompt(true)}><Icon name="prompt" /></button>
       </div>
 
@@ -72,7 +72,13 @@ export function Context({ project, landed }: { project: Project; landed: string 
       {open ? (
         <div className="stack enter" style={{ gap: '0.5rem' }}>
           <ul className="rules">
-            {rules.map((l) => <li key={l.id}><Dot route={l.route} /><span className="clamp-2" data-tip={l.statement.length > 70 ? l.statement : undefined}>{l.statement}</span></li>)}
+            {rules.map((l) => (
+              <li key={l.id}>
+                <Dot route={l.route} />
+                <span className="grow clamp-2" data-tip={l.statement.length > 70 ? l.statement : undefined}>{l.statement}</span>
+                {l.reach === 'model' ? <span className="faint" data-tip="Holds in every context of the model">all</span> : null}
+              </li>
+            ))}
           </ul>
           <div className="row wrap" style={{ gap: '0.375rem' }}>
             {examples.map((e) => <span key={e.id} className="example"><Glyph svg={e.content} size="small" title={`${e.concept}: example`} /></span>)}

@@ -1,7 +1,7 @@
 // Shared UI pieces. Interface icons come from reicon-react behind `Icon`, so they can be swapped for our own.
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import {
-  ArrowDown, ArrowRight, ArrowUp, ChartBar, Check, ChevronDown, ChevronRight, Code, Copy, Cpu, Eye, Folder, Home, Layers, Message, Moon, Plus,
+  ArrowDown, ArrowRight, ArrowUp, ChartBar, Check, ChevronDown, ChevronRight, Code, Copy, Cpu, Eye, Folder, Home, Layers, Lock, Message, Moon, Plus,
   Refresh, Route as RouteIcon, Scale, Send, Settings, Sparkles, Sun, ThumbsUp, X,
 } from 'reicon-react'
 import type { Route } from './api'
@@ -11,7 +11,7 @@ const icons = {
   generate: Sparkles, send: Send, approve: ThumbsUp, critique: Message, pick: Scale, check: Check, close: X,
   train: Cpu, chart: ChartBar, copy: Copy, project: Folder, plus: Plus, layers: Layers, loading: Refresh, home: Home,
   expand: ChevronDown, next: ChevronRight, route: RouteIcon, operator: Settings, prompt: Code, eye: Eye,
-  right: ArrowRight, down: ArrowDown, up: ArrowUp, day: Sun, night: Moon, model: Cpu,
+  right: ArrowRight, down: ArrowDown, up: ArrowUp, day: Sun, night: Moon, model: Cpu, lock: Lock,
 }
 export type IconName = keyof typeof icons
 

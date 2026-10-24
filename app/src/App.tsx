@@ -1,13 +1,14 @@
-// Shell: Hone is the platform. It holds models, each a fine-tuned Mubit adapter; a model holds contexts that share its
-// weights (smooth, sharp, pixel icons). Each context has the Loop, where feedback is routed, and Results.
+// Shell: Hone is the platform. It holds models, each one Mubit task with its fine-tuned adapter; a model holds contexts
+// that share its weights (smooth, sharp, pixel icons). Each context has the Loop, where feedback is routed, and Results.
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { api, type Project, type ProjectSummary } from './api'
 import { Home } from './Home'
 import { Loop } from './Loop'
+import { ModelSettings, NewModel } from './Models'
 import { MubitStrip } from './Mubit'
 import { Operator } from './Operator'
 import { Results } from './Results'
-import { contextName, go, pages, readPlace, type Place } from './routes'
+import { go, live, pages, readPlace, view, type Place } from './routes'
 import { applyTheme, type Theme } from './theme'
 import { Button, Dot, Icon } from './ui'
 
@@ -19,9 +20,10 @@ export default function App() {
   const [projects, setProjects] = useState<ProjectSummary[]>([])
   const [project, setProject] = useState<Project | null>(null)
   const [toast, setToast] = useState<string | null>(null)
-  const [naming, setNaming] = useState<string | null>(null)
+  const [creating, setCreating] = useState(false)
+  const [settings, setSettings] = useState(false)
+  const [newContext, setNewContext] = useState<string | null>(null)
   const [domains, setDomains] = useState<string[]>(['icons'])
-  const [domain, setDomain] = useState('icons')
   const [operator, setOperator] = useState(false)
   const [theme, setTheme] = useState<Theme>(() => (document.documentElement.dataset.theme as Theme) ?? 'light')
   const main = useRef<HTMLElement>(null)
@@ -55,7 +57,8 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
   useEffect(() => { main.current?.scrollTo(0, 0) }, [place.project, place.page])
-  useEffect(() => { loadProjects().catch((e) => notify(String(e))) }, [loadProjects, notify])
+  // The model list also refreshes on every change of model, so models created from the CLI or by teammates appear.
+  useEffect(() => { loadProjects().catch((e) => notify(String(e))) }, [loadProjects, notify, place.project])
   useEffect(() => { api.domains().then(setDomains).catch(() => undefined) }, [])
   useEffect(() => {
     if (!place.project) return
@@ -82,83 +85,120 @@ export default function App() {
     setTheme(next)
   }
 
-  const create = async () => {
-    if (!naming?.trim()) return
+  const open = project && project.id === place.project ? project : null
+  const current = open ? view(open, place.context) : null
+  const models = projects.filter((p) => !p.archived)
+  const archived = projects.filter((p) => p.archived)
+
+  const addContext = async () => {
+    if (!open || !newContext?.trim()) return
     try {
-      const p = await api.create(naming.trim(), domain)
-      setNaming(null)
-      await loadProjects()
-      go(p.id)
+      const c = await api.addContext(open.id, newContext.trim())
+      setNewContext(null)
+      await reload()
+      go(open.id, c.id)
     } catch (e) {
       notify(String(e instanceof Error ? e.message : e))
     }
   }
 
-  const open = project && project.id === place.project ? project : null
+  const restore = async (id: string) => {
+    try {
+      await api.archive(id, false)
+      await loadProjects()
+      go(id)
+    } catch (e) {
+      notify(String(e instanceof Error ? e.message : e))
+    }
+  }
 
   return (
     <div className="shell">
       <aside className="sidebar">
         <button className="brand" onClick={() => go(null)}><span className="mark"><Icon name="layers" size={15} /></span><span className="wordmark">Hone</span></button>
 
-        <span className="nav-label">Models</span>
-        {projects.map((p) => (
+        <div className="row nav-label"><span className="grow">Models</span><button className="icon-btn tiny" aria-label="New model" data-tip="New model" onClick={() => setCreating(true)}><Icon name="plus" size={14} /></button></div>
+        {models.map((p) => (
           <div key={p.id} className="stack" style={{ gap: '0.125rem' }}>
-            <button className={`nav-item${p.id === place.project ? ' current' : ''}`} onClick={() => go(p.id)}>
-              <Icon name="model" size={15} />
-              <span className="grow">{p.name}</span>
-            </button>
-            {p.id === place.project && open ? (
+            <div className="nav-row">
+              <button className={`nav-item grow${p.id === place.project ? ' current' : ''}`} onClick={() => go(p.id)}>
+                <Icon name="model" size={15} />
+                <span className="grow">{p.name}</span>
+              </button>
+              {p.id === place.project ? <button className="icon-btn tiny" aria-label="Model settings" data-tip="Model settings" onClick={() => setSettings(true)}><Icon name="operator" size={14} /></button> : null}
+            </div>
+            {p.id === place.project && open && current ? (
               <div className="nav-pages">
-                <button className="nav-item active" onClick={() => go(p.id)}><Dot route="A" />{contextName(open)}</button>
-                <button className="nav-item faint-item" disabled data-tip="More contexts per model arrive with the backend pass"><Icon name="plus" size={14} /> Context</button>
+                {live(open).map((c) => (
+                  <button key={c.id} className={`nav-item${c.id === current.cid ? ' active' : ''}`} onClick={() => go(open.id, c.id, place.page)}><Dot route="A" />{c.name}</button>
+                ))}
+                {newContext === null ? (
+                  <button className="nav-item faint-item" onClick={() => setNewContext('')} data-tip="A new look on the same model: shares its weights, starts with its model-wide lessons"><Icon name="plus" size={14} /> Context</button>
+                ) : (
+                  <div className="row" style={{ padding: '0.125rem 0' }}>
+                    <input className="input grow small" autoFocus placeholder="Sharp" value={newContext} onChange={(e) => setNewContext(e.target.value)}
+                      onKeyDown={(e) => { if (e.key === 'Enter') addContext(); if (e.key === 'Escape') setNewContext(null) }} />
+                    <Button small onClick={addContext}><Icon name="check" /></Button>
+                  </div>
+                )}
               </div>
             ) : null}
           </div>
         ))}
-        {naming === null ? (
-          <button className="nav-item faint-item" onClick={() => setNaming('')}><Icon name="plus" /> New model</button>
-        ) : (
-          <div className="row" style={{ padding: '0.25rem' }}>
-            <input className="input grow" autoFocus placeholder="Name" value={naming} onChange={(e) => setNaming(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && create()} />
-            {domains.length > 1 ? (
-              <select className="input" value={domain} onChange={(e) => setDomain(e.target.value)}>{domains.map((d) => <option key={d}>{d}</option>)}</select>
-            ) : null}
-            <Button small onClick={create}><Icon name="check" /></Button>
-          </div>
-        )}
+        {!models.length ? <button className="nav-item faint-item" onClick={() => setCreating(true)}><Icon name="plus" /> New model</button> : null}
 
         <span className="grow" />
+        {archived.length ? (
+          <details className="archived-list">
+            <summary className="nav-item faint-item"><span className="grow">Archived</span><span>{archived.length}</span></summary>
+            {archived.map((p) => (
+              <div key={p.id} className="row nav-row" style={{ paddingLeft: '0.5rem' }}>
+                <span className="grow faint">{p.name}</span>
+                <button className="btn small light" onClick={() => restore(p.id)}>Restore</button>
+              </div>
+            ))}
+          </details>
+        ) : null}
         {open ? <button className={`nav-item faint-item${operator ? ' active' : ''}`} onClick={() => setOperator(!operator)}><Icon name="operator" size={15} /> <span className="grow">Operator</span><kbd>O</kbd></button> : null}
       </aside>
 
       <main className="main" ref={main}>
-        <div className="topbar">
-          <div className="topbar-side">
-            {open ? <h1 className="title"><span className="model-name">{open.name}</span><span className="slash">/</span><span className="ink-context">{contextName(open)}</span></h1> : null}
-          </div>
-          {open ? (
+        <div className={`topbar${current ? '' : ' bare'}`}>
+          {current ? (
+            <h1 className="title">
+              <button className="model-name" onClick={() => setSettings(true)} data-tip="Model settings">{current.name}</button>
+              <span className="slash">/</span>
+              <span className="ink-context">{current.contextName}</span>
+            </h1>
+          ) : null}
+          {current ? (
             <nav className="tabs">
               {pages.map((pg) => (
-                <button key={pg.id} className={pg.id === place.page ? 'on' : ''} onClick={() => go(open.id, pg.id)}><Icon name={pg.icon} size={15} />{pg.title}</button>
+                <button key={pg.id} className={pg.id === place.page ? 'on' : ''} onClick={() => go(current.id, current.cid, pg.id)}><Icon name={pg.icon} size={15} />{pg.title}</button>
               ))}
             </nav>
           ) : null}
-          <div className="topbar-side end">
-            {open ? <MubitStrip project={open} /> : null}
-            <button className="icon-btn theme" onClick={toggleTheme} aria-label={theme === 'dark' ? 'Day' : 'Night'} data-tip={theme === 'dark' ? 'Day' : 'Night'}>
-              <Icon name={theme === 'dark' ? 'day' : 'night'} />
-            </button>
-          </div>
+          {current ? <MubitStrip project={current.whole} /> : null}
+          <button className="icon-btn theme" onClick={toggleTheme} aria-label={theme === 'dark' ? 'Day' : 'Night'} data-tip={theme === 'dark' ? 'Day' : 'Night'}>
+            <Icon name={theme === 'dark' ? 'day' : 'night'} />
+          </button>
         </div>
-        {open ? (
+        {current ? (
           <>
-            {place.page === 'loop' ? <Loop key={open.id} project={open} focus={place.lesson} reload={reload} notify={notify} /> : null}
-            {place.page === 'results' ? <Results project={open} reload={reload} notify={notify} /> : null}
+            {place.page === 'loop' ? <Loop key={`${current.id}/${current.cid}`} project={current} reload={reload} notify={notify} /> : null}
+            {place.page === 'results' ? <Results key={`${current.id}/${current.cid}`} project={current} reload={reload} notify={notify} /> : null}
           </>
-        ) : place.project ? null : <Home projects={projects} />}
+        ) : place.project ? null : <Home projects={models} create={() => setCreating(true)} />}
       </main>
-      {open && operator ? <Operator project={open} reload={reload} notify={notify} close={() => setOperator(false)} /> : null}
+      {current && operator ? <Operator project={current} reload={reload} notify={notify} close={() => setOperator(false)} /> : null}
+      {creating ? (
+        <NewModel domains={domains} notify={notify} close={() => setCreating(false)}
+          created={async (id, cid) => { setCreating(false); await loadProjects(); go(id, cid) }} />
+      ) : null}
+      {open && settings ? (
+        <ModelSettings project={open} reload={reload} notify={notify} close={() => setSettings(false)}
+          archived={() => { setSettings(false); go(null) }} />
+      ) : null}
       {toast ? <div className="toast">{toast}</div> : null}
     </div>
   )

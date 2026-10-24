@@ -1,9 +1,10 @@
-// The Weights block of the rail: what Mubit trains into the model's adapter, shared by every context of the model.
+// The Weights block of the rail: what Mubit trains into the model's adapter, shared by every context of the model, so it
+// reads the whole model rather than one context.
 // Kept calls towards Mubit's training threshold and the adapter version; the lessons on their way in open on demand.
 // Sending batches and recording versions live in the operator drawer.
 import { useState } from 'react'
-import type { Lesson, Project } from './api'
-import { clock } from './routes'
+import type { Lesson } from './api'
+import { clock, type View } from './routes'
 import { Count, Dot, Glyph, Icon } from './ui'
 
 // Mubit trains an adapter once a task has this many kept calls (HACKATHON.md).
@@ -11,7 +12,7 @@ export const THRESHOLD = 25
 
 const newest = (a: Lesson, b: Lesson) => (b.confirmed ?? '').localeCompare(a.confirmed ?? '')
 
-export function Weights({ project, landed }: { project: Project; landed: string | null }) {
+export function Weights({ project: { whole: project }, landed }: { project: View; landed: string | null }) {
   const [open, setOpen] = useState(false)
   const adapter = project.adapters.at(-1)
   const kept = project.training.reduce((n, b) => n + b.calls, 0)
@@ -31,7 +32,7 @@ export function Weights({ project, landed }: { project: Project; landed: string 
   return (
     <section className="rail-block" id="dest-weights">
       <div className="rail-head">
-        <h2 className="ink-weights grow"><span data-tip="Shared by every context of this model; trained by Mubit, free on every call">Weights</span></h2>
+        <h2 className="ink-weights grow"><span data-tip={`Shared by every context of ${project.name}; trained by Mubit from all their kept calls, free on every call`}>Weights</span></h2>
         <span className="mubit-tag">Mubit</span>
       </div>
 

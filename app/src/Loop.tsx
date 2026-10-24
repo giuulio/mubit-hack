@@ -1,19 +1,21 @@
-// Loop: the whole architecture on one screen. Feedback on generated icons becomes lessons; the router measures each one
-// and sends it to context, weights or both; the lesson visibly lands in the card it was routed to.
+// Loop: the whole architecture on one screen, for one context of a model. Feedback on generated icons becomes lessons; the
+// router measures each one and sends it to this context, the model's shared weights, or both; the lesson visibly lands
+// in the block it was routed to.
 import { useState } from 'react'
-import { api, type Lesson, type Output, type Project } from './api'
+import { api, type Lesson, type Output, type Reach } from './api'
 import { Context } from './Context'
 import { fly, shake } from './motion'
 import { Router } from './Router'
-import { destinations, routeColor, routeInfo, routeOn } from './routes'
+import { destinations, routeColor, routeInfo, routeOn, type View } from './routes'
 import { Button, Glyph, Head, Icon } from './ui'
 import { Weights } from './Weights'
 
-type Props = { project: Project; focus: string | null; reload: () => Promise<void>; notify: (text: string) => void }
+type Props = { project: View; reload: () => Promise<void>; notify: (text: string) => void }
+type FeedbackBody = Parameters<typeof api.feedback>[2]
 
-export function Loop({ project, focus, reload, notify }: Props) {
+export function Loop({ project, reload, notify }: Props) {
   const [busy, setBusy] = useState<string | null>(null)
-  const [focusId, setFocusId] = useState<string | null>(focus)
+  const [focusId, setFocusId] = useState<string | null>(null)
   const [deciding, setDeciding] = useState<string | null>(null)
   const [landed, setLanded] = useState<string | null>(null)
 
@@ -29,19 +31,19 @@ export function Loop({ project, focus, reload, notify }: Props) {
     }
   }
 
-  const feedback = (key: string, body: Parameters<typeof api.feedback>[1]) =>
+  const feedback = (key: string, body: FeedbackBody) =>
     run(key, async () => {
-      const found = await api.feedback(project.id, body)
+      const found = await api.feedback(project.id, project.cid, body)
       if (!found.length) notify('No lesson found')
     })
 
   // Routing: the lesson moves into the decision card while it is measured, then flies to where it was routed.
-  const route = async (lesson: Lesson, stability: string) => {
+  const route = async (lesson: Lesson, stability: string, reach: Reach) => {
     setFocusId(lesson.id)
     setDeciding(lesson.id)
     setBusy('route')
     try {
-      const routed = await api.confirm(project.id, lesson.id, stability)
+      const routed = await api.confirm(project.id, lesson.id, stability, reach)
       await reload()
       setDeciding(null)
       const chosen = routed.route
@@ -62,13 +64,14 @@ export function Loop({ project, focus, reload, notify }: Props) {
     }
   }
 
-  const decided = project.lessons.filter((l) => l.route && l.confirmed).sort((a, b) => (b.confirmed ?? '').localeCompare(a.confirmed ?? ''))
+  // Decisions made in this context; model-wide lessons from other contexts still shape it, but were decided there.
+  const decided = project.lessons.filter((l) => l.context === project.cid && l.route && l.confirmed).sort((a, b) => (b.confirmed ?? '').localeCompare(a.confirmed ?? ''))
   // Until a lesson is picked, show the latest one with probe evidence: it shows the router's reasoning best.
   const shown = project.lessons.find((l) => l.id === focusId) ?? decided.find((l) => l.probe?.probes?.length) ?? decided[0] ?? null
 
   return (
     <div className="loop">
-      <Feedback project={project} busy={busy} onFeedback={feedback} onGenerate={(concepts) => run('generate', () => api.generate(project.id, concepts))} />
+      <Feedback project={project} busy={busy} onFeedback={feedback} onGenerate={(concepts) => run('generate', () => api.generate(project.id, project.cid, concepts))} />
       <Router project={project} focus={shown} deciding={deciding} extracting={busy?.startsWith('feedback') ?? false} busy={busy !== null}
         onFocus={setFocusId} onRoute={route} onReject={(l) => run(`reject-${l.id}`, () => api.reject(project.id, l.id))} />
       <aside className="rail">
@@ -84,7 +87,7 @@ export function Loop({ project, focus, reload, notify }: Props) {
 }
 
 function Feedback({ project, busy, onFeedback, onGenerate }: {
-  project: Project; busy: string | null; onFeedback: (key: string, body: Parameters<typeof api.feedback>[1]) => Promise<void>; onGenerate: (concepts: string[]) => Promise<void>
+  project: View; busy: string | null; onFeedback: (key: string, body: FeedbackBody) => Promise<void>; onGenerate: (concepts: string[]) => Promise<void>
 }) {
   const [concepts, setConcepts] = useState('')
   const [taste, setTaste] = useState('')
@@ -111,7 +114,7 @@ function Feedback({ project, busy, onFeedback, onGenerate }: {
 
   return (
     <section className="stack loop-col">
-      <Head center title="Feedback" tip="Generate icons, then critique, approve or pick" />
+      <Head title="Feedback" tip="Generate icons, then critique, approve or pick" />
       <div className="stack" style={{ gap: '0.5rem' }}>
         <div className="row">
           <input className="input grow" placeholder="bell, camera, leaf" value={concepts} onChange={(e) => setConcepts(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && generate()} />

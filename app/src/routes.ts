@@ -1,5 +1,5 @@
 // Shared definitions for the views: lesson routes, project pages and their URLs, configuration labels, number formats.
-import type { Project, Route } from './api'
+import type { Lesson, Project, Route } from './api'
 
 // Route colours come from mubit.ai's palette, made more vivid (styles.css, "Route colours").
 export const routeColor: Record<Route, string> = { A: 'var(--context)', 'A∧B': 'var(--both)', B: 'var(--weights)', note: 'var(--gray-80)', rephrase: 'var(--rephrase)' }
@@ -29,16 +29,49 @@ export const pages = [
 ] as const
 export type Page = (typeof pages)[number]['id']
 
-// Where the interface is, kept in the URL hash (#/project/page/lesson) so a refresh stays put.
-export type Place = { project: string | null; page: Page; lesson: string | null }
+// Where the interface is, kept in the URL hash (#/model/context/page) so a refresh stays put.
+export type Place = { project: string | null; context: string | null; page: Page }
+
+const isPage = (s: string) => pages.some((p) => p.id === s)
 
 export function readPlace(): Place {
-  const [project = '', page = '', lesson = ''] = window.location.hash.replace(/^#\/?/, '').split('/').map(decodeURIComponent)
-  return { project: project || null, page: pages.some((p) => p.id === page) ? (page as Page) : 'loop', lesson: lesson || null }
+  const [project = '', second = '', third = ''] = window.location.hash.replace(/^#\/?/, '').split('/').map(decodeURIComponent)
+  // Links from before contexts (#/model/page) still open the model's first context.
+  const [context, page] = isPage(second) ? ['', second] : [second, third]
+  return { project: project || null, context: context || null, page: isPage(page) ? (page as Page) : 'loop' }
 }
 
-export function go(project: string | null, page: Page = 'loop', lesson: string | null = null) {
-  window.location.hash = project ? `/${[project, page, lesson].filter(Boolean).map((s) => encodeURIComponent(s as string)).join('/')}` : '/'
+export function go(project: string | null, context: string | null = null, page: Page = 'loop') {
+  window.location.hash = project ? `/${[project, context, context ? page : null].filter(Boolean).map((s) => encodeURIComponent(s as string)).join('/')}` : '/'
+}
+
+// One context's view of a model: its own records, plus the model-wide lessons that hold in every context. Kept calls
+// and adapter versions belong to the model, so they stay whole; `whole` keeps the full model for the shared weights.
+export type View = Project & { cid: string; contextName: string; whole: Project; contextImports: Record<string, { concept: string; content: string | null }[]> }
+
+export const applies = (lesson: Lesson, cid: string) => lesson.context === cid || lesson.reach === 'model'
+
+// The contexts in use; archived ones keep their records but leave the interface.
+export const live = (project: Project) => project.contexts.filter((c) => !c.archived)
+
+export function view(whole: Project, cid: string | null): View {
+  const context = live(whole).find((c) => c.id === cid) ?? live(whole)[0] ?? whole.contexts[0]
+  const id = context.id
+  const lessons = whole.lessons.filter((l) => applies(l, id))
+  const own = <T extends { context: string }>(items: T[] | undefined) => (items ?? []).filter((x) => x.context === id)
+  return {
+    ...whole,
+    cid: id,
+    contextName: context.name,
+    whole,
+    lessons,
+    examples: whole.examples.filter((e) => { const l = whole.lessons.find((x) => x.id === e.lesson_id); return l ? applies(l, id) : e.context === id }),
+    outputs: own(whole.outputs),
+    context_history: own(whole.context_history),
+    evals: own(whole.evals),
+    comparisons: own(whole.comparisons),
+    contextImports: whole.imports[id] ?? {},
+  }
 }
 
 // Configurations, named by what changes between them: the raw model, every lesson in the prompt, the routed context,
@@ -63,9 +96,6 @@ export const fmt = (n: number) => n.toLocaleString('en-GB')
 
 // Tokens a day, compact: 6,560,000 → "6.6M".
 export const perDay = (n: number) => (n >= 1e6 ? `${(n / 1e6).toFixed(1)}M` : n >= 1e3 ? `${Math.round(n / 1e3)}K` : `${n}`)
-
-// The context a project stands for, until the backend stores several contexts per model.
-export const contextName = (project: Project) => project.context_name ?? 'Default'
 
 // Clock time from an API timestamp: "2026-10-24T19:12:01+0100" → "19:12".
 export const clock = (t: string | undefined) => (t ? t.slice(11, 16) : '—')
