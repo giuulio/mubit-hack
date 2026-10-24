@@ -1,6 +1,6 @@
 # Night Shift London — event & Mubit notes
 
-Collected 23 Oct 2026 from Luma, the Mubit Discord, mubit.ai and docs.mubit.ai. Where Discord and Luma disagree, Discord (Max) wins — it is newer.
+Collected 2026-10-23 from Luma, the Mubit Discord, mubit.ai and docs.mubit.ai; updated 2026-10-24 from the organiser announcements supplied by Giulio and the current public docs. Where Discord and Luma disagree, Discord (Max) wins — it is newer. All event times are Europe/London.
 
 ## Event
 
@@ -62,12 +62,14 @@ Luma says code freeze is Sun 10:00; Max's rules say 05:00. Plan for 05:00. Late 
 
 ### Side quests
 
-- **#1 Model Card:** `/upload you@email` in Discord, then upload Claude Code (`~/.claude/projects/`) or Codex (`~/.codex/sessions/`) JSONL logs. Mubit emails a model card. Post on X (@MubitLabs) + LinkedIn, drop links in `#modelcards`. One entry per person. A subset of logs is fine. Prizes: Switch 2, $100, $25 Mubit credits.
+- **#1 Model Card:** `/upload your@email.com` in Discord using your own email, then upload Claude Code (`~/.claude/projects/`) or Codex (`~/.codex/sessions/`) JSONL logs. Mubit emails a model card describing the model the data would train and repeated patterns that could become a model or skill. Post on X (@MubitLabs) + LinkedIn (tag Mubit), then drop both links in `#modelcards`. Registered Night Shift hackers only; one entry per person. A subset of logs is fine. Max reviews entries against internal criteria. Prizes: Nintendo Switch 2, $100, $25 Mubit inference credits. The organiser says API keys and secrets are redacted before processing and never stored; this is an organiser claim, not a security test.
+- **The Policy Challenge (Banyan Sapling):** announced 2026-10-24 at 02:12 BST; closes **2026-10-24 at 10:30 BST**. Every registered team may enter once; the main project or a side build counts. Prize: Nintendo Switch 2; winner announced at Sunday's awards. Judged on the best use case: Sapling must do substantive work on realistic input; likes do not count. Post the task and a demo video (≤ 2 min) or screenshots on both X (@MubitLabs) and LinkedIn (tag Mubit), then submit the team name, one-line task, both post links and repo link in `#side-quests` by the deadline. Our private-repo constraint still applies; this announcement does not authorise publishing this repo or sharing its link.
 - Staff hinted that sessions created during Night Shift feed a separate, unannounced quest.
 
-### Launched today
+### Launched 2026-10-23
 
 - **Banyan Sapling** — open-weight model that verifies claims against policies/evidence and abstains when evidence is insufficient: https://huggingface.co/MubitLabs/banyan-sapling
+- **Sapling API quickstart (organiser announcement, 2026-10-24):** claim + policy + evidence → verdict and calibrated scores in one pass, with no authentication. Endpoint: `https://6adbee0669a00298cd4774c9.endpoints.huggingface.cloud`; [playground](https://huggingface.co/spaces/MubitLabs/banyan-sapling-demo). The announcement's attached quickstart file was not supplied, so the request schema and endpoint availability have not been tested. This is the organiser's side-quest endpoint; confirm how it fits the main-event LLM-routing rule before using it in our main build.
 - **Latte Bench** — benchmark of whether models improve from feedback across attempts: https://github.com/MubitLabs/latte-bench
 
 ## Mubit
@@ -110,7 +112,9 @@ You cannot call an adapter by model ID; compare it in Try models.
 ### Useful headers
 
 - `x-middleware-record: full | metadata | off` — how much of a call Mubit keeps
+- `x-middleware-store: false` — keeps metadata without request/reply content; `x-middleware-record: metadata` is equivalent. Use for evaluation calls that must not become training examples. [API reference](https://docs.mubit.ai/reference/api)
 - Response `x-middleware-request-id` (`mreq_…`) — quote it when asking for help
+- The console's **Request** ID under **Details** differs from the `mreq_…` header ID; do not assume an internal console endpoint accepts the header ID. [Requests guide](https://docs.mubit.ai/guides/requests)
 
 ### Other
 
@@ -121,7 +125,9 @@ You cannot call an adapter by model ID; compare it in Try models.
 
 ### Open question: corrections
 
-Judging needs "a correction becomes a model update", but the public docs don't explain how corrections/rules reach an adapter. Only a `Rating` column in Requests and "grading" are mentioned. An unanswered #support thread asks: how to write a correction/rule (API or console), whether a Bad rating removes a call from training, whether one adapter version can be called directly, and whether a deterministic check can replace the grading model. **Ask the Mubit team early.**
+Judging needs "a correction becomes a model update", but the current public docs still do not specify replacement-answer ingestion or a public correction API. The [Requests guide](https://docs.mubit.ai/guides/requests) explicitly documents **Good/Bad** reply ratings; that alone does not establish what a correction comment teaches. An unanswered #support thread asks: how to write a correction/rule (API or console), whether a Bad rating removes a call from training, whether one adapter version can be called directly, and whether a deterministic check can replace the grading model. **Ask the Mubit team early.**
+
+The [first-adapter guide](https://docs.mubit.ai/guides/first-adapter) confirms training must be enabled, calls are not necessarily kept, and daily limits or pauses can delay training. Failed training needs new examples; there is no retry button. A passing version becomes available in Try models, whose comparisons train nothing. A `Prompt only` result means the prompted base model did as well as the adapter. No fixed correction-to-update time is promised.
 
 ### Docs
 
