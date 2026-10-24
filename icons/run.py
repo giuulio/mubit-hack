@@ -1,9 +1,9 @@
-"""Experiments and the training replay. Run as `python -m icons.run <command>`.
+"""Experiments and training calls. Run as `python -m icons.run <command>`.
 
 Commands:
   compare  Generate concepts under several context configurations (never kept) and write a review sheet.
   repeat   Send one identical call twice to check replay determinism (never kept).
-  replay   Re-send approved calls with full recording so they become kept examples.
+  train    Generate training concepts under an approved context with full recording (may become kept examples).
 """
 
 import argparse
@@ -111,13 +111,14 @@ def score(results):
                 r["slop"], r["nearest"] = None, ""
 
 
-def compare(args):
+def batch(args, configs, record, session):
+    """Generate every concept in the split under each configuration, then score and save the run."""
     out = RUNS / args.name
     out.mkdir(parents=True, exist_ok=True)
     items = concepts(args.split)[: args.limit]
-    jobs = [(c, cfg) for cfg in args.configs for c in items]
+    jobs = [(c, cfg) for cfg in configs for c in items]
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
-        results = list(pool.map(lambda job: generate(job[0], job[1], "metadata", f"{args.name}-{job[1]}-{slug(job[0])}", args.model), jobs))
+        results = list(pool.map(lambda job: generate(job[0], job[1], record, session(*job), args.model), jobs))
     score(results)
     with (out / "results.jsonl").open("w") as f:
         for r in results:
@@ -125,8 +126,8 @@ def compare(args):
             if r["svg"]:
                 (out / r["config"]).mkdir(exist_ok=True)
                 (out / r["config"] / f"{slug(r['concept'])}.svg").write_text(r["svg"])
-    write_sheet(results, out / "index.html", f"{args.name}: {args.model}, {args.split}")
-    for cfg in args.configs:
+    write_sheet(results, out / "index.html", f"{args.name}: {args.model}, {args.split}, record {record}")
+    for cfg in configs:
         rs = [r for r in results if r["config"] == cfg]
         passed = sum(not r["problems"] for r in rs)
         slop = [r["slop"] for r in rs if r.get("slop") is not None]
@@ -135,26 +136,21 @@ def compare(args):
     print(f"sheet: {out / 'index.html'}")
 
 
+def compare(args):
+    batch(args, args.configs, "metadata", lambda concept, config: f"{args.name}-{config}-{slug(concept)}")
+
+
+def train(args):
+    """One session per concept, so Mubit's held-out test cases are whole concepts."""
+    batch(args, [args.config], "full", lambda concept, config: f"train-{slug(concept)}")
+
+
 def repeat(args):
     a = generate(args.concept, args.config, "metadata", f"repeat-{slug(args.concept)}")
     b = generate(args.concept, args.config, "metadata", f"repeat-{slug(args.concept)}")
     print("identical" if a["svg"] == b["svg"] else "different")
     if a["svg"] != b["svg"]:
         print(a["svg"], "\n---\n", b["svg"], sep="")
-
-
-def replay(args):
-    """Re-send approved icons with full recording. Only replays matching the approved SVG are counted."""
-    source = RUNS / args.name / "results.jsonl"
-    approved = set(json.loads((RUNS / args.name / "approved.json").read_text()))
-    rows = [json.loads(line) for line in source.read_text().splitlines()]
-    rows = [r for r in rows if r["concept"] in approved and r["config"] == args.config]
-    log = (RUNS / args.name / "replay.jsonl").open("a")
-    for r in rows:
-        k = generate(r["concept"], r["config"], "full", f"train-{slug(r['concept'])}")
-        k["matches_approved"] = k["svg"] == r["svg"]
-        log.write(json.dumps(k) + "\n")
-        print(f"{r['concept']:20} {'match' if k['matches_approved'] else 'DIFFERENT'} {k['request_id']}")
 
 
 def main():
@@ -172,10 +168,14 @@ def main():
     p.add_argument("concept")
     p.add_argument("--config", default="style+seeds", choices=list(CONFIGS))
     p.set_defaults(func=repeat)
-    p = sub.add_parser("replay")
+    p = sub.add_parser("train")
     p.add_argument("name")
+    p.add_argument("--split", default="train", choices=["train"])
     p.add_argument("--config", default="style+seeds", choices=list(CONFIGS))
-    p.set_defaults(func=replay)
+    p.add_argument("--model", default=MODEL)
+    p.add_argument("--limit", type=int, default=None)
+    p.add_argument("--workers", type=int, default=4)
+    p.set_defaults(func=train)
     args = parser.parse_args()
     args.func(args)
 
