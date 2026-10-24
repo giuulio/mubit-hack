@@ -1,9 +1,9 @@
 // Managing models and their contexts. A model's name is part of its fixed system prompt, so it is its Mubit task and
-// cannot change; a context's name is in no prompt, so it can. Archiving hides a model or a context and keeps everything:
+// cannot change; its display name and its contexts' names are in no prompt, so they can. Archiving hides a model or a context and keeps everything:
 // the files are shared in git, and the Mubit task and kept calls live on Mubit, which has no delete API.
 import { useState } from 'react'
 import { api, type Project } from './api'
-import { clock } from './routes'
+import { clock, labelOf } from './routes'
 import { Button, Dot, Icon, Sheet } from './ui'
 
 type Notify = (text: string) => void
@@ -32,8 +32,8 @@ export function NewModel({ domains, close, created, notify }: { domains: string[
       <div className="form" onKeyDown={(e) => e.key === 'Enter' && create()}>
         <label>
           <span>Name</span>
-          <input className="input" autoFocus placeholder="Brand icons" value={name} onChange={(e) => setName(e.target.value)} />
-          <small className="faint"><Icon name="lock" size={12} /> Fixed once created: it is in the model's system prompt, which makes it one Mubit task</small>
+          <input className="input" autoFocus placeholder="Icon Master" value={name} onChange={(e) => setName(e.target.value)} />
+          <small className="faint">Rename it any time; its Mubit task keeps this first name</small>
         </label>
         <label>
           <span>First context</span>
@@ -54,6 +54,7 @@ export function NewModel({ domains, close, created, notify }: { domains: string[
 
 export function ModelSettings({ project, close, reload, notify, archived }: { project: Project; close: () => void; reload: () => Promise<void>; notify: Notify; archived: () => void }) {
   const [renaming, setRenaming] = useState<{ id: string; name: string } | null>(null)
+  const [label, setLabel] = useState(labelOf(project))
   const [confirming, setConfirming] = useState(false)
   const kept = project.training.reduce((n, b) => n + b.calls, 0)
   const adapter = project.adapters.at(-1)
@@ -71,8 +72,18 @@ export function ModelSettings({ project, close, reload, notify, archived }: { pr
   const rename = () => renaming?.name.trim() && act(() => api.editContext(project.id, renaming.id, { name: renaming.name.trim() })).then(() => setRenaming(null))
 
   return (
-    <Sheet title={<span className="row" style={{ gap: '0.5rem' }}>{project.name}<span className="faint" data-tip="In the system prompt, so it is the Mubit task: fixed"><Icon name="lock" size={14} /></span></span>} close={close}>
+    <Sheet title={labelOf(project)} close={close}>
       <div className="stack" style={{ gap: '1.5rem' }}>
+        <div className="form">
+          <label>
+            <span>Name</span>
+            <div className="row">
+              <input className="input grow" value={label} onChange={(e) => setLabel(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && label.trim() && act(() => api.setLabel(project.id, label), 'Renamed')} />
+              <Button disabled={!label.trim() || label.trim() === labelOf(project)} onClick={() => act(() => api.setLabel(project.id, label), 'Renamed')}>Save</Button>
+            </div>
+            <small className="faint"><Icon name="lock" size={12} /> Mubit task: {project.name}. It is in the system prompt, so it never changes</small>
+          </label>
+        </div>
         <div className="facts">
           <span><span className="faint">Domain</span>{project.domain}</span>
           <span><span className="faint">Provider</span>{project.model}</span>
@@ -108,9 +119,9 @@ export function ModelSettings({ project, close, reload, notify, archived }: { pr
         <div className="danger">
           {confirming ? (
             <>
-              <span className="grow">Archive {project.name}? It leaves the sidebar; its file, Mubit task and {kept} kept calls stay.</span>
+              <span className="grow">Archive {labelOf(project)}? It leaves the sidebar; its file, Mubit task and {kept} kept calls stay.</span>
               <Button small onClick={() => setConfirming(false)}>Cancel</Button>
-              <Button small kind="primary" onClick={() => act(() => api.archive(project.id, true), `${project.name} archived`).then(archived)}>Archive</Button>
+              <Button small kind="primary" onClick={() => act(() => api.archive(project.id, true), `${labelOf(project)} archived`).then(archived)}>Archive</Button>
             </>
           ) : (
             <>

@@ -29,17 +29,33 @@ export const pages = [
 ] as const
 export type Page = (typeof pages)[number]['id']
 
-// Where the interface is, kept in the URL hash (#/model/context/page) so a refresh stays put.
-export type Place = { project: string | null; context: string | null; page: Page }
+// The site's own pages, linked from the footer; the backend keeps their ids from being used by models.
+export const infoPages = [
+  { id: 'about', title: 'About' },
+  { id: 'faq', title: 'FAQ' },
+  { id: 'privacy', title: 'Privacy' },
+  { id: 'license', title: 'License' },
+] as const
+export type Info = (typeof infoPages)[number]['id']
+
+// Where the interface is, kept in the URL hash (#/model/context/page, or #/about) so a refresh stays put.
+export type Place = { project: string | null; context: string | null; page: Page; info: Info | null }
 
 const isPage = (s: string) => pages.some((p) => p.id === s)
+const isInfo = (s: string): s is Info => infoPages.some((p) => p.id === s)
 
 export function readPlace(): Place {
   const [project = '', second = '', third = ''] = window.location.hash.replace(/^#\/?/, '').split('/').map(decodeURIComponent)
+  if (isInfo(project)) return { project: null, context: null, page: 'loop', info: project }
   // Links from before contexts (#/model/page) still open the model's first context.
   const [context, page] = isPage(second) ? ['', second] : [second, third]
-  return { project: project || null, context: context || null, page: isPage(page) ? (page as Page) : 'loop' }
+  return { project: project || null, context: context || null, page: isPage(page) ? (page as Page) : 'loop', info: null }
 }
+
+export const goInfo = (info: Info) => { window.location.hash = `/${info}` }
+
+// What a model is called on screen: its display name, or its fixed name before it had one.
+export const labelOf = (model: { label?: string; name: string }) => model.label || model.name
 
 export function go(project: string | null, context: string | null = null, page: Page = 'loop') {
   window.location.hash = project ? `/${[project, context, context ? page : null].filter(Boolean).map((s) => encodeURIComponent(s as string)).join('/')}` : '/'
@@ -47,7 +63,7 @@ export function go(project: string | null, context: string | null = null, page: 
 
 // One context's view of a model: its own records, plus the model-wide lessons that hold in every context. Kept calls
 // and adapter versions belong to the model, so they stay whole; `whole` keeps the full model for the shared weights.
-export type View = Project & { cid: string; contextName: string; whole: Project; contextImports: Record<string, { concept: string; content: string | null }[]> }
+export type View = Project & { cid: string; contextName: string; label: string; whole: Project; contextImports: Record<string, { concept: string; content: string | null }[]> }
 
 export const applies = (lesson: Lesson, cid: string) => lesson.context === cid || lesson.reach === 'model'
 
@@ -63,6 +79,7 @@ export function view(whole: Project, cid: string | null): View {
     ...whole,
     cid: id,
     contextName: context.name,
+    label: labelOf(whole),
     whole,
     lessons,
     examples: whole.examples.filter((e) => { const l = whole.lessons.find((x) => x.id === e.lesson_id); return l ? applies(l, id) : e.context === id }),

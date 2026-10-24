@@ -51,6 +51,8 @@ export type Comparison = { id: string; t: string; context: string; concept: stri
 export type Project = {
   id: string
   name: string
+  // `name` is in the model's fixed system prompt, so it is its Mubit task and never changes; `label` is what people see.
+  label?: string
   domain: string
   model: string
   created?: string
@@ -72,7 +74,10 @@ export type Project = {
 
 export type ContextInfo = { id: string; name: string; created?: string; archived?: string }
 
-export type ProjectSummary = { id: string; name: string; domain: string; contexts: ContextInfo[]; archived: string | null; lessons: number; examples: number; training_calls: number; adapter: AdapterVersion | null; samples: string[] }
+export type ProjectSummary = { id: string; name: string; label: string; updated?: string; domain: string; contexts: ContextInfo[]; archived: string | null; lessons: number; examples: number; training_calls: number; adapter: AdapterVersion | null; samples: string[] }
+// One piece of recent work on a model, for the home page.
+export type Activity = { t: string; model: string; label: string; context: string; context_name: string | null; kind: 'lesson' | 'training' | 'adapter' | 'evaluation' | 'compare' | 'context'; text: string; route?: Route }
+
 export type Job = { id: string; kind: string; status: 'running' | 'done' | 'failed'; error: string | null }
 
 async function call<T>(path: string, body?: unknown): Promise<T> {
@@ -86,6 +91,8 @@ export const api = {
   domains: () => call<string[]>('/domains'),
   projects: () => call<ProjectSummary[]>('/projects'),
   create: (name: string, domain: string, context: string) => call<Project>('/projects', { name, domain, context }),
+  activity: (n = 12) => call<Activity[]>(`/activity?n=${n}`),
+  setLabel: (id: string, label: string) => call<{ id: string; label: string }>(`/projects/${id}/label`, { label }),
   archive: (id: string, archived: boolean) => call<{ id: string; archived: string | null }>(`/projects/${id}/archive`, { archived }),
   editContext: (id: string, cid: string, change: { name?: string; archived?: boolean }) => call<ContextInfo>(`/projects/${id}/contexts/${cid}`, change),
   project: (id: string) => call<Project>(`/projects/${id}`),

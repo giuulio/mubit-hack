@@ -5,10 +5,11 @@ import { api, type Project, type ProjectSummary } from './api'
 import { Home } from './Home'
 import { Loop } from './Loop'
 import { ModelSettings, NewModel } from './Models'
+import { Footer, InfoPage } from './Pages'
 import { MubitStrip } from './Mubit'
 import { Operator } from './Operator'
 import { Results } from './Results'
-import { go, live, pages, readPlace, view, type Place } from './routes'
+import { go, labelOf, live, pages, readPlace, view, type Place } from './routes'
 import { applyTheme, type Theme } from './theme'
 import { Button, Dot, Icon } from './ui'
 
@@ -56,7 +57,7 @@ export default function App() {
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
-  useEffect(() => { main.current?.scrollTo(0, 0) }, [place.project, place.page])
+  useEffect(() => { main.current?.scrollTo(0, 0) }, [place.project, place.page, place.info])
   // The model list also refreshes on every change of model, so models created from the CLI or by teammates appear.
   useEffect(() => { loadProjects().catch((e) => notify(String(e))) }, [loadProjects, notify, place.project])
   useEffect(() => { api.domains().then(setDomains).catch(() => undefined) }, [])
@@ -115,15 +116,15 @@ export default function App() {
   return (
     <div className="shell">
       <aside className="sidebar">
-        <button className="brand" onClick={() => go(null)}><span className="mark"><Icon name="layers" size={15} /></span><span className="wordmark">Hone</span></button>
+        <button className="brand" onClick={() => go(null)}><span className="mark"><Icon name="layers" size={18} /></span><span className="wordmark">Hone</span></button>
 
-        <div className="row nav-label"><span className="grow">Models</span><button className="icon-btn tiny" aria-label="New model" data-tip="New model" onClick={() => setCreating(true)}><Icon name="plus" size={14} /></button></div>
+        <div className="row nav-label"><span className="grow">My models</span><button className="icon-btn tiny" aria-label="New model" data-tip="New model" onClick={() => setCreating(true)}><Icon name="plus" size={14} /></button></div>
         {models.map((p) => (
           <div key={p.id} className="stack" style={{ gap: '0.125rem' }}>
             <div className="nav-row">
               <button className={`nav-item grow${p.id === place.project ? ' current' : ''}`} onClick={() => go(p.id)}>
                 <Icon name="model" size={15} />
-                <span className="grow">{p.name}</span>
+                <span className="grow">{labelOf(p)}</span>
               </button>
               {p.id === place.project ? <button className="icon-btn tiny" aria-label="Model settings" data-tip="Model settings" onClick={() => setSettings(true)}><Icon name="operator" size={14} /></button> : null}
             </div>
@@ -153,7 +154,7 @@ export default function App() {
             <summary className="nav-item faint-item"><span className="grow">Archived</span><span>{archived.length}</span></summary>
             {archived.map((p) => (
               <div key={p.id} className="row nav-row" style={{ paddingLeft: '0.5rem' }}>
-                <span className="grow faint">{p.name}</span>
+                <span className="grow faint">{labelOf(p)}</span>
                 <button className="btn small light" onClick={() => restore(p.id)}>Restore</button>
               </div>
             ))}
@@ -166,7 +167,7 @@ export default function App() {
         <div className={`topbar${current ? '' : ' bare'}`}>
           {current ? (
             <h1 className="title">
-              <button className="model-name" onClick={() => setSettings(true)} data-tip="Model settings">{current.name}</button>
+              <button className="model-name" onClick={() => setSettings(true)} data-tip="Model settings">{current.label}</button>
               <span className="slash">/</span>
               <span className="ink-context">{current.contextName}</span>
             </h1>
@@ -183,12 +184,15 @@ export default function App() {
             <Icon name={theme === 'dark' ? 'day' : 'night'} />
           </button>
         </div>
-        {current ? (
-          <>
-            {place.page === 'loop' ? <Loop key={`${current.id}/${current.cid}`} project={current} reload={reload} notify={notify} /> : null}
-            {place.page === 'results' ? <Results key={`${current.id}/${current.cid}`} project={current} reload={reload} notify={notify} /> : null}
-          </>
-        ) : place.project ? null : <Home projects={models} create={() => setCreating(true)} />}
+        <div className="page">
+          {place.info ? <InfoPage page={place.info} /> : current ? (
+            <>
+              {place.page === 'loop' ? <Loop key={`${current.id}/${current.cid}`} project={current} reload={reload} notify={notify} /> : null}
+              {place.page === 'results' ? <Results key={`${current.id}/${current.cid}`} project={current} reload={reload} notify={notify} /> : null}
+            </>
+          ) : place.project ? null : <Home projects={models} create={() => setCreating(true)} />}
+        </div>
+        <Footer />
       </main>
       {current && operator ? <Operator project={current} reload={reload} notify={notify} close={() => setOperator(false)} /> : null}
       {creating ? (
