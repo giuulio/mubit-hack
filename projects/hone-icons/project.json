@@ -5206,6 +5206,13 @@
    "type": "evaluation",
    "id": "eval_9d4e2328",
    "context": "pixel"
+  },
+  {
+   "t": "2026-10-24T22:55:02+0100",
+   "type": "adapter",
+   "version": "v1",
+   "status": "training",
+   "note": "Mubit console 23:00: task Design icons (Smooth calls), 38 kept, Training v1; task Design icons 2 (Pixel and Duotone calls) reviewing, 0 kept"
   }
  ],
  "context_history": [
@@ -6261,7 +6268,14 @@
    ]
   }
  ],
- "adapters": [],
+ "adapters": [
+  {
+   "version": "v1",
+   "status": "training",
+   "note": "Mubit console 23:00: task Design icons (Smooth calls), 38 kept, Training v1; task Design icons 2 (Pixel and Duotone calls) reviewing, 0 kept",
+   "t": "2026-10-24T22:55:02+0100"
+  }
+ ],
  "imports": {},
  "evals": [
   {
