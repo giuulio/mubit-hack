@@ -1,9 +1,18 @@
-"""The icon domain for the lesson router: description, settable parameters and deterministic rules."""
+"""The icon domain for the lesson router: prompts, context assembly, parameters, checks and rules."""
 
+import json
 import re
 import xml.etree.ElementTree as ET
+from pathlib import Path
 
 from router.extract import parameter_lesson
+
+from .prompt import SYSTEM_PROMPT, user_message as build_message
+from .svg import basic_problems, extract_svg, render_png, sanitize
+
+ROOT = Path(__file__).resolve().parent.parent
+name = "icons"
+output_kind = "svg"
 
 description = (
     "One SVG icon per concept on a 24 × 24 canvas, drawn with strokes. The user is a developer "
@@ -19,6 +28,60 @@ parameters = {
     "accent-color": "CSS colour applied to the accent, for example #7C3AED",
 }
 
+
+def concepts(split):
+    return json.loads((ROOT / "data" / "concepts.json").read_text())[split]
+
+
+def system_prompt(project_name):
+    """One fixed system prompt per project, so each project is its own Mubit task."""
+    return f"{SYSTEM_PROMPT} Project: {project_name}."
+
+
+def user_message(context, concept):
+    """context: {"rules": [str], "examples": [{"concept", "content"}], "notes": {concept: [str]}}."""
+    lines = [f"- {r}" for r in context.get("rules", [])]
+    lines += [f"- For this concept: {n}" for n in context.get("notes", {}).get(concept, [])]
+    style = "\n".join(lines) or None
+    examples = {e["concept"]: e["content"] for e in context.get("examples", [])} or None
+    return build_message(concept, style=style, examples=examples)
+
+
+def parse_output(text):
+    svg = extract_svg(text)
+    return sanitize(svg) if svg else None
+
+
+def postprocess(svg, params):
+    """Apply parameter lessons in code: root attributes, accent removal and accent colour."""
+    if not svg:
+        return svg
+    root = ET.fromstring(svg)
+    for key in ("stroke-width", "stroke-linecap", "stroke-linejoin", "fill"):
+        if key in params:
+            root.set(key, params[key])
+    accents = [el for el in root.iter() if el.get("class") == "accent"]
+    if params.get("accent") == "none":
+        for parent in root.iter():
+            for child in list(parent):
+                if child in accents:
+                    parent.remove(child)
+    elif params.get("accent-color"):
+        for el in accents:
+            el.set("fill", params["accent-color"])
+    ET.register_namespace("", "http://www.w3.org/2000/svg")
+    return ET.tostring(root, encoding="unicode")
+
+
+def problems(svg):
+    return basic_problems(svg) if svg else ["no SVG in reply"]
+
+
+def render(svg, size=160):
+    return render_png(svg, size=size, accent=None)
+
+
+# Deterministic extraction rules, kept for the extraction comparison (docs/stages/extraction.md).
 THIN = re.compile(r"\b(thin|thinner|lighter|finer|hairline|delicate)\b")
 THICK = re.compile(r"\b(thick|thicker|bold|bolder|heavier|heavy|chunky)\b")
 ROUND = re.compile(r"\b(round|rounded|rounder)\b")
@@ -28,20 +91,16 @@ NEGATIVE = re.compile(r"\b(rid|remove|drop|no|without|lose|distracting|kill)\b")
 HEX = re.compile(r"#[0-9a-f]{6}\b")
 
 
-def _current(lessons, name, default):
+def _current(lessons, key, default):
     for lesson in lessons:
         p = lesson.get("parameter")
-        if p and p["name"] == name:
+        if p and p["name"] == key:
             return p["value"]
     return default
 
 
-def _root(svg):
-    return ET.fromstring(svg)
-
-
 def _count(svg):
-    return sum(1 for el in _root(svg).iter()) - 1
+    return sum(1 for _ in ET.fromstring(svg).iter()) - 1
 
 
 def rules(signal, lessons):
@@ -72,11 +131,11 @@ def rules(signal, lessons):
 
     if signal["signal"] == "edit":
         before, after = signal["before"]["content"], signal["after"]["content"]
-        rb, ra = _root(before), _root(after)
-        for name in ("stroke-width", "stroke-linecap", "stroke-linejoin", "fill"):
-            if rb.get(name) != ra.get(name) and ra.get(name) is not None:
-                value = ra.get(name)
-                found.append(parameter_lesson(f"Root {name} is {value}.", name, value, "style", lessons, "edit"))
+        rb, ra = ET.fromstring(before), ET.fromstring(after)
+        for key in ("stroke-width", "stroke-linecap", "stroke-linejoin", "fill"):
+            if rb.get(key) != ra.get(key) and ra.get(key) is not None:
+                value = ra.get(key)
+                found.append(parameter_lesson(f"Root {key} is {value}.", key, value, "style", lessons, "edit"))
         if 'class="accent"' in before and 'class="accent"' not in after:
             found.append(parameter_lesson("Icons have no accent dot.", "accent", "none", "style", lessons, "edit"))
         if _count(after) < _count(before):

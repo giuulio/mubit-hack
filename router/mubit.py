@@ -1,5 +1,6 @@
 """Calls through the Mubit proxy. The key comes from .env and is never printed."""
 
+import base64
 import os
 from pathlib import Path
 
@@ -26,7 +27,9 @@ _client = Anthropic(base_url=BASE_URL, api_key=_load_key())
 
 
 def call(system, user, model, record, session, max_tokens=2000):
-    """Send one message. `record` is "full" (may become a kept example) or "metadata" (never kept).
+    """Send one message; `user` is text or a list of content blocks.
+
+    `record` is "full" (may become a kept example) or "metadata" (never kept).
 
     Returns the reply text, Mubit's request ID and token usage.
     """
@@ -46,3 +49,14 @@ def call(system, user, model, record, session, max_tokens=2000):
         "input_tokens": message.usage.input_tokens,
         "output_tokens": message.usage.output_tokens,
     }
+
+
+def image_block(png):
+    """A content block for a PNG image, for judges that compare rendered outputs."""
+    return {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": base64.b64encode(png).decode()}}
+
+
+def count_tokens(system, user, model):
+    """Input tokens for one message, via the provider's token-count endpoint (served on starter credit)."""
+    result = _client.messages.count_tokens(model=model, system=system, messages=[{"role": "user", "content": user}])
+    return result.input_tokens

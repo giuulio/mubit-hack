@@ -122,3 +122,45 @@ def ink_bbox(svg, size=240):
         return None
     scale = 24 / size
     return (float(xs.min() * scale), float(ys.min() * scale), float((xs.max() + 1) * scale), float((ys.max() + 1) * scale))
+
+
+BLOCKED_TAGS = {"script", "foreignObject", "image", "use", "a", "style", "iframe"}
+
+
+def sanitize(svg):
+    """Drop scripts, event handlers and external references from model-written SVG."""
+    try:
+        root = ET.fromstring(svg)
+    except ET.ParseError:
+        return None
+    for parent in list(root.iter()):
+        for child in list(parent):
+            if _tag(child) in BLOCKED_TAGS:
+                parent.remove(child)
+    for el in root.iter():
+        for name in list(el.attrib):
+            if name.lower().startswith("on") or "href" in name.lower():
+                del el.attrib[name]
+    ET.register_namespace("", NS.strip("{}"))
+    return ET.tostring(root, encoding="unicode")
+
+
+def basic_problems(svg):
+    """Style-independent checks for any project: parses, 24 × 24 canvas, renders, stays on canvas."""
+    try:
+        root = ET.fromstring(svg)
+    except ET.ParseError as e:
+        return [f"invalid XML: {e}"]
+    problems = []
+    if _tag(root) != "svg":
+        return ["root is not <svg>"]
+    if root.get("viewBox") != "0 0 24 24":
+        problems.append(f"viewBox is {root.get('viewBox')!r}, expected '0 0 24 24'")
+    if any(_tag(el) == "text" for el in root.iter()):
+        problems.append("contains text")
+    bbox = ink_bbox(svg)
+    if bbox is None:
+        problems.append("renders empty")
+    elif min(bbox) < 0.25 or max(bbox) > 23.75:
+        problems.append("ink touches the canvas edge")
+    return problems
