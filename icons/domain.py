@@ -39,11 +39,11 @@ def system_prompt(project_name):
 
 
 def user_message(context, concept):
-    """context: {"rules": [str], "examples": [{"concept", "content"}], "notes": {concept: [str]}}."""
+    """context: {"rules": [str], "examples": [{"concept", "content", "only"}], "notes": {concept: [str]}}."""
     lines = [f"- {r}" for r in context.get("rules", [])]
     lines += [f"- For this concept: {n}" for n in context.get("notes", {}).get(concept, [])]
     style = "\n".join(lines) or None
-    examples = {e["concept"]: e["content"] for e in context.get("examples", [])} or None
+    examples = {e["concept"]: e["content"] for e in context.get("examples", []) if not e.get("only") or e["concept"] == concept} or None
     return build_message(concept, style=style, examples=examples)
 
 

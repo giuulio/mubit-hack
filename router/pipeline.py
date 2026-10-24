@@ -40,7 +40,9 @@ def context(project, mode="routed", without=None, extra=None):
         if lesson_id == without or (lesson and lesson["status"] != "active"):
             continue
         if mode == "full" or (lesson is None or lesson["in_context"]):
-            ctx["examples"].append({"concept": example["concept"], "content": example["content"]})
+            # A note's example (an approved or redrawn icon) is shown only when that same concept is generated.
+            only = bool(lesson and lesson["route"] == "note")
+            ctx["examples"].append({"concept": example["concept"], "content": example["content"], "only": only})
     if extra:
         if extra.get("example"):
             ctx["examples"].append(extra["example"])
@@ -167,10 +169,14 @@ def feedback(pid, payload):
 # Confirmation and routing --------------------------------------------------------------------
 
 def _effect_test(project, lesson):
-    """Probe concepts generated with and without the lesson in context, judged pairwise."""
+    """Probe concepts generated with and without the lesson in context, judged pairwise.
+
+    The concept the lesson came from is always a probe: a family lesson (star tips, bars) can only show its effect where it applies.
+    """
     d = store.domain_of(project)
     rng = random.Random(lesson["id"])
-    probes = rng.sample(d.concepts("train"), PROBES)
+    source = [lesson["concept"]] if lesson.get("concept") else []
+    probes = source + rng.sample([c for c in d.concepts("train") if c not in source], PROBES - len(source))
     base = context(project)
     with_lesson = context(project, extra={"statement": lesson["statement"]})
     a = _many(project, probes, with_lesson, "metadata", f"{project['id']}-probe-with")

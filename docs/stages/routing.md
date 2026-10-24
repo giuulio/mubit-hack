@@ -34,6 +34,18 @@ A contradicting lesson supersedes the one it contradicts; a duplicate is recorde
 - "thin, rounded, organic, no fills" became four parameter lessons (**A**, 0 tokens) and one rule ("organic, softly curved forms"): effect 3/3 probes, 31 tokens → **A∧B**. The effect test took about 9 s.
 - Approving one icon became an example lesson: 373 tokens → **B**.
 
+## Demo project "Hone icons" (2026-10-24)
+
+Four feedback rounds (1 direction, 18 critiques, picks and one edit) produced 27 lessons in context at 1,312 tokens: 4 parameters (**A**), 7 style rules (**A∧B**), 3 style examples (**B**) and 17 notes. Seven lessons went to **rephrase**.
+
+- **Rephrase catches what the model already does:** "at most four shapes" and "2 px padding" changed 1/3 and 0/3 probes, because Sonnet already follows them.
+- **Rephrase catches what words cannot do:** "round every sparkle tip" failed three phrasings; the model kept drawing sharp tips. A hand-drawn edit (an example) fixed it in one round.
+- **Probes must include the source concept:** with three random probes, "draw bars as pills" scored 0/3 because no probe had bars. The lesson's source concept is now always a probe (2/3 → **A∧B**). Narrow family lessons are still diluted by the two random probes.
+- **Note examples stay with their concept:** an approved or redrawn icon scoped to one concept is shown only when that concept is generated, not in every prompt.
+- **Contradictions work:** "keep the fins" superseded the earlier "no fins" note after the rocket became a leaf.
+- 40 training calls under the frozen context: 40/40 valid.
+- Held-out evaluation (12 concepts, blind 1–5 judge): Opus bare 3.08 style, Opus + full context 3.50, Sonnet + routed context 3.82; recognisability 3.33, 3.67 and 3.09.
+
 ## Evaluation (to do)
 
 - Effect-test agreement with the user's eyes on a probe sheet.
