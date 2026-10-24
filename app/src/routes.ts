@@ -25,7 +25,7 @@ export const destinations: Record<Route, ('context' | 'weights')[]> = { A: ['con
 // A project has two pages: the loop where feedback is routed, and the results that compare configurations.
 export const pages = [
   { id: 'loop', title: 'Loop', icon: 'route' },
-  { id: 'results', title: 'Results', icon: 'chart' },
+  { id: 'results', title: 'Compare', icon: 'chart' },
 ] as const
 export type Page = (typeof pages)[number]['id']
 
@@ -99,6 +99,7 @@ export type Described = { title: string; sub: string; model: string; route?: Rou
 
 export function describe(config: string, model?: string): Described {
   const labels: Record<string, [string, string, string, Route?]> = {
+    provider: ['Raw model', 'same provider, no learned rules, examples or parameter overrides', model ?? ''],
     frontier: ['Raw frontier', 'no context', FRONTIER],
     'frontier + full context': ['Frontier + context', 'every lesson in the prompt', FRONTIER],
     'provider + routed context': ['Hone', "Hone's routed context", model ?? '', 'A'],

@@ -397,6 +397,7 @@ def absorption(pid, lid, items):
 def configurations(project, cid=None, frontier=FRONTIER):
     """The configurations run live in one context, as {name: (model, context)}. Adapter rows come from Try models instead."""
     return {
+        "provider": (project["model"], context(project, cid, mode="bare")),
         "frontier": (frontier, context(project, cid, mode="bare")),
         "frontier + full context": (frontier, context(project, cid, mode="full")),
         "provider + routed context": (project["model"], context(project, cid)),
@@ -489,10 +490,11 @@ def compare_styles(pid, concept, frontier=FRONTIER):
     project = store.load(pid)
     cids = [c["id"] for c in store.live(project)]
     group = store.new_id("grp")
-    jobs = {("*", "frontier"): (frontier, context(project, cids[0], mode="bare"))}
+    jobs = {("*", name): (model, context(project, cids[0], mode="bare"))
+            for name, model in (("frontier", frontier), ("provider", project["model"]))}
     for cid in cids:
         for name, (model, ctx) in configurations(project, cid, frontier).items():
-            if name != "frontier":
+            if name not in ("frontier", "provider"):
                 jobs[(cid, name)] = (model, ctx)
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
         futures = {key: pool.submit(generate_one, project, concept, ctx, "metadata", f"{pid}-{key[0]}-styles-{key[1]}", model) for key, (model, ctx) in jobs.items()}
@@ -500,7 +502,7 @@ def compare_styles(pid, concept, frontier=FRONTIER):
     t = store.now()
     entries = [{
         "id": store.new_id("cmp"), "t": t, "context": cid, "group": group, "concept": concept,
-        "outputs": {"frontier": done[("*", "frontier")], **{name: out for (c, name), out in done.items() if c == cid}},
+        "outputs": {**{name: out for (c, name), out in done.items() if c == "*"}, **{name: out for (c, name), out in done.items() if c == cid}},
     } for cid in cids]
 
     def save(p):

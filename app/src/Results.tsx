@@ -8,8 +8,8 @@ import { Button, Dot, Glyph, Head, Icon } from './ui'
 
 type Props = { project: View; reload: () => Promise<void>; notify: (text: string) => void }
 
-// Columns of the styles grid after the shared raw frontier: what changes from one to the next is the context, then the model.
-const ladder = ['frontier + full context', 'provider + routed context', 'adapter + routed context']
+// Columns of the styles grid after the shared raw provider: what changes from one to the next is the context, then the model.
+const ladder = ['provider + routed context', 'adapter', 'adapter + routed context']
 const score = (v: number | null) => (v === null ? '—' : v.toFixed(2))
 
 export function Results({ project, reload, notify }: Props) {
@@ -60,26 +60,28 @@ function Styles({ project, notify, reload }: Props) {
   }
 
   const head = (config: string) => {
-    const d = describe(config, config === 'provider + routed context' ? whole.model : undefined)
+    const d = describe(config, config === 'provider' || config === 'provider + routed context' ? whole.model : undefined)
     return <div className="style-head"><span className={d.route ? routeInk[d.route] : undefined} data-tip={d.sub}>{d.title}</span><span className="faint">{d.model}</span></div>
   }
 
   return (
     <section className="stack section">
-      <Head title="Styles" tip="One concept in every context of the model, through each configuration; nothing here is kept for training">
+      <Head title="Raw model vs Hone" tip="One concept in every context of the model, through each configuration; nothing here is kept for training">
         <div className="row">
           <input className="input" style={{ width: '16rem' }} placeholder="heat pump" value={concept} onChange={(e) => setConcept(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && submit()} />
           <Button kind="primary" busy={busy !== null} disabled={!concept.trim()} onClick={submit} tip="Draw it in every context and configuration"><Icon name="generate" /></Button>
         </div>
       </Head>
+      <p className="muted">Same concept and provider model: raw has only the icon task prompt; Hone adds learned rules, examples and code parameters. Both use base weights. Adapter columns require separate outputs from Mubit Try models.</p>
+      <table><thead><tr><th>Configuration</th><th>Learned context</th><th>Fine-tuned weights</th></tr></thead><tbody><tr><td>Raw model</td><td>None</td><td>No</td></tr><tr><td>Hone</td><td>Rules, examples + parameters</td><td>No</td></tr><tr><td>Adapter</td><td>None</td><td>Requires verified Mubit output</td></tr><tr><td>Adapter + context</td><td>Routed context</td><td>Requires verified Mubit output</td></tr></tbody></table>
       {shown ? (
         <div className="styles-grid" style={{ gridTemplateRows: `auto repeat(${contexts.length}, auto)` }}>
           <div className="style-corner"><h3>{shown}</h3>{rows[0] ? <span className="faint">{clock(rows[0].t)}</span> : null}</div>
-          {head('frontier')}
+          {head('provider')}
           {ladder.map((c) => <div key={c}>{head(c)}</div>)}
-          {/* The raw frontier uses no context, so one drawing stands for every row. */}
+          {/* The raw provider uses no context, so one drawing stands for every row. */}
           <div className="style-shared" style={{ gridRow: `2 / span ${contexts.length}` }}>
-            {busy ? <div className="shimmer large" /> : <Cell out={rows[0]?.outputs.frontier} title={`${shown}, raw frontier`} />}
+            {busy ? <div className="shimmer large" /> : <Cell out={rows[0]?.outputs.provider} title={`${shown}, raw provider`} />}
           </div>
           {contexts.map((c) => {
             const row = rows.find((r) => r.context === c.id)
@@ -89,9 +91,9 @@ function Styles({ project, notify, reload }: Props) {
                 {ladder.map((config) => (
                   <div key={config}>
                     {busy ? <div className="style-cell"><div className="shimmer large" /></div>
-                      : config.startsWith('adapter') && !row?.outputs[config] && !row?.outputs.adapter
-                        ? <div className="style-cell"><div className="glyph large empty-glyph" /><span className="faint">Try models</span></div>
-                        : <Cell out={row?.outputs[config] ?? (config.startsWith('adapter') ? row?.outputs.adapter : undefined)} title={`${shown}, ${c.name}, ${describe(config).title}`} />}
+                      : config.startsWith('adapter') && !row?.outputs[config]
+                        ? <div className="style-cell"><div className="glyph large empty-glyph" /><span className="faint">No verified output yet</span></div>
+                        : <Cell out={row?.outputs[config]} title={`${shown}, ${c.name}, ${describe(config).title}`} />}
                   </div>
                 ))}
               </div>

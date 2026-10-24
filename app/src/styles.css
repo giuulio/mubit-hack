@@ -159,7 +159,7 @@ kbd { font: 600 0.6875rem var(--font); padding: 0.0625rem 0.3125rem; border-radi
 
 /* Top bar: model / context on the left, pages in the middle, Mubit, then the day/night switch in the top-right corner.
    As the window narrows, the tabs and then the strip move to rows of their own; the switch never leaves its corner. */
-.topbar { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto; grid-template-areas: "title tabs strip theme"; align-items: center; gap: 0.75rem 1rem; min-height: 2.75rem; margin-bottom: 2rem; }
+.topbar { flex-shrink: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto; grid-template-areas: "title tabs strip theme"; align-items: center; gap: 0.75rem 1rem; min-height: 2.75rem; margin-bottom: 2rem; }
 .topbar > .title { grid-area: title; }
 .topbar > .tabs { grid-area: tabs; justify-self: center; }
 .topbar > .strip { grid-area: strip; justify-self: end; }
@@ -425,7 +425,7 @@ details > summary::-webkit-details-marker { display: none; }
 }
 @media (max-width: 1180px) {
   .topbar:not(.bare) { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "title theme" "strip strip" "tabs tabs"; }
-  .topbar > .strip { justify-self: start; }
+  .topbar > .strip { justify-self: start; max-width: 100%; overflow-x: auto; }
   .loop { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .rail { grid-column: 1 / -1; position: static; flex-direction: row; padding: 1.25rem 0 0; border-left: 0; border-top: 1px solid var(--line); }
   .rail > .rail-block { flex: 1; }

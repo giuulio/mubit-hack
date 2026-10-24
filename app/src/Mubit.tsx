@@ -4,7 +4,6 @@
 import type { Project } from './api'
 import { clock } from './routes'
 import { Count } from './ui'
-import { THRESHOLD } from './Weights'
 
 export function MubitStrip({ project }: { project: Project }) {
   const kept = project.training.reduce((n, b) => n + b.calls, 0)
@@ -16,9 +15,9 @@ export function MubitStrip({ project }: { project: Project }) {
   return (
     <div className="strip">
       <span className="strip-brand" data-tip="Every call goes through the Mubit proxy"><i className="live" />Mubit</span>
-      <span className="strip-item"><span className="faint">Model</span>{project.model}</span>
-      <span className="strip-item" data-tip={`Calls kept for training; Mubit trains at ${THRESHOLD}`}><span className="faint">Kept</span><Count value={kept} /></span>
-      <span className="strip-item"><span className="faint">Adapter</span><span key={adapter?.version ?? '-'} className="flash">{adapter ? `${adapter.version} · ${adapter.status}` : '—'}</span></span>
+      <span className="strip-item"><span className="faint">Base model</span>{project.model}</span>
+      <span className="strip-item" data-tip={"Calls submitted with full recording; Mubit decides which are kept"}><span className="faint">Submitted</span><Count value={kept} /></span>
+      <span className="strip-item"><span className="faint">Adapter record</span><span key={adapter?.version ?? '-'} className="flash">{adapter ? `${adapter.version} · ${adapter.status}` : '—'}</span></span>
       <span className="strip-item"><span className="faint">Last call</span><span key={last} className="flash">{clock(last)}</span></span>
     </div>
   )

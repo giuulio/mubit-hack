@@ -42,6 +42,9 @@ def user_message(context, concept):
     """context: {"rules": [str], "examples": [{"concept", "content", "only"}], "notes": {concept: [str]}}."""
     lines = [f"- {r}" for r in context.get("rules", [])]
     lines += [f"- For this concept: {n}" for n in context.get("notes", {}).get(concept, [])]
+    lines += [f"- SVG root {key}: {value}." for key, value in context.get("params", {}).items()]
+    if context.get("params", {}).get("stroke-width") == "0":
+        lines.append("- Strokes are disabled: give visible pixel cells a solid fill, never fill=none.")
     style = "\n".join(lines) or None
     examples = {e["concept"]: e["content"] for e in context.get("examples", []) if not e.get("only") or e["concept"] == concept} or None
     return build_message(concept, style=style, examples=examples)

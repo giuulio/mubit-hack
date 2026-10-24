@@ -39,13 +39,14 @@ export function Weights({ project: { whole: project }, landed }: { project: View
       <div className="halves" style={{ gap: '0.75rem' }}>
         <div className="stack" style={{ gap: '0.125rem' }}>
           <span className="big"><Count value={kept} /></span>
-          <span className="faint" data-tip={`Calls kept in full under an approved context; Mubit trains at ${THRESHOLD}`}>kept calls</span>
+          <span className="faint" data-tip={`Calls kept in full under an approved context; Mubit trains at ${THRESHOLD}`}>submitted calls</span>
         </div>
         <div className="stack" style={{ gap: '0.125rem' }}>
           <span className="big">{adapter?.version ?? '—'}</span>
           <span className="faint" data-tip="Recorded from the Mubit console">{adapter ? `${adapter.status} · ${clock(adapter.t)}` : kept >= THRESHOLD ? 'awaiting Mubit' : `${THRESHOLD - kept} to go`}</span>
         </div>
       </div>
+      <p className="faint">Live icons use the base model + context. {adapter?.status === 'passed' ? 'A passing adapter is recorded; test it in Mubit Try models.' : 'No completed fine-tune is verified here.'} Status is manually recorded from the console.</p>
       {/* The bar spans the larger of kept calls and the threshold; the tick marks where Mubit starts training. */}
       <div className="progress"><div style={{ width: `${(kept / Math.max(kept, THRESHOLD)) * 100}%` }} /><i style={{ left: `${(THRESHOLD / Math.max(kept, THRESHOLD)) * 100}%` }} /></div>
 

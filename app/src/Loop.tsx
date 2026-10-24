@@ -97,13 +97,13 @@ function Feedback({ project, busy, onFeedback, onGenerate }: {
 
   const generate = async () => {
     const list = concepts.split(',').map((c) => c.trim()).filter(Boolean)
-    if (!list.length) return
+    if (!list.length || busy !== null) return
     setDrawing(list)
     setConcepts('')
     await onGenerate(list)
     setDrawing([])
   }
-  const sendTaste = () => taste.trim() && onFeedback('feedback-taste', { signal: 'direction', text: taste }).then(() => setTaste(''))
+  const sendTaste = () => busy === null && taste.trim() && onFeedback('feedback-taste', { signal: 'direction', text: taste }).then(() => setTaste(''))
   const sendCritique = () => critique?.text.trim() && onFeedback('feedback-critique', { signal: 'critique', output_id: critique.id, text: critique.text }).then(() => setCritique(null))
   const toggle = (id: string) => setSelected((s) => (s.includes(id) ? s.filter((x) => x !== id) : [...s.slice(-1), id]))
   const byId = (id: string) => project.outputs.find((o) => o.id === id)
@@ -114,15 +114,18 @@ function Feedback({ project, busy, onFeedback, onGenerate }: {
 
   return (
     <section className="stack loop-col">
-      <Head title="Feedback" tip="Generate icons, then critique, approve or pick" />
+      <Head title="Create & teach" tip="Generate icons, then critique, approve or pick" />
       <div className="stack" style={{ gap: '0.5rem' }}>
+        <label htmlFor="concepts">1. Generate icons</label>
         <div className="row">
-          <input className="input grow" placeholder="bell, camera, leaf" value={concepts} onChange={(e) => setConcepts(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && generate()} />
-          <Button kind="primary" busy={busy === 'generate'} disabled={!concepts.trim() || busy !== null} onClick={generate} tip="Draw these concepts"><Icon name="generate" /></Button>
+          <input id="concepts" aria-label="Icons to generate" className="input grow" placeholder="bell, camera, leaf" value={concepts} onChange={(e) => setConcepts(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && generate()} />
+          <Button kind="primary" busy={busy === 'generate'} disabled={!concepts.trim() || busy !== null} onClick={generate} tip="Draw these concepts"><Icon name="generate" /> Draw</Button>
         </div>
+        <label htmlFor="direction">2. Teach this style</label>
+        <span className="faint">Describe a preference, then review and apply the lesson in the Router. For one icon, use its comment button.</span>
         <div className="row">
-          <input className="input grow" placeholder="Taste: thin, rounded, organic" value={taste} onChange={(e) => setTaste(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && sendTaste()} />
-          <Button busy={busy === 'feedback-taste'} disabled={!taste.trim() || busy !== null} onClick={sendTaste} tip="Give a direction"><Icon name="send" /></Button>
+          <input id="direction" className="input grow" placeholder="e.g. Keep corners soft and rounded" value={taste} onChange={(e) => setTaste(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && sendTaste()} />
+          <Button busy={busy === 'feedback-taste'} disabled={!taste.trim() || busy !== null} onClick={sendTaste} tip="Extract a style lesson"><Icon name="send" /> Teach</Button>
         </div>
         {critique ? (
           <div className="row enter">
@@ -152,7 +155,7 @@ function Feedback({ project, busy, onFeedback, onGenerate }: {
           <Tile key={o.id} output={o} selected={selected.includes(o.id)} critiqued={critique?.id === o.id} busy={busy === `feedback-approve-${o.id}`}
             onSelect={() => toggle(o.id)}
             onApprove={() => onFeedback(`feedback-approve-${o.id}`, { signal: 'critique', output_id: o.id, text: 'Good example of the style, more like this.' })}
-            onCritique={() => setCritique({ id: o.id, text: '' })} />
+            onCritique={() => setCritique({ id: o.id, text: '' })} onRetry={() => onGenerate([o.concept])} />
         ))}
       </div>
       {!outputs.length && !drawing.length ? <div className="empty">Draw a few concepts</div> : null}
@@ -160,14 +163,15 @@ function Feedback({ project, busy, onFeedback, onGenerate }: {
   )
 }
 
-function Tile({ output, selected, critiqued, busy, onSelect, onApprove, onCritique }: {
-  output: Output; selected: boolean; critiqued: boolean; busy: boolean; onSelect: () => void; onApprove: () => void; onCritique: () => void
+function Tile({ output, selected, critiqued, busy, onSelect, onApprove, onCritique, onRetry }: {
+  output: Output; selected: boolean; critiqued: boolean; busy: boolean; onSelect: () => void; onApprove: () => void; onCritique: () => void; onRetry: () => void
 }) {
   return (
     <div className={`tile enter${selected || critiqued ? ' selected' : ''}`} onClick={onSelect}>
       {output.problems.length ? <span className="problem" title={output.problems.join('; ')} /> : null}
-      <Glyph svg={output.content} />
+      {output.problems.includes('renders empty') || !output.content ? <div className="glyph"><span className="faint">No visible SVG</span></div> : <Glyph svg={output.content} />}
       <span className="faint clamp">{output.concept}</span>
+      {output.problems.length ? <button className="chip" title={output.problems.join('; ')} onClick={(e) => { e.stopPropagation(); onRetry() }}>Redraw</button> : null}
       <div className="actions" onClick={(e) => e.stopPropagation()}>
         <button className="icon-btn" data-tip="Approve as example" aria-label="Approve as example" onClick={onApprove} disabled={busy}>{busy ? <Icon name="loading" spin /> : <Icon name="approve" />}</button>
         <button className="icon-btn" data-tip="Critique" aria-label="Critique" onClick={onCritique}><Icon name="critique" /></button>

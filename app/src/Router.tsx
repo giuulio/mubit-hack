@@ -70,6 +70,7 @@ function Incoming({ lesson, contextName, busy, onRoute, onReject }: { lesson: Le
   const [reach, setReach] = useState<Reach>(lesson.reach ?? 'context')
   return (
     <div className="lesson enter">
+      <span className="faint">Pending · not applied yet</span>
       <span>{lesson.statement}</span>
       <div className="row wrap">
         <div className="seg" data-tip="Permanent lessons are tested on probes; temporary ones stay in context">
@@ -84,7 +85,7 @@ function Incoming({ lesson, contextName, busy, onRoute, onReject }: { lesson: Le
         </div>
         <span className="grow" />
         <button className="icon-btn" data-tip="Reject" aria-label="Reject" disabled={busy} onClick={() => onReject(lesson)}><Icon name="close" /></button>
-        <Button small kind="primary" disabled={busy} onClick={() => onRoute(lesson, stability, reach)}><Icon name="route" /> Route</Button>
+        <Button small kind="primary" disabled={busy} onClick={() => onRoute(lesson, stability, reach)}><Icon name="route" /> {lesson.scope === 'instance' ? 'Apply & redraw' : 'Test & apply'}</Button>
       </div>
     </div>
   )
@@ -128,6 +129,7 @@ function Decision({ project, lesson, measuring: busy }: { project: View; lesson:
         </div>
       ) : null}
       <p className="statement">{lesson.statement}</p>
+      {!busy ? <p className="faint">{lesson.route === 'rephrase' ? 'Not applied: the probe evidence was too weak. Review a more specific lesson above.' : lesson.route === 'note' ? 'Applied to this concept; a new drawing uses this correction.' : 'Applied to future drawings. Existing icons are unchanged; draw again to inspect the result.'}</p> : null}
       <div className="signals">
         {signals.map((s) => (
           <div key={s.label} className="signal">
