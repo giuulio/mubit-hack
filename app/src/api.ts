@@ -16,6 +16,7 @@ export type Lesson = {
   in_context: boolean
   signals: { tokens?: number; stability?: string; effect?: number | null }
   concept: string | null
+  sources?: string[]
   feedback: string | null
   signal: string
   probe?: Probe
