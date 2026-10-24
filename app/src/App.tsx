@@ -1,6 +1,7 @@
-// Shell: projects in the sidebar; each project has Studio, Lessons and Model views.
+// Shell: home and projects in the sidebar; each project has Studio, Lessons and Model views.
 import { useCallback, useEffect, useState } from 'react'
 import { api, type Project, type ProjectSummary } from './api'
+import { Home } from './Home'
 import { Lessons } from './Lessons'
 import { Model } from './Model'
 import { Studio } from './Studio'
@@ -26,7 +27,6 @@ export default function App() {
   const loadProjects = useCallback(async () => {
     const list = await api.projects()
     setProjects(list)
-    setCurrent((c) => c ?? list[0]?.id ?? null)
   }, [])
 
   const reload = useCallback(async () => {
@@ -36,7 +36,10 @@ export default function App() {
 
   useEffect(() => { loadProjects().catch((e) => notify(String(e))) }, [loadProjects, notify])
   useEffect(() => { api.domains().then(setDomains).catch(() => undefined) }, [])
-  useEffect(() => { if (current) api.project(current).then(setProject).catch((e) => notify(String(e))) }, [current, notify])
+  useEffect(() => {
+    if (current) api.project(current).then(setProject).catch((e) => notify(String(e)))
+    else setProject(null)
+  }, [current, notify])
 
   const create = async () => {
     if (!naming?.trim()) return
@@ -53,7 +56,8 @@ export default function App() {
   return (
     <div className="shell">
       <aside className="sidebar">
-        <div className="brand"><Icon name="layers" size={20} /> Router</div>
+        <button className="brand nav-item" style={{ fontSize: 'var(--md)', color: 'var(--text)' }} onClick={() => setCurrent(null)}><Icon name="layers" size={20} /> Hone</button>
+        <button className={`nav-item${current === null ? ' active' : ''}`} onClick={() => setCurrent(null)}><Icon name="home" /> Home</button>
         {projects.map((p) => (
           <button key={p.id} className={`nav-item${p.id === current ? ' active' : ''}`} onClick={() => setCurrent(p.id)}>
             <Icon name="project" />
@@ -89,7 +93,7 @@ export default function App() {
             {tab === 'Lessons' ? <Lessons project={project} /> : null}
             {tab === 'Model' ? <Model project={project} reload={reload} notify={notify} /> : null}
           </>
-        ) : <div className="empty">Create a project to start</div>}
+        ) : <Home projects={projects} open={setCurrent} create={() => setNaming('')} />}
       </main>
       {toast ? <div className="toast">{toast}</div> : null}
     </div>

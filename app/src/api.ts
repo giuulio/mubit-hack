@@ -46,7 +46,7 @@ export type Project = {
   evals: Evaluation[]
 }
 
-export type ProjectSummary = { id: string; name: string; domain: string; lessons: number; examples: number; training_calls: number; adapter: AdapterVersion | null }
+export type ProjectSummary = { id: string; name: string; domain: string; lessons: number; examples: number; training_calls: number; adapter: AdapterVersion | null; samples: string[] }
 export type Job = { id: string; kind: string; status: 'running' | 'done' | 'failed'; error: string | null }
 
 async function call<T>(path: string, body?: unknown): Promise<T> {

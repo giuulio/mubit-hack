@@ -1,13 +1,13 @@
 // Shared UI pieces. Interface icons come from reicon-react behind `Icon`, so they can be swapped for our own.
 import type { ReactNode } from 'react'
 import {
-  ChartBar, Check, Copy, Cpu, Folder, Layers, Message, Plus, Refresh, Scale, Send, Sparkles, ThumbsUp, X,
+  ChartBar, Check, Copy, Cpu, Folder, Home, Layers, Message, Plus, Refresh, Scale, Send, Sparkles, ThumbsUp, X,
 } from 'reicon-react'
 import type { Route } from './api'
 
 const icons = {
   generate: Sparkles, send: Send, approve: ThumbsUp, critique: Message, pick: Scale, check: Check, close: X,
-  train: Cpu, chart: ChartBar, copy: Copy, project: Folder, plus: Plus, layers: Layers, loading: Refresh,
+  train: Cpu, chart: ChartBar, copy: Copy, project: Folder, plus: Plus, layers: Layers, loading: Refresh, home: Home,
 }
 
 export function Icon({ name, size = 16, spin = false }: { name: keyof typeof icons; size?: number; spin?: boolean }) {

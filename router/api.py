@@ -93,6 +93,7 @@ def projects():
             "examples": len(p["examples"]),
             "training_calls": sum(b["calls"] for b in p["training"]),
             "adapter": p["adapters"][-1] if p["adapters"] else None,
+            "samples": [o["content"] for o in reversed(p["outputs"]) if o["content"] and not o["problems"]][:6],
         }
         for p in store.all_projects()
     ]
