@@ -13,11 +13,13 @@ import random
 import time
 from concurrent.futures import ThreadPoolExecutor
 
-from . import judge, mubit, store
+from . import judge, mubit, serve, store
 from .extract import extract_llm
 from .route import route
 
 RUN_TOKENS = 8000  # Mubit bills per run of up to 8K tokens
+# Pixel icons drawn cell by cell ran past 2,000 output tokens and came back cut off; prompt and reply still fit one run.
+OUTPUT_TOKENS = 6000
 PROBES = 3
 WORKERS = 4
 FRONTIER = "claude-opus-5-5"
@@ -96,7 +98,7 @@ def _reached(project, lesson):
 def generate_one(project, concept, ctx, record, session, model=None):
     d = store.domain_of(project)
     started = time.time()
-    reply = mubit.call(d.system_prompt(project["name"]), message(project, concept, ctx), model=model or project["model"], record=record, session=session)
+    reply = mubit.call(d.system_prompt(project["name"]), message(project, concept, ctx), model=model or project["model"], record=record, session=session, max_tokens=OUTPUT_TOKENS)
     raw = d.parse_output(reply["text"])
     content = d.postprocess(raw, ctx["params"]) if raw else None
     return {
@@ -274,6 +276,29 @@ def confirm(pid, lid, stability="permanent", statement=None, reach=None):
     return routed
 
 
+def set_reach(pid, reaches):
+    """Give lessons a reach and re-route them from their stored signals, with no new probes.
+
+    For lessons routed before contexts existed: `reaches` is {lesson id: "context" | "model"}. Notes and lessons that
+    asked to be rephrased keep their route; every change is logged as a lesson_rerouted event."""
+    def apply(p):
+        changed = []
+        for x in p["lessons"]:
+            if x["id"] not in reaches:
+                continue
+            x["reach"] = reaches[x["id"]]
+            if x["status"] != "active" or x["route"] in (None, "note", "rephrase"):
+                continue
+            signals = {"tokens": 0, "stability": "permanent", "effect": None, **(x.get("signals") or {})}
+            new, why = route(x, signals, p["calls_per_day"], store.context_of(p, x["context"])["name"])
+            if new != x["route"]:
+                store.event(p, "lesson_rerouted", lesson=x["id"], old=x["route"], route=new, context=x["context"], reach=x["reach"])
+                changed.append({"id": x["id"], "old": x["route"], "route": new})
+                x.update(route=new, reason=why)
+        return changed
+    return store.update(pid, apply)
+
+
 def reject(pid, lid):
     def apply(p):
         x = _lesson(p, lid)
@@ -426,6 +451,7 @@ def evaluate(pid, n=12, frontier=FRONTIER, cid=None):
         "context": cid,
         "concepts": concepts,
         "rows": rows,
+        "serving": serve.choose(rows),
         "outputs": {name: [{"concept": r["concept"], "content": r["content"]} for r in rs] for name, rs in results.items()},
     }
 
@@ -453,6 +479,35 @@ def compare(pid, concept, frontier=FRONTIER, cid=None):
         store.event(p, "compared", concept=concept, context=cid)
     store.update(pid, save)
     return entry
+
+
+def compare_styles(pid, concept, frontier=FRONTIER):
+    """One concept in every context of the model, under each live configuration, side by side; nothing here is kept.
+
+    The raw frontier uses no context, so it is drawn once and shared by every context's row. Each context's row is stored
+    as an ordinary comparison, tied to the others by a group id, so the adapter's answer can be pasted into any of them."""
+    project = store.load(pid)
+    cids = [c["id"] for c in store.live(project)]
+    group = store.new_id("grp")
+    jobs = {("*", "frontier"): (frontier, context(project, cids[0], mode="bare"))}
+    for cid in cids:
+        for name, (model, ctx) in configurations(project, cid, frontier).items():
+            if name != "frontier":
+                jobs[(cid, name)] = (model, ctx)
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futures = {key: pool.submit(generate_one, project, concept, ctx, "metadata", f"{pid}-{key[0]}-styles-{key[1]}", model) for key, (model, ctx) in jobs.items()}
+        done = {key: {**future.result(), "model": jobs[key][0]} for key, future in futures.items()}
+    t = store.now()
+    entries = [{
+        "id": store.new_id("cmp"), "t": t, "context": cid, "group": group, "concept": concept,
+        "outputs": {"frontier": done[("*", "frontier")], **{name: out for (c, name), out in done.items() if c == cid}},
+    } for cid in cids]
+
+    def save(p):
+        p["comparisons"] = (p.get("comparisons", []) + entries)[-60:]
+        store.event(p, "compared", concept=concept, group=group)
+    store.update(pid, save)
+    return entries
 
 
 def compare_adapter(pid, comparison_id, config, content):

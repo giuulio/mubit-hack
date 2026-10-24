@@ -34,7 +34,8 @@
    "created": "2026-10-24T18:59:18+0100",
    "probe": {},
    "confirmed": "2026-10-24T18:59:25+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Use round stroke caps on all icons.",
@@ -64,7 +65,8 @@
    "created": "2026-10-24T18:59:18+0100",
    "probe": {},
    "confirmed": "2026-10-24T18:59:25+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Use round stroke joins on all icons.",
@@ -94,7 +96,8 @@
    "created": "2026-10-24T18:59:18+0100",
    "probe": {},
    "confirmed": "2026-10-24T18:59:26+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Do not fill shapes; draw icons as outlines only.",
@@ -124,7 +127,8 @@
    "created": "2026-10-24T18:59:18+0100",
    "probe": {},
    "confirmed": "2026-10-24T18:59:26+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Build each icon from simple geometry: circles, rounded rectangles and smooth arcs, with generous corner radii and no sharp corners.",
@@ -140,8 +144,8 @@
    "feedback": "Soft, friendly line icons. 1.5 px strokes with round caps and joins, no fills. Build each icon from simple geometry: circles, rounded rectangles and smooth arcs, with generous corner radii and no sharp corners. One clear idea per icon, at most four shapes, nothing decorative. Keep everything inside a 2 px padding, centred and optically balanced. A touch of hand-drawn warmth: curves slightly softened, never rigid or mechanical.",
    "sources": [],
    "concept": null,
-   "route": "A\u2227B",
-   "reason": "stable and cheap (53 tokens \u00d7 5,000 calls/day); changed 67% of probes: train it and keep it in context",
+   "route": "A",
+   "reason": "specific to the Smooth context, and the weights are shared by every context: it stays in context (53 tokens \u00d7 5,000 calls/day); changed 67% of probes",
    "in_context": true,
    "signals": {
     "tokens": 53,
@@ -184,7 +188,8 @@
     ]
    },
    "confirmed": "2026-10-24T18:59:34+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Limit each icon to at most four shapes.",
@@ -244,7 +249,8 @@
     ]
    },
    "confirmed": "2026-10-24T18:59:50+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Express one clear idea per icon with nothing decorative.",
@@ -304,7 +310,8 @@
     ]
    },
    "confirmed": "2026-10-24T18:59:57+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "model"
   },
   {
    "statement": "Keep all artwork within a 2 px padding on the 24 px canvas, centred and optically balanced.",
@@ -364,7 +371,8 @@
     ]
    },
    "confirmed": "2026-10-24T19:00:08+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "model"
   },
   {
    "statement": "Add a touch of hand-drawn warmth by slightly softening curves, so they never look rigid or mechanical.",
@@ -380,8 +388,8 @@
    "feedback": "Soft, friendly line icons. 1.5 px strokes with round caps and joins, no fills. Build each icon from simple geometry: circles, rounded rectangles and smooth arcs, with generous corner radii and no sharp corners. One clear idea per icon, at most four shapes, nothing decorative. Keep everything inside a 2 px padding, centred and optically balanced. A touch of hand-drawn warmth: curves slightly softened, never rigid or mechanical.",
    "sources": [],
    "concept": null,
-   "route": "A\u2227B",
-   "reason": "stable and cheap (39 tokens \u00d7 5,000 calls/day); changed 67% of probes: train it and keep it in context",
+   "route": "A",
+   "reason": "specific to the Smooth context, and the weights are shared by every context: it stays in context (39 tokens \u00d7 5,000 calls/day); changed 67% of probes",
    "in_context": true,
    "signals": {
     "tokens": 39,
@@ -424,7 +432,8 @@
     ]
    },
    "confirmed": "2026-10-24T19:00:23+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "This chart icon is a good example: pill-shaped bars with fully rounded ends on a softly curved axis.",
@@ -453,7 +462,8 @@
    "created": "2026-10-24T19:01:03+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:03:09+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Draw bars and other rectangular elements as pills with fully rounded ends, not merely slightly rounded corners.",
@@ -471,8 +481,8 @@
     "out_ea1cb0af"
    ],
    "concept": "chart",
-   "route": "A\u2227B",
-   "reason": "stable and cheap (39 tokens \u00d7 5,000 calls/day); changed 67% of probes: train it and keep it in context",
+   "route": "A",
+   "reason": "specific to the Smooth context, and the weights are shared by every context: it stays in context (39 tokens \u00d7 5,000 calls/day); changed 67% of probes",
    "in_context": true,
    "signals": {
     "tokens": 39,
@@ -515,7 +525,8 @@
     ]
    },
    "confirmed": "2026-10-24T19:04:03+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Draw the settings icon as two horizontal slider tracks, each with a round knob, not as a sun-like gear with radiating rays.",
@@ -544,7 +555,8 @@
    "created": "2026-10-24T19:01:06+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:03:13+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Make each icon's silhouette read unambiguously as its concept; avoid shapes, such as a circle with radiating rays, that read as a different concept.",
@@ -596,7 +608,8 @@
    "created": "2026-10-24T19:01:09+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:03:17+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Draw the home icon as a soft, pebble-like silhouette.",
@@ -625,7 +638,8 @@
    "created": "2026-10-24T19:01:09+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:03:27+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Draw the home door as a pill shape with fully rounded ends.",
@@ -654,7 +668,8 @@
    "created": "2026-10-24T19:01:09+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:03:30+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Avoid generic, stock-looking icon forms; give each icon a distinctive, characterful shape.",
@@ -716,7 +731,8 @@
     ]
    },
    "confirmed": "2026-10-24T19:03:08+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "model"
   },
   {
    "statement": "Round the tips of star and sparkle points so they feel gentle rather than needle-sharp.",
@@ -778,7 +794,8 @@
     ]
    },
    "confirmed": "2026-10-24T19:04:21+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "The organic, slightly asymmetric message bubble with softly wobbling curves is a good example of the product's icon style.",
@@ -796,8 +813,8 @@
     "out_08b3414e"
    ],
    "concept": "message",
-   "route": "B",
-   "reason": "stable and costly (274 tokens \u00d7 5,000 calls/day): train it, then remove it from context",
+   "route": "A",
+   "reason": "specific to the Smooth context, and the weights are shared by every context: it stays in context (274 tokens \u00d7 5,000 calls/day)",
    "in_context": true,
    "signals": {
     "tokens": 274,
@@ -807,7 +824,8 @@
    "created": "2026-10-24T19:01:16+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:03:08+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Apply the hand-drawn softening to structured, geometric concepts like the house too, using subtle asymmetry and slightly irregular curves so they don't look like a generic icon set.",
@@ -825,8 +843,8 @@
     "out_08b3414e"
    ],
    "concept": "message",
-   "route": "A\u2227B",
-   "reason": "stable and cheap (60 tokens \u00d7 5,000 calls/day); changed 100% of probes: train it and keep it in context",
+   "route": "A",
+   "reason": "specific to the Smooth context, and the weights are shared by every context: it stays in context (60 tokens \u00d7 5,000 calls/day); changed 100% of probes",
    "in_context": true,
    "signals": {
     "tokens": 60,
@@ -864,7 +882,8 @@
     ]
    },
    "confirmed": "2026-10-24T19:02:49+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "This lock icon is a good example of the product's style: a softly irregular, hand-drawn pebble-like body, a rounded shackle, and a simple short keyhole line, all drawn as outlines.",
@@ -882,8 +901,8 @@
     "out_1acc38e8"
    ],
    "concept": "lock",
-   "route": "B",
-   "reason": "stable and costly (357 tokens \u00d7 5,000 calls/day): train it, then remove it from context",
+   "route": "A",
+   "reason": "specific to the Smooth context, and the weights are shared by every context: it stays in context (357 tokens \u00d7 5,000 calls/day)",
    "in_context": true,
    "signals": {
     "tokens": 357,
@@ -893,7 +912,8 @@
    "created": "2026-10-24T19:04:54+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:05:48+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "This home icon is a good example: a soft rounded roof with a pebble-like body and a pill-shaped door.",
@@ -911,8 +931,8 @@
     "out_a00e7688"
    ],
    "concept": "home",
-   "route": "B",
-   "reason": "stable and costly (279 tokens \u00d7 5,000 calls/day): train it, then remove it from context",
+   "route": "A",
+   "reason": "specific to the Smooth context, and the weights are shared by every context: it stays in context (279 tokens \u00d7 5,000 calls/day)",
    "in_context": true,
    "signals": {
     "tokens": 279,
@@ -922,7 +942,8 @@
    "created": "2026-10-24T19:04:55+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:05:49+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Draw the scale icon with a level beam, not a tilted one.",
@@ -951,7 +972,8 @@
    "created": "2026-10-24T19:04:58+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:05:49+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Draw the scale icon with only its essential parts: no hanging chains and no detailed pans.",
@@ -980,7 +1002,8 @@
    "created": "2026-10-24T19:04:58+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:05:54+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Keep icons minimal by omitting secondary details such as chains, hangers and extra attachments; include only the parts needed to recognise the concept.",
@@ -1042,7 +1065,8 @@
     ]
    },
    "confirmed": "2026-10-24T19:05:32+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "model"
   },
   {
    "statement": "Leave out tiny secondary details such as fins, flames and windows unless the icon cannot be read without them.",
@@ -1157,7 +1181,8 @@
     ]
    },
    "confirmed": "2026-10-24T19:05:47+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Avoid sharp spikes on pointed shapes such as sparkles; soften every tip into a rounded point.",
@@ -1233,7 +1258,8 @@
    "edited_content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9.82 6.17Q10.5 5.5 11.18 6.17Q11.85 11.65 17.32 12.32Q18 13 17.32 13.68Q11.85 14.35 11.18 19.82Q10.5 20.5 9.82 19.82Q9.15 14.35 3.67 13.68Q3 13 3.67 12.32Q9.15 11.65 9.82 6.17Z\" /><path d=\"M17.58 3.32Q18 2.9 18.42 3.32Q18.52 4.98 20.18 5.08Q20.6 5.5 20.18 5.92Q18.52 6.02 18.42 7.68Q18 8.1 17.58 7.68Q17.48 6.02 15.82 5.92Q15.4 5.5 15.82 5.08Q17.48 4.98 17.58 3.32Z\" /></svg>",
    "probe": {},
    "confirmed": "2026-10-24T19:06:42+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Draw the settings slider knobs as small outline circles with no fill, not filled blobs.",
@@ -1262,7 +1288,8 @@
    "created": "2026-10-24T19:08:00+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:09:32+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Draw each sparkle tip as a smooth curve that turns round within the same continuous line, not as a separate circle or dot added on.",
@@ -1319,7 +1346,8 @@
     ]
    },
    "confirmed": "2026-10-24T19:09:31+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Draw the rocket with separate fins on its body; omit the flame and the porthole/window.",
@@ -1348,7 +1376,8 @@
    "created": "2026-10-24T19:08:11+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:09:35+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Keep the rocket body recognisable as a rocket, with a pointed nose and fins, so that simplifying it does not turn it into a leaf-like silhouette.",
@@ -1377,7 +1406,8 @@
    "created": "2026-10-24T19:08:11+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:09:39+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Draw a plus as two crossing single strokes (one horizontal, one vertical), not as an outlined cross shape.",
@@ -1406,7 +1436,8 @@
    "created": "2026-10-24T19:08:14+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:09:43+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "For symbols made of lines (plus, minus, check, arrows, etc.), draw the strokes themselves as single paths, never the outline of the stroke's shape.",
@@ -1424,8 +1455,8 @@
     "out_8fec926f"
    ],
    "concept": "plus",
-   "route": "A\u2227B",
-   "reason": "stable and cheap (54 tokens \u00d7 5,000 calls/day); changed 67% of probes: train it and keep it in context",
+   "route": "A",
+   "reason": "specific to the Smooth context, and the weights are shared by every context: it stays in context (54 tokens \u00d7 5,000 calls/day); changed 67% of probes",
    "in_context": true,
    "signals": {
     "tokens": 54,
@@ -1468,7 +1499,8 @@
     ]
    },
    "confirmed": "2026-10-24T19:08:40+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "The check icon is a good example: a single simple check stroke inside a softly irregular circle, drawn as clean, calm outlines.",
@@ -1497,7 +1529,8 @@
    "created": "2026-10-24T19:08:17+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:09:46+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Draw the plus icon as two simple crossing strokes, not as a single fussy outlined cross silhouette with many wobbling curves.",
@@ -1582,7 +1615,8 @@
     ]
    },
    "confirmed": "2026-10-24T19:09:04+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "model"
   },
   {
    "statement": "Round the paper plane's nose and every corner with small rounded bulbs or soft radii, so no tip is needle-sharp.",
@@ -1611,7 +1645,8 @@
    "created": "2026-10-24T19:10:28+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:10:52+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Soften the pointed tips and corners of every icon, such as arrow noses, wing points and star tips, with small rounded ends like the sparkles' bulb-tipped points.",
@@ -1673,7 +1708,8 @@
     ]
    },
    "confirmed": "2026-10-24T19:10:52+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "This calendar icon is a good example: a soft rounded, slightly irregular body, pill-shaped binder rings, and calm dot marks for days, all drawn as outlines.",
@@ -1702,7 +1738,8 @@
    "created": "2026-10-24T19:10:30+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:11:03+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "The chat icon with two overlapping organic, softly wobbling speech bubbles is a good example of the product's icon style.",
@@ -1731,7 +1768,8 @@
    "created": "2026-10-24T19:10:33+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:11:07+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Draw the layers icon with characterful, softly irregular, hand-drawn shapes rather than three stacked regular diamond chevrons that look like a stock icon set.",
@@ -1760,7 +1798,8 @@
    "created": "2026-10-24T19:10:33+0100",
    "probe": {},
    "confirmed": "2026-10-24T19:11:10+0100",
-   "context": "smooth"
+   "context": "smooth",
+   "reach": "context"
   },
   {
    "statement": "Build every icon only from axis-aligned square cells on a 12 by 12 grid, each cell 2 by 2 units.",
@@ -5065,6 +5104,108 @@
    "batch": 2,
    "calls": 40,
    "context": "pixel"
+  },
+  {
+   "t": "2026-10-24T22:47:16+0100",
+   "type": "lesson_rerouted",
+   "lesson": "les_04bcfc24",
+   "old": "A\u2227B",
+   "route": "A",
+   "context": "smooth",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:47:16+0100",
+   "type": "lesson_rerouted",
+   "lesson": "les_17f0bc1c",
+   "old": "A\u2227B",
+   "route": "A",
+   "context": "smooth",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:47:16+0100",
+   "type": "lesson_rerouted",
+   "lesson": "les_acdfabba",
+   "old": "A\u2227B",
+   "route": "A",
+   "context": "smooth",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:47:16+0100",
+   "type": "lesson_rerouted",
+   "lesson": "les_49de904c",
+   "old": "B",
+   "route": "A",
+   "context": "smooth",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:47:16+0100",
+   "type": "lesson_rerouted",
+   "lesson": "les_b3c555ad",
+   "old": "A\u2227B",
+   "route": "A",
+   "context": "smooth",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:47:16+0100",
+   "type": "lesson_rerouted",
+   "lesson": "les_c77ffbf3",
+   "old": "B",
+   "route": "A",
+   "context": "smooth",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:47:16+0100",
+   "type": "lesson_rerouted",
+   "lesson": "les_2a6f29cf",
+   "old": "B",
+   "route": "A",
+   "context": "smooth",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:47:16+0100",
+   "type": "lesson_rerouted",
+   "lesson": "les_1668173e",
+   "old": "A\u2227B",
+   "route": "A",
+   "context": "smooth",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:49:11+0100",
+   "type": "evaluation",
+   "id": "eval_35e40204",
+   "context": "smooth"
+  },
+  {
+   "t": "2026-10-24T22:49:24+0100",
+   "type": "evaluation",
+   "id": "eval_d2fb5957",
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:49:50+0100",
+   "type": "evaluation",
+   "id": "eval_eb95ff37",
+   "context": "pixel"
+  },
+  {
+   "t": "2026-10-24T22:49:50+0100",
+   "type": "compared",
+   "concept": "heat pump",
+   "group": "grp_8a0a362d"
+  },
+  {
+   "t": "2026-10-24T22:53:07+0100",
+   "type": "evaluation",
+   "id": "eval_9d4e2328",
+   "context": "pixel"
   }
  ],
  "context_history": [
@@ -6325,6 +6466,958 @@
     ]
    },
    "context": "smooth"
+  },
+  {
+   "id": "eval_35e40204",
+   "t": "2026-10-24T22:49:11+0100",
+   "context": "smooth",
+   "concepts": [
+    "heat pump",
+    "drone delivery",
+    "sourdough starter",
+    "kombucha",
+    "solar inverter",
+    "bike repair",
+    "beehive",
+    "compost bin",
+    "scooter dock",
+    "vinyl record",
+    "pipette",
+    "tide chart"
+   ],
+   "rows": [
+    {
+     "config": "frontier",
+     "model": "claude-opus-5-5",
+     "n": 12,
+     "valid": 11,
+     "style": 2.75,
+     "recognisable": 3.83,
+     "input_tokens": 105,
+     "runs_per_call": 1.0,
+     "seconds": 7.86
+    },
+    {
+     "config": "frontier + full context",
+     "model": "claude-opus-5-5",
+     "n": 12,
+     "valid": 12,
+     "style": 3.33,
+     "recognisable": 3.08,
+     "input_tokens": 1360,
+     "runs_per_call": 1.0,
+     "seconds": 6.0
+    },
+    {
+     "config": "provider + routed context",
+     "model": "claude-sonnet-5-5",
+     "n": 12,
+     "valid": 12,
+     "style": 3.75,
+     "recognisable": 3.33,
+     "input_tokens": 1360,
+     "runs_per_call": 1.0,
+     "seconds": 5.92
+    }
+   ],
+   "serving": {
+    "config": "provider + routed context",
+    "reason": "cheapest rung within 0.25 style of the frontier with context (3.33) and at most one more invalid output",
+    "reference": 3.33,
+    "tolerance": 0.25,
+    "checks": [
+     {
+      "config": "adapter",
+      "status": "missing"
+     },
+     {
+      "config": "adapter + routed context",
+      "status": "missing"
+     },
+     {
+      "config": "provider + routed context",
+      "status": "pass",
+      "style": 3.75,
+      "valid": 12,
+      "n": 12,
+      "input_tokens": 1360
+     },
+     {
+      "config": "frontier + full context",
+      "status": "pass",
+      "style": 3.33,
+      "valid": 12,
+      "n": 12,
+      "input_tokens": 1360
+     }
+    ]
+   },
+   "outputs": {
+    "frontier": [
+     {
+      "concept": "heat pump",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <rect x=\"2.5\" y=\"5\" width=\"19\" height=\"13\" rx=\"1.5\" />\n  <circle cx=\"9\" cy=\"11.5\" r=\"4\" />\n  <circle cx=\"9\" cy=\"11.5\" r=\"0.75\" />\n  <path d=\"M9 10.75c-.6-1.2-.4-2.2.6-2.8\" />\n  <path d=\"M9.65 11.9c1.3.1 2.1.8 2.1 1.9\" />\n  <path d=\"M8.35 11.9c-.7 1.1-1.7 1.4-2.7.9\" />\n  <path d=\"M15.5 8.5h3.5\" />\n  <path d=\"M15.5 11.5h3.5\" />\n  <path d=\"M15.5 14.5h3.5\" />\n  <path d=\"M5 18v1.5\" />\n  <path d=\"M19 18v1.5\" />\n</svg>"
+     },
+     {
+      "concept": "drone delivery",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M2 4h6\" />\n  <path d=\"M16 4h6\" />\n  <path d=\"M5 4v3\" />\n  <path d=\"M19 4v3\" />\n  <path d=\"M5 7h14\" />\n  <rect x=\"9\" y=\"6\" width=\"6\" height=\"3\" rx=\"1\" />\n  <path d=\"M10 9l-1 3\" />\n  <path d=\"M14 9l1 3\" />\n  <rect x=\"7\" y=\"12\" width=\"10\" height=\"9\" rx=\"1\" />\n  <path d=\"M12 12v4\" />\n  <path d=\"M7 16h10\" />\n</svg>"
+     },
+     {
+      "concept": "sourdough starter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M7 3h10v3H7z\" />\n  <path d=\"M7 6c-1.1 0-2 .9-2 2v11a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8c0-1.1-.9-2-2-2\" />\n  <path d=\"M5 12c1.2-1 2.3-1 3.5 0s2.3 1 3.5 0 2.3-1 3.5 0 2.3 1 3.5 0\" />\n  <circle cx=\"9\" cy=\"16\" r=\"1\" />\n  <circle cx=\"14.5\" cy=\"17.5\" r=\"1.5\" />\n  <circle cx=\"12\" cy=\"14.5\" r=\".5\" />\n</svg>"
+     },
+     {
+      "concept": "kombucha",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <rect x=\"7\" y=\"2\" width=\"10\" height=\"3\" rx=\"1\" />\n  <path d=\"M8 5v1.5c0 .8-.6 1.3-1.3 1.6C5.7 8.6 5 9.6 5 10.8V20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9.2c0-1.2-.7-2.2-1.7-2.7-.7-.3-1.3-.8-1.3-1.6V5\" />\n  <path d=\"M5 11c2-1 4 1 7 0s5-1 7 0\" />\n  <ellipse cx=\"12\" cy=\"13\" rx=\"5\" ry=\"1.2\" />\n  <circle cx=\"10\" cy=\"17\" r=\"1\" />\n  <circle cx=\"14\" cy=\"18.5\" r=\".8\" />\n  <circle cx=\"12\" cy=\"20\" r=\".5\" />\n</svg>"
+     },
+     {
+      "concept": "solar inverter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\" /><circle cx=\"8.5\" cy=\"10.5\" r=\"1.5\" /><path d=\"M8.5 7.5v.01M8.5 13.5v.01M5.5 10.5h.01M11.5 10.5h.01\" /><path d=\"M13 13c1-2 2-2 3 0s2 2 3 0\" /><path d=\"M5.5 16h3\" /><path d=\"M7 19v2M17 19v2\" /></svg>"
+     },
+     {
+      "concept": "bike repair",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"5.5\" cy=\"17.5\" r=\"3.5\" /><circle cx=\"18.5\" cy=\"17.5\" r=\"3.5\" /><path d=\"M5.5 17.5h6l3.5-6.5\" /><path d=\"M9 11h6l3.5 6.5\" /><path d=\"M9 11l2.5 6.5\" /><path d=\"M9 11 8 8.5\" /><path d=\"M6.5 8.5h3\" /><g transform=\"translate(13.6 0) scale(0.42)\" stroke-width=\"4.6\"><path d=\"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z\" /></g></svg>"
+     },
+     {
+      "concept": "beehive",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M5 19C4.2 12 7 4 12 4s7.8 8 7 15\" />\n  <path d=\"M3 19h18\" />\n  <path d=\"M7.8 8.5h8.4\" />\n  <path d=\"M5.8 12h12.4\" />\n  <path d=\"M5.1 15.5h4.4\" />\n  <path d=\"M14.5 15.5h4.4\" />\n  <path d=\"M10 19v-2a2 2 0 0 1 4 0v2\" />\n</svg>"
+     },
+     {
+      "concept": "compost bin",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M3 8h18\" />\n  <path d=\"M10 8V5h4v3\" />\n  <path d=\"M5 8l1.5 13h11L19 8\" />\n  <path d=\"M9 18c0-4 2-6 6-6 0 4-2 6-6 6z\" />\n  <path d=\"M10 17l3-3\" />\n</svg>"
+     },
+     {
+      "concept": "scooter dock",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 21.25h20\" /><rect x=\"2.75\" y=\"6\" width=\"4.5\" height=\"15.25\" rx=\"1\" /><path d=\"M5.6 9.5l-1.2 2h1.8l-1.2 2\" /><path d=\"M7.25 15.5h1.5\" /><circle cx=\"10.5\" cy=\"19\" r=\"1.75\" /><circle cx=\"19.25\" cy=\"19\" r=\"1.75\" /><path d=\"M8.75 16.75h8.5l.9-1.2\" /><path d=\"M19.25 19L17.5 5\" /><path d=\"M15.5 5h4\" /></svg>"
+     },
+     {
+      "concept": "vinyl record",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\" /><circle cx=\"12\" cy=\"12\" r=\"3\" /><circle cx=\"12\" cy=\"12\" r=\"0.5\" fill=\"currentColor\" /><path d=\"M6.5 9.5a6 6 0 0 1 3-3\" /><path d=\"M17.5 14.5a6 6 0 0 1-3 3\" /></svg>"
+     },
+     {
+      "concept": "pipette",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <rect x=\"13.5\" y=\"2.5\" width=\"6\" height=\"9\" rx=\"3\" transform=\"rotate(45 16.5 7)\" />\n  <path d=\"M11.5 8.5l4 4\" />\n  <path d=\"M12.5 9.5L5 17l-1 3 3-1 7.5-7.5\" />\n  <path d=\"M4 20l-1.5 1.5\" />\n</svg>"
+     },
+     {
+      "concept": "tide chart",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 3v18h17\" /><path d=\"M5 12 C7 6 9 6 11 12 S15 18 17 12 S20 7 21 8\" /><path d=\"M5 12h16\" stroke-width=\"1\" stroke-dasharray=\"1.5 2\" opacity=\".5\" /><circle cx=\"8\" cy=\"7.5\" r=\"1.25\" fill=\"currentColor\" stroke=\"none\" /></svg>"
+     }
+    ],
+    "frontier + full context": [
+     {
+      "concept": "heat pump",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6.2 5.4c3.9-.3 7.8-.3 11.7 0 1.700.1 2.800 1.300 2.900 3 .2 2.500.2 4.800 0 7.200-.1 1.700-1.200 2.800-2.900 2.900-3.900.3-7.800.3-11.800 0-1.700-.1-2.800-1.300-2.900-3-.2-2.400-.2-4.700 0-7.100.1-1.700 1.300-2.900 3-3z\" /><circle cx=\"9.3\" cy=\"12\" r=\"3.3\" /><path d=\"M9.3 10.4c.9.2 1.300.9.9 1.600M10.8 12.8c-.5.7-1.300.8-1.900.3M7.900 12.200c-.2-.900.200-1.600 1-1.800\" /><path d=\"M15.300 9.400h2.600\" /><path d=\"M15.300 12h2.600\" /><path d=\"M15.300 14.600h2.600\" /><path d=\"M7 18.600v1.300\" /><path d=\"M17 18.600v1.300\" /></svg>"
+     },
+     {
+      "concept": "drone delivery",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2.6 4.3c1.400-.2 2.800-.2 4.300.1\" /><path d=\"M17.200 4.400c1.400-.3 2.900-.3 4.300-.1\" /><path d=\"M4.800 4.300v2.200\" /><path d=\"M19.300 4.300v2.200\" /><path d=\"M4.900 6.600c1.700.1 3.200.2 4.400.4\" /><path d=\"M19.200 6.600c-1.700.1-3.100.2-4.300.4\" /><path d=\"M9.300 6.200c1.800-.6 3.800-.6 5.600 0 .7.300 1 .900.900 1.600-.1.800-.6 1.300-1.400 1.400-1.500.2-3 .2-4.500 0-.8-.1-1.300-.6-1.400-1.400-.1-.700.200-1.300.800-1.600z\" /><path d=\"M10.100 9.300l-.6 2.200\" /><path d=\"M14.100 9.300l.5 2.200\" /><path d=\"M8.600 11.600c2.300-.2 4.600-.2 6.900 0 1 .1 1.600.700 1.700 1.700.1 1.600.1 3.200-.1 4.800-.1 1-.8 1.600-1.800 1.700-2.200.2-4.400.2-6.500 0-1-.1-1.700-.8-1.800-1.800-.1-1.600-.1-3.100.1-4.700.1-1 .6-1.600 1.500-1.700z\" /><path d=\"M12.100 11.700v3\" /></svg>"
+     },
+     {
+      "concept": "sourdough starter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7.3 8.6c-.6 3.4-.7 6.9-.3 10 .2 1.3 1.1 2 2.4 2.1 1.8.1 3.6.1 5.3 0 1.3-.1 2.200-.9 2.300-2.200.4-3.100.3-6.500-.3-9.900\" /><path d=\"M6.4 8.7c.1-1.3 1.3-1.800 2.300-1.300.4-1.600 1.900-2.400 3.400-2.100 1.300-1.100 3.400-.6 3.900 1 1.200-.4 2.400.4 2.300 1.600-.1 1-.9 1.500-1.900 1.400-3-.2-6-.2-8.900 0-.6.1-1.100-.2-1.100-.6z\" /><circle cx=\"10.4\" cy=\"13.3\" r=\".9\" /><circle cx=\"13.6\" cy=\"16.2\" r=\"1.1\" /><circle cx=\"14.1\" cy=\"12\" r=\".6\" /><path d=\"M7.200 18.300c1.600-.6 3-.2 4.300.1 1.700.4 3.500.2 5.200-.5\" /></svg>"
+     },
+     {
+      "concept": "kombucha",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8.3 3.9c2.5-.3 5-.3 7.5.1\" /><path d=\"M8.9 4.1c-.1 1.2-.4 2-1.4 2.7-1.4 1-2.3 2.6-2.3 4.4l.1 6.4c0 2.1 1.4 3.4 3.4 3.5 2.3.1 4.4.1 6.6-.1 2-.1 3.3-1.4 3.3-3.4l.1-6.300c0-1.900-.9-3.400-2.300-4.500-1-.7-1.300-1.500-1.400-2.700\" /><path d=\"M5.4 12.1c1.200-.6 2.400-.6 3.500 0 1.400.7 2.700.8 4.100.1 1.600-.8 3.200-.8 5.700-.1\" /><path d=\"M7.8 14.6c2.700.5 5.600.6 8.400 0\" /><circle cx=\"10.200\" cy=\"17.400\" r=\".600\" /><circle cx=\"14.100\" cy=\"16.900\" r=\".500\" /></svg>"
+     },
+     {
+      "concept": "solar inverter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7.4 4.1c3.1-.2 6.2-.2 9.3 0 1.8.1 2.9 1.2 3 3 .2 3.3.2 6.5 0 9.8-.1 1.8-1.3 2.9-3.1 3-3.1.2-6.1.2-9.2 0-1.8-.1-2.9-1.3-3-3.1-.2-3.2-.2-6.4 0-9.6.1-1.8 1.200-3 3-3.100z\" /><path d=\"M8.3 8.6c.9-.9 1.9-.9 2.8 0s1.900.9 2.800 0 1.900-.9 2.800 0\" /><path d=\"M8.4 12.6h7.300\" /><path d=\"M8.4 15h1.600\" /><path d=\"M11.300 15h1.500\" /><path d=\"M14.100 15h1.600\" /><path d=\"M9.200 20.100v1.300\" /><path d=\"M14.900 20.100v1.300\" /></svg>"
+     },
+     {
+      "concept": "bike repair",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 9.4c3.1-.1 5.7 2.4 5.6 5.6 0 3.1-2.5 5.6-5.6 5.5-3-.1-5.5-2.5-5.5-5.6.1-3 2.5-5.4 5.5-5.5z\" /><circle cx=\"9\" cy=\"15\" r=\"1.2\" /><path d=\"M20.4 7.2c-.9 1.4-2.7 1.8-4.1 1.1-1.4-.8-1.9-2.6-1.2-4 .4-.8 1.2-1.4 2.1-1.5l.1 2.1 1.2.8 1.9-.5z\" /><path d=\"M16 8.5l-4.4 4.4\" /></svg>"
+     },
+     {
+      "concept": "beehive",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4.7 19.8c-.6-5.8 2-12.6 7.3-15.9 5.4 3.1 8 9.7 7.4 15.9-4.9.4-9.8.4-14.7 0z\" /><path d=\"M5.3 15.3c4.5.4 9 .4 13.5-.1\" /><path d=\"M6.7 10.9c3.6.4 7.1.4 10.7-.1\" /><path d=\"M9.2 6.9c1.9.3 3.8.3 5.7 0\" /><path d=\"M10.4 19.9v-1.3c0-1 .7-1.7 1.6-1.7s1.7.7 1.7 1.7v1.3\" /></svg>"
+     },
+     {
+      "concept": "compost bin",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5.3 9.6c4.5-.3 9-.3 13.5.1\" /><path d=\"M6.1 9.7l.8 8.6c.2 1.4 1.1 2.2 2.5 2.2l5.4-.1c1.400 0 2.300-.9 2.500-2.300l.8-8.300\" /><path d=\"M5.2 6.4c4.6-.4 9.1-.3 13.700.1\" /><path d=\"M10.200 6.300c0-1.100.8-1.700 1.900-1.700 1.100 0 1.800.7 1.800 1.800\" /><path d=\"M12.100 17.600c-.1-1.600.4-3.100 1.800-4.100\" /><path d=\"M12.200 15.700c-1.300.1-2.300-.6-2.600-1.900 1.300-.2 2.300.4 2.600 1.900z\" /></svg>"
+     },
+     {
+      "concept": "scooter dock",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3.4 20.6c5.8-.3 11.4-.2 17.2.1\" /><path d=\"M15.2 6.2c.9-.1 1.7.1 2.4.2\" /><path d=\"M16.3 6.3c.4 3.4 1.1 6.6 2.1 9.4\" /><path d=\"M6.6 16.1c2.9.2 5.9.1 8.9-.1\" /><circle cx=\"6.4\" cy=\"16.4\" r=\"1.9\" /><circle cx=\"18.2\" cy=\"16.3\" r=\"1.9\" /><rect x=\"3.6\" y=\"7.4\" width=\"2.2\" height=\"6.4\" rx=\"1.1\" /></svg>"
+     },
+     {
+      "concept": "vinyl record",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12.2 3.6c4.7.1 8.3 3.8 8.2 8.5-.1 4.6-3.8 8.3-8.4 8.2-4.7-.1-8.4-3.8-8.3-8.5.1-4.6 3.8-8.3 8.5-8.2z\" /><path d=\"M12.1 9.4c1.5 0 2.6 1.2 2.6 2.7 0 1.4-1.2 2.5-2.7 2.5-1.4 0-2.6-1.2-2.5-2.7 0-1.4 1.200-2.500 2.600-2.500z\" /><path d=\"M6.9 10.2c.5-1.500 1.600-2.700 3.100-3.300\" /><path d=\"M17.1 13.900c-.5 1.400-1.600 2.600-3 3.200\" /><circle cx=\"12.050\" cy=\"12\" r=\".35\" fill=\"currentColor\" /></svg>"
+     },
+     {
+      "concept": "pipette",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14.3 6.1l1.9-1.9c1-1 2.6-1.1 3.6-.1 1 1 .9 2.6-.1 3.6l-1.9 1.9\" /><path d=\"M12.9 5.4l5.8 5.7\" /><path d=\"M16.3 8.9l-7.9 7.8c-.4.4-.9.6-1.4.7l-1.3.2c-.3.1-.5.2-.7.4l-1 1c-.4.4-1 .4-1.3 0-.4-.3-.4-.9 0-1.3l1-1c.2-.2.3-.4.4-.7l.2-1.3c.1-.5.3-1 .7-1.4l7.8-7.9\" /><path d=\"M8.2 13.2c1.1-.3 2.3 0 3.4.4\" /></svg>"
+     },
+     {
+      "concept": "tide chart",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7.4 4.1c3.1-.2 6.2-.2 9.3 0 1.9.1 3.1 1.3 3.2 3.2.2 3.2.2 6.3 0 9.5-.1 1.8-1.3 3-3.1 3.1-3.2.2-6.3.2-9.5 0-1.8-.1-3-1.3-3.1-3.1-.2-3.2-.2-6.4 0-9.6.1-1.800 1.300-3 3.200-3.100z\" /><path d=\"M6.6 13.2c1.3-2.9 2.700-4.300 4-4.200 1.500.1 2.200 1.900 3.200 3.700 1 1.800 2 2.600 3.600 1.300\" /><path d=\"M7.3 16.9c3.200-.2 6.300-.2 9.400.1\" /></svg>"
+     }
+    ],
+    "provider + routed context": [
+     {
+      "concept": "heat pump",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7.2 3.8c3.2-.2 6.4-.2 9.600 0 2.100.1 3.400 1.400 3.500 3.500.2 2.300.2 4.600 0 6.900-.1 2.100-1.400 3.400-3.500 3.500-3.200.2-6.400.2-9.600 0-2.100-.1-3.400-1.400-3.500-3.500-.2-2.300-.2-4.600 0-6.900.1-2.100 1.400-3.400 3.500-3.500z\" /><path d=\"M12 10.9c-1.800-1.100-1.900-3.600-.2-4.500 1.500.8 2 3.200.2 4.500z\" /><path transform=\"rotate(120 12 10.9)\" d=\"M12 10.9c-1.800-1.100-1.900-3.600-.2-4.500 1.500.8 2 3.200.2 4.500z\" /><path transform=\"rotate(240 12 10.9)\" d=\"M12 10.9c-1.800-1.100-1.900-3.600-.2-4.500 1.500.8 2 3.200.2 4.500z\" /><path d=\"M6.300 20.600h2.200\" /><path d=\"M15.600 20.500h2.200\" /></svg>"
+     },
+     {
+      "concept": "drone delivery",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3.6 5.1c1.6-.5 3.2-.5 4.8 0\" /><path d=\"M15.7 5.1c1.6-.5 3.1-.5 4.8 0\" /><path d=\"M6 5.3v1.4\" /><path d=\"M18.1 5.2v1.5\" /><path d=\"M6 6.8c1.800 1.200 3.200 1.700 6 1.700s4.300-.5 6.100-1.700\" /><path d=\"M12 8.5v2.600\" /><path d=\"M8.300 11.300c2.500-.2 4.900-.2 7.400 0 1 .1 1.700.8 1.800 1.800.1 1.800.1 3.200-.1 4.700-.1 1-.8 1.700-1.800 1.800-2.400.2-4.800.2-7.200 0-1-.1-1.700-.8-1.800-1.800-.2-1.500-.2-3-.1-4.700.1-1 .8-1.700 1.800-1.800z\" /><path d=\"M10.200 14.800c1.200.6 2.400.6 3.600 0\" /></svg>"
+     },
+     {
+      "concept": "sourdough starter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8.3 3.6c2.5-.2 5-.2 7.5 0\" /><path d=\"M8.6 3.7c-.1 1.100-.5 1.800-1.300 2.600-1.700 1.500-2.700 3.300-2.700 5.700v6c0 2.200 1.300 3.500 3.500 3.600 2.600.2 5.200.2 7.800 0 2.100-.1 3.400-1.400 3.500-3.600l.1-6c0-2.300-1-4.100-2.700-5.600-.8-.8-1.200-1.500-1.300-2.700\" /><path d=\"M5.200 13.300c2.200-1 4.100 1 6.800 0 2.500-.9 4.400.9 6.800 0\" /><circle cx=\"9.300\" cy=\"16.600\" r=\"1\" /><circle cx=\"14.200\" cy=\"17.700\" r=\".8\" /><circle cx=\"13\" cy=\"9.300\" r=\"1.100\" /><circle cx=\"9.800\" cy=\"8\" r=\".5\" /></svg>"
+     },
+     {
+      "concept": "kombucha",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9.6 3.4h4.9\" /><path d=\"M10.1 3.5c-.1 1.100-.1 1.900-.4 2.700-.3.800-1.900 1.800-2.500 3.300-.4 1.100-.5 2.300-.5 3.600v4.600c0 2.200 1.300 3.500 3.400 3.600 1.800.1 3.600.1 5.400 0 2.100-.1 3.300-1.400 3.300-3.500v-4.700c0-1.300-.1-2.400-.5-3.400-.6-1.500-2.200-2.500-2.500-3.300-.3-.8-.3-1.700-.4-2.800\" /><path d=\"M7.100 13.300c1.600-.9 3.100.8 4.800 0 1.700-.8 3.300-.8 5 .1\" /><circle cx=\"10.600\" cy=\"16.600\" r=\"1.100\" /><circle cx=\"14.100\" cy=\"17.700\" r=\".6\" /></svg>"
+     },
+     {
+      "concept": "solar inverter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7.6 3.8c3 -.2 6 -.2 8.9 0 1.9.1 3 1.300 3.100 3.200.2 2.800.2 5.200 0 8-.1 1.900-1.200 3.100-3.100 3.200-3 .2-5.900.2-8.900 0-1.900-.1-3-1.300-3.100-3.200-.2-2.800-.2-5.200 0-8 .1-1.900 1.200-3 3.100-3.200z\" /><path d=\"M7.600 10.400c.9-1.500 1.800-1.500 2.400 0 .6 1.500 1.500 1.500 2.400 0\" /><path d=\"M13.600 9.600h2.800\" /><path d=\"M13.600 12h2.800\" /><path d=\"M8.800 20.200v.4\" /><path d=\"M15.200 20.200v.4\" /></svg>"
+     },
+     {
+      "concept": "bike repair",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6.1 9.6c-2.6-.2-4.5 1.7-4.5 4.2 0 2.5 1.9 4.4 4.3 4.4 2.5.1 4.5-1.8 4.5-4.3 0-1.1-.4-2.2-1.1-3\" /><path d=\"M6.3 14l3.1-5.2c.3-.5.8-.7 1.3-.7h4.1\" /><path d=\"M9.4 8.7l-.9-1.6\" /><path d=\"M7.9 6.9h2.3\" /><path d=\"M6.3 14.1h5.4c1 0 1.8-.5 2.3-1.3l2.2-4.1\" /><path d=\"M16.5 7.3c.3-1.2 1.1-1.9 2.2-2\" /><path d=\"M20.4 3.8l-2.6 2.6\" /><path d=\"M16.6 10.4c1.4-.5 3-.1 3.9 1 1.100 1.200 1.300 3 .5 4.300-.9 1.500-2.600 2.300-4.300 2-1.700-.3-3-1.600-3.300-3.200\" /></svg>"
+     },
+     {
+      "concept": "beehive",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2.9c-2.6-.1-4.300 1.500-4.500 3.300-2.200.5-3.500 2.100-3.500 3.900 0 1 .4 1.800 1 2.400-1 .7-1.600 1.800-1.600 3 0 1.100.5 2 1.200 2.600-.2.800-.1 1.600.4 2.200.6.700 1.500 1 2.500 1h9c1 0 1.900-.3 2.500-1 .5-.6.600-1.400.4-2.200.700-.6 1.200-1.500 1.200-2.600 0-1.200-.6-2.300-1.600-3 .6-.6 1-1.400 1-2.400 0-1.800-1.300-3.400-3.500-3.900-.2-1.800-1.900-3.400-4.500-3.300z\" /><path d=\"M6.200 10.300c3.800.5 7.800.5 11.600 0\" /><path d=\"M5.800 15.200c4 .5 8.400.5 12.400 0\" /><circle cx=\"12\" cy=\"19\" r=\"1.300\" /></svg>"
+     },
+     {
+      "concept": "compost bin",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5.2 9.6c4.3-.3 8.9-.3 13.6 0\" /><path d=\"M6.3 9.8l.7 8.2c.1 1.4 1 2.2 2.4 2.3 1.8.1 3.4.1 5.2 0 1.4-.1 2.3-.9 2.4-2.3l.7-8.200\" /><path d=\"M7.4 6.6c1.6-1.100 3.600-1.600 5.100-1.500 1.700.1 3.200.6 4.100 1.500\" /><path d=\"M12.2 5.200c-.1-.8.2-1.600.9-2.200 1.100.1 1.900.6 2.100 1.600-.5.9-1.700 1.200-3 .6z\" /><path d=\"M12.100 13.200c-1.400.1-2.300 1-2.200 2.300 1.500.2 2.400-.5 2.200-2.300z\" /><path d=\"M12.100 13.200c.1 1.600 1 2.400 2.300 2.300-.1-1.300-.9-2.200-2.300-2.300z\" /></svg>"
+     },
+     {
+      "concept": "scooter dock",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6.1 14.3c1.2-.1 2.1.9 2.1 2.1 0 1.2-.9 2.1-2.1 2.1-1.2.1-2.2-.9-2.200-2.100 0-1.200.9-2.100 2.200-2.100z\" /><path d=\"M16.8 14.2c1.2-.1 2.100.9 2.100 2.100 0 1.200-.9 2.200-2.100 2.200-1.200 0-2.200-.9-2.200-2.100 0-1.200.9-2.200 2.200-2.200z\" /><path d=\"M8.2 15.5c1.900-.9 4.300-1 6.500-.1\" /><path d=\"M16.700 14.200c-.3-3-.8-5.700-1.400-8.600\" /><path d=\"M13.600 5.500c.9-.3 1.800-.3 2.700.1\" /><path d=\"M3.300 20.900c5.800-.3 11.600-.3 17.400 0\" /><path d=\"M21 20.800c.1-1.900.1-3.700-.1-5.300\" /></svg>"
+     },
+     {
+      "concept": "vinyl record",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12.1 3.2c4.9-.1 8.800 3.700 8.700 8.600-.1 4.900-3.900 8.900-8.800 9-4.900.1-8.800-3.800-8.800-8.700 0-4.900 3.900-8.800 8.900-8.900z\" /><path d=\"M12 9.300c1.600-.1 2.800 1.100 2.800 2.700 0 1.600-1.200 2.800-2.800 2.800-1.600 0-2.800-1.200-2.700-2.800.1-1.600 1.200-2.700 2.700-2.700z\" /><path d=\"M6.800 12.100c0-2.800 2.200-5.100 5-5.200\" /><path d=\"M17.200 12c0 2.800-2.200 5.100-5 5.200\" /></svg>"
+     },
+     {
+      "concept": "pipette",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><g transform=\"translate(1.5 -1.5) rotate(35 12 12)\"><path d=\"M10 8V5.2c0-1.6.9-2.6 2.1-2.6 1.2 0 1.9 1 1.9 2.6V8\" /><path d=\"M8.2 9.3c0-.7.5-1.2 1.2-1.3 1.8-.1 3.5-.1 5.2 0 .7.1 1.2.6 1.2 1.3s-.5 1.3-1.2 1.4c-1.7.1-3.4.1-5.2 0-.7-.1-1.2-.7-1.2-1.4z\" /><path d=\"M9.6 10.8l.5 6.2c.1.8.9 2.3 1.9 3.6.9-1.3 1.7-2.8 1.8-3.6l.5-6.2\" /></g><path d=\"M4.9 18.3c.9 1.2 1.5 1.9 1.5 2.7 0 .8-.7 1.4-1.5 1.4s-1.4-.6-1.4-1.4c0-.8.5-1.5 1.4-2.7z\" /></svg>"
+     },
+     {
+      "concept": "tide chart",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4.1 6.2c-.1 3.800-.1 7.600 0 11.600\" /><path d=\"M3.9 20.1c5.400.2 11.200.2 16.300 0\" /><path d=\"M7.4 12.6c1.500-3.100 3-4.600 4.600-4.600 2.200 0 2.700 7.800 4.800 7.800 1.100 0 2.200-1.100 3.400-3.200\" /><path d=\"M7.600 5.100h.1\" /></svg>"
+     }
+    ]
+   }
+  },
+  {
+   "id": "eval_d2fb5957",
+   "t": "2026-10-24T22:49:24+0100",
+   "context": "duotone",
+   "concepts": [
+    "heat pump",
+    "drone delivery",
+    "sourdough starter",
+    "kombucha",
+    "solar inverter",
+    "bike repair",
+    "beehive",
+    "compost bin",
+    "scooter dock",
+    "vinyl record",
+    "pipette",
+    "tide chart"
+   ],
+   "rows": [
+    {
+     "config": "frontier",
+     "model": "claude-opus-5-5",
+     "n": 12,
+     "valid": 11,
+     "style": 1.08,
+     "recognisable": 3.5,
+     "input_tokens": 105,
+     "runs_per_call": 1.0,
+     "seconds": 7.41
+    },
+    {
+     "config": "frontier + full context",
+     "model": "claude-opus-5-5",
+     "n": 12,
+     "valid": 12,
+     "style": 4.17,
+     "recognisable": 4.0,
+     "input_tokens": 302,
+     "runs_per_call": 1.0,
+     "seconds": 11.71
+    },
+    {
+     "config": "provider + routed context",
+     "model": "claude-sonnet-5-5",
+     "n": 12,
+     "valid": 12,
+     "style": 3.92,
+     "recognisable": 3.5,
+     "input_tokens": 302,
+     "runs_per_call": 1.0,
+     "seconds": 6.4
+    }
+   ],
+   "serving": {
+    "config": "provider + routed context",
+    "reason": "cheapest rung within 0.25 style of the frontier with context (4.17) and at most one more invalid output",
+    "reference": 4.17,
+    "tolerance": 0.25,
+    "checks": [
+     {
+      "config": "adapter",
+      "status": "missing"
+     },
+     {
+      "config": "adapter + routed context",
+      "status": "missing"
+     },
+     {
+      "config": "provider + routed context",
+      "status": "pass",
+      "style": 3.92,
+      "valid": 12,
+      "n": 12,
+      "input_tokens": 302
+     },
+     {
+      "config": "frontier + full context",
+      "status": "pass",
+      "style": 4.17,
+      "valid": 12,
+      "n": 12,
+      "input_tokens": 302
+     }
+    ]
+   },
+   "outputs": {
+    "frontier": [
+     {
+      "concept": "heat pump",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <rect x=\"2\" y=\"5\" width=\"20\" height=\"13\" rx=\"1.5\" />\n  <circle cx=\"9\" cy=\"11.5\" r=\"4\" />\n  <circle cx=\"9\" cy=\"11.5\" r=\"0.75\" />\n  <path d=\"M9 10.75c0-1.5.5-2.25 1.5-2.5\" />\n  <path d=\"M9.75 11.5c1.5 0 2.25.5 2.5 1.5\" />\n  <path d=\"M9 12.25c0 1.5-.5 2.25-1.5 2.5\" />\n  <path d=\"M8.25 11.5c-1.5 0-2.25-.5-2.5-1.5\" />\n  <path d=\"M15.5 8.5h3.5\" />\n  <path d=\"M15.5 10.5h3.5\" />\n  <path d=\"M15.5 12.5h3.5\" />\n  <path d=\"M15.5 14.5h3.5\" />\n  <path d=\"M5 18v2\" />\n  <path d=\"M19 18v2\" />\n</svg>"
+     },
+     {
+      "concept": "drone delivery",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M2 4h6\" />\n  <path d=\"M16 4h6\" />\n  <path d=\"M5 4v3h4\" />\n  <path d=\"M19 4v3h-4\" />\n  <rect x=\"9\" y=\"5.5\" width=\"6\" height=\"3.5\" rx=\"1\" />\n  <path d=\"M12 9v3\" />\n  <rect x=\"7.5\" y=\"12\" width=\"9\" height=\"9\" rx=\"1\" />\n  <path d=\"M7.5 15.5h9\" />\n  <path d=\"M12 12v3.5\" />\n</svg>"
+     },
+     {
+      "concept": "sourdough starter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M7 7h10v12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V7z\" />\n  <path d=\"M6 3h12v4H6z\" />\n  <path d=\"M7 12c1 -1 2 -1 3 0s2 1 3 0 2 -1 3 0 1 .5 1 .5\" />\n  <circle cx=\"10\" cy=\"16\" r=\"1\" />\n  <circle cx=\"14\" cy=\"17.5\" r=\"0.75\" />\n  <circle cx=\"13\" cy=\"14.5\" r=\"0.5\" />\n</svg>"
+     },
+     {
+      "concept": "kombucha",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M7 6c0-2 2-3 5-3s5 1 5 3\" />\n  <path d=\"M6.5 6h11\" />\n  <path d=\"M7 6l-1 2.5M17 6l1 2.5\" />\n  <path d=\"M8 6v2a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2V6\" />\n  <path d=\"M6 12c1.5-1 3 1 4 0s3 1 4 0 3 1 4 0\" />\n  <circle cx=\"10\" cy=\"15.5\" r=\".6\" fill=\"currentColor\" />\n  <circle cx=\"14\" cy=\"16.5\" r=\".6\" fill=\"currentColor\" />\n  <circle cx=\"11.5\" cy=\"18.5\" r=\".6\" fill=\"currentColor\" />\n</svg>"
+     },
+     {
+      "concept": "solar inverter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <circle cx=\"12\" cy=\"4.5\" r=\"2\" />\n  <path d=\"M12 1v.2M8 4.5h.3M16 4.5h-.3M9.2 1.8l.2.2M14.8 1.8l-.2.2\" />\n  <path d=\"M12 6.5V9\" />\n  <rect x=\"4\" y=\"9\" width=\"16\" height=\"12\" rx=\"2\" />\n  <path d=\"M17.5 10.5 6.5 19.5\" />\n  <path d=\"M7 12h4M7 14.5h1M10 14.5h1\" />\n  <path d=\"M12.5 17.5q1.5-2 3 0t3 0\" />\n</svg>"
+     },
+     {
+      "concept": "bike repair",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"5\" cy=\"17.5\" r=\"3.5\" /><circle cx=\"19\" cy=\"17.5\" r=\"3.5\" /><path d=\"M5 17.5 9 12h7l3 5.5\" /><path d=\"M9 12l2.5 5.5L16 12\" /><path d=\"M5 17.5h6.5\" /><path d=\"M9 12V10M7.75 10h2.5\" /><path d=\"M16 12l-1-3h2\" /><path transform=\"translate(1.2 0.6) scale(0.32)\" vector-effect=\"non-scaling-stroke\" d=\"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z\" /></svg>"
+     },
+     {
+      "concept": "beehive",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 19 5 8Q12 2 19 8L20 19Z\" /><path d=\"M5 12h14M5 16h14M5 8h14\" /><path d=\"M10 19a2 2 0 0 1 4 0\" /></svg>"
+     },
+     {
+      "concept": "compost bin",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 7h16\" /><path d=\"M10 7V5h4v2\" /><path d=\"M5 7l1.5 13a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1L19 7\" /><path d=\"M12 18v-3\" /><path d=\"M12 15c0-2 1.5-3.5 3.5-3.5 0 2-1.5 3.5-3.5 3.5z\" /><path d=\"M12 16c0-1.7-1.2-3-3-3 0 1.7 1.3 3 3 3z\" /></svg>"
+     },
+     {
+      "concept": "scooter dock",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M2 21h20\" />\n  <path d=\"M4 21V9a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v12\" />\n  <path d=\"M6 10.5h0\" />\n  <path d=\"M12 4h2l2.5 11\" />\n  <circle cx=\"16.5\" cy=\"17\" r=\"2\" />\n  <circle cx=\"11\" cy=\"17\" r=\"2\" />\n  <path d=\"M13 17h1.5\" />\n</svg>"
+     },
+     {
+      "concept": "vinyl record",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\" /><circle cx=\"12\" cy=\"12\" r=\"3\" /><circle cx=\"12\" cy=\"12\" r=\"0.5\" /><path d=\"M5.5 12A6.5 6.5 0 0 1 12 5.5\" /></svg>"
+     },
+     {
+      "concept": "pipette",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M14 7l2.5-2.5a2.12 2.12 0 0 1 3 3L17 10\" />\n  <path d=\"M12 6l6 6\" />\n  <path d=\"M15 9l-8.5 8.5L5 21l3.5-1.5L17 11\" />\n</svg>"
+     },
+     {
+      "concept": "tide chart",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3v18h18\" /><path d=\"M6 13c1.5-4 3-6 4.5-6s3 10 5 10 2.5-3 4-5\" /><path d=\"M7 21v-1M11 21v-1M15 21v-1M19 21v-1\" stroke-width=\"1.5\" /><circle cx=\"10.5\" cy=\"7\" r=\"1\" fill=\"currentColor\" stroke=\"none\" /></svg>"
+     }
+    ],
+    "frontier + full context": [
+     {
+      "concept": "heat pump",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path d=\"M5 18h3v2.2a.8.8 0 0 1-.8.8H5.8a.8.8 0 0 1-.8-.8zM16 18h3v2.2a.8.8 0 0 1-.8.8h-1.4a.8.8 0 0 1-.8-.8z\" fill=\"#2E8B57\" /><path d=\"M5 4.5h14a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3z\" fill=\"#2E8B57\" /><circle cx=\"9\" cy=\"11.75\" r=\"4.8\" fill=\"#FFFFFF\" /><g fill=\"#2E8B57\"><path d=\"M9 11.75C8.6 9.6 9.6 7.9 11 7.8c.6 1.5-.2 3.3-2 3.95z\" /><path d=\"M9 11.75C8.6 9.6 9.6 7.9 11 7.8c.6 1.5-.2 3.3-2 3.95z\" transform=\"rotate(120 9 11.75)\" /><path d=\"M9 11.75C8.6 9.6 9.6 7.9 11 7.8c.6 1.5-.2 3.3-2 3.95z\" transform=\"rotate(240 9 11.75)\" /><circle cx=\"9\" cy=\"11.75\" r=\"1.1\" /></g><rect x=\"15.5\" y=\"7.6\" width=\"4\" height=\"1.3\" rx=\".65\" fill=\"#FFFFFF\" /><rect x=\"15.5\" y=\"10\" width=\"4\" height=\"1.3\" rx=\".65\" fill=\"#FFFFFF\" /><rect x=\"15.5\" y=\"12.4\" width=\"4\" height=\"1.3\" rx=\".65\" fill=\"#FFFFFF\" /><circle class=\"accent\" cx=\"18.6\" cy=\"16\" r=\"1\" fill=\"#FF4A14\" /></svg>"
+     },
+     {
+      "concept": "drone delivery",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <g fill=\"#2E9E5B\">\n    <ellipse cx=\"5\" cy=\"3.5\" rx=\"3.6\" ry=\"1.1\" />\n    <ellipse cx=\"19\" cy=\"3.5\" rx=\"3.6\" ry=\"1.1\" />\n    <rect x=\"4.4\" y=\"3.5\" width=\"1.2\" height=\"3.5\" rx=\"0.6\" />\n    <rect x=\"18.4\" y=\"3.5\" width=\"1.2\" height=\"3.5\" rx=\"0.6\" />\n    <path d=\"M4.4 6.2h15.2a0.8 0.8 0 0 1 0 1.6H4.4a0.8 0.8 0 0 1 0-1.6z\" />\n    <path d=\"M8.5 5.2h7c1.1 0 2 .9 2 2v0.3c0 1.4-1.1 2.5-2.5 2.5h-6c-1.4 0-2.5-1.1-2.5-2.5v-0.3c0-1.1.9-2 2-2z\" />\n    <rect x=\"11.4\" y=\"9.5\" width=\"1.2\" height=\"2.5\" />\n    <path d=\"M9 12h6l2 2.2V19.5a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 7 19.5V14.2z\" />\n  </g>\n  <rect x=\"7\" y=\"14.2\" width=\"10\" height=\"1.1\" fill=\"#FFFFFF\" />\n  <rect x=\"11.3\" y=\"15.3\" width=\"1.4\" height=\"2.6\" rx=\"0.4\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"12\" cy=\"7.6\" r=\"1.1\" fill=\"#FF4A14\" />\n</svg>"
+     },
+     {
+      "concept": "sourdough starter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path d=\"M6.3 9.5C5.8 6.2 7.9 4.3 9.8 5.1 10.8 3 13.6 2.9 14.5 5 16.4 4.3 18.5 6 17.7 9.5z\" fill=\"#2E7D4F\" />\n  <path d=\"M6 9.5h12v9a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 6 18.5z\" fill=\"#2E7D4F\" />\n  <rect x=\"6\" y=\"9.2\" width=\"12\" height=\"0.9\" fill=\"#FFFFFF\" />\n  <rect x=\"6\" y=\"13.2\" width=\"12\" height=\"1\" fill=\"#FFFFFF\" />\n  <circle cx=\"9.2\" cy=\"17.2\" r=\"1.1\" fill=\"#FFFFFF\" />\n  <circle cx=\"14.2\" cy=\"18\" r=\"0.8\" fill=\"#FFFFFF\" />\n  <circle cx=\"12.8\" cy=\"11.6\" r=\"0.7\" fill=\"#FFFFFF\" />\n  <circle cx=\"10.2\" cy=\"7\" r=\"0.7\" fill=\"#FFFFFF\" />\n  <circle cx=\"14.6\" cy=\"7.4\" r=\"0.5\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"18.6\" cy=\"3.4\" r=\"1.2\" fill=\"#FF4A14\" />\n</svg>"
+     },
+     {
+      "concept": "kombucha",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path d=\"M7.5 2.5h9l2 3.5h-13z\" fill=\"#2E7D4F\" /><rect x=\"8\" y=\"6\" width=\"8\" height=\"1.5\" fill=\"#2E7D4F\" /><rect x=\"5\" y=\"7\" width=\"14\" height=\"14.5\" rx=\"3.5\" fill=\"#2E7D4F\" /><path d=\"M7 10.5Q9.5 9.3 12 10.5T17 10.5V12.3Q14.5 13.5 12 12.3T7 12.3Z\" fill=\"#FFFFFF\" /><circle cx=\"9.5\" cy=\"17\" r=\"1.1\" fill=\"#FFFFFF\" /><circle cx=\"14.5\" cy=\"18.8\" r=\"0.8\" fill=\"#FFFFFF\" /><circle cx=\"11.2\" cy=\"19.3\" r=\"0.6\" fill=\"#FFFFFF\" /><circle class=\"accent\" cx=\"13.6\" cy=\"15.4\" r=\"1.3\" fill=\"#FF4A14\" /></svg>"
+     },
+     {
+      "concept": "solar inverter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><rect x=\"4\" y=\"3\" width=\"16\" height=\"16.5\" rx=\"2.5\" fill=\"#2E9E5B\" /><rect x=\"6.5\" y=\"20\" width=\"2.5\" height=\"2\" rx=\"0.6\" fill=\"#2E9E5B\" /><rect x=\"15\" y=\"20\" width=\"2.5\" height=\"2\" rx=\"0.6\" fill=\"#2E9E5B\" /><rect x=\"7\" y=\"5.5\" width=\"5\" height=\"1.3\" rx=\"0.4\" fill=\"#FFFFFF\" /><rect x=\"7\" y=\"7.7\" width=\"1.3\" height=\"1.1\" rx=\"0.3\" fill=\"#FFFFFF\" /><rect x=\"8.85\" y=\"7.7\" width=\"1.3\" height=\"1.1\" rx=\"0.3\" fill=\"#FFFFFF\" /><rect x=\"10.7\" y=\"7.7\" width=\"1.3\" height=\"1.1\" rx=\"0.3\" fill=\"#FFFFFF\" /><path d=\"M7 13.6C8.5 10.4 10 10.4 11.5 13.6S14.5 16.8 17 13.4V14.9C14.5 18.3 13 18.3 11.5 15.1S8.5 11.9 7 15.1Z\" fill=\"#FFFFFF\" /><circle class=\"accent\" cx=\"16.3\" cy=\"6.6\" r=\"1.3\" fill=\"#FF4A14\" /></svg>"
+     },
+     {
+      "concept": "bike repair",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><circle cx=\"9\" cy=\"14\" r=\"7.5\" fill=\"#2E8B57\" /><circle cx=\"9\" cy=\"14\" r=\"5.5\" fill=\"#FFFFFF\" /><g fill=\"#2E8B57\"><rect x=\"8.4\" y=\"8.8\" width=\"1.2\" height=\"10.4\" rx=\".6\" /><rect x=\"8.4\" y=\"8.8\" width=\"1.2\" height=\"10.4\" rx=\".6\" transform=\"rotate(60 9 14)\" /><rect x=\"8.4\" y=\"8.8\" width=\"1.2\" height=\"10.4\" rx=\".6\" transform=\"rotate(-60 9 14)\" /></g><g transform=\"rotate(-45 16.5 7.5)\"><rect x=\"9\" y=\"5\" width=\"11\" height=\"5\" rx=\"2.5\" fill=\"#FFFFFF\" /><circle cx=\"20.5\" cy=\"7.5\" r=\"4.2\" fill=\"#FFFFFF\" /><rect x=\"10\" y=\"6.4\" width=\"10\" height=\"2.2\" rx=\"1.1\" fill=\"#2E8B57\" /><circle cx=\"20.5\" cy=\"7.5\" r=\"3\" fill=\"#2E8B57\" /><rect x=\"20.3\" y=\"6.5\" width=\"3.5\" height=\"2\" fill=\"#FFFFFF\" /></g><circle class=\"accent\" cx=\"9\" cy=\"14\" r=\"1.7\" fill=\"#FF4A14\" /></svg>"
+     },
+     {
+      "concept": "beehive",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path d=\"M5 20Q4 10 12 4Q20 10 19 20Z\" fill=\"#2E7D4F\" /><rect x=\"3\" y=\"19.5\" width=\"18\" height=\"2.5\" rx=\"1.25\" fill=\"#2E7D4F\" /><path d=\"M7.6 9.2Q12 7.6 16.4 9.2L16.6 10.2Q12 8.7 7.4 10.2Z\" fill=\"#FFFFFF\" /><path d=\"M5.8 13.2Q12 11.4 18.2 13.2L18.3 14.2Q12 12.5 5.7 14.2Z\" fill=\"#FFFFFF\" /><path d=\"M10 19.5V18.2A2 2 0 0 1 14 18.2V19.5Z\" fill=\"#FFFFFF\" /><circle class=\"accent\" cx=\"19.5\" cy=\"5\" r=\"1.5\" fill=\"#FF4A14\" /></svg>"
+     },
+     {
+      "concept": "compost bin",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#2E7D4F\" d=\"M10 5.2a2 2 0 0 1 4 0V6h5.6a1.4 1.4 0 0 1 1.3 1.9l-.3.8a1 1 0 0 1-.9.6H4.3a1 1 0 0 1-.9-.6l-.3-.8A1.4 1.4 0 0 1 4.4 6H10z\" />\n  <path fill=\"#2E7D4F\" d=\"M4.6 10h14.8l-1.2 10.2a1.6 1.6 0 0 1-1.6 1.3H7.4a1.6 1.6 0 0 1-1.6-1.3z\" />\n  <rect x=\"7\" y=\"11.8\" width=\"10\" height=\"1.1\" rx=\".55\" fill=\"#FFFFFF\" />\n  <rect x=\"7.3\" y=\"14.1\" width=\"9.4\" height=\"1.1\" rx=\".55\" fill=\"#FFFFFF\" />\n  <path fill=\"#FFFFFF\" d=\"M9.3 16.8h5.4a.6.6 0 0 1 .6.6v2.4a.4.4 0 0 1-.4.4H9.1a.4.4 0 0 1-.4-.4v-2.4a.6.6 0 0 1 .6-.6z\" />\n  <rect x=\"10.9\" y=\"17.6\" width=\"2.2\" height=\".9\" rx=\".45\" fill=\"#2E7D4F\" />\n  <path class=\"accent\" fill=\"#FF4A14\" d=\"M13.4 4.3c.3-2 1.9-3.1 4-2.9-.2 2-1.9 3.2-4 2.9z\" />\n</svg>"
+     },
+     {
+      "concept": "scooter dock",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><rect x=\"2\" y=\"20.5\" width=\"20\" height=\"1.6\" rx=\"0.8\" fill=\"#2E9E5B\" /><rect x=\"3\" y=\"6\" width=\"4\" height=\"15\" rx=\"1.2\" fill=\"#2E9E5B\" /><rect x=\"4\" y=\"7.6\" width=\"2\" height=\"3\" rx=\"0.5\" fill=\"#FFFFFF\" /><rect x=\"6.5\" y=\"11.2\" width=\"3.4\" height=\"1.6\" rx=\"0.6\" fill=\"#2E9E5B\" /><rect x=\"7.6\" y=\"3.4\" width=\"4.8\" height=\"1.6\" rx=\"0.8\" fill=\"#2E9E5B\" /><path d=\"M9 4.5h1.6l1.3 13.2h-1.7z\" fill=\"#2E9E5B\" /><path d=\"M10 16.6h8.6a1.3 1.3 0 0 1 1.3 1.3v0.3h-9.9z\" fill=\"#2E9E5B\" /><circle cx=\"11\" cy=\"18.6\" r=\"1.9\" fill=\"#2E9E5B\" /><circle cx=\"18.6\" cy=\"18.6\" r=\"1.9\" fill=\"#2E9E5B\" /><circle cx=\"11\" cy=\"18.6\" r=\"0.7\" fill=\"#FFFFFF\" /><circle cx=\"18.6\" cy=\"18.6\" r=\"0.7\" fill=\"#FFFFFF\" /><circle class=\"accent\" cx=\"5\" cy=\"14.2\" r=\"1\" fill=\"#FF4A14\" /></svg>"
+     },
+     {
+      "concept": "vinyl record",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#2E7D4F\" /><path fill=\"#FFFFFF\" fill-rule=\"evenodd\" d=\"M4.6 12a7.4 7.4 0 1 0 14.8 0a7.4 7.4 0 1 0-14.8 0z M5.3 12a6.7 6.7 0 1 1 13.4 0a6.7 6.7 0 1 1-13.4 0z\" /><path fill=\"#FFFFFF\" d=\"M12 6.2a5.8 5.8 0 0 1 5.8 5.8h-0.8A5 5 0 0 0 12 7z\" /><circle cx=\"12\" cy=\"12\" r=\"3\" fill=\"#FFFFFF\" /><circle class=\"accent\" cx=\"12\" cy=\"12\" r=\"1.1\" fill=\"#FF4A14\" /></svg>"
+     },
+     {
+      "concept": "pipette",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><g transform=\"rotate(45 12 12)\"><ellipse cx=\"12\" cy=\"5\" rx=\"3.2\" ry=\"3.6\" fill=\"#2E9E5B\" /><rect x=\"8.2\" y=\"8\" width=\"7.6\" height=\"2.4\" rx=\"1\" fill=\"#2E9E5B\" /><path d=\"M10 10.2H14V17.6L12.6 21.2H11.4L10 17.6Z\" fill=\"#2E9E5B\" /><rect x=\"11.2\" y=\"11.6\" width=\"1.6\" height=\"4.8\" rx=\"0.8\" fill=\"#FFFFFF\" /><path d=\"M10.6 3.4A1.8 2.2 0 0 1 12.4 2.6\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"0\" /><ellipse cx=\"10.9\" cy=\"4.2\" rx=\"0.6\" ry=\"1.2\" fill=\"#FFFFFF\" /></g><path class=\"accent\" d=\"M3.6 18.9C3.6 18.9 2.2 20.4 2.2 21.3a1.4 1.4 0 0 0 2.8 0C5 20.4 3.6 18.9 3.6 18.9Z\" fill=\"#FF4A14\" /></svg>"
+     },
+     {
+      "concept": "tide chart",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path d=\"M6.5 3h11A3.5 3.5 0 0 1 21 6.5v11a3.5 3.5 0 0 1-3.5 3.5h-11A3.5 3.5 0 0 1 3 17.5v-11A3.5 3.5 0 0 1 6.5 3z\" fill=\"#2E8B57\" /><path d=\"M5 12C7 6.5 9.5 6.5 12 12C14.5 17.5 17 17.5 19 12L19 14.2C17 19.7 14.5 19.7 12 14.2C9.5 8.7 7 8.7 5 14.2Z\" fill=\"#FFFFFF\" /><rect x=\"5\" y=\"18.2\" width=\"1.6\" height=\"1\" rx=\".5\" fill=\"#FFFFFF\" /><rect x=\"11.2\" y=\"18.2\" width=\"1.6\" height=\"1\" rx=\".5\" fill=\"#FFFFFF\" /><rect x=\"17.4\" y=\"18.2\" width=\"1.6\" height=\"1\" rx=\".5\" fill=\"#FFFFFF\" /><circle class=\"accent\" cx=\"8.3\" cy=\"6.6\" r=\"1.5\" fill=\"#FF4A14\" /></svg>"
+     }
+    ],
+    "provider + routed context": [
+     {
+      "concept": "heat pump",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path fill=\"#1F9D55\" d=\"M5 3.5h14A2.5 2.5 0 0 1 21.500 6v12a2.500 2.500 0 0 1-2.500 2.500h-1V22h-2v-1.500H8.500V22h-2v-1.500H5A2.500 2.500 0 0 1 2.500 18V6A2.500 2.500 0 0 1 5 3.500Z\" /><circle fill=\"#FFFFFF\" cx=\"9.500\" cy=\"11\" r=\"5\" /><path fill=\"#1F9D55\" d=\"M9.500 6.800c1 1.800.9 3 0 4.200-.9-1.200-1-2.400 0-4.200Zm3.700 5.700c-1.800 1-3 .9-4.200 0 1.200-.9 2.400-1 4.200 0ZM9.500 15.200c-1-1.800-.9-3-0-4.200.9 1.200 1 2.400 0 4.200ZM5.800 9.500c1.800-1 3-.9 4.200 0-1.200.9-2.400 1-4.200 0Z\" /><circle class=\"accent\" fill=\"#FF4A14\" cx=\"9.500\" cy=\"11\" r=\"1.200\" /><path fill=\"#FFFFFF\" d=\"M15.500 7h3v1.200h-3Zm0 2.500h3v1.200h-3Zm0 2.500h3v1.200h-3Zm0 2.500h3v1.200h-3Z\" /></svg>"
+     },
+     {
+      "concept": "drone delivery",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  \n  <path d=\"M3 5.2h6.2a.9.9 0 0 1 0 1.8H3a.9.9 0 0 1 0-1.8Z\" fill=\"#1F9D55\" />\n  <path d=\"M14.8 5.2H21a.9.9 0 0 1 0 1.8h-6.2a.9.9 0 0 1 0-1.8Z\" fill=\"#1F9D55\" />\n  \n  <path d=\"M7 8.2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.3a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V8.2Z\" fill=\"#1F9D55\" />\n  \n  <rect x=\"5.4\" y=\"6.5\" width=\"1.6\" height=\"2.4\" rx=\".6\" fill=\"#1F9D55\" />\n  <rect x=\"17\" y=\"6.5\" width=\"1.6\" height=\"2.4\" rx=\".6\" fill=\"#1F9D55\" />\n  \n  <rect x=\"11.2\" y=\"11\" width=\"1.6\" height=\"2.3\" fill=\"#1F9D55\" />\n  \n  <path d=\"M6.5 13.3h11a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1v-5.7a1 1 0 0 1 1-1Z\" fill=\"#1F9D55\" />\n  \n  <rect x=\"10.9\" y=\"13.3\" width=\"2.2\" height=\"3.4\" fill=\"#FFFFFF\" />\n  \n  <rect x=\"7.6\" y=\"17.6\" width=\"4.2\" height=\"1.8\" rx=\".6\" fill=\"#FFFFFF\" />\n  \n  <circle class=\"accent\" cx=\"12\" cy=\"8.8\" r=\"1.4\" fill=\"#FF4A14\" />\n</svg>"
+     },
+     {
+      "concept": "sourdough starter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path fill=\"#2E9E5B\" d=\"M8 2.5h8a1 1 0 0 1 0 2h-.6c.9 1 1.6 2.2 1.6 3.5v1.2c2 .9 3.3 2.9 3.3 5.2V18a3.5 3.5 0 0 1-3.5 3.5H7.2A3.5 3.5 0 0 1 3.700 18v-3.600c0-2.300 1.300-4.300 3.300-5.200V8c0-1.300.7-2.500 1.600-3.500H8a1 1 0 0 1 0-2z\" /><path fill=\"#FFFFFF\" d=\"M6.200 14.500c1.200-.9 2.300-.9 3.500 0s2.300.9 3.500 0 2.300-.9 3.500 0 1.700.7 2.100.4v3.600a1.500 1.500 0 0 1-1.500 1.500H7.700a1.500 1.500 0 0 1-1.500-1.500z\" /><circle fill=\"#FFFFFF\" cx=\"9.500\" cy=\"11.500\" r=\"1\" /><circle fill=\"#FFFFFF\" cx=\"14.500\" cy=\"12\" r=\".7\" /><circle class=\"accent\" fill=\"#FF4A14\" cx=\"12\" cy=\"7.500\" r=\"1.300\" /></svg>"
+     },
+     {
+      "concept": "kombucha",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  \n  <path fill=\"#2E9E5B\" d=\"M7 5.5h10a1 1 0 0 1 1 1V8c0 .6.6 1.2 1.1 1.8.6.7.9 1.6.9 2.5v7.2A2.5 2.5 0 0 1 17.5 22h-11A2.5 2.5 0 0 1 4 19.5v-7.2c0-.9.3-1.8.9-2.5C5.4 9.200 6 8.600 6 8V6.500a1 1 0 0 1 1-1Z\" />\n  \n  <rect fill=\"#2E9E5B\" x=\"7.500\" y=\"2\" width=\"9\" height=\"2.500\" rx=\"1\" />\n  \n  <path fill=\"#FFFFFF\" d=\"M6.500 13.500h11v5.500a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1v-5.500Z\" />\n  \n  <path fill=\"#FFFFFF\" d=\"M7.500 10.500c1.500-.8 3-.8 4.500 0s3 .8 4.500 0v1.300c-1.500.8-3 .8-4.500 0s-3-.8-4.500 0v-1.300Z\" />\n  \n  <circle class=\"accent\" cx=\"14.500\" cy=\"16.500\" r=\"1.200\" fill=\"#FF4A14\" />\n  <circle class=\"accent\" cx=\"10\" cy=\"17.500\" r=\"0\" fill=\"#FF4A14\" />\n</svg>"
+     },
+     {
+      "concept": "solar inverter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><rect x=\"4\" y=\"2\" width=\"16\" height=\"17\" rx=\"3\" fill=\"#2E9E5B\" /><rect x=\"8\" y=\"19\" width=\"2\" height=\"3\" rx=\"0.6\" fill=\"#2E9E5B\" /><rect x=\"14\" y=\"19\" width=\"2\" height=\"3\" rx=\"0.6\" fill=\"#2E9E5B\" /><path d=\"M7 11.5C8 8 10 8 12 11.5C14 15 16 15 17 11.5L17 13.1C16 16.6 14 16.6 12 13.1C10 9.6 8 9.6 7 13.1Z\" fill=\"#FFFFFF\" /><circle class=\"accent\" cx=\"7.5\" cy=\"5.5\" r=\"1.1\" fill=\"#FF4A14\" /></svg>"
+     },
+     {
+      "concept": "bike repair",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path fill=\"#1F9D55\" fill-rule=\"evenodd\" d=\"M12 2a10 10 0 1 0 0 20a10 10 0 1 0 0-20zm0 2a8 8 0 1 1 0 16a8 8 0 1 1 0-16z\" /><g transform=\"rotate(45 12 12)\"><rect fill=\"#1F9D55\" x=\"11.1\" y=\"7\" width=\"1.8\" height=\"10\" /><circle fill=\"#1F9D55\" cx=\"12\" cy=\"7.2\" r=\"2.8\" /><rect fill=\"#FFFFFF\" x=\"10.9\" y=\"4.2\" width=\"2.2\" height=\"3\" /><circle fill=\"#1F9D55\" cx=\"12\" cy=\"17\" r=\"2.2\" /><circle fill=\"#FFFFFF\" cx=\"12\" cy=\"17\" r=\"0.9\" /><circle fill=\"#FFFFFF\" cx=\"12\" cy=\"12\" r=\"2.4\" /><circle class=\"accent\" fill=\"#FF4A14\" cx=\"12\" cy=\"12\" r=\"1.5\" /></g></svg>"
+     },
+     {
+      "concept": "beehive",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path fill=\"#1F9D55\" d=\"M12 2.2c-2.6 0-4.6 1.2-5.4 2.9-.2.4-.1.7.2.9C5.5 6.6 4.7 7.7 4.5 9c-.1.5.2.9.6 1.1-.9.6-1.6 1.6-1.7 2.8 0 .4.2.7.5.9-.6.5-1 1.200-1 2 0 .6.3 1 .7 1.200L3 19.800c0 1.100.9 2 2 2h14c1.100 0 2-.9 2-2l-.2-2.800c.4-.2.700-.6.700-1.200 0-.8-.4-1.500-1-2 .3-.2.500-.5.500-.9-.1-1.200-.8-2.200-1.700-2.800.4-.2.700-.6.600-1.100-.2-1.300-1-2.400-2.300-3-.0-.0.0 0 0 0 .3-.2.400-.5.200-.9C16.600 3.400 14.600 2.200 12 2.200z\" /><path fill=\"#FFFFFF\" d=\"M12 12.300c1.100 0 2 .9 2 2v4.500h-4v-4.500c0-1.100.9-2 2-2z\" /><rect fill=\"#FFFFFF\" x=\"6\" y=\"6.700\" width=\"12\" height=\"1.200\" rx=\".6\" /><rect fill=\"#FFFFFF\" x=\"5.500\" y=\"10\" width=\"13\" height=\"1.200\" rx=\".6\" /><circle class=\"accent\" cx=\"12\" cy=\"15.500\" r=\"1\" fill=\"#FF4A14\" /></svg>"
+     },
+     {
+      "concept": "compost bin",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path fill=\"#2E7D32\" d=\"M5 8.5h14l-1.3 11.2a2 2 0 0 1-2 1.8H8.3a2 2 0 0 1-2-1.8L5 8.5z\" /><path fill=\"#2E7D32\" d=\"M3.5 6.2a1 1 0 0 1 .9-1.2l4.1-.5.3-.8A1.5 1.5 0 0 1 10.2 3h3.6a1.5 1.5 0 0 1 1.4.7l.3.8 4.1.5a1 1 0 0 1 .9 1.2l-.1.8H3.6l-.1-.8z\" /><path fill=\"#FFFFFF\" d=\"M12 18.2c-2.3 0-3.8-1.5-3.8-3.6 0-2 1.5-3.5 4.2-3.9 2.2-.3 3.3-.1 3.3-.1s.2 1.2-.1 2.6c-.4 2.2-1.7 5-3.6 5z\" /><path fill=\"#2E7D32\" d=\"M11.3 17.3c.3-2 1.2-3.6 2.7-4.7-1.3 1.3-2 2.9-2.2 4.8l-.5-.1z\" /><circle class=\"accent\" cx=\"17.5\" cy=\"3.8\" r=\"1.4\" fill=\"#FF4A14\" /></svg>"
+     },
+     {
+      "concept": "scooter dock",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <rect x=\"2\" y=\"19.5\" width=\"20\" height=\"2.5\" rx=\"1.25\" fill=\"#1F9D55\" />\n  <rect x=\"16.5\" y=\"3.5\" width=\"5.5\" height=\"16.5\" rx=\"1.75\" fill=\"#1F9D55\" />\n  <rect x=\"9\" y=\"3\" width=\"4.8\" height=\"2\" rx=\"1\" fill=\"#1F9D55\" />\n  <path d=\"M10.6 4.5H12.2L14 15H12.2Z\" fill=\"#1F9D55\" />\n  <rect x=\"3.5\" y=\"13.8\" width=\"11.5\" height=\"2.2\" rx=\"1.1\" fill=\"#1F9D55\" />\n  <circle cx=\"5.5\" cy=\"17.5\" r=\"2.3\" fill=\"#1F9D55\" />\n  <circle cx=\"13.5\" cy=\"17.5\" r=\"2.3\" fill=\"#1F9D55\" />\n  <circle cx=\"5.5\" cy=\"17.5\" r=\"0.9\" fill=\"#FFFFFF\" />\n  <circle cx=\"13.5\" cy=\"17.5\" r=\"0.9\" fill=\"#FFFFFF\" />\n  <rect x=\"17.7\" y=\"12.5\" width=\"3.1\" height=\"1.8\" rx=\"0.9\" fill=\"#FFFFFF\" />\n  <circle cx=\"19.25\" cy=\"7.5\" r=\"1.9\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"19.25\" cy=\"7.5\" r=\"1\" fill=\"#FF4A14\" />\n</svg>"
+     },
+     {
+      "concept": "vinyl record",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path fill=\"#1F9D55\" d=\"M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5Z\" /><path fill=\"#FFFFFF\" d=\"M12 5.2a6.8 6.8 0 0 1 6.8 6.8h-1.4A5.4 5.4 0 0 0 12 6.6V5.2Z\" /><path fill=\"#FFFFFF\" d=\"M12 18.8A6.8 6.8 0 0 1 5.2 12h1.4a5.4 5.4 0 0 0 5.4 5.4v1.4Z\" /><circle class=\"accent\" cx=\"12\" cy=\"12\" r=\"3.2\" fill=\"#FF4A14\" /><circle fill=\"#FFFFFF\" cx=\"12\" cy=\"12\" r=\"0.9\" /></svg>"
+     },
+     {
+      "concept": "pipette",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path fill=\"#1F9D55\" d=\"M16.2 2.3a2.9 2.9 0 0 1 4.1 0l1.4 1.4a2.9 2.9 0 0 1 0 4.1l-2.1 2.1.5.5a1 1 0 0 1 0 1.4l-1.1 1.1a1 1 0 0 1-1.4 0l-.2-.2-6.3 6.3a3.2 3.2 0 0 1-1.6.9l-2.6.6-1.4 1.4a1.2 1.2 0 0 1-1.7-1.7l1.4-1.4.6-2.6c.1-.6.4-1.1.9-1.6l6.3-6.3-.2-.2a1 1 0 0 1 0-1.4l1.1-1.1a1 1 0 0 1 1.4 0l.5.5z\" /><path fill=\"#FFFFFF\" d=\"M9.6 12.3l2.1 2.1-5.5 5.5-1.3.3.3-1.3z\" /><circle class=\"accent\" cx=\"4.2\" cy=\"19.8\" r=\"1.1\" fill=\"#FF4A14\" /></svg>"
+     },
+     {
+      "concept": "tide chart",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path fill=\"#1F9D55\" d=\"M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z\" /><path fill=\"#FFFFFF\" d=\"M4.5 12.2c1.4-3.6 2.9-3.6 4.3 0s2.9 3.6 4.3 0 2.9-3.6 4.3 0c.5 1.2 1 2 1.6 2.6V18.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5z\" /><path fill=\"#FFFFFF\" d=\"M4.5 6h6v1.6h-6z\" /><circle class=\"accent\" cx=\"17\" cy=\"7.5\" r=\"2\" fill=\"#FF4A14\" /></svg>"
+     }
+    ]
+   }
+  },
+  {
+   "id": "eval_eb95ff37",
+   "t": "2026-10-24T22:49:50+0100",
+   "context": "pixel",
+   "concepts": [
+    "heat pump",
+    "drone delivery",
+    "sourdough starter",
+    "kombucha",
+    "solar inverter",
+    "bike repair",
+    "beehive",
+    "compost bin",
+    "scooter dock",
+    "vinyl record",
+    "pipette",
+    "tide chart"
+   ],
+   "rows": [
+    {
+     "config": "frontier",
+     "model": "claude-opus-5-5",
+     "n": 12,
+     "valid": 12,
+     "style": 1.17,
+     "recognisable": 4.25,
+     "input_tokens": 105,
+     "runs_per_call": 1.0,
+     "seconds": 8.21
+    },
+    {
+     "config": "frontier + full context",
+     "model": "claude-opus-5-5",
+     "n": 12,
+     "valid": 12,
+     "style": 3.75,
+     "recognisable": 2.83,
+     "input_tokens": 346,
+     "runs_per_call": 1.0,
+     "seconds": 11.66
+    },
+    {
+     "config": "provider + routed context",
+     "model": "claude-sonnet-5-5",
+     "n": 12,
+     "valid": 9,
+     "style": 3.89,
+     "recognisable": 2.89,
+     "input_tokens": 346,
+     "runs_per_call": 1.0,
+     "seconds": 14.51
+    }
+   ],
+   "serving": {
+    "config": "frontier + full context",
+    "reason": "no cheaper rung holds up yet: the frontier with context serves as the fallback",
+    "reference": 3.75,
+    "tolerance": 0.25,
+    "checks": [
+     {
+      "config": "adapter",
+      "status": "missing"
+     },
+     {
+      "config": "adapter + routed context",
+      "status": "missing"
+     },
+     {
+      "config": "provider + routed context",
+      "status": "fail",
+      "style": 3.89,
+      "valid": 9,
+      "n": 12,
+      "input_tokens": 346
+     },
+     {
+      "config": "frontier + full context",
+      "status": "pass",
+      "style": 3.75,
+      "valid": 12,
+      "n": 12,
+      "input_tokens": 346
+     }
+    ]
+   },
+   "outputs": {
+    "frontier": [
+     {
+      "concept": "heat pump",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" role=\"img\" aria-label=\"Heat pump\">\n  <title>Heat pump</title>\n  <rect x=\"2\" y=\"5\" width=\"20\" height=\"13\" rx=\"2\" />\n  <circle cx=\"9\" cy=\"11.5\" r=\"4\" />\n  <path d=\"M9 11.5c0-1.6 1-2.6 2.4-2.6\" />\n  <path d=\"M9 11.5c-1.4.8-2.8.4-3.5-.8\" />\n  <path d=\"M9 11.5c1.4.8 1.8 2.2 1 3.4\" />\n  <circle cx=\"9\" cy=\"11.5\" r=\"0.6\" fill=\"currentColor\" stroke=\"none\" />\n  <path d=\"M15.5 8.5h3.5\" />\n  <path d=\"M15.5 11.5h3.5\" />\n  <path d=\"M15.5 14.5h3.5\" />\n  <path d=\"M5 18v2\" />\n  <path d=\"M19 18v2\" />\n</svg>"
+     },
+     {
+      "concept": "drone delivery",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 3.5h6M16 3.5h6M5 3.5v3h4M19 3.5v3h-4\" /><rect x=\"9\" y=\"5\" width=\"6\" height=\"3\" rx=\"1\" /><path d=\"M12 8v4\" /><rect x=\"8\" y=\"12\" width=\"8\" height=\"8\" rx=\"1\" /><path d=\"M12 12v8\" /></svg>"
+     },
+     {
+      "concept": "sourdough starter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 9v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9\" /><rect x=\"5\" y=\"6\" width=\"14\" height=\"2\" rx=\"1\" /><path d=\"M7 6c0-2 2-3 3-2c1-2 4-2 4 0c1-1 3 0 3 2\" /><path d=\"M8 13h8\" /><circle cx=\"10\" cy=\"16\" r=\"1\" /><circle cx=\"14\" cy=\"17.5\" r=\"1.2\" /><circle cx=\"11\" cy=\"19\" r=\"0.6\" /></svg>"
+     },
+     {
+      "concept": "kombucha",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"7\" y=\"2\" width=\"10\" height=\"3\" rx=\"1\" /><path d=\"M8 5v1.5C6.5 7.5 5 8.5 5 10.5V20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9.5c0-2-1.5-3-3-4V5\" /><path d=\"M7 10c1.5-.8 3 .8 5 0s3.5.8 5 0v2H7z\" /><circle cx=\"9\" cy=\"16\" r=\"1\" /><circle cx=\"14\" cy=\"15.5\" r=\".8\" /><circle cx=\"12\" cy=\"19\" r=\".6\" /></svg>"
+     },
+     {
+      "concept": "solar inverter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" /><path d=\"M4 20 20 4\" /><path d=\"M6.5 7.5h5\" /><path d=\"M6.5 10.5h1.25\" /><path d=\"M10.25 10.5h1.25\" /><path d=\"M12.5 16.5c.8-1.6 1.7-1.6 2.5 0s1.7 1.6 2.5 0\" /></svg>"
+     },
+     {
+      "concept": "bike repair",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <circle cx=\"5.5\" cy=\"17.5\" r=\"3.5\" />\n  <circle cx=\"18.5\" cy=\"17.5\" r=\"3.5\" />\n  <path d=\"M5.5 17.5 9 12h6l-4 5.5Z\" />\n  <path d=\"M15 12l3.5 5.5\" />\n  <path d=\"M15 12l-.5-1.5h2.5\" />\n  <path d=\"M9 12l-.5-1.5H7\" />\n  <path transform=\"translate(14 0) scale(0.4)\" vector-effect=\"non-scaling-stroke\" d=\"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z\" />\n</svg>"
+     },
+     {
+      "concept": "beehive",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M5 20C4.3 15 6.5 6 12 4c5.5 2 7.7 11 7 16\" />\n  <path d=\"M3 20h18\" />\n  <path d=\"M7.6 8h8.8\" />\n  <path d=\"M5.8 12h12.4\" />\n  <path d=\"M5 16h4\" />\n  <path d=\"M15 16h4\" />\n  <path d=\"M10 20v-2a2 2 0 0 1 4 0v2\" />\n</svg>"
+     },
+     {
+      "concept": "compost bin",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 6h18\" /><path d=\"M10 6V4h4v2\" /><path d=\"M5 6l1.5 14.5h11L19 6\" /><path d=\"M12 17c0-4 2-6 4-6 0 3-2 6-4 6z\" /><path d=\"M12 17c0-3-2-5-4-5 0 3 2 5 4 5z\" /></svg>"
+     },
+     {
+      "concept": "scooter dock",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"6\" cy=\"18\" r=\"2\" /><circle cx=\"16\" cy=\"18\" r=\"2\" /><path d=\"M8 17h6\" /><path d=\"M16 16 13.5 5\" /><path d=\"M11.5 5h4\" /><path d=\"M20 21V9\" /><path d=\"M20 11h-5\" /><path d=\"M3 21h18\" /></svg>"
+     },
+     {
+      "concept": "vinyl record",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <circle cx=\"12\" cy=\"12\" r=\"3\" />\n  <circle cx=\"12\" cy=\"12\" r=\"0.5\" fill=\"currentColor\" />\n  <path d=\"M6.5 9.5a6 6 0 0 1 3-3\" />\n  <path d=\"M17.5 14.5a6 6 0 0 1-3 3\" />\n</svg>"
+     },
+     {
+      "concept": "pipette",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M2 22l1-1h3l9-9\" />\n  <path d=\"M3 21v-3l9-9\" />\n  <path d=\"M15 6l3.4-3.4a2.1 2.1 0 1 1 3 3L18 9l.4.4a2.1 2.1 0 1 1-3 3l-3.8-3.8a2.1 2.1 0 1 1 3-3l.4.4z\" />\n</svg>"
+     },
+     {
+      "concept": "tide chart",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3v18h18\" /><path d=\"M6 13c2-7 4.5-7 6.5 0s4.5 7 7.5-2\" /><path d=\"M7 12h1M11 12h1M15 12h1M19 12h1\" stroke-width=\"1.5\" /></svg>"
+     }
+    ],
+    "frontier + full context": [
+     {
+      "concept": "heat pump",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><path d=\"M8 2h2v2H8zM16 2h2v2h-2zM10 4h2v2h-2zM18 4h2v2h-2zM2 6h20v2H2zM2 8h2v10H2zM20 8h2v10h-2zM8 8h6v2H8zM6 10h2v6H6zM14 10h2v6h-2zM10 12h2v2h-2zM8 16h6v2H8zM18 10h2v2h-2zM18 14h2v2h-2zM2 18h20v2H2zM4 20h2v2H4zM18 20h2v2h-2z\" /></svg>"
+     },
+     {
+      "concept": "drone delivery",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><path fill-rule=\"evenodd\" d=\"M2 2h6v2H2zM16 2h6v2h-6zM4 4h2v2H4zM18 4h2v2h-2zM4 6h16v2H4zM8 8h8v2H8zM8 10h2v2H8zM14 10h2v2h-2zM6 12h12v8H6zM10 14v2h4v-2z\" /></svg>"
+     },
+     {
+      "concept": "sourdough starter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"8\" y=\"2\" width=\"6\" height=\"2\" /><rect x=\"6\" y=\"4\" width=\"6\" height=\"2\" /><rect x=\"14\" y=\"4\" width=\"4\" height=\"2\" /><rect x=\"4\" y=\"6\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"10\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"12\" width=\"4\" height=\"2\" /><rect x=\"10\" y=\"12\" width=\"10\" height=\"2\" /><rect x=\"4\" y=\"14\" width=\"10\" height=\"2\" /><rect x=\"16\" y=\"14\" width=\"4\" height=\"2\" /><rect x=\"4\" y=\"16\" width=\"6\" height=\"2\" /><rect x=\"12\" y=\"16\" width=\"8\" height=\"2\" /><rect x=\"4\" y=\"18\" width=\"16\" height=\"2\" /><rect x=\"6\" y=\"20\" width=\"12\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "kombucha",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" shape-rendering=\"crispEdges\" stroke-width=\"0\"><path fill=\"#d9c6a5\" d=\"M6 2h12v2h2v2H4V4h2z\" /><path fill=\"#b8432f\" d=\"M8 6h8v2H8z\" /><path fill=\"#3a2a1a\" d=\"M6 8h12v2h2v12H4V10h2zM6 10v10h12V10z\" /><path fill=\"#efe0b8\" d=\"M6 10h12v2H6z\" /><path fill=\"#c97a1e\" d=\"M6 12h12v8H6z\" /><path fill=\"#f5c46a\" d=\"M8 14h2v2H8zM14 16h2v2h-2zM10 18h2v2h-2z\" /></svg>"
+     },
+     {
+      "concept": "solar inverter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M6 2h12v2H6zM4 4h12v2H4zM10 6h2v2h-2zM2 8h20v14H2zM4 10v10h16V10zM4 14h4v2H4zM8 12h4v2H8zM12 14h2v2h-2zM14 16h4v2h-4zM18 14h2v2h-2z\" /></svg>"
+     },
+     {
+      "concept": "bike repair",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"16\" y=\"2\" width=\"2\" height=\"2\" /><rect x=\"20\" y=\"2\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"4\" width=\"6\" height=\"2\" /><rect x=\"14\" y=\"6\" width=\"6\" height=\"2\" /><rect x=\"12\" y=\"8\" width=\"4\" height=\"2\" /><rect x=\"6\" y=\"8\" width=\"6\" height=\"2\" /><rect x=\"4\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"8\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"2\" y=\"12\" width=\"2\" height=\"6\" /><rect x=\"14\" y=\"12\" width=\"2\" height=\"6\" /><rect x=\"8\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"14\" width=\"10\" height=\"2\" /><rect x=\"8\" y=\"16\" width=\"2\" height=\"4\" /><rect x=\"4\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"20\" width=\"6\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "beehive",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"10\" y=\"2\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"4\" width=\"8\" height=\"2\" /><rect x=\"6\" y=\"6\" width=\"12\" height=\"2\" /><rect x=\"8\" y=\"8\" width=\"8\" height=\"2\" /><rect x=\"4\" y=\"10\" width=\"16\" height=\"2\" /><rect x=\"6\" y=\"12\" width=\"12\" height=\"2\" /><rect x=\"4\" y=\"14\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"16\" width=\"6\" height=\"4\" /><rect x=\"14\" y=\"16\" width=\"6\" height=\"4\" /><rect x=\"2\" y=\"20\" width=\"20\" height=\"2\" /><rect x=\"18\" y=\"2\" width=\"2\" height=\"2\" /><rect x=\"20\" y=\"4\" width=\"2\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "compost bin",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"12\" y=\"2\" width=\"6\" height=\"2\" /><rect x=\"8\" y=\"4\" width=\"6\" height=\"2\" /><rect x=\"2\" y=\"6\" width=\"20\" height=\"2\" /><rect x=\"4\" y=\"8\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"12\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"16\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"20\" width=\"16\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "scooter dock",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><path d=\"M2 4h4v2H4v14h2v2H2zM4 16h4v2H4zM8 16h12v2H8zM8 18h4v4H8zM18 18h4v4h-4zM18 6h2v10h-2zM14 4h8v2h-8z\" /></svg>"
+     },
+     {
+      "concept": "vinyl record",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\"><path fill=\"currentColor\" d=\"M8 2h8v2H8zM4 4h16v2H4zM2 6h4v2H2zM8 6h14v2H8zM2 8h2v2H2zM6 8h16v2H6zM2 10h8v4H2zM14 10h8v4h-8zM2 14h20v4H2zM4 18h16v2H4zM8 20h8v2H8z\" /></svg>"
+     },
+     {
+      "concept": "pipette",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><path d=\"M16 2h4v2h-4zM14 4h8v4h-8zM16 8h4v2h-4zM10 8h4v2h-4zM12 10h4v2h-4zM10 10h2v2h-2zM8 12h4v2h-4zM6 14h4v2h-4zM4 16h4v2h-4zM4 18h2v2h-2zM2 20h2v2h-2z\" /></svg>"
+     },
+     {
+      "concept": "tide chart",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"2\" y=\"2\" width=\"2\" height=\"20\" /><rect x=\"4\" y=\"20\" width=\"18\" height=\"2\" /><rect x=\"6\" y=\"12\" width=\"2\" height=\"4\" /><rect x=\"8\" y=\"8\" width=\"2\" height=\"4\" /><rect x=\"10\" y=\"6\" width=\"4\" height=\"2\" /><rect x=\"14\" y=\"8\" width=\"2\" height=\"4\" /><rect x=\"16\" y=\"12\" width=\"2\" height=\"4\" /><rect x=\"18\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"20\" y=\"10\" width=\"2\" height=\"4\" /></svg>"
+     }
+    ],
+    "provider + routed context": [
+     {
+      "concept": "heat pump",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"10\" y=\"2\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"4\" width=\"8\" height=\"2\" /><rect x=\"2\" y=\"8\" width=\"20\" height=\"2\" /><rect x=\"2\" y=\"18\" width=\"20\" height=\"2\" /><rect x=\"2\" y=\"10\" width=\"2\" height=\"8\" /><rect x=\"20\" y=\"10\" width=\"2\" height=\"8\" /><rect x=\"10\" y=\"10\" width=\"4\" height=\"8\" /><rect x=\"6\" y=\"12\" width=\"12\" height=\"4\" /><rect x=\"4\" y=\"20\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"20\" width=\"2\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "drone delivery",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"2\" y=\"2\" width=\"6\" height=\"2\" /><rect x=\"16\" y=\"2\" width=\"6\" height=\"2\" /><rect x=\"4\" y=\"4\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"4\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"6\" width=\"16\" height=\"2\" /><rect x=\"8\" y=\"8\" width=\"8\" height=\"2\" /><rect x=\"10\" y=\"10\" width=\"4\" height=\"2\" /><rect x=\"6\" y=\"12\" width=\"12\" height=\"2\" /><rect x=\"6\" y=\"14\" width=\"12\" height=\"2\" /><rect x=\"6\" y=\"16\" width=\"4\" height=\"2\" /><rect x=\"14\" y=\"16\" width=\"4\" height=\"2\" /><rect x=\"6\" y=\"18\" width=\"12\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "sourdough starter",
+      "content": null
+     },
+     {
+      "concept": "kombucha",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"6\" y=\"2\" width=\"12\" height=\"2\" /><rect x=\"6\" y=\"4\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"4\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"6\" width=\"2\" height=\"14\" /><rect x=\"18\" y=\"6\" width=\"2\" height=\"14\" /><rect x=\"4\" y=\"20\" width=\"16\" height=\"2\" /><rect x=\"6\" y=\"8\" width=\"12\" height=\"2\" /><rect x=\"8\" y=\"10\" width=\"2\" height=\"4\" /><rect x=\"14\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"16\" width=\"2\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "solar inverter",
+      "content": null
+     },
+     {
+      "concept": "bike repair",
+      "content": null
+     },
+     {
+      "concept": "beehive",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\"><g fill=\"currentColor\"><rect x=\"10\" y=\"2\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"4\" width=\"8\" height=\"2\" /><rect x=\"6\" y=\"6\" width=\"12\" height=\"2\" /><rect x=\"4\" y=\"8\" width=\"16\" height=\"2\" /><rect x=\"6\" y=\"10\" width=\"12\" height=\"2\" /><rect x=\"4\" y=\"12\" width=\"16\" height=\"2\" /><rect x=\"2\" y=\"14\" width=\"20\" height=\"2\" /><rect x=\"2\" y=\"16\" width=\"8\" height=\"2\" /><rect x=\"14\" y=\"16\" width=\"8\" height=\"2\" /><rect x=\"2\" y=\"18\" width=\"8\" height=\"2\" /><rect x=\"14\" y=\"18\" width=\"8\" height=\"2\" /><rect x=\"2\" y=\"20\" width=\"20\" height=\"2\" /></g></svg>"
+     },
+     {
+      "concept": "compost bin",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"12\" y=\"2\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"4\" width=\"10\" height=\"2\" /><rect x=\"4\" y=\"6\" width=\"18\" height=\"2\" /><rect x=\"6\" y=\"8\" width=\"14\" height=\"2\" /><rect x=\"6\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"12\" width=\"14\" height=\"2\" /><rect x=\"6\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"16\" width=\"14\" height=\"2\" /><rect x=\"6\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"20\" width=\"14\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "scooter dock",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"16\" y=\"2\" width=\"4\" height=\"2\" /><rect x=\"18\" y=\"4\" width=\"2\" height=\"8\" /><rect x=\"6\" y=\"12\" width=\"14\" height=\"2\" /><rect x=\"4\" y=\"14\" width=\"4\" height=\"4\" /><rect x=\"16\" y=\"14\" width=\"4\" height=\"4\" /><rect x=\"10\" y=\"16\" width=\"4\" height=\"2\" /><rect x=\"2\" y=\"18\" width=\"20\" height=\"4\" /></svg>"
+     },
+     {
+      "concept": "vinyl record",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n<rect x=\"6\" y=\"2\" width=\"12\" height=\"2\" />\n<rect x=\"4\" y=\"4\" width=\"16\" height=\"2\" />\n<rect x=\"2\" y=\"6\" width=\"4\" height=\"2\" />\n<rect x=\"18\" y=\"6\" width=\"4\" height=\"2\" />\n<rect x=\"2\" y=\"8\" width=\"4\" height=\"2\" />\n<rect x=\"8\" y=\"8\" width=\"8\" height=\"2\" />\n<rect x=\"18\" y=\"8\" width=\"4\" height=\"2\" />\n<rect x=\"2\" y=\"10\" width=\"4\" height=\"2\" />\n<rect x=\"8\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"10\" width=\"4\" height=\"2\" />\n<rect x=\"2\" y=\"12\" width=\"4\" height=\"2\" />\n<rect x=\"8\" y=\"12\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"12\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"12\" width=\"4\" height=\"2\" />\n<rect x=\"2\" y=\"14\" width=\"4\" height=\"2\" />\n<rect x=\"8\" y=\"14\" width=\"8\" height=\"2\" />\n<rect x=\"18\" y=\"14\" width=\"4\" height=\"2\" />\n<rect x=\"2\" y=\"16\" width=\"4\" height=\"2\" />\n<rect x=\"18\" y=\"16\" width=\"4\" height=\"2\" />\n<rect x=\"4\" y=\"18\" width=\"16\" height=\"2\" />\n<rect x=\"6\" y=\"20\" width=\"12\" height=\"2\" />\n</svg>"
+     },
+     {
+      "concept": "pipette",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\">\n  <rect x=\"16\" y=\"2\" width=\"4\" height=\"2\" />\n  <rect x=\"16\" y=\"4\" width=\"6\" height=\"2\" />\n  <rect x=\"18\" y=\"6\" width=\"4\" height=\"2\" />\n  <rect x=\"14\" y=\"8\" width=\"6\" height=\"2\" />\n  <rect x=\"12\" y=\"10\" width=\"4\" height=\"2\" />\n  <rect x=\"10\" y=\"12\" width=\"4\" height=\"2\" />\n  <rect x=\"8\" y=\"14\" width=\"4\" height=\"2\" />\n  <rect x=\"6\" y=\"16\" width=\"4\" height=\"2\" />\n  <rect x=\"4\" y=\"18\" width=\"4\" height=\"2\" />\n  <rect x=\"4\" y=\"20\" width=\"2\" height=\"2\" />\n</svg>"
+     },
+     {
+      "concept": "tide chart",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"2\" y=\"2\" width=\"2\" height=\"18\" /><rect x=\"2\" y=\"18\" width=\"20\" height=\"2\" /><rect x=\"6\" y=\"4\" width=\"4\" height=\"2\" /><rect x=\"18\" y=\"4\" width=\"4\" height=\"2\" /><rect x=\"10\" y=\"6\" width=\"2\" height=\"4\" /><rect x=\"16\" y=\"6\" width=\"2\" height=\"4\" /><rect x=\"12\" y=\"10\" width=\"4\" height=\"2\" /></svg>"
+     }
+    ]
+   }
+  },
+  {
+   "id": "eval_9d4e2328",
+   "t": "2026-10-24T22:53:07+0100",
+   "context": "pixel",
+   "concepts": [
+    "heat pump",
+    "drone delivery",
+    "sourdough starter",
+    "kombucha",
+    "solar inverter",
+    "bike repair",
+    "beehive",
+    "compost bin",
+    "scooter dock",
+    "vinyl record",
+    "pipette",
+    "tide chart"
+   ],
+   "rows": [
+    {
+     "config": "frontier",
+     "model": "claude-opus-5-5",
+     "n": 12,
+     "valid": 12,
+     "style": 1.0,
+     "recognisable": 4.17,
+     "input_tokens": 105,
+     "runs_per_call": 1.0,
+     "seconds": 7.36
+    },
+    {
+     "config": "frontier + full context",
+     "model": "claude-opus-5-5",
+     "n": 12,
+     "valid": 12,
+     "style": 3.75,
+     "recognisable": 3.0,
+     "input_tokens": 346,
+     "runs_per_call": 1.0,
+     "seconds": 13.48
+    },
+    {
+     "config": "provider + routed context",
+     "model": "claude-sonnet-5-5",
+     "n": 12,
+     "valid": 12,
+     "style": 3.58,
+     "recognisable": 2.58,
+     "input_tokens": 346,
+     "runs_per_call": 1.0,
+     "seconds": 15.05
+    }
+   ],
+   "serving": {
+    "config": "provider + routed context",
+    "reason": "cheapest rung within 0.25 style of the frontier with context (3.75) and at most one more invalid output",
+    "reference": 3.75,
+    "tolerance": 0.25,
+    "checks": [
+     {
+      "config": "adapter",
+      "status": "missing"
+     },
+     {
+      "config": "adapter + routed context",
+      "status": "missing"
+     },
+     {
+      "config": "provider + routed context",
+      "status": "pass",
+      "style": 3.58,
+      "valid": 12,
+      "n": 12,
+      "input_tokens": 346
+     },
+     {
+      "config": "frontier + full context",
+      "status": "pass",
+      "style": 3.75,
+      "valid": 12,
+      "n": 12,
+      "input_tokens": 346
+     }
+    ]
+   },
+   "outputs": {
+    "frontier": [
+     {
+      "concept": "heat pump",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"14\" rx=\"2\" /><circle cx=\"9\" cy=\"11\" r=\"4\" /><path d=\"M9 11c0-1.5.5-2.5 1.5-3\" /><path d=\"M9 11c1.3.7 1.9 1.7 1.8 2.9\" /><path d=\"M9 11c-1.3.8-2.4.8-3.3.1\" /><path d=\"M16 8h3\" /><path d=\"M16 11h3\" /><path d=\"M16 14h3\" /><path d=\"M5 18v2\" /><path d=\"M19 18v2\" /></svg>"
+     },
+     {
+      "concept": "drone delivery",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 3h6M16 3h6M5 3v3M19 3v3M9 7 5 6M15 7l4-1\" /><rect x=\"9\" y=\"7\" width=\"6\" height=\"3\" rx=\"1\" /><path d=\"M12 10v3\" /><rect x=\"8\" y=\"13\" width=\"8\" height=\"7\" rx=\"1\" /><path d=\"M12 13v7\" /></svg>"
+     },
+     {
+      "concept": "sourdough starter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M8 3h8\" />\n  <path d=\"M9 3v2.5a3 3 0 0 1-1.2 2.4A4 4 0 0 0 6 11.2V19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-7.8a4 4 0 0 0-1.8-3.3A3 3 0 0 1 15 5.5V3\" />\n  <path d=\"M6 13c1.5-1 3-1 4.5 0s3 1 4.5 0c1-.6 2-.8 3-.5\" />\n  <circle cx=\"10\" cy=\"17\" r=\"1\" />\n  <circle cx=\"14\" cy=\"16\" r=\"0.75\" />\n  <circle cx=\"12.5\" cy=\"18.75\" r=\"0.5\" />\n</svg>"
+     },
+     {
+      "concept": "kombucha",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M7 3h10l1 3H6l1-3z\" />\n  <path d=\"M8 6v1.5c-1.8.8-3 2.4-3 4.5v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7c0-2.1-1.2-3.7-3-4.5V6\" />\n  <path d=\"M5 11.5c2.3 1 4.7 1 7 0s4.7-1 7 0\" />\n  <circle cx=\"10\" cy=\"16\" r=\"1\" />\n  <circle cx=\"14\" cy=\"18\" r=\".5\" />\n  <circle cx=\"14.5\" cy=\"14.5\" r=\".5\" />\n</svg>"
+     },
+     {
+      "concept": "solar inverter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 3h8l-1 6H2z\" /><path d=\"M7 3l-.5 6M2.5 6h8\" /><path d=\"M6 9v8h5\" /><rect x=\"11\" y=\"11\" width=\"10\" height=\"10\" rx=\"2\" /><path d=\"M13 15q1.5-2 3 0t3 0\" /><path d=\"M14 18.5h5\" /></svg>"
+     },
+     {
+      "concept": "bike repair",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"5.5\" cy=\"18\" r=\"3.5\" /><circle cx=\"18.5\" cy=\"18\" r=\"3.5\" /><path d=\"M5.5 18 8.5 12.5h6M8.5 12.5 12 18l3-5.5M18.5 18l-3-6.5M14 11.5h2.5M7 11h3\" /><path transform=\"translate(11 0) scale(0.5)\" vector-effect=\"non-scaling-stroke\" d=\"M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z\" /></svg>"
+     },
+     {
+      "concept": "beehive",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M12 3v2\" />\n  <rect x=\"8.5\" y=\"5\" width=\"7\" height=\"4\" rx=\"2\" />\n  <rect x=\"6\" y=\"9\" width=\"12\" height=\"4\" rx=\"2\" />\n  <rect x=\"4\" y=\"13\" width=\"16\" height=\"4\" rx=\"2\" />\n  <path d=\"M3 21h18\" />\n  <path d=\"M5 17v4M19 17v4\" />\n  <path d=\"M10.5 21v-1.5a1.5 1.5 0 0 1 3 0V21\" />\n</svg>"
+     },
+     {
+      "concept": "compost bin",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"3\" rx=\"1\" /><path d=\"M10 5V4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1\" /><path d=\"M5 8l1.2 11.2A2 2 0 0 0 8.2 21h7.6a2 2 0 0 0 2-1.8L19 8\" /><path d=\"M9 17c0-4 2-6 6-6 0 4-2 6-6 6z\" /><path d=\"M9 17l3.5-3.5\" /></svg>"
+     },
+     {
+      "concept": "scooter dock",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 21h20\" /><path d=\"M20 21V10\" /><path d=\"M18.5 10h3\" /><circle cx=\"5.5\" cy=\"16.5\" r=\"2\" /><circle cx=\"15.5\" cy=\"16.5\" r=\"2\" /><path d=\"M7.5 16.5h6\" /><path d=\"M15.5 16.5 13.5 5\" /><path d=\"M11.5 5h4\" /><path d=\"M8 3 6 6.5h3L7 10\" /></svg>"
+     },
+     {
+      "concept": "vinyl record",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\" /><circle cx=\"12\" cy=\"12\" r=\"3\" /><circle cx=\"12\" cy=\"12\" r=\"0.5\" fill=\"currentColor\" /><path d=\"M6.5 9.5a6 6 0 0 1 3-3\" /><path d=\"M17.5 14.5a6 6 0 0 1-3 3\" /></svg>"
+     },
+     {
+      "concept": "pipette",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14.5 6.5l1.8-1.8a2.5 2.5 0 0 1 3.5 3.5l-1.8 1.8\" /><path d=\"M12.5 5.5l6 6\" /><path d=\"M14 8.5l-9 9V20h2.5l9-9\" /><path d=\"M5 20l-2 2\" /></svg>"
+     },
+     {
+      "concept": "tide chart",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M3 4v16h18\" />\n  <path d=\"M5 9c3-6 5-6 7 2s4 8 7-2\" />\n  <path d=\"M7 20v-2M11 20v-2M15 20v-2M19 20v-2\" />\n  <circle cx=\"8.2\" cy=\"5.5\" r=\"1\" fill=\"currentColor\" stroke=\"none\" />\n  <circle cx=\"14.6\" cy=\"16\" r=\"1\" fill=\"currentColor\" stroke=\"none\" />\n</svg>"
+     }
+    ],
+    "frontier + full context": [
+     {
+      "concept": "heat pump",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\"><path fill=\"currentColor\" d=\"M8 2h2v2H8zM6 4h2v2H6zM14 2h2v2h-2zM12 4h2v2h-2zM20 2h2v2h-2zM18 4h2v2h-2zM2 8h20v2H2zM2 20h20v2H2zM2 10h2v10H2zM20 10h2v10h-2zM8 12h4v2H8zM6 14h2v2H6zM12 14h2v2h-2zM8 16h4v2H8zM16 12h2v2h-2zM16 16h2v2h-2z\" /></svg>"
+     },
+     {
+      "concept": "drone delivery",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><path fill-rule=\"evenodd\" d=\"M2 2h6v2H2zM16 2h6v2h-6zM4 4h2v2H4zM18 4h2v2h-2zM4 6h16v2H4zM8 8h8v2H8zM8 10h2v2H8zM14 10h2v2h-2zM6 12h12v8H6zM10 14v2h4v-2z\" /></svg>"
+     },
+     {
+      "concept": "sourdough starter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"8\" y=\"2\" width=\"8\" height=\"2\" /><rect x=\"18\" y=\"2\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"4\" width=\"12\" height=\"2\" /><rect x=\"2\" y=\"6\" width=\"20\" height=\"2\" /><rect x=\"4\" y=\"8\" width=\"4\" height=\"2\" /><rect x=\"10\" y=\"8\" width=\"10\" height=\"2\" /><rect x=\"4\" y=\"10\" width=\"10\" height=\"2\" /><rect x=\"16\" y=\"10\" width=\"4\" height=\"2\" /><rect x=\"4\" y=\"12\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"14\" width=\"6\" height=\"2\" /><rect x=\"12\" y=\"14\" width=\"8\" height=\"2\" /><rect x=\"4\" y=\"16\" width=\"12\" height=\"2\" /><rect x=\"18\" y=\"16\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"18\" width=\"16\" height=\"2\" /><rect x=\"6\" y=\"20\" width=\"12\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "kombucha",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"6\" y=\"2\" width=\"12\" height=\"2\" /><rect x=\"8\" y=\"4\" width=\"8\" height=\"2\" /><rect x=\"6\" y=\"6\" width=\"12\" height=\"2\" /><rect x=\"4\" y=\"8\" width=\"2\" height=\"12\" /><rect x=\"18\" y=\"8\" width=\"2\" height=\"12\" /><rect x=\"6\" y=\"20\" width=\"12\" height=\"2\" /><rect x=\"6\" y=\"10\" width=\"12\" height=\"2\" /><rect x=\"6\" y=\"12\" width=\"12\" height=\"8\" opacity=\".35\" /><rect x=\"10\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"8\" y=\"16\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"18\" width=\"2\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "solar inverter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"2\" y=\"2\" width=\"4\" height=\"4\" /><rect x=\"8\" y=\"2\" width=\"2\" height=\"2\" /><rect x=\"2\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"6\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"6\" width=\"2\" height=\"4\" /><rect x=\"6\" y=\"10\" width=\"16\" height=\"2\" /><rect x=\"6\" y=\"20\" width=\"16\" height=\"2\" /><rect x=\"6\" y=\"12\" width=\"2\" height=\"8\" /><rect x=\"20\" y=\"12\" width=\"2\" height=\"8\" /><rect x=\"8\" y=\"16\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"16\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"16\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"14\" width=\"2\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "bike repair",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><path d=\"M6 8h6v2H6zM4 10h2v2H4zM12 10h2v2h-2zM2 12h2v6H2zM14 12h2v6h-2zM8 14h2v2H8zM4 18h2v2H4zM12 18h2v2h-2zM6 20h6v2H6zM16 2h2v2h-2zM20 2h2v2h-2zM16 4h6v2h-6zM16 6h2v2h-2zM14 8h2v2h-2z\" /></svg>"
+     },
+     {
+      "concept": "beehive",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"10\" y=\"2\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"4\" width=\"8\" height=\"2\" /><rect x=\"6\" y=\"6\" width=\"12\" height=\"2\" /><rect x=\"4\" y=\"8\" width=\"16\" height=\"2\" /><rect x=\"6\" y=\"10\" width=\"12\" height=\"2\" /><rect x=\"4\" y=\"12\" width=\"16\" height=\"4\" /><rect x=\"6\" y=\"16\" width=\"4\" height=\"2\" /><rect x=\"14\" y=\"16\" width=\"4\" height=\"2\" /><rect x=\"4\" y=\"18\" width=\"6\" height=\"2\" /><rect x=\"14\" y=\"18\" width=\"6\" height=\"2\" /><rect x=\"2\" y=\"20\" width=\"20\" height=\"2\" /><rect x=\"18\" y=\"4\" width=\"4\" height=\"2\" /><rect x=\"18\" y=\"2\" width=\"2\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "compost bin",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"14\" y=\"2\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"4\" width=\"8\" height=\"2\" /><rect x=\"2\" y=\"6\" width=\"20\" height=\"2\" /><rect x=\"4\" y=\"8\" width=\"16\" height=\"4\" /><rect x=\"4\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"14\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"16\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"16\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"18\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"20\" width=\"4\" height=\"2\" /><rect x=\"16\" y=\"20\" width=\"4\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "scooter dock",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><path d=\"M10 4h6v2h-6zM14 6h2v8h-2zM4 14h12v2H4zM2 16h4v4H2zM14 16h4v4h-4zM16 8h2v2h-2zM18 4h2v16h-2zM20 4h2v2h-2zM20 8h2v12h-2zM2 20h20v2H2z\" /></svg>"
+     },
+     {
+      "concept": "vinyl record",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><path d=\"M8 2h8v2H8zM4 4h16v2H4zM2 6h12v2H2zM16 6h6v2h-6zM2 8h14v2H2zM18 8h4v2h-4zM2 10h8v2H2zM14 10h2v2h-2zM18 10h4v2h-4zM2 12h4v2H2zM8 12h2v2H8zM14 12h8v2h-8zM2 14h4v2H2zM8 14h14v2H8zM2 16h6v2H2zM10 16h12v2H10zM4 18h16v2H4zM8 20h8v2H8z\" /></svg>"
+     },
+     {
+      "concept": "pipette",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\"><path fill=\"currentColor\" d=\"M16 2h4v2h-4zM14 4h8v4h-8zM16 8h4v2h-4zM10 6h4v2h-4zM12 8h2v2h-2zM14 10h2v2h-2zM10 10h2v2h-2zM8 12h4v2h-4zM6 14h4v2h-4zM4 16h4v2h-4zM4 18h2v2h-2zM2 20h2v2h-2z\" /></svg>"
+     },
+     {
+      "concept": "tide chart",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"2\" y=\"2\" width=\"2\" height=\"20\" /><rect x=\"4\" y=\"20\" width=\"18\" height=\"2\" /><rect x=\"4\" y=\"8\" width=\"2\" height=\"4\" /><rect x=\"6\" y=\"6\" width=\"4\" height=\"2\" /><rect x=\"10\" y=\"8\" width=\"2\" height=\"4\" /><rect x=\"12\" y=\"12\" width=\"2\" height=\"4\" /><rect x=\"14\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"10\" width=\"2\" height=\"4\" /><rect x=\"18\" y=\"6\" width=\"2\" height=\"4\" /><rect x=\"20\" y=\"6\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"16\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"16\" width=\"2\" height=\"2\" /></svg>"
+     }
+    ],
+    "provider + routed context": [
+     {
+      "concept": "heat pump",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"2\" y=\"4\" width=\"14\" height=\"2\" /><rect x=\"2\" y=\"16\" width=\"14\" height=\"2\" /><rect x=\"2\" y=\"6\" width=\"2\" height=\"10\" /><rect x=\"14\" y=\"6\" width=\"2\" height=\"10\" /><rect x=\"4\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"6\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"6\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"8\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"20\" y=\"6\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"20\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"20\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"16\" width=\"2\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "drone delivery",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\">\n  <rect x=\"2\" y=\"2\" width=\"6\" height=\"2\" />\n  <rect x=\"16\" y=\"2\" width=\"6\" height=\"2\" />\n  <rect x=\"4\" y=\"4\" width=\"2\" height=\"2\" />\n  <rect x=\"18\" y=\"4\" width=\"2\" height=\"2\" />\n  <rect x=\"4\" y=\"6\" width=\"16\" height=\"2\" />\n  <rect x=\"8\" y=\"8\" width=\"8\" height=\"2\" />\n  <rect x=\"10\" y=\"10\" width=\"4\" height=\"2\" />\n  <rect x=\"6\" y=\"12\" width=\"12\" height=\"2\" />\n  <rect x=\"6\" y=\"14\" width=\"4\" height=\"2\" />\n  <rect x=\"14\" y=\"14\" width=\"4\" height=\"2\" />\n  <rect x=\"6\" y=\"16\" width=\"12\" height=\"2\" />\n  <rect x=\"6\" y=\"18\" width=\"12\" height=\"2\" />\n</svg>"
+     },
+     {
+      "concept": "sourdough starter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"6\" y=\"2\" width=\"12\" height=\"2\" /><rect x=\"6\" y=\"4\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"4\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"4\" width=\"4\" height=\"2\" /><rect x=\"4\" y=\"6\" width=\"10\" height=\"2\" /><rect x=\"16\" y=\"6\" width=\"4\" height=\"2\" /><rect x=\"4\" y=\"8\" width=\"4\" height=\"2\" /><rect x=\"10\" y=\"8\" width=\"10\" height=\"2\" /><rect x=\"4\" y=\"10\" width=\"8\" height=\"2\" /><rect x=\"14\" y=\"10\" width=\"6\" height=\"2\" /><rect x=\"4\" y=\"12\" width=\"4\" height=\"2\" /><rect x=\"10\" y=\"12\" width=\"10\" height=\"2\" /><rect x=\"4\" y=\"14\" width=\"10\" height=\"2\" /><rect x=\"16\" y=\"14\" width=\"4\" height=\"2\" /><rect x=\"4\" y=\"16\" width=\"6\" height=\"2\" /><rect x=\"12\" y=\"16\" width=\"8\" height=\"2\" /><rect x=\"6\" y=\"18\" width=\"12\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "kombucha",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"8\" y=\"2\" width=\"8\" height=\"2\" /><rect x=\"6\" y=\"4\" width=\"12\" height=\"2\" /><rect x=\"6\" y=\"6\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"6\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"8\" width=\"2\" height=\"12\" /><rect x=\"18\" y=\"8\" width=\"2\" height=\"12\" /><rect x=\"4\" y=\"20\" width=\"16\" height=\"2\" /><rect x=\"6\" y=\"10\" width=\"12\" height=\"2\" /><rect x=\"8\" y=\"12\" width=\"2\" height=\"4\" /><rect x=\"14\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"16\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"18\" width=\"2\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "solar inverter",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"2\" y=\"2\" width=\"20\" height=\"2\" /><rect x=\"2\" y=\"16\" width=\"20\" height=\"2\" /><rect x=\"2\" y=\"2\" width=\"2\" height=\"16\" /><rect x=\"20\" y=\"2\" width=\"2\" height=\"16\" /><rect x=\"6\" y=\"18\" width=\"2\" height=\"4\" /><rect x=\"16\" y=\"18\" width=\"2\" height=\"4\" /><rect x=\"4\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"6\" width=\"2\" height=\"2\" /><rect x=\"8\" y=\"6\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"6\" width=\"2\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "bike repair",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"10\" y=\"2\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"2\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"4\" width=\"6\" height=\"2\" /><rect x=\"12\" y=\"6\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"8\" width=\"4\" height=\"2\" /><rect x=\"12\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"8\" width=\"4\" height=\"2\" /><rect x=\"6\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"12\" width=\"12\" height=\"2\" /><rect x=\"4\" y=\"14\" width=\"4\" height=\"2\" /><rect x=\"16\" y=\"14\" width=\"4\" height=\"2\" /><rect x=\"2\" y=\"16\" width=\"2\" height=\"4\" /><rect x=\"8\" y=\"16\" width=\"2\" height=\"4\" /><rect x=\"14\" y=\"16\" width=\"2\" height=\"4\" /><rect x=\"20\" y=\"16\" width=\"2\" height=\"4\" /><rect x=\"4\" y=\"20\" width=\"4\" height=\"2\" /><rect x=\"16\" y=\"20\" width=\"4\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "beehive",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"10\" y=\"2\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"4\" width=\"8\" height=\"2\" /><rect x=\"6\" y=\"6\" width=\"12\" height=\"2\" /><rect x=\"4\" y=\"10\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"12\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"16\" width=\"6\" height=\"2\" /><rect x=\"14\" y=\"16\" width=\"6\" height=\"2\" /><rect x=\"2\" y=\"18\" width=\"8\" height=\"2\" /><rect x=\"14\" y=\"18\" width=\"8\" height=\"2\" /><rect x=\"2\" y=\"20\" width=\"20\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "compost bin",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"6\" y=\"2\" width=\"4\" height=\"2\" /><rect x=\"14\" y=\"2\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"4\" width=\"8\" height=\"2\" /><rect x=\"10\" y=\"6\" width=\"4\" height=\"2\" /><rect x=\"2\" y=\"8\" width=\"20\" height=\"2\" /><rect x=\"4\" y=\"10\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"12\" width=\"4\" height=\"2\" /><rect x=\"16\" y=\"12\" width=\"4\" height=\"2\" /><rect x=\"4\" y=\"14\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"16\" width=\"4\" height=\"2\" /><rect x=\"16\" y=\"16\" width=\"4\" height=\"2\" /><rect x=\"4\" y=\"18\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"20\" width=\"4\" height=\"2\" /><rect x=\"16\" y=\"20\" width=\"4\" height=\"2\" /></svg>"
+     },
+     {
+      "concept": "scooter dock",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\">\n  <rect x=\"16\" y=\"4\" width=\"4\" height=\"2\" />\n  <rect x=\"18\" y=\"6\" width=\"2\" height=\"8\" />\n  <rect x=\"4\" y=\"14\" width=\"16\" height=\"2\" />\n  <rect x=\"6\" y=\"16\" width=\"4\" height=\"4\" />\n  <rect x=\"16\" y=\"16\" width=\"4\" height=\"4\" />\n  <rect x=\"2\" y=\"20\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"8\" width=\"2\" height=\"12\" />\n  <rect x=\"4\" y=\"8\" width=\"2\" height=\"4\" />\n</svg>"
+     },
+     {
+      "concept": "vinyl record",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\">\n  <rect x=\"6\" y=\"2\" width=\"12\" height=\"2\" />\n  <rect x=\"4\" y=\"4\" width=\"16\" height=\"2\" />\n  <rect x=\"2\" y=\"6\" width=\"4\" height=\"12\" />\n  <rect x=\"18\" y=\"6\" width=\"4\" height=\"12\" />\n  <rect x=\"4\" y=\"18\" width=\"16\" height=\"2\" />\n  <rect x=\"6\" y=\"20\" width=\"12\" height=\"2\" />\n  <rect x=\"8\" y=\"8\" width=\"8\" height=\"2\" />\n  <rect x=\"8\" y=\"14\" width=\"8\" height=\"2\" />\n  <rect x=\"8\" y=\"10\" width=\"2\" height=\"4\" />\n  <rect x=\"14\" y=\"10\" width=\"2\" height=\"4\" />\n</svg>"
+     },
+     {
+      "concept": "pipette",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\"><g fill=\"currentColor\"><rect x=\"18\" y=\"2\" width=\"2\" height=\"2\" /><rect x=\"20\" y=\"2\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"4\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"4\" width=\"2\" height=\"2\" /><rect x=\"20\" y=\"4\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"6\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"6\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"8\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"16\" width=\"2\" height=\"2\" /><rect x=\"8\" y=\"16\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"2\" y=\"20\" width=\"2\" height=\"2\" /></g></svg>"
+     },
+     {
+      "concept": "tide chart",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"2\" y=\"2\" width=\"2\" height=\"18\" /><rect x=\"4\" y=\"18\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"8\" y=\"6\" width=\"4\" height=\"2\" /><rect x=\"12\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"10\" width=\"2\" height=\"4\" /><rect x=\"16\" y=\"14\" width=\"4\" height=\"2\" /><rect x=\"20\" y=\"12\" width=\"2\" height=\"2\" /></svg>"
+     }
+    ]
+   }
   }
  ],
  "contexts": [
@@ -6344,5 +7437,160 @@
    "created": "2026-10-24T22:37:38+0100"
   }
  ],
- "label": "Icon Master"
+ "label": "Icon Master",
+ "comparisons": [
+  {
+   "id": "cmp_fa7628fd",
+   "t": "2026-10-24T22:49:50+0100",
+   "context": "smooth",
+   "group": "grp_8a0a362d",
+   "concept": "heat pump",
+   "outputs": {
+    "frontier": {
+     "id": "out_45c53dc0",
+     "concept": "heat pump",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <rect x=\"2\" y=\"5\" width=\"20\" height=\"14\" rx=\"2\" />\n  <circle cx=\"9\" cy=\"12\" r=\"4\" />\n  <circle cx=\"9\" cy=\"12\" r=\"0.5\" />\n  <path d=\"M9 11.5V9.5\" />\n  <path d=\"M9.5 12.5l1.7 1\" />\n  <path d=\"M8.5 12.5l-1.7 1\" />\n  <path d=\"M16 9v6\" />\n  <path d=\"M19 9v6\" />\n  <path d=\"M6 19v2\" />\n  <path d=\"M18 19v2\" />\n</svg>",
+     "problems": [],
+     "record": "metadata",
+     "request_id": "mreq_01a16fe3db167813991734b3c8a72945",
+     "input_tokens": 105,
+     "output_tokens": 689,
+     "runs": 1,
+     "seconds": 7.34,
+     "t": "2026-10-24T22:49:33+0100",
+     "model": "claude-opus-5-5"
+    },
+    "frontier + full context": {
+     "id": "out_768385cd",
+     "concept": "heat pump",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6.4 6.3c3.8-.3 7.6-.3 11.3.1 1.7.2 2.7 1.3 2.8 3 .2 2 .2 3.6 0 5.4-.2 1.7-1.2 2.8-2.9 2.9-3.8.3-7.5.3-11.3 0-1.7-.1-2.8-1.3-2.9-3-.1-1.900-.1-3.700.1-5.400.2-1.700 1.200-2.900 2.900-3z\" /><circle cx=\"9.2\" cy=\"12\" r=\"3\" /><path d=\"M9.2 9.1c.9.9.9 2 0 2.9-.9.9-.9 2 0 2.9\" /><path d=\"M15.1 10h2.2\" /><path d=\"M15.1 12.1h2.2\" /><path d=\"M15.1 14.2h1.4\" /><path d=\"M7.4 18v1.6\" /><path d=\"M16.7 18v1.6\" /></svg>",
+     "problems": [],
+     "record": "metadata",
+     "request_id": "mreq_01a16fe3db1c791094a55dcd45c948b6",
+     "input_tokens": 1360,
+     "output_tokens": 419,
+     "runs": 1,
+     "seconds": 4.44,
+     "t": "2026-10-24T22:49:30+0100",
+     "model": "claude-opus-5-5"
+    },
+    "provider + routed context": {
+     "id": "out_58985b1f",
+     "concept": "heat pump",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7.4 4.6c3-.2 6.2-.2 9.200 0 2.200.1 3.700 1.500 3.800 3.700.1 2.200.1 4.200 0 6.300-.1 2.200-1.600 3.500-3.800 3.600-3 .2-6.200.2-9.200 0-2.200-.1-3.700-1.400-3.800-3.600-.1-2.100-.1-4.100 0-6.300.1-2.200 1.600-3.500 3.800-3.700z\" /><path d=\"M12 11.4c-.6-1.600-.4-2.800.6-3.700\" /><path d=\"M12 11.4c1.700.3 2.600 1.100 2.900 2.400\" /><path d=\"M12 11.4c-1.100.1-2.200.6-3.500 1.300\" /><path d=\"M7 18.3v2\" /><path d=\"M17 18.3v2\" /></svg>",
+     "problems": [],
+     "record": "metadata",
+     "request_id": "mreq_01a16fe3db1a7fe2b22ed054dd18ed24",
+     "input_tokens": 1360,
+     "output_tokens": 1869,
+     "runs": 1,
+     "seconds": 14.43,
+     "t": "2026-10-24T22:49:40+0100",
+     "model": "claude-sonnet-5-5"
+    }
+   }
+  },
+  {
+   "id": "cmp_f01efafd",
+   "t": "2026-10-24T22:49:50+0100",
+   "context": "pixel",
+   "group": "grp_8a0a362d",
+   "concept": "heat pump",
+   "outputs": {
+    "frontier": {
+     "id": "out_45c53dc0",
+     "concept": "heat pump",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <rect x=\"2\" y=\"5\" width=\"20\" height=\"14\" rx=\"2\" />\n  <circle cx=\"9\" cy=\"12\" r=\"4\" />\n  <circle cx=\"9\" cy=\"12\" r=\"0.5\" />\n  <path d=\"M9 11.5V9.5\" />\n  <path d=\"M9.5 12.5l1.7 1\" />\n  <path d=\"M8.5 12.5l-1.7 1\" />\n  <path d=\"M16 9v6\" />\n  <path d=\"M19 9v6\" />\n  <path d=\"M6 19v2\" />\n  <path d=\"M18 19v2\" />\n</svg>",
+     "problems": [],
+     "record": "metadata",
+     "request_id": "mreq_01a16fe3db167813991734b3c8a72945",
+     "input_tokens": 105,
+     "output_tokens": 689,
+     "runs": 1,
+     "seconds": 7.34,
+     "t": "2026-10-24T22:49:33+0100",
+     "model": "claude-opus-5-5"
+    },
+    "frontier + full context": {
+     "id": "out_c8e6d603",
+     "concept": "heat pump",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><path d=\"M4 6h2v2H4zM6 4h2v2H6zM4 2h2v2H4zM10 6h2v2h-2zM12 4h2v2h-2zM10 2h2v2h-2zM16 6h2v2h-2zM18 4h2v2h-2zM16 2h2v2h-2z\" /><path d=\"M2 10h20v2H2zM2 18h20v2H2zM2 12h2v6H2zM20 12h2v6h-2z\" /><path d=\"M6 12h2v2H6zM10 12h2v2h-2zM8 14h2v2H8zM6 16h2v2H6zM10 16h2v2h-2z\" /><path d=\"M14 12h4v2h-4zM14 16h4v2h-4z\" /><path d=\"M4 20h2v2H4zM18 20h2v2h-2z\" /></svg>",
+     "problems": [],
+     "record": "metadata",
+     "request_id": "mreq_01a16fe3db1d72f1b7ef6c8cb607dbf5",
+     "input_tokens": 346,
+     "output_tokens": 1183,
+     "runs": 1,
+     "seconds": 12.8,
+     "t": "2026-10-24T22:49:38+0100",
+     "model": "claude-opus-5-5"
+    },
+    "provider + routed context": {
+     "id": "out_392561b9",
+     "concept": "heat pump",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"6\" y=\"2\" width=\"2\" height=\"2\" />\n  <rect x=\"12\" y=\"2\" width=\"2\" height=\"2\" />\n  <rect x=\"18\" y=\"2\" width=\"2\" height=\"2\" />\n  <rect x=\"4\" y=\"4\" width=\"2\" height=\"2\" />\n  <rect x=\"10\" y=\"4\" width=\"2\" height=\"2\" />\n  <rect x=\"16\" y=\"4\" width=\"2\" height=\"2\" />\n  <rect x=\"2\" y=\"8\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"18\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"10\" width=\"2\" height=\"8\" />\n  <rect x=\"20\" y=\"10\" width=\"2\" height=\"8\" />\n  <rect x=\"8\" y=\"10\" width=\"2\" height=\"2\" />\n  <rect x=\"14\" y=\"10\" width=\"2\" height=\"2\" />\n  <rect x=\"10\" y=\"12\" width=\"4\" height=\"4\" />\n  <rect x=\"8\" y=\"16\" width=\"2\" height=\"2\" />\n  <rect x=\"14\" y=\"16\" width=\"2\" height=\"2\" />\n  <rect x=\"4\" y=\"20\" width=\"2\" height=\"2\" />\n  <rect x=\"18\" y=\"20\" width=\"2\" height=\"2\" />\n</svg>",
+     "problems": [],
+     "record": "metadata",
+     "request_id": "mreq_01a16fe3ec6f7031a952fb44fb630699",
+     "input_tokens": 346,
+     "output_tokens": 1767,
+     "runs": 1,
+     "seconds": 13.59,
+     "t": "2026-10-24T22:49:44+0100",
+     "model": "claude-sonnet-5-5"
+    }
+   }
+  },
+  {
+   "id": "cmp_6b20e20c",
+   "t": "2026-10-24T22:49:50+0100",
+   "context": "duotone",
+   "group": "grp_8a0a362d",
+   "concept": "heat pump",
+   "outputs": {
+    "frontier": {
+     "id": "out_45c53dc0",
+     "concept": "heat pump",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <rect x=\"2\" y=\"5\" width=\"20\" height=\"14\" rx=\"2\" />\n  <circle cx=\"9\" cy=\"12\" r=\"4\" />\n  <circle cx=\"9\" cy=\"12\" r=\"0.5\" />\n  <path d=\"M9 11.5V9.5\" />\n  <path d=\"M9.5 12.5l1.7 1\" />\n  <path d=\"M8.5 12.5l-1.7 1\" />\n  <path d=\"M16 9v6\" />\n  <path d=\"M19 9v6\" />\n  <path d=\"M6 19v2\" />\n  <path d=\"M18 19v2\" />\n</svg>",
+     "problems": [],
+     "record": "metadata",
+     "request_id": "mreq_01a16fe3db167813991734b3c8a72945",
+     "input_tokens": 105,
+     "output_tokens": 689,
+     "runs": 1,
+     "seconds": 7.34,
+     "t": "2026-10-24T22:49:33+0100",
+     "model": "claude-opus-5-5"
+    },
+    "frontier + full context": {
+     "id": "out_61b7101b",
+     "concept": "heat pump",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path d=\"M3.5 5h17a1.5 1.5 0 0 1 1.5 1.5v10.5a1.5 1.5 0 0 1-1.5 1.5H3.5A1.5 1.5 0 0 1 2 17V6.5A1.5 1.5 0 0 1 3.5 5z\" fill=\"#2E7D32\" />\n  <rect x=\"4\" y=\"18.5\" width=\"3\" height=\"1.8\" rx=\"0.5\" fill=\"#2E7D32\" />\n  <rect x=\"17\" y=\"18.5\" width=\"3\" height=\"1.8\" rx=\"0.5\" fill=\"#2E7D32\" />\n  <circle cx=\"8.8\" cy=\"11.8\" r=\"4.6\" fill=\"#FFFFFF\" />\n  <path d=\"M8.8 11.8c-.4-1.6.2-3 1.6-3.4.6 1.2.1 2.6-1.6 3.4zM8.8 11.8c1.6-.4 3 .2 3.4 1.6-1.2.6-2.6.1-3.4-1.6zM8.8 11.8c.4 1.6-.2 3-1.6 3.4-.6-1.2-.1-2.6 1.6-3.4zM8.8 11.8c-1.6.4-3-.2-3.4-1.6 1.2-.6 2.6-.1 3.4 1.6z\" fill=\"#2E7D32\" />\n  <circle cx=\"8.8\" cy=\"11.8\" r=\"0.9\" fill=\"#2E7D32\" />\n  <rect x=\"15\" y=\"10\" width=\"5\" height=\"1\" rx=\"0.5\" fill=\"#FFFFFF\" />\n  <rect x=\"15\" y=\"12.3\" width=\"5\" height=\"1\" rx=\"0.5\" fill=\"#FFFFFF\" />\n  <rect x=\"15\" y=\"14.6\" width=\"5\" height=\"1\" rx=\"0.5\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"18.6\" cy=\"7.4\" r=\"1.1\" fill=\"#FF4A14\" />\n</svg>",
+     "problems": [],
+     "record": "metadata",
+     "request_id": "mreq_01a16fe3f7c772028b7b194ae0567240",
+     "input_tokens": 302,
+     "output_tokens": 881,
+     "runs": 1,
+     "seconds": 9.32,
+     "t": "2026-10-24T22:49:42+0100",
+     "model": "claude-opus-5-5"
+    },
+    "provider + routed context": {
+     "id": "out_69b23bc4",
+     "concept": "heat pump",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <rect x=\"2.5\" y=\"3.5\" width=\"19\" height=\"15.5\" rx=\"3.5\" fill=\"#1F9D55\" />\n  <rect x=\"5\" y=\"19\" width=\"3\" height=\"2.2\" rx=\"0.8\" fill=\"#1F9D55\" />\n  <rect x=\"16\" y=\"19\" width=\"3\" height=\"2.2\" rx=\"0.8\" fill=\"#1F9D55\" />\n  <g fill=\"#FFFFFF\">\n    <path id=\"b\" d=\"M10 11.2C7.2 9.9 7.2 6.6 10 5.8C11.8 6.8 11.8 9.4 10 11.2Z\" />\n    <path d=\"M10 11.2C7.2 9.9 7.2 6.6 10 5.8C11.8 6.8 11.8 9.4 10 11.2Z\" transform=\"rotate(120 10 11.2)\" />\n    <path d=\"M10 11.2C7.2 9.9 7.2 6.6 10 5.8C11.8 6.8 11.8 9.4 10 11.2Z\" transform=\"rotate(240 10 11.2)\" />\n    <rect x=\"16.4\" y=\"7\" width=\"3.4\" height=\"1.4\" rx=\"0.7\" />\n    <rect x=\"16.4\" y=\"10.5\" width=\"3.4\" height=\"1.4\" rx=\"0.7\" />\n    <rect x=\"16.4\" y=\"14\" width=\"3.4\" height=\"1.4\" rx=\"0.7\" />\n  </g>\n  <circle class=\"accent\" cx=\"10\" cy=\"11.2\" r=\"1.5\" fill=\"#FF4A14\" />\n</svg>",
+     "problems": [],
+     "record": "metadata",
+     "request_id": "mreq_01a16fe40d1d7693aa03973402454a95",
+     "input_tokens": 302,
+     "output_tokens": 1313,
+     "runs": 1,
+     "seconds": 11.4,
+     "t": "2026-10-24T22:49:50+0100",
+     "model": "claude-sonnet-5-5"
+    }
+   }
+  }
+ ]
 }

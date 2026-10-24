@@ -280,6 +280,13 @@ def compare(pid: str, body: Concept):
     return guard(pipeline.compare, pid, body.concept.strip(), pipeline.FRONTIER, body.context)
 
 
+@app.post("/api/projects/{pid}/compare-styles")
+def compare_styles(pid: str, body: Concept):
+    if not body.concept.strip():
+        raise HTTPException(400, "no concept")
+    return guard(pipeline.compare_styles, pid, body.concept.strip())
+
+
 @app.post("/api/projects/{pid}/comparisons/{cid}")
 def compare_adapter(pid: str, cid: str, body: Pasted):
     return guard(pipeline.compare_adapter, pid, cid, body.config, body.content)
