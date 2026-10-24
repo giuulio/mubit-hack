@@ -18,6 +18,9 @@ ROOT = Path(__file__).resolve().parent.parent
 PROJECTS = ROOT / "projects"
 _lock = threading.RLock()
 
+# Ids the interface keeps for its own pages (#/about and so on), so no model can take them.
+RESERVED = {"about", "faq", "privacy", "license"}
+
 # Records that belong to one context; training batches are tagged too, with the context their calls ran under.
 TAGGED = ("lessons", "examples", "outputs", "context_history", "training", "evals", "comparisons")
 
@@ -43,12 +46,16 @@ def _path(pid):
 
 
 def create(name, domain, model="claude-sonnet-5-5", calls_per_day=5000, context="Default"):
+    """`name` goes into the model's fixed system prompt, so it never changes; `label`, shown in the interface, starts equal."""
     pid = slug(name)
+    if not pid or pid in RESERVED:
+        raise ValueError(f"{name!r} is not available as a model name")
     if _path(pid).exists():
         raise ValueError(f"model {pid} exists")
     project = {
         "id": pid,
         "name": name,
+        "label": name,
         "domain": domain,
         "model": model,
         "calls_per_day": calls_per_day,
@@ -166,6 +173,18 @@ def edit_context(pid, cid, name=None, archived=None):
             entry.pop("archived", None)
         event(p, "context_edited", context=cid, name=entry["name"], archived=bool(entry.get("archived")))
         return entry
+    return update(pid, apply)
+
+
+def set_label(pid, label):
+    """Rename a model in the interface. Its `name` stays, because it is in the system prompt that makes it one Mubit task."""
+    if not label.strip():
+        raise ValueError("a model needs a display name")
+
+    def apply(p):
+        p["label"] = label.strip()
+        event(p, "relabelled", label=p["label"])
+        return {"id": p["id"], "label": p["label"]}
     return update(pid, apply)
 
 

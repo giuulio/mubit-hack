@@ -61,6 +61,10 @@ class Archive(BaseModel):
     archived: bool = True
 
 
+class Label(BaseModel):
+    label: str
+
+
 class Generate(BaseModel):
     concepts: list[str]
     context: str | None = None
@@ -121,7 +125,9 @@ def projects():
         {
             "id": p["id"],
             "name": p["name"],
+            "label": p.get("label") or p["name"],
             "domain": p["domain"],
+            "updated": p["events"][-1]["t"] if p["events"] else p.get("created"),
             "lessons": sum(1 for x in p["lessons"] if x["status"] == "active"),
             "examples": len(p["examples"]),
             "training_calls": sum(b["calls"] for b in p["training"]),
@@ -139,6 +145,49 @@ def create(body: NewProject):
     if not body.name.strip() or not body.context.strip():
         raise HTTPException(400, "a model needs a name and a first context")
     return guard(store.create, body.name.strip(), body.domain, "claude-sonnet-5-5", body.calls_per_day, body.context.strip())
+
+
+@app.post("/api/projects/{pid}/label")
+def label(pid: str, body: Label):
+    return guard(store.set_label, pid, body.label)
+
+
+# What a recent event says on the home page; events not listed here (previews, feedback, rejections) are left out.
+def describe_event(p, e):
+    lessons = {x["id"]: x for x in p["lessons"]}
+    contexts = {c["id"]: c["name"] for c in p["contexts"]}
+    kind = e["type"]
+    if kind == "lesson_routed" and e.get("lesson") in lessons:
+        return {"kind": "lesson", "text": lessons[e["lesson"]]["statement"], "route": e.get("route")}
+    if kind == "training_batch":
+        return {"kind": "training", "text": f"Sent {e.get('calls', 0)} training calls to Mubit"}
+    if kind == "adapter":
+        return {"kind": "adapter", "text": f"Adapter {e.get('version')} {e.get('status')}"}
+    if kind == "evaluation":
+        return {"kind": "evaluation", "text": "Ran the held-out evaluation"}
+    if kind == "compared":
+        return {"kind": "compare", "text": f"Compared “{e.get('concept')}” across configurations"}
+    if kind == "context_created":
+        return {"kind": "context", "text": f"Added the {contexts.get(e.get('context'), e.get('context'))} context"}
+    return None
+
+
+@app.get("/api/activity")
+def activity(n: int = 12):
+    """Recent work across the models in use, newest first: routed lessons, training, adapters, evaluations, comparisons."""
+    items = []
+    for p in store.all_projects():
+        if p.get("archived"):
+            continue
+        contexts = {c["id"]: c["name"] for c in p["contexts"]}
+        for e in p["events"]:
+            described = describe_event(p, e)
+            if described:
+                # Events from before contexts belong to the model's first context.
+                cid = e.get("context") or p["contexts"][0]["id"]
+                items.append({"t": e["t"], "model": p["id"], "label": p.get("label") or p["name"], "context": cid,
+                              "context_name": contexts.get(cid), **described})
+    return sorted(items, key=lambda x: x["t"], reverse=True)[:n]
 
 
 @app.post("/api/projects/{pid}/archive")
