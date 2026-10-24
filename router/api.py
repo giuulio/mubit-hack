@@ -76,6 +76,15 @@ class Items(BaseModel):
     items: list[dict]
 
 
+class Concept(BaseModel):
+    concept: str
+
+
+class Pasted(BaseModel):
+    config: str = "adapter"
+    content: str
+
+
 @app.get("/api/domains")
 def domains():
     """Domain plugins: any top-level package with a domain.py (see AGENTS.md)."""
@@ -170,3 +179,15 @@ def imports(pid: str, body: Items):
 @app.post("/api/projects/{pid}/lessons/{lid}/absorption")
 def absorption(pid: str, lid: str, body: Items):
     return guard(pipeline.absorption, pid, lid, body.items)
+
+
+@app.post("/api/projects/{pid}/compare")
+def compare(pid: str, body: Concept):
+    if not body.concept.strip():
+        raise HTTPException(400, "no concept")
+    return guard(pipeline.compare, pid, body.concept.strip())
+
+
+@app.post("/api/projects/{pid}/comparisons/{cid}")
+def compare_adapter(pid: str, cid: str, body: Pasted):
+    return guard(pipeline.compare_adapter, pid, cid, body.config, body.content)

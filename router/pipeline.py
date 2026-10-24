@@ -16,6 +16,7 @@ from .route import route
 RUN_TOKENS = 8000  # Mubit bills per run of up to 8K tokens
 PROBES = 3
 WORKERS = 4
+FRONTIER = "claude-opus-5-5"
 
 
 # Context -------------------------------------------------------------------------------------
@@ -327,16 +328,21 @@ def absorption(pid, lid, items):
 
 # Evaluation ----------------------------------------------------------------------------------
 
-def evaluate(pid, n=12, frontier="claude-opus-5-5"):
-    """Held-out concepts under each configuration, judged blind against the project's examples and rules."""
-    project = store.load(pid)
-    d = store.domain_of(project)
-    concepts = d.concepts("heldout")[:n]
-    configs = {
+def configurations(project, frontier=FRONTIER):
+    """The configurations run live, as {name: (model, context)}. Adapter rows come from Try models instead."""
+    return {
         "frontier": (frontier, context(project, mode="bare")),
         "frontier + full context": (frontier, context(project, mode="full")),
         "provider + routed context": (project["model"], context(project)),
     }
+
+
+def evaluate(pid, n=12, frontier=FRONTIER):
+    """Held-out concepts under each configuration, judged blind against the project's examples and rules."""
+    project = store.load(pid)
+    d = store.domain_of(project)
+    concepts = d.concepts("heldout")[:n]
+    configs = configurations(project, frontier)
     results = {name: _many(project, concepts, ctx, "metadata", f"{pid}-eval-{name}", model) for name, (model, ctx) in configs.items()}
     for name, items in project["imports"].items():
         by_concept = {i["concept"]: i["content"] for i in items}
@@ -363,6 +369,7 @@ def evaluate(pid, n=12, frontier="claude-opus-5-5"):
         known = [r for r in rs if r["output_tokens"] is not None]
         rows.append({
             "config": name,
+            "model": configs[name][0] if name in configs else "adapter",
             "n": len(rs),
             "valid": sum(not r["problems"] for r in rs),
             "style": round(sum(j.get("style", 0) for j in judged) / len(judged), 2) if judged else None,
@@ -384,3 +391,38 @@ def evaluate(pid, n=12, frontier="claude-opus-5-5"):
         store.event(p, "evaluation", id=entry["id"])
     store.update(pid, save)
     return entry
+
+
+# Comparison ----------------------------------------------------------------------------------
+
+def compare(pid, concept, frontier=FRONTIER):
+    """One concept under each live configuration, side by side. Recorded as metadata only: nothing here is kept."""
+    project = store.load(pid)
+    configs = configurations(project, frontier)
+    with ThreadPoolExecutor(max_workers=len(configs)) as pool:
+        futures = {name: pool.submit(generate_one, project, concept, ctx, "metadata", f"{pid}-compare-{name}", model) for name, (model, ctx) in configs.items()}
+        outputs = {name: {**future.result(), "model": configs[name][0]} for name, future in futures.items()}
+    entry = {"id": store.new_id("cmp"), "t": store.now(), "concept": concept, "outputs": outputs}
+
+    def save(p):
+        p["comparisons"] = (p.get("comparisons", []) + [entry])[-20:]
+        store.event(p, "compared", concept=concept)
+    store.update(pid, save)
+    return entry
+
+
+def compare_adapter(pid, cid, config, content):
+    """The adapter's answer for a comparison, pasted from Try models; the harness applies parameters as for any output."""
+    project = store.load(pid)
+    d = store.domain_of(project)
+    ctx = context(project, mode="routed" if "context" in config else "bare")
+    raw = d.parse_output(content)
+    svg = d.postprocess(raw, ctx["params"]) if raw else None
+    output = {"content": svg, "problems": d.problems(svg), "model": "adapter", "input_tokens": context_tokens(project, ctx), "output_tokens": None, "seconds": None}
+
+    def apply(p):
+        entry = next(c for c in p.get("comparisons", []) if c["id"] == cid)
+        entry["outputs"][config] = {"concept": entry["concept"], **output}
+        store.event(p, "compared_adapter", comparison=cid, config=config)
+        return entry
+    return store.update(pid, apply)
