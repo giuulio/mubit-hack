@@ -69,18 +69,16 @@ export function Loop({ project, focus, reload, notify }: Props) {
   return (
     <div className="loop">
       <Feedback project={project} busy={busy} onFeedback={feedback} onGenerate={(concepts) => run('generate', () => api.generate(project.id, concepts))} />
-      <span className="flow"><Icon name="right" /></span>
       <Router project={project} focus={shown} deciding={deciding} extracting={busy?.startsWith('feedback') ?? false} busy={busy !== null}
         onFocus={setFocusId} onRoute={route} onReject={(l) => run(`reject-${l.id}`, () => api.reject(project.id, l.id))} />
-      <span className="flow"><Icon name="right" /></span>
-      <div className="stack loop-col">
+      <aside className="rail">
         <Context project={project} landed={landed} />
         <div className="flow-v">
           <span data-tip="Context makes the provider answer right; Mubit keeps those calls"><Icon name="down" size={14} /> train</span>
           <span data-tip="Once the adapter holds a lesson, it leaves the prompt"><Icon name="up" size={14} /> retire</span>
         </div>
         <Weights project={project} landed={landed} />
-      </div>
+      </aside>
     </div>
   )
 }
@@ -112,8 +110,8 @@ function Feedback({ project, busy, onFeedback, onGenerate }: {
   const outputs = [...project.outputs].reverse().filter((o) => !seen.has(o.concept) && seen.add(o.concept)).slice(0, 24)
 
   return (
-    <div className="card stack loop-col">
-      <Head title="Feedback" tip="Generate icons, then critique, approve or pick" />
+    <section className="stack loop-col">
+      <Head center title="Feedback" tip="Generate icons, then critique, approve or pick" />
       <div className="stack" style={{ gap: '0.5rem' }}>
         <div className="row">
           <input className="input grow" placeholder="bell, camera, leaf" value={concepts} onChange={(e) => setConcepts(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && generate()} />
@@ -155,7 +153,7 @@ function Feedback({ project, busy, onFeedback, onGenerate }: {
         ))}
       </div>
       {!outputs.length && !drawing.length ? <div className="empty">Draw a few concepts</div> : null}
-    </div>
+    </section>
   )
 }
 

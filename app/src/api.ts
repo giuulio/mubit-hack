@@ -47,6 +47,9 @@ export type Project = {
   name: string
   domain: string
   model: string
+  // A model can hold several contexts that share its weights; until the backend stores them, a project is one model
+  // with one context, named here.
+  context_name?: string
   calls_per_day: number
   lessons: Lesson[]
   examples: Example[]

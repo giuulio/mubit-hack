@@ -1,4 +1,5 @@
-// Shell: Hone is the platform; it holds projects, and each project has the Loop, where feedback is routed, and Results.
+// Shell: Hone is the platform. It holds models, each a fine-tuned Mubit adapter; a model holds contexts that share its
+// weights (smooth, sharp, pixel icons). Each context has the Loop, where feedback is routed, and Results.
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { api, type Project, type ProjectSummary } from './api'
 import { Home } from './Home'
@@ -6,10 +7,11 @@ import { Loop } from './Loop'
 import { MubitStrip } from './Mubit'
 import { Operator } from './Operator'
 import { Results } from './Results'
-import { go, pages, readPlace, type Place } from './routes'
-import { Button, Icon } from './ui'
+import { contextName, go, pages, readPlace, type Place } from './routes'
+import { applyTheme, type Theme } from './theme'
+import { Button, Dot, Icon } from './ui'
 
-// How often the open project is refetched, so the Mubit strip follows changes made elsewhere (CLI, teammates).
+// How often the open model is refetched, so the Mubit strip follows changes made elsewhere (CLI, teammates).
 const POLL_MS = 4000
 
 export default function App() {
@@ -21,6 +23,7 @@ export default function App() {
   const [domains, setDomains] = useState<string[]>(['icons'])
   const [domain, setDomain] = useState('icons')
   const [operator, setOperator] = useState(false)
+  const [theme, setTheme] = useState<Theme>(() => (document.documentElement.dataset.theme as Theme) ?? 'light')
   const main = useRef<HTMLElement>(null)
   const last = useRef('')
 
@@ -73,6 +76,12 @@ export default function App() {
     return () => window.removeEventListener('keydown', onKey)
   }, [])
 
+  const toggleTheme = () => {
+    const next = theme === 'dark' ? 'light' : 'dark'
+    applyTheme(next)
+    setTheme(next)
+  }
+
   const create = async () => {
     if (!naming?.trim()) return
     try {
@@ -90,28 +99,25 @@ export default function App() {
   return (
     <div className="shell">
       <aside className="sidebar">
-        <button className={`brand nav-item${place.project === null ? ' active' : ''}`} onClick={() => go(null)}><span className="mark"><Icon name="layers" size={16} /></span> Hone</button>
+        <button className="brand" onClick={() => go(null)}><span className="mark"><Icon name="layers" size={15} /></span><span className="wordmark">Hone</span></button>
 
-        <span className="nav-label">Projects</span>
+        <span className="nav-label">Models</span>
         {projects.map((p) => (
           <div key={p.id} className="stack" style={{ gap: '0.125rem' }}>
             <button className={`nav-item${p.id === place.project ? ' current' : ''}`} onClick={() => go(p.id)}>
-              <Icon name="project" />
+              <Icon name="model" size={15} />
               <span className="grow">{p.name}</span>
             </button>
-            {p.id === place.project ? (
+            {p.id === place.project && open ? (
               <div className="nav-pages">
-                {pages.map((pg) => (
-                  <button key={pg.id} className={`nav-item${pg.id === place.page ? ' active' : ''}`} onClick={() => go(p.id, pg.id)}>
-                    <Icon name={pg.icon} size={15} />{pg.title}
-                  </button>
-                ))}
+                <button className="nav-item active" onClick={() => go(p.id)}><Dot route="A" />{contextName(open)}</button>
+                <button className="nav-item faint-item" disabled data-tip="More contexts per model arrive with the backend pass"><Icon name="plus" size={14} /> Context</button>
               </div>
             ) : null}
           </div>
         ))}
         {naming === null ? (
-          <button className="nav-item faint-item" onClick={() => setNaming('')}><Icon name="plus" /> New project</button>
+          <button className="nav-item faint-item" onClick={() => setNaming('')}><Icon name="plus" /> New model</button>
         ) : (
           <div className="row" style={{ padding: '0.25rem' }}>
             <input className="input grow" autoFocus placeholder="Name" value={naming} onChange={(e) => setNaming(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && create()} />
@@ -127,12 +133,26 @@ export default function App() {
       </aside>
 
       <main className="main" ref={main}>
+        <div className="topbar">
+          <div className="topbar-side">
+            {open ? <h1 className="title"><span className="model-name">{open.name}</span><span className="slash">/</span><span className="ink-context">{contextName(open)}</span></h1> : null}
+          </div>
+          {open ? (
+            <nav className="tabs">
+              {pages.map((pg) => (
+                <button key={pg.id} className={pg.id === place.page ? 'on' : ''} onClick={() => go(open.id, pg.id)}><Icon name={pg.icon} size={15} />{pg.title}</button>
+              ))}
+            </nav>
+          ) : null}
+          <div className="topbar-side end">
+            {open ? <MubitStrip project={open} /> : null}
+            <button className="icon-btn theme" onClick={toggleTheme} aria-label={theme === 'dark' ? 'Day' : 'Night'} data-tip={theme === 'dark' ? 'Day' : 'Night'}>
+              <Icon name={theme === 'dark' ? 'day' : 'night'} />
+            </button>
+          </div>
+        </div>
         {open ? (
           <>
-            <div className="header">
-              <h1 className="grow">{open.name}</h1>
-              <MubitStrip project={open} />
-            </div>
             {place.page === 'loop' ? <Loop key={open.id} project={open} focus={place.lesson} reload={reload} notify={notify} /> : null}
             {place.page === 'results' ? <Results project={open} reload={reload} notify={notify} /> : null}
           </>

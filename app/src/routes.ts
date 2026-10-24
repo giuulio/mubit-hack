@@ -1,5 +1,5 @@
 // Shared definitions for the views: lesson routes, project pages and their URLs, configuration labels, number formats.
-import type { Route } from './api'
+import type { Project, Route } from './api'
 
 // Route colours come from mubit.ai's palette, made more vivid (styles.css, "Route colours").
 export const routeColor: Record<Route, string> = { A: 'var(--context)', 'A∧B': 'var(--both)', B: 'var(--weights)', note: 'var(--gray-80)', rephrase: 'var(--rephrase)' }
@@ -12,9 +12,9 @@ export const routeInk: Partial<Record<Route, string>> = { A: 'ink-context', 'A�
 
 // Where a lesson ends up, in plain words (ARCHITECTURE.md, "Routing rules"); the API keeps the whiteboard's letters.
 export const routeInfo: Record<Route, { title: string; tip: string }> = {
-  A: { title: 'Context', tip: 'Instant and editable; parameters run in code' },
-  'A∧B': { title: 'Both', tip: 'Cheap and stable: in the prompt now, trained into the weights' },
-  B: { title: 'Weights', tip: 'Costly to state: trained, then dropped from the prompt' },
+  A: { title: 'Context', tip: 'This context only: instant and editable; parameters run in code' },
+  'A∧B': { title: 'Both', tip: 'Cheap and stable: in this context now, trained into the shared weights' },
+  B: { title: 'Weights', tip: 'Costly to state: trained into the shared weights, then dropped from the prompt' },
   note: { title: 'Note', tip: 'One concept only' },
   rephrase: { title: 'Rephrase', tip: 'No effect in context, so nothing to train' },
 }
@@ -63,6 +63,9 @@ export const fmt = (n: number) => n.toLocaleString('en-GB')
 
 // Tokens a day, compact: 6,560,000 → "6.6M".
 export const perDay = (n: number) => (n >= 1e6 ? `${(n / 1e6).toFixed(1)}M` : n >= 1e3 ? `${Math.round(n / 1e3)}K` : `${n}`)
+
+// The context a project stands for, until the backend stores several contexts per model.
+export const contextName = (project: Project) => project.context_name ?? 'Default'
 
 // Clock time from an API timestamp: "2026-10-24T19:12:01+0100" → "19:12".
 export const clock = (t: string | undefined) => (t ? t.slice(11, 16) : '—')

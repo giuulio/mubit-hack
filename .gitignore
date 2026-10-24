@@ -8,3 +8,5 @@ __pycache__/
 runs/**/index.html
 app/dist/
 *.log
+# Licensed fonts: the Michelangelus EULA grants no distribution rights, so each machine keeps its own copy.
+app/public/fonts/

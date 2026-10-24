@@ -12,7 +12,7 @@ const score = (v: number | null) => (v === null ? '—' : v.toFixed(2))
 
 export function Results({ project, reload, notify }: Props) {
   return (
-    <div className="stack">
+    <div className="stack results">
       <Compare project={project} reload={reload} notify={notify} />
       <Evaluation project={project} reload={reload} notify={notify} />
     </div>
@@ -37,10 +37,12 @@ function Compare({ project, reload, notify }: Props) {
     }
   }
   return (
-    <div className="card stack">
-      <Head title="Compare" tip="One new concept through every configuration; not kept for training">
-        <input className="input" style={{ width: '16rem' }} placeholder="heat pump" value={concept} onChange={(e) => setConcept(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && submit()} />
-        <Button kind="primary" busy={busy !== null} disabled={!concept.trim()} onClick={submit}><Icon name="generate" /></Button>
+    <section className="stack section">
+      <Head center title="Compare" tip="One new concept through every configuration; not kept for training">
+        <div className="row">
+          <input className="input" style={{ width: '16rem' }} placeholder="heat pump" value={concept} onChange={(e) => setConcept(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && submit()} />
+          <Button kind="primary" busy={busy !== null} disabled={!concept.trim()} onClick={submit} tip="Draw it in every configuration"><Icon name="generate" /></Button>
+        </div>
       </Head>
       {busy ? <Row project={project} comparison={null} concept={busy} /> : latest ? <Row key={latest.id} project={project} comparison={latest} concept={latest.concept} /> : (
         <div className="empty">Any concept</div>
@@ -56,14 +58,14 @@ function Compare({ project, reload, notify }: Props) {
           ))}</tbody>
         </table>
       ) : null}
-    </div>
+    </section>
   )
 }
 
 function Row({ project, comparison, concept }: { project: Project; comparison: Comparison | null; concept: string }) {
   return (
-    <div className="stack" style={{ gap: '0.5rem' }}>
-      <h3>{concept}</h3>
+    <div className="stack" style={{ gap: '0.75rem' }}>
+      <h3 className="center-text">{concept}</h3>
       <div className="compare">
         {columns.map((config) => {
           const out = comparison?.outputs[config]
@@ -128,10 +130,12 @@ function Evaluation({ project, reload, notify }: Props) {
   const best = lines.reduce<Line | null>((b, l) => (l.row.style !== null && (b?.row.style ?? -1) < l.row.style ? l : b), null)
 
   return (
-    <div className="card stack">
-      <Head title="Held-out" tip="Concepts never used in training, scored 1–5 by a blind judge">
-        {evaluation ? <span className="faint">n = {evaluation.concepts.length} · {clock(evaluation.t)}</span> : null}
-        <Button busy={busy} onClick={evaluate} tip="Run the held-out evaluation"><Icon name="chart" /> Evaluate</Button>
+    <section className="stack section">
+      <Head center title="Held-out" tip="Concepts never used in training, scored 1–5 by a blind judge">
+        <div className="row">
+          {evaluation ? <span className="faint">n = {evaluation.concepts.length} · {clock(evaluation.t)}</span> : null}
+          <Button small busy={busy} onClick={evaluate} tip="Run the held-out evaluation"><Icon name="chart" /> Evaluate</Button>
+        </div>
       </Head>
       {evaluation ? (
         <table className="eval">
@@ -154,6 +158,6 @@ function Evaluation({ project, reload, notify }: Props) {
           ))}</tbody>
         </table>
       ) : <div className="empty">Not run yet</div>}
-    </div>
+    </section>
   )
 }

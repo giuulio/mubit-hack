@@ -105,7 +105,7 @@ export function Schematic() {
       <g fill="none" strokeWidth="1.5">
         {paths.map((p) => <path key={p.id} id={`sx-${p.id}-path`} d={p.d} stroke={p.color} strokeDasharray={p.dashed ? '4 5' : undefined} markerEnd={`url(#${marker(p.color)})`} />)}
       </g>
-      <text x="12" y="22" fontSize="15" fontWeight="700" fontFamily="var(--font-display)" fill="var(--text)">Hone</text>
+      <text x="12" y="24" fontSize="19" fontWeight="700" fontFamily="var(--font-brand)" fill="var(--text)">Hone</text>
       <text x={midX - 30} y={(context.y + H + weights.y) / 2 + 4} fontSize="11" fill="var(--ink-both)" textAnchor="end">train</text>
       <text x={midX + 30} y={(context.y + H + weights.y) / 2 + 4} fontSize="11" fill="var(--text-3)">retire</text>
       {Object.entries(nodes).map(([key, node]) => <Box key={key} node={node} />)}

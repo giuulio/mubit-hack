@@ -1,8 +1,8 @@
 // Shared UI pieces. Interface icons come from reicon-react behind `Icon`, so they can be swapped for our own.
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import {
-  ArrowDown, ArrowRight, ArrowUp, ChartBar, Check, ChevronDown, ChevronRight, Code, Copy, Cpu, Eye, Folder, Home, Layers, Message, Plus,
-  Refresh, Route as RouteIcon, Scale, Send, Settings, Sparkles, ThumbsUp, X,
+  ArrowDown, ArrowRight, ArrowUp, ChartBar, Check, ChevronDown, ChevronRight, Code, Copy, Cpu, Eye, Folder, Home, Layers, Message, Moon, Plus,
+  Refresh, Route as RouteIcon, Scale, Send, Settings, Sparkles, Sun, ThumbsUp, X,
 } from 'reicon-react'
 import type { Route } from './api'
 import { routeColor, routeInfo, routeInk, routeOn } from './routes'
@@ -11,7 +11,7 @@ const icons = {
   generate: Sparkles, send: Send, approve: ThumbsUp, critique: Message, pick: Scale, check: Check, close: X,
   train: Cpu, chart: ChartBar, copy: Copy, project: Folder, plus: Plus, layers: Layers, loading: Refresh, home: Home,
   expand: ChevronDown, next: ChevronRight, route: RouteIcon, operator: Settings, prompt: Code, eye: Eye,
-  right: ArrowRight, down: ArrowDown, up: ArrowUp,
+  right: ArrowRight, down: ArrowDown, up: ArrowUp, day: Sun, night: Moon, model: Cpu,
 }
 export type IconName = keyof typeof icons
 
@@ -38,10 +38,11 @@ export function Dot({ route }: { route: Route | null }) {
 }
 
 // A card's title with actions on the right. What the card means lives in a tooltip on the title, not in a subtitle.
-export function Head({ title, tip, route, children }: { title: ReactNode; tip?: string; route?: Route; children?: ReactNode }) {
+// Centred heads put the actions under the title rather than beside it.
+export function Head({ title, tip, route, center = false, children }: { title: ReactNode; tip?: string; route?: Route; center?: boolean; children?: ReactNode }) {
   return (
-    <div className="head">
-      <h2 className={`grow ${route ? routeInk[route] ?? '' : ''}`}><span data-tip={tip}>{title}</span></h2>
+    <div className={`head${center ? ' center' : ''}`}>
+      <h2 className={`${center ? '' : 'grow '}${route ? routeInk[route] ?? '' : ''}`}><span data-tip={tip}>{title}</span></h2>
       {children}
     </div>
   )
@@ -102,4 +103,21 @@ export function Count({ value, format = (n) => n.toLocaleString('en-GB') }: { va
     return () => { cancelAnimationFrame(frame); from.current = value }
   }, [value])
   return <>{format(shown)}</>
+}
+
+// A centred sheet over the page for long content, such as the full prompt; it closes on the backdrop, the X or Escape.
+export function Sheet({ title, close, children }: { title: ReactNode; close: () => void; children: ReactNode }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') close() }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [close])
+  return (
+    <div className="sheet-backdrop" onClick={close}>
+      <div className="sheet" role="dialog" aria-label={typeof title === 'string' ? title : undefined} onClick={(e) => e.stopPropagation()}>
+        <div className="row"><h2 className="grow">{title}</h2><button className="icon-btn" aria-label="Close" onClick={close}><Icon name="close" /></button></div>
+        <div className="sheet-body">{children}</div>
+      </div>
+    </div>
+  )
 }

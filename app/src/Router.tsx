@@ -18,14 +18,15 @@ type Props = {
 }
 
 export function Router({ project, focus, deciding, extracting, busy, onFocus, onRoute, onReject }: Props) {
+  const [showAll, setShowAll] = useState(false)
   const incoming = project.lessons.filter((l) => l.status === 'pending' && l.id !== deciding)
   const decided = project.lessons
     .filter((l) => l.route && l.confirmed && ['active', 'needs_rephrase'].includes(l.status))
     .sort((a, b) => (b.confirmed ?? '').localeCompare(a.confirmed ?? ''))
 
   return (
-    <div className="card stack loop-col">
-      <Head title="Router" tip="Measures each lesson, then sends it to context, weights or both">
+    <section className="stack loop-col">
+      <Head center title="Router" tip="Measures each lesson, then sends it to context, weights or both">
         {incoming.length ? <span className="count">{incoming.length}</span> : null}
       </Head>
 
@@ -41,17 +42,24 @@ export function Router({ project, focus, deciding, extracting, busy, onFocus, on
       )}
 
       {decided.length ? (
-        <div className="history">
-          {decided.map((l) => (
-            <button key={l.id} className={`history-row${focus?.id === l.id ? ' on' : ''}`} onClick={() => onFocus(l.id)}>
-              <Dot route={l.route} />
-              <span className="grow clamp">{l.statement}</span>
-              <span className="faint">{l.route ? routeInfo[l.route].title : ''}</span>
-            </button>
-          ))}
+        <div className="stack" style={{ gap: '0.25rem' }}>
+          <button className="more center" onClick={() => setShowAll(!showAll)} aria-expanded={showAll}>
+            {decided.length} routed <span className={`chevron${showAll ? ' open' : ''}`}><Icon name="expand" size={14} /></span>
+          </button>
+          {showAll ? (
+            <div className="history enter">
+              {decided.map((l) => (
+                <button key={l.id} className={`history-row${focus?.id === l.id ? ' on' : ''}`} onClick={() => onFocus(l.id)}>
+                  <Dot route={l.route} />
+                  <span className="grow clamp">{l.statement}</span>
+                  <span className="faint">{l.route ? routeInfo[l.route].title : ''}</span>
+                </button>
+              ))}
+            </div>
+          ) : null}
         </div>
       ) : null}
-    </div>
+    </section>
   )
 }
 
