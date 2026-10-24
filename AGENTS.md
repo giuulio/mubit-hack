@@ -23,10 +23,12 @@ Hard constraints:
 | `ideas/` | Project ideas, one per file. Format: [ideas/README.md](ideas/README.md) |
 | `AGENTS.md` | This file |
 | `ARCHITECTURE.md`, `USE_CASE.md` | The lesson router and the chosen use case |
-| `icons/` | Python package: Mubit client, fixed task prompt, SVG validators, slop score, experiment runner (`python -m icons.run`) |
+| `router/` | Domain-agnostic architecture stages: Mubit client, extraction (`python -m router.eval_extraction`) |
+| `icons/` | Icon domain: fixed task prompt, SVG validators, slop score, extraction rules, experiment runner (`python -m icons.run`) |
+| `docs/stages/` | One evaluation note per architecture stage |
 | `style/` | Hidden target style (`target.md`) and hand-drawn seed icons |
-| `data/` | Concept lists for training and held-out evaluation |
-| `runs/` | Experiment outputs: `results.jsonl` and SVGs per run; HTML sheets are regenerated, not committed |
+| `data/` | Concept lists and labelled feedback for evaluation |
+| `runs/` | Experiment outputs per run; HTML sheets are regenerated, not committed |
 
 Python setup: `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`; Lucide is fetched into `.cache/` with npm on first use.
 

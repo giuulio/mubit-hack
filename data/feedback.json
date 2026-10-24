@@ -1,0 +1,114 @@
+{
+  "about": "Labelled feedback for evaluating the extraction stage. Icons are paths under runs/heldout-v1 without the .svg suffix. Each expected lesson lists the accepted values per field; optional lessons are neither required nor penalised. Labels by Claude; to be reviewed by the team.",
+  "lessons": [
+    {"id": "L1", "statement": "Strokes are 1.5 px wide.", "expressible_as": "parameter", "parameter": {"name": "stroke-width", "value": "1.5"}},
+    {"id": "L2", "statement": "Line caps are round.", "expressible_as": "parameter", "parameter": {"name": "stroke-linecap", "value": "round"}},
+    {"id": "L3", "statement": "Line joins are round.", "expressible_as": "parameter", "parameter": {"name": "stroke-linejoin", "value": "round"}},
+    {"id": "L4", "statement": "At most five stroked elements.", "expressible_as": "validator", "parameter": null},
+    {"id": "L5", "statement": "No fills except the accent.", "expressible_as": "parameter", "parameter": {"name": "fill", "value": "none"}},
+    {"id": "L6", "statement": "Generous negative space and low detail.", "expressible_as": "rule", "parameter": null},
+    {"id": "L7", "statement": "Exactly one solid accent dot, placed in the gap of the main outline.", "expressible_as": "validator", "parameter": null}
+  ],
+  "items": [
+    {"id": "F01", "signal": "direction", "text": "I want them thin and rounded, kind of organic",
+     "expected": [
+       {"statement": "Use thinner strokes.", "scope": ["style"], "expressible_as": ["parameter"], "relation": ["contradicts"], "related_to": ["L1"]},
+       {"statement": "Round the corners of shapes.", "scope": ["style"], "expressible_as": ["rule", "validator"], "relation": ["new", "refines"], "related_to": ["L2", "L3"], "optional": true},
+       {"statement": "Prefer organic, softer forms over rigid geometry.", "scope": ["style"], "expressible_as": ["examples", "rule"], "relation": ["new"]}
+     ]},
+    {"id": "F02", "signal": "direction", "text": "Make everything feel more symmetric and balanced",
+     "expected": [
+       {"statement": "Make icons symmetric and visually balanced.", "scope": ["style"], "expressible_as": ["validator", "rule"], "relation": ["new"]}
+     ]},
+    {"id": "F03", "signal": "direction", "text": "Bolder please, these look too faint on a dark background",
+     "expected": [
+       {"statement": "Use thicker strokes.", "scope": ["style"], "expressible_as": ["parameter"], "relation": ["contradicts"], "related_to": ["L1"]}
+     ]},
+    {"id": "F04", "signal": "direction", "text": "Less detail overall, one idea per icon",
+     "expected": [
+       {"statement": "Keep detail minimal: one idea per icon.", "scope": ["style"], "expressible_as": ["rule", "validator"], "relation": ["refines", "duplicate"], "related_to": ["L6", "L4"]}
+     ]},
+    {"id": "F05", "signal": "critique", "icon": "bare/heat-pump", "text": "this one is way too busy",
+     "expected": [
+       {"statement": "Too much detail; keep icons simple.", "scope": ["style", "instance"], "expressible_as": ["rule", "validator"], "relation": ["duplicate", "refines"], "related_to": ["L6", "L4"]}
+     ]},
+    {"id": "F06", "signal": "critique", "icon": "style+seeds/heat-pump", "text": "this doesn't read as a heat pump at all, it looks like a washing machine",
+     "expected": [
+       {"statement": "The heat pump icon must read as a heat pump (an outdoor unit with a fan), not a washing machine.", "scope": ["instance"], "expressible_as": ["examples", "rule"], "relation": ["new"]}
+     ]},
+    {"id": "F07", "signal": "critique", "icon": "style+seeds/telescope", "text": "love this one, more like this",
+     "expected": [
+       {"statement": "The telescope icon is a good example of the style.", "scope": ["style"], "expressible_as": ["examples"], "relation": ["new"]}
+     ]},
+    {"id": "F08", "signal": "critique", "icon": "style+seeds/bike-repair", "text": "the wheels are too small compared to the frame",
+     "expected": [
+       {"statement": "In the bike icon, make the wheels larger relative to the frame.", "scope": ["instance"], "expressible_as": ["rule", "examples"], "relation": ["new"]},
+       {"statement": "Keep realistic proportions between parts.", "scope": ["style"], "expressible_as": ["rule", "examples"], "relation": ["new"], "optional": true}
+     ]},
+    {"id": "F09", "signal": "critique", "icon": "style/vinyl-record", "text": "this one's fine but the dot thing is distracting",
+     "expected": [
+       {"statement": "Remove the accent dot.", "scope": ["style", "instance"], "expressible_as": ["parameter", "validator"], "relation": ["contradicts"], "related_to": ["L7"]}
+     ]},
+    {"id": "F10", "signal": "critique", "icon": "style+seeds/recycling", "text": "the arrows get cut off at the top",
+     "expected": [
+       {"statement": "Keep all geometry inside the canvas padding.", "scope": ["style", "instance"], "expressible_as": ["validator"], "relation": ["new"]}
+     ]},
+    {"id": "F11", "signal": "pick", "chosen": "style+seeds/kombucha", "rejected": "style/kombucha",
+     "expected": [
+       {"statement": "The chosen kombucha icon is a good example of the style.", "scope": ["style"], "expressible_as": ["examples"], "relation": ["new"]},
+       {"statement": "Draw recognisable silhouettes, such as a bottle with a neck and cap.", "scope": ["style", "family"], "expressible_as": ["rule", "examples"], "relation": ["new"], "optional": true}
+     ]},
+    {"id": "F12", "signal": "pick", "chosen": "style+seeds/mushroom-foraging", "rejected": "style/mushroom-foraging",
+     "expected": [
+       {"statement": "The chosen mushroom icon is a good example of the style.", "scope": ["style"], "expressible_as": ["examples"], "relation": ["new"], "optional": true}
+     ]},
+    {"id": "F13", "signal": "pick", "chosen": "style+seeds/satellite-dish", "rejected": "bare/satellite-dish",
+     "expected": [
+       {"statement": "The chosen satellite dish icon is a good example of the style.", "scope": ["style"], "expressible_as": ["examples"], "relation": ["new"], "optional": true}
+     ]},
+    {"id": "F14", "signal": "edit", "before": "style+seeds/vinyl-record",
+     "after": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M12 3.5A8.5 8.5 0 1 0 20.5 12\"/>\n  <circle cx=\"12\" cy=\"12\" r=\"2.5\"/>\n  <circle class=\"accent\" cx=\"17.25\" cy=\"6.75\" r=\"1.5\" fill=\"currentColor\" stroke=\"none\"/>\n</svg>",
+     "expected": [
+       {"statement": "Strokes are 1.25 px wide.", "scope": ["style", "instance"], "expressible_as": ["parameter"], "relation": ["contradicts"], "related_to": ["L1"]}
+     ]},
+    {"id": "F15", "signal": "edit", "before": "style+seeds/ferry",
+     "after": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M3.5 14L5.5 19H18.5L20.5 14H3.5\"/>\n  <path d=\"M6.5 14V9.5H12\"/>\n  <circle class=\"accent\" cx=\"16.5\" cy=\"8.5\" r=\"1.5\" fill=\"currentColor\" stroke=\"none\"/>\n</svg>",
+     "expected": [
+       {"statement": "The ferry icon is simpler without the funnel.", "scope": ["instance"], "expressible_as": ["examples", "rule"], "relation": ["new"]},
+       {"statement": "Remove small decorative details.", "scope": ["style"], "expressible_as": ["rule", "validator"], "relation": ["duplicate", "refines"], "related_to": ["L6", "L4"], "optional": true}
+     ]},
+    {"id": "F16", "signal": "edit", "before": "style/compost-bin",
+     "after": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" stroke-linejoin=\"miter\"><path d=\"M4 8H14\"/><path d=\"M6 8L7.5 21H16.5L18 12\"/><path d=\"M7 14.5H16.9\"/><circle class=\"accent\" cx=\"18\" cy=\"6.5\" r=\"1.5\" fill=\"currentColor\" stroke=\"none\"/></svg>",
+     "expected": [
+       {"statement": "Line caps are square.", "scope": ["style", "instance"], "expressible_as": ["parameter"], "relation": ["contradicts"], "related_to": ["L2"]},
+       {"statement": "Line joins are mitred.", "scope": ["style", "instance"], "expressible_as": ["parameter"], "relation": ["contradicts"], "related_to": ["L3"]}
+     ]},
+    {"id": "F17", "signal": "direction", "text": "thinner lines, and can we get rid of the orange dot? also the ferry looks like a bathtub",
+     "expected": [
+       {"statement": "Use thinner strokes.", "scope": ["style"], "expressible_as": ["parameter"], "relation": ["contradicts"], "related_to": ["L1"]},
+       {"statement": "Remove the accent dot.", "scope": ["style"], "expressible_as": ["parameter", "validator"], "relation": ["contradicts"], "related_to": ["L7"]},
+       {"statement": "The ferry icon must read as a ferry, not a bathtub.", "scope": ["instance"], "expressible_as": ["examples", "rule"], "relation": ["new"]}
+     ]},
+    {"id": "F18", "signal": "direction", "text": "actually go back to the thicker strokes from before",
+     "lessons_override": [
+       {"id": "L1", "statement": "Strokes are 1.25 px wide.", "expressible_as": "parameter", "parameter": {"name": "stroke-width", "value": "1.25"}}
+     ],
+     "expected": [
+       {"statement": "Strokes are 1.5 px wide again.", "scope": ["style"], "expressible_as": ["parameter"], "relation": ["contradicts"], "related_to": ["L1"]}
+     ]},
+    {"id": "F19", "signal": "direction", "text": "use our brand colour #7C3AED for the accent",
+     "expected": [
+       {"statement": "The accent colour is #7C3AED.", "scope": ["style"], "expressible_as": ["parameter"], "relation": ["new", "refines"], "related_to": ["L7"]}
+     ]},
+    {"id": "F20", "signal": "direction", "text": "they need to stay readable at 16px",
+     "expected": [
+       {"statement": "Icons stay legible at 16 px.", "scope": ["style"], "expressible_as": ["validator", "rule"], "relation": ["new"]}
+     ]},
+    {"id": "F21", "signal": "direction", "text": "make them cooler",
+     "expected": []},
+    {"id": "F22", "signal": "direction", "text": "more playful",
+     "expected": [
+       {"statement": "Make icons more playful.", "scope": ["style"], "expressible_as": ["examples", "rule"], "relation": ["new"]}
+     ]}
+  ]
+}

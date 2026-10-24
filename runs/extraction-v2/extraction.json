@@ -1,0 +1,3326 @@
+{
+ "rules": {
+  "summary": {
+   "recall": "11/23",
+   "precision": "12/13",
+   "scope": "12/12",
+   "expressible_as": "11/12",
+   "relation": "9/12",
+   "mean_seconds": 0.0
+  },
+  "rows": [
+   {
+    "id": "F01",
+    "expected": [
+     {
+      "statement": "Use thinner strokes.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L1"
+      ]
+     },
+     {
+      "statement": "Round the corners of shapes.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "rule",
+       "validator"
+      ],
+      "relation": [
+       "new",
+       "refines"
+      ],
+      "related_to": [
+       "L2",
+       "L3"
+      ],
+      "optional": true
+     },
+     {
+      "statement": "Prefer organic, softer forms over rigid geometry.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Strokes are 1.25 px wide.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-width",
+       "value": "1.25"
+      },
+      "relation": "contradicts",
+      "related_to": "L1",
+      "evidence": "i want them thin and rounded, kind of organic"
+     },
+     {
+      "statement": "Line caps are round.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-linecap",
+       "value": "round"
+      },
+      "relation": "duplicate",
+      "related_to": "L2",
+      "evidence": "i want them thin and rounded, kind of organic"
+     },
+     {
+      "statement": "Line joins are round.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-linejoin",
+       "value": "round"
+      },
+      "relation": "duplicate",
+      "related_to": "L3",
+      "evidence": "i want them thin and rounded, kind of organic"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ],
+     [
+      2,
+      1
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     },
+     {
+      "scope": true,
+      "expressible_as": false,
+      "relation": false
+     }
+    ],
+    "seconds": 1.52587890625e-05
+   },
+   {
+    "id": "F02",
+    "expected": [
+     {
+      "statement": "Make icons symmetric and visually balanced.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "validator",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 5.7220458984375e-06
+   },
+   {
+    "id": "F03",
+    "expected": [
+     {
+      "statement": "Use thicker strokes.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L1"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Strokes are 1.75 px wide.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-width",
+       "value": "1.75"
+      },
+      "relation": "contradicts",
+      "related_to": "L1",
+      "evidence": "bolder please, these look too faint on a dark background"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 6.198883056640625e-06
+   },
+   {
+    "id": "F04",
+    "expected": [
+     {
+      "statement": "Keep detail minimal: one idea per icon.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "rule",
+       "validator"
+      ],
+      "relation": [
+       "refines",
+       "duplicate"
+      ],
+      "related_to": [
+       "L6",
+       "L4"
+      ]
+     }
+    ],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 3.814697265625e-06
+   },
+   {
+    "id": "F05",
+    "expected": [
+     {
+      "statement": "Too much detail; keep icons simple.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "rule",
+       "validator"
+      ],
+      "relation": [
+       "duplicate",
+       "refines"
+      ],
+      "related_to": [
+       "L6",
+       "L4"
+      ]
+     }
+    ],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 2.1457672119140625e-06
+   },
+   {
+    "id": "F06",
+    "expected": [
+     {
+      "statement": "The heat pump icon must read as a heat pump (an outdoor unit with a fan), not a washing machine.",
+      "scope": [
+       "instance"
+      ],
+      "expressible_as": [
+       "examples",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 6.198883056640625e-06
+   },
+   {
+    "id": "F07",
+    "expected": [
+     {
+      "statement": "The telescope icon is a good example of the style.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 2.86102294921875e-06
+   },
+   {
+    "id": "F08",
+    "expected": [
+     {
+      "statement": "In the bike icon, make the wheels larger relative to the frame.",
+      "scope": [
+       "instance"
+      ],
+      "expressible_as": [
+       "rule",
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ]
+     },
+     {
+      "statement": "Keep realistic proportions between parts.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "rule",
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ],
+      "optional": true
+     }
+    ],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 4.0531158447265625e-06
+   },
+   {
+    "id": "F09",
+    "expected": [
+     {
+      "statement": "Remove the accent dot.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "parameter",
+       "validator"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L7"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Icons have no accent dot.",
+      "scope": "instance",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "accent",
+       "value": "none"
+      },
+      "relation": "new",
+      "related_to": null,
+      "evidence": "this one's fine but the dot thing is distracting"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": false
+     }
+    ],
+    "seconds": 8.821487426757812e-06
+   },
+   {
+    "id": "F10",
+    "expected": [
+     {
+      "statement": "Keep all geometry inside the canvas padding.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "validator"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 3.0994415283203125e-06
+   },
+   {
+    "id": "F11",
+    "expected": [
+     {
+      "statement": "The chosen kombucha icon is a good example of the style.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ]
+     },
+     {
+      "statement": "Draw recognisable silhouettes, such as a bottle with a neck and cap.",
+      "scope": [
+       "style",
+       "family"
+      ],
+      "expressible_as": [
+       "rule",
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ],
+      "optional": true
+     }
+    ],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 9.5367431640625e-07
+   },
+   {
+    "id": "F12",
+    "expected": [
+     {
+      "statement": "The chosen mushroom icon is a good example of the style.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ],
+      "optional": true
+     }
+    ],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 0.0
+   },
+   {
+    "id": "F13",
+    "expected": [
+     {
+      "statement": "The chosen satellite dish icon is a good example of the style.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ],
+      "optional": true
+     }
+    ],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 1.1920928955078125e-06
+   },
+   {
+    "id": "F14",
+    "expected": [
+     {
+      "statement": "Strokes are 1.25 px wide.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L1"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Root stroke-width is 1.25.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-width",
+       "value": "1.25"
+      },
+      "relation": "contradicts",
+      "related_to": "L1",
+      "evidence": "edit"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 9.179115295410156e-05
+   },
+   {
+    "id": "F15",
+    "expected": [
+     {
+      "statement": "The ferry icon is simpler without the funnel.",
+      "scope": [
+       "instance"
+      ],
+      "expressible_as": [
+       "examples",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     },
+     {
+      "statement": "Remove small decorative details.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "rule",
+       "validator"
+      ],
+      "relation": [
+       "duplicate",
+       "refines"
+      ],
+      "related_to": [
+       "L6",
+       "L4"
+      ],
+      "optional": true
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "The ferry icon is simpler with fewer elements.",
+      "scope": "instance",
+      "expressible_as": "examples",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "edit removed elements"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 4.601478576660156e-05
+   },
+   {
+    "id": "F16",
+    "expected": [
+     {
+      "statement": "Line caps are square.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L2"
+      ]
+     },
+     {
+      "statement": "Line joins are mitred.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L3"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Root stroke-linecap is square.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-linecap",
+       "value": "square"
+      },
+      "relation": "contradicts",
+      "related_to": "L2",
+      "evidence": "edit"
+     },
+     {
+      "statement": "Root stroke-linejoin is miter.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-linejoin",
+       "value": "miter"
+      },
+      "relation": "contradicts",
+      "related_to": "L3",
+      "evidence": "edit"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     },
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 4.57763671875e-05
+   },
+   {
+    "id": "F17",
+    "expected": [
+     {
+      "statement": "Use thinner strokes.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L1"
+      ]
+     },
+     {
+      "statement": "Remove the accent dot.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter",
+       "validator"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L7"
+      ]
+     },
+     {
+      "statement": "The ferry icon must read as a ferry, not a bathtub.",
+      "scope": [
+       "instance"
+      ],
+      "expressible_as": [
+       "examples",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Strokes are 1.25 px wide.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-width",
+       "value": "1.25"
+      },
+      "relation": "contradicts",
+      "related_to": "L1",
+      "evidence": "thinner lines, and can we get rid of the orange dot? also the ferry looks like a bathtub"
+     },
+     {
+      "statement": "Icons have no accent dot.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "accent",
+       "value": "none"
+      },
+      "relation": "new",
+      "related_to": null,
+      "evidence": "thinner lines, and can we get rid of the orange dot? also the ferry looks like a bathtub"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     },
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": false
+     }
+    ],
+    "seconds": 7.867813110351562e-06
+   },
+   {
+    "id": "F18",
+    "expected": [
+     {
+      "statement": "Strokes are 1.5 px wide again.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L1"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Strokes are 1.5 px wide.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-width",
+       "value": "1.5"
+      },
+      "relation": "contradicts",
+      "related_to": "L1",
+      "evidence": "actually go back to the thicker strokes from before"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 5.245208740234375e-06
+   },
+   {
+    "id": "F19",
+    "expected": [
+     {
+      "statement": "The accent colour is #7C3AED.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "new",
+       "refines"
+      ],
+      "related_to": [
+       "L7"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "The accent colour is #7c3aed.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "accent-color",
+       "value": "#7c3aed"
+      },
+      "relation": "new",
+      "related_to": null,
+      "evidence": "use our brand colour #7c3aed for the accent"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 5.7220458984375e-06
+   },
+   {
+    "id": "F20",
+    "expected": [
+     {
+      "statement": "Icons stay legible at 16 px.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "validator",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 3.0994415283203125e-06
+   },
+   {
+    "id": "F21",
+    "expected": [],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 2.1457672119140625e-06
+   },
+   {
+    "id": "F22",
+    "expected": [
+     {
+      "statement": "Make icons more playful.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 9.5367431640625e-07
+   }
+  ]
+ },
+ "llm:claude-sonnet-5-5": {
+  "summary": {
+   "recall": "21/23",
+   "precision": "24/27",
+   "scope": "22/24",
+   "expressible_as": "24/24",
+   "relation": "23/24",
+   "mean_seconds": 3.9
+  },
+  "rows": [
+   {
+    "id": "F01",
+    "expected": [
+     {
+      "statement": "Use thinner strokes.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L1"
+      ]
+     },
+     {
+      "statement": "Round the corners of shapes.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "rule",
+       "validator"
+      ],
+      "relation": [
+       "new",
+       "refines"
+      ],
+      "related_to": [
+       "L2",
+       "L3"
+      ],
+      "optional": true
+     },
+     {
+      "statement": "Prefer organic, softer forms over rigid geometry.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Use a thinner stroke, about 1 px instead of 1.5 px.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-width",
+       "value": "1"
+      },
+      "relation": "contradicts",
+      "related_to": "L1",
+      "evidence": "I want them thin"
+     },
+     {
+      "statement": "Favour soft, curved, organic shapes over rigid geometric or angular forms.",
+      "scope": "style",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "rounded, kind of organic"
+     },
+     {
+      "statement": "Keep round line caps and joins.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-linecap",
+       "value": "round"
+      },
+      "relation": "duplicate",
+      "related_to": "L2",
+      "evidence": "thin and rounded"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      2
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     },
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 6.349057912826538
+   },
+   {
+    "id": "F02",
+    "expected": [
+     {
+      "statement": "Make icons symmetric and visually balanced.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "validator",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Compose icons symmetrically and visually balanced, with shapes mirrored or evenly distributed around the center.",
+      "scope": "style",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "Make everything feel more symmetric and balanced"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 2.4028689861297607
+   },
+   {
+    "id": "F03",
+    "expected": [
+     {
+      "statement": "Use thicker strokes.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L1"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Use a thicker stroke so icons read clearly on dark backgrounds, e.g. 2 px instead of 1.5 px.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-width",
+       "value": "2"
+      },
+      "relation": "contradicts",
+      "related_to": "L1",
+      "evidence": "Bolder please, these look too faint on a dark background"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 2.5854218006134033
+   },
+   {
+    "id": "F04",
+    "expected": [
+     {
+      "statement": "Keep detail minimal: one idea per icon.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "rule",
+       "validator"
+      ],
+      "relation": [
+       "refines",
+       "duplicate"
+      ],
+      "related_to": [
+       "L6",
+       "L4"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Each icon should express a single idea, with no secondary symbols or combined metaphors.",
+      "scope": "style",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "one idea per icon"
+     },
+     {
+      "statement": "Reduce detail further across all icons.",
+      "scope": "style",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "duplicate",
+      "related_to": "L6",
+      "evidence": "Less detail overall"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": false
+     }
+    ],
+    "seconds": 4.681947231292725
+   },
+   {
+    "id": "F05",
+    "expected": [
+     {
+      "statement": "Too much detail; keep icons simple.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "rule",
+       "validator"
+      ],
+      "relation": [
+       "duplicate",
+       "refines"
+      ],
+      "related_to": [
+       "L6",
+       "L4"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Simplify the heat pump icon to only its few essential shapes, dropping secondary details such as the vent lines, fan blades or feet.",
+      "scope": "instance",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "refines",
+      "related_to": "L6",
+      "evidence": "this one is way too busy"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 4.999685764312744
+   },
+   {
+    "id": "F06",
+    "expected": [
+     {
+      "statement": "The heat pump icon must read as a heat pump (an outdoor unit with a fan), not a washing machine.",
+      "scope": [
+       "instance"
+      ],
+      "expressible_as": [
+       "examples",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "The heat pump icon should not be a boxed cabinet with a centred circle, which reads as a washing machine; use features specific to a heat pump instead.",
+      "scope": "instance",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "this doesn't read as a heat pump at all, it looks like a washing machine"
+     },
+     {
+      "statement": "Heat pump icons should use recognisable heat pump cues, such as a fan grille with blades on an outdoor unit or arrows showing heat transfer, rather than a generic appliance box with a circle.",
+      "scope": "instance",
+      "expressible_as": "examples",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "it looks like a washing machine"
+     }
+    ],
+    "pairs": [
+     [
+      1,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 2.4464199542999268
+   },
+   {
+    "id": "F07",
+    "expected": [
+     {
+      "statement": "The telescope icon is a good example of the style.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "The telescope icon (angled tube with a tripod and a single accent dot beside the outline) is a good example of the desired style.",
+      "scope": "style",
+      "expressible_as": "examples",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "love this one, more like this"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 1.6983208656311035
+   },
+   {
+    "id": "F08",
+    "expected": [
+     {
+      "statement": "In the bike icon, make the wheels larger relative to the frame.",
+      "scope": [
+       "instance"
+      ],
+      "expressible_as": [
+       "rule",
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ]
+     },
+     {
+      "statement": "Keep realistic proportions between parts.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "rule",
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ],
+      "optional": true
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Draw the bike's wheels larger relative to the frame so they are in proportion with it.",
+      "scope": "family",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "the wheels are too small compared to the frame"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": false,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 4.8948822021484375
+   },
+   {
+    "id": "F09",
+    "expected": [
+     {
+      "statement": "Remove the accent dot.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "parameter",
+       "validator"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L7"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Do not include the accent dot on icons.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "accent",
+       "value": "none"
+      },
+      "relation": "contradicts",
+      "related_to": "L7",
+      "evidence": "this one's fine but the dot thing is distracting"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 2.9209659099578857
+   },
+   {
+    "id": "F10",
+    "expected": [
+     {
+      "statement": "Keep all geometry inside the canvas padding.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "validator"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Keep every shape, including arrowheads and their stroke width, fully inside the 24x24 canvas with a margin of at least 2px, so nothing is clipped at the edges.",
+      "scope": "style",
+      "expressible_as": "validator",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "the arrows get cut off at the top"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 4.299523115158081
+   },
+   {
+    "id": "F11",
+    "expected": [
+     {
+      "statement": "The chosen kombucha icon is a good example of the style.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ]
+     },
+     {
+      "statement": "Draw recognisable silhouettes, such as a bottle with a neck and cap.",
+      "scope": [
+       "style",
+       "family"
+      ],
+      "expressible_as": [
+       "rule",
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ],
+      "optional": true
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Output A (kombucha bottle with a cap line, narrowed neck, shoulder, liquid line, and the accent dot in the gap of the open outline) is a good example of the icon style.",
+      "scope": "style",
+      "expressible_as": "examples",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "User chose A over B for kombucha; A is the bottle with cap, neck and liquid line."
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 5.67003321647644
+   },
+   {
+    "id": "F12",
+    "expected": [
+     {
+      "statement": "The chosen mushroom icon is a good example of the style.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ],
+      "optional": true
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Output A (mushroom foraging) is a good example: an open dome outline with a gap at upper right holding the accent dot, plus a simple stem, drawn with three elements.",
+      "scope": "style",
+      "expressible_as": "examples",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "The user chose A over B. Both outputs follow the current lessons and differ only in tiny details such as stem length and dot position."
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 5.900609016418457
+   },
+   {
+    "id": "F13",
+    "expected": [
+     {
+      "statement": "The chosen satellite dish icon is a good example of the style.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ],
+      "optional": true
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "The satellite dish icon in output A is a good example: an open dish arc, a short feed arm, a stand and base, with one accent dot in the gap of the outline.",
+      "scope": "instance",
+      "expressible_as": "examples",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "User chose A (satellite dish with open arc, 1.5 stroke, accent dot) over B (2px stroke, closed dish shape, no accent dot)."
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": false,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 3.562732219696045
+   },
+   {
+    "id": "F14",
+    "expected": [
+     {
+      "statement": "Strokes are 1.25 px wide.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L1"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Strokes are 1.25 px wide.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-width",
+       "value": "1.25"
+      },
+      "relation": "contradicts",
+      "related_to": "L1",
+      "evidence": "Edited stroke-width from 1.5 to 1.25 on the vinyl record icon, leaving everything else unchanged."
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 2.0780277252197266
+   },
+   {
+    "id": "F15",
+    "expected": [
+     {
+      "statement": "The ferry icon is simpler without the funnel.",
+      "scope": [
+       "instance"
+      ],
+      "expressible_as": [
+       "examples",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     },
+     {
+      "statement": "Remove small decorative details.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "rule",
+       "validator"
+      ],
+      "relation": [
+       "duplicate",
+       "refines"
+      ],
+      "related_to": [
+       "L6",
+       "L4"
+      ],
+      "optional": true
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Omit small secondary details such as funnels or masts; keep only the hull, the main structure and the accent.",
+      "scope": "style",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "refines",
+      "related_to": "L6",
+      "evidence": "The user deleted the small stacked path 'M9 9.5V6.5H11' from the ferry, leaving the hull, a single cabin line and the accent dot."
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      1
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 7.657366991043091
+   },
+   {
+    "id": "F16",
+    "expected": [
+     {
+      "statement": "Line caps are square.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L2"
+      ]
+     },
+     {
+      "statement": "Line joins are mitred.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L3"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Line caps are square.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-linecap",
+       "value": "square"
+      },
+      "relation": "contradicts",
+      "related_to": "L2",
+      "evidence": "stroke-linecap changed from round to square in the edit"
+     },
+     {
+      "statement": "Line joins are mitered, giving sharp corners.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-linejoin",
+       "value": "miter"
+      },
+      "relation": "contradicts",
+      "related_to": "L3",
+      "evidence": "stroke-linejoin changed from round to miter in the edit"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     },
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 2.623112916946411
+   },
+   {
+    "id": "F17",
+    "expected": [
+     {
+      "statement": "Use thinner strokes.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L1"
+      ]
+     },
+     {
+      "statement": "Remove the accent dot.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter",
+       "validator"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L7"
+      ]
+     },
+     {
+      "statement": "The ferry icon must read as a ferry, not a bathtub.",
+      "scope": [
+       "instance"
+      ],
+      "expressible_as": [
+       "examples",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Use thinner strokes than 1.5 px, for example 1 px.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-width",
+       "value": "1"
+      },
+      "relation": "contradicts",
+      "related_to": "L1",
+      "evidence": "thinner lines"
+     },
+     {
+      "statement": "Icons carry no accent dot.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "accent",
+       "value": "none"
+      },
+      "relation": "contradicts",
+      "related_to": "L7",
+      "evidence": "can we get rid of the orange dot?"
+     },
+     {
+      "statement": "The ferry icon should read as a ferry, not a bathtub: show a cabin or superstructure above the hull and a bow that is shaped differently from a plain rounded tub.",
+      "scope": "instance",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "the ferry looks like a bathtub"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     },
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     },
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 4.864696979522705
+   },
+   {
+    "id": "F18",
+    "expected": [
+     {
+      "statement": "Strokes are 1.5 px wide again.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L1"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Use thicker strokes than 1.25 px, returning to the earlier, heavier stroke width (assumed to be 1.5 px).",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-width",
+       "value": "1.5"
+      },
+      "relation": "contradicts",
+      "related_to": "L1",
+      "evidence": "actually go back to the thicker strokes from before"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 5.669268369674683
+   },
+   {
+    "id": "F19",
+    "expected": [
+     {
+      "statement": "The accent colour is #7C3AED.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "new",
+       "refines"
+      ],
+      "related_to": [
+       "L7"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "The accent dot is colored #7C3AED, the brand purple.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "accent-color",
+       "value": "#7C3AED"
+      },
+      "relation": "new",
+      "related_to": null,
+      "evidence": "use our brand colour #7C3AED for the accent"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 3.8888609409332275
+   },
+   {
+    "id": "F20",
+    "expected": [
+     {
+      "statement": "Icons stay legible at 16 px.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "validator",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Keep icons legible when scaled down to 16px: avoid fine details and tight gaps that would close up at that size.",
+      "scope": "style",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "they need to stay readable at 16px"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 3.1067183017730713
+   },
+   {
+    "id": "F21",
+    "expected": [],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 0.8292410373687744
+   },
+   {
+    "id": "F22",
+    "expected": [
+     {
+      "statement": "Make icons more playful.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 2.6208109855651855
+   }
+  ]
+ },
+ "hybrid": {
+  "summary": {
+   "recall": "21/23",
+   "precision": "25/28",
+   "scope": "23/25",
+   "expressible_as": "24/25",
+   "relation": "21/25",
+   "mean_seconds": 3.9
+  },
+  "rows": [
+   {
+    "id": "F01",
+    "expected": [
+     {
+      "statement": "Use thinner strokes.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L1"
+      ]
+     },
+     {
+      "statement": "Round the corners of shapes.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "rule",
+       "validator"
+      ],
+      "relation": [
+       "new",
+       "refines"
+      ],
+      "related_to": [
+       "L2",
+       "L3"
+      ],
+      "optional": true
+     },
+     {
+      "statement": "Prefer organic, softer forms over rigid geometry.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Strokes are 1.25 px wide.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-width",
+       "value": "1.25"
+      },
+      "relation": "contradicts",
+      "related_to": "L1",
+      "evidence": "i want them thin and rounded, kind of organic"
+     },
+     {
+      "statement": "Line caps are round.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-linecap",
+       "value": "round"
+      },
+      "relation": "duplicate",
+      "related_to": "L2",
+      "evidence": "i want them thin and rounded, kind of organic"
+     },
+     {
+      "statement": "Line joins are round.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-linejoin",
+       "value": "round"
+      },
+      "relation": "duplicate",
+      "related_to": "L3",
+      "evidence": "i want them thin and rounded, kind of organic"
+     },
+     {
+      "statement": "Favour soft, curved, organic shapes over rigid geometric or angular forms.",
+      "scope": "style",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "rounded, kind of organic"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ],
+     [
+      2,
+      1
+     ],
+     [
+      3,
+      2
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     },
+     {
+      "scope": true,
+      "expressible_as": false,
+      "relation": false
+     },
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 6.349086761474609
+   },
+   {
+    "id": "F02",
+    "expected": [
+     {
+      "statement": "Make icons symmetric and visually balanced.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "validator",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Compose icons symmetrically and visually balanced, with shapes mirrored or evenly distributed around the center.",
+      "scope": "style",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "Make everything feel more symmetric and balanced"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 2.4028759002685547
+   },
+   {
+    "id": "F03",
+    "expected": [
+     {
+      "statement": "Use thicker strokes.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L1"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Strokes are 1.75 px wide.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-width",
+       "value": "1.75"
+      },
+      "relation": "contradicts",
+      "related_to": "L1",
+      "evidence": "bolder please, these look too faint on a dark background"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 2.5854287147521973
+   },
+   {
+    "id": "F04",
+    "expected": [
+     {
+      "statement": "Keep detail minimal: one idea per icon.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "rule",
+       "validator"
+      ],
+      "relation": [
+       "refines",
+       "duplicate"
+      ],
+      "related_to": [
+       "L6",
+       "L4"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Each icon should express a single idea, with no secondary symbols or combined metaphors.",
+      "scope": "style",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "one idea per icon"
+     },
+     {
+      "statement": "Reduce detail further across all icons.",
+      "scope": "style",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "duplicate",
+      "related_to": "L6",
+      "evidence": "Less detail overall"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": false
+     }
+    ],
+    "seconds": 4.681952238082886
+   },
+   {
+    "id": "F05",
+    "expected": [
+     {
+      "statement": "Too much detail; keep icons simple.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "rule",
+       "validator"
+      ],
+      "relation": [
+       "duplicate",
+       "refines"
+      ],
+      "related_to": [
+       "L6",
+       "L4"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Simplify the heat pump icon to only its few essential shapes, dropping secondary details such as the vent lines, fan blades or feet.",
+      "scope": "instance",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "refines",
+      "related_to": "L6",
+      "evidence": "this one is way too busy"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 4.999689817428589
+   },
+   {
+    "id": "F06",
+    "expected": [
+     {
+      "statement": "The heat pump icon must read as a heat pump (an outdoor unit with a fan), not a washing machine.",
+      "scope": [
+       "instance"
+      ],
+      "expressible_as": [
+       "examples",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "The heat pump icon should not be a boxed cabinet with a centred circle, which reads as a washing machine; use features specific to a heat pump instead.",
+      "scope": "instance",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "this doesn't read as a heat pump at all, it looks like a washing machine"
+     },
+     {
+      "statement": "Heat pump icons should use recognisable heat pump cues, such as a fan grille with blades on an outdoor unit or arrows showing heat transfer, rather than a generic appliance box with a circle.",
+      "scope": "instance",
+      "expressible_as": "examples",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "it looks like a washing machine"
+     }
+    ],
+    "pairs": [
+     [
+      1,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 2.4464290142059326
+   },
+   {
+    "id": "F07",
+    "expected": [
+     {
+      "statement": "The telescope icon is a good example of the style.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "The telescope icon (angled tube with a tripod and a single accent dot beside the outline) is a good example of the desired style.",
+      "scope": "style",
+      "expressible_as": "examples",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "love this one, more like this"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 1.6983237266540527
+   },
+   {
+    "id": "F08",
+    "expected": [
+     {
+      "statement": "In the bike icon, make the wheels larger relative to the frame.",
+      "scope": [
+       "instance"
+      ],
+      "expressible_as": [
+       "rule",
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ]
+     },
+     {
+      "statement": "Keep realistic proportions between parts.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "rule",
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ],
+      "optional": true
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Draw the bike's wheels larger relative to the frame so they are in proportion with it.",
+      "scope": "family",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "the wheels are too small compared to the frame"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": false,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 4.894888162612915
+   },
+   {
+    "id": "F09",
+    "expected": [
+     {
+      "statement": "Remove the accent dot.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "parameter",
+       "validator"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L7"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Icons have no accent dot.",
+      "scope": "instance",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "accent",
+       "value": "none"
+      },
+      "relation": "new",
+      "related_to": null,
+      "evidence": "this one's fine but the dot thing is distracting"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": false
+     }
+    ],
+    "seconds": 2.9209747314453125
+   },
+   {
+    "id": "F10",
+    "expected": [
+     {
+      "statement": "Keep all geometry inside the canvas padding.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "validator"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Keep every shape, including arrowheads and their stroke width, fully inside the 24x24 canvas with a margin of at least 2px, so nothing is clipped at the edges.",
+      "scope": "style",
+      "expressible_as": "validator",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "the arrows get cut off at the top"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 4.299527168273926
+   },
+   {
+    "id": "F11",
+    "expected": [
+     {
+      "statement": "The chosen kombucha icon is a good example of the style.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ]
+     },
+     {
+      "statement": "Draw recognisable silhouettes, such as a bottle with a neck and cap.",
+      "scope": [
+       "style",
+       "family"
+      ],
+      "expressible_as": [
+       "rule",
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ],
+      "optional": true
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Output A (kombucha bottle with a cap line, narrowed neck, shoulder, liquid line, and the accent dot in the gap of the open outline) is a good example of the icon style.",
+      "scope": "style",
+      "expressible_as": "examples",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "User chose A over B for kombucha; A is the bottle with cap, neck and liquid line."
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 5.670034170150757
+   },
+   {
+    "id": "F12",
+    "expected": [
+     {
+      "statement": "The chosen mushroom icon is a good example of the style.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ],
+      "optional": true
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Output A (mushroom foraging) is a good example: an open dome outline with a gap at upper right holding the accent dot, plus a simple stem, drawn with three elements.",
+      "scope": "style",
+      "expressible_as": "examples",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "The user chose A over B. Both outputs follow the current lessons and differ only in tiny details such as stem length and dot position."
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 5.900609016418457
+   },
+   {
+    "id": "F13",
+    "expected": [
+     {
+      "statement": "The chosen satellite dish icon is a good example of the style.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples"
+      ],
+      "relation": [
+       "new"
+      ],
+      "optional": true
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "The satellite dish icon in output A is a good example: an open dish arc, a short feed arm, a stand and base, with one accent dot in the gap of the outline.",
+      "scope": "instance",
+      "expressible_as": "examples",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "User chose A (satellite dish with open arc, 1.5 stroke, accent dot) over B (2px stroke, closed dish shape, no accent dot)."
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": false,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 3.562732219696045
+   },
+   {
+    "id": "F14",
+    "expected": [
+     {
+      "statement": "Strokes are 1.25 px wide.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L1"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Root stroke-width is 1.25.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-width",
+       "value": "1.25"
+      },
+      "relation": "contradicts",
+      "related_to": "L1",
+      "evidence": "edit"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 2.0781686305999756
+   },
+   {
+    "id": "F15",
+    "expected": [
+     {
+      "statement": "The ferry icon is simpler without the funnel.",
+      "scope": [
+       "instance"
+      ],
+      "expressible_as": [
+       "examples",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     },
+     {
+      "statement": "Remove small decorative details.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "rule",
+       "validator"
+      ],
+      "relation": [
+       "duplicate",
+       "refines"
+      ],
+      "related_to": [
+       "L6",
+       "L4"
+      ],
+      "optional": true
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Omit small secondary details such as funnels or masts; keep only the hull, the main structure and the accent.",
+      "scope": "style",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "refines",
+      "related_to": "L6",
+      "evidence": "The user deleted the small stacked path 'M9 9.5V6.5H11' from the ferry, leaving the hull, a single cabin line and the accent dot."
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      1
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 7.6574320793151855
+   },
+   {
+    "id": "F16",
+    "expected": [
+     {
+      "statement": "Line caps are square.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L2"
+      ]
+     },
+     {
+      "statement": "Line joins are mitred.",
+      "scope": [
+       "style",
+       "instance"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L3"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Root stroke-linecap is square.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-linecap",
+       "value": "square"
+      },
+      "relation": "contradicts",
+      "related_to": "L2",
+      "evidence": "edit"
+     },
+     {
+      "statement": "Root stroke-linejoin is miter.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-linejoin",
+       "value": "miter"
+      },
+      "relation": "contradicts",
+      "related_to": "L3",
+      "evidence": "edit"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     },
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 2.623170852661133
+   },
+   {
+    "id": "F17",
+    "expected": [
+     {
+      "statement": "Use thinner strokes.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L1"
+      ]
+     },
+     {
+      "statement": "Remove the accent dot.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter",
+       "validator"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L7"
+      ]
+     },
+     {
+      "statement": "The ferry icon must read as a ferry, not a bathtub.",
+      "scope": [
+       "instance"
+      ],
+      "expressible_as": [
+       "examples",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Strokes are 1.25 px wide.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-width",
+       "value": "1.25"
+      },
+      "relation": "contradicts",
+      "related_to": "L1",
+      "evidence": "thinner lines, and can we get rid of the orange dot? also the ferry looks like a bathtub"
+     },
+     {
+      "statement": "Icons have no accent dot.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "accent",
+       "value": "none"
+      },
+      "relation": "new",
+      "related_to": null,
+      "evidence": "thinner lines, and can we get rid of the orange dot? also the ferry looks like a bathtub"
+     },
+     {
+      "statement": "The ferry icon should read as a ferry, not a bathtub: show a cabin or superstructure above the hull and a bow that is shaped differently from a plain rounded tub.",
+      "scope": "instance",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "the ferry looks like a bathtub"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     },
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": false
+     },
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 4.864707946777344
+   },
+   {
+    "id": "F18",
+    "expected": [
+     {
+      "statement": "Strokes are 1.5 px wide again.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "contradicts"
+      ],
+      "related_to": [
+       "L1"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Strokes are 1.5 px wide.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "stroke-width",
+       "value": "1.5"
+      },
+      "relation": "contradicts",
+      "related_to": "L1",
+      "evidence": "actually go back to the thicker strokes from before"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 5.669275283813477
+   },
+   {
+    "id": "F19",
+    "expected": [
+     {
+      "statement": "The accent colour is #7C3AED.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "parameter"
+      ],
+      "relation": [
+       "new",
+       "refines"
+      ],
+      "related_to": [
+       "L7"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "The accent colour is #7c3aed.",
+      "scope": "style",
+      "expressible_as": "parameter",
+      "parameter": {
+       "name": "accent-color",
+       "value": "#7c3aed"
+      },
+      "relation": "new",
+      "related_to": null,
+      "evidence": "use our brand colour #7c3aed for the accent"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 3.88887095451355
+   },
+   {
+    "id": "F20",
+    "expected": [
+     {
+      "statement": "Icons stay legible at 16 px.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "validator",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [
+     {
+      "statement": "Keep icons legible when scaled down to 16px: avoid fine details and tight gaps that would close up at that size.",
+      "scope": "style",
+      "expressible_as": "rule",
+      "parameter": null,
+      "relation": "new",
+      "related_to": null,
+      "evidence": "they need to stay readable at 16px"
+     }
+    ],
+    "pairs": [
+     [
+      0,
+      0
+     ]
+    ],
+    "fields": [
+     {
+      "scope": true,
+      "expressible_as": true,
+      "relation": true
+     }
+    ],
+    "seconds": 3.1067214012145996
+   },
+   {
+    "id": "F21",
+    "expected": [],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 0.8292427062988281
+   },
+   {
+    "id": "F22",
+    "expected": [
+     {
+      "statement": "Make icons more playful.",
+      "scope": [
+       "style"
+      ],
+      "expressible_as": [
+       "examples",
+       "rule"
+      ],
+      "relation": [
+       "new"
+      ]
+     }
+    ],
+    "predicted": [],
+    "pairs": [],
+    "fields": [],
+    "seconds": 2.6208131313323975
+   }
+  ]
+ }
+}

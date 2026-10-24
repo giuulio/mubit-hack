@@ -14,7 +14,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from . import mubit
+from router import mubit
 from .prompt import MODEL, SYSTEM_PROMPT, seeds, user_message
 from .slop import lucide_index, nearest
 from .svg import extract_svg, render_png, validate
