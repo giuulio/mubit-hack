@@ -1,84 +1,125 @@
-# Product architecture: the correction router
+# Product architecture: the lesson router
 
-- **Purpose:** Fix the shape of our product and the evidence the demo and deck must show, before choosing a use case.
+- **Purpose:** Fix the shape of our product and the evidence the demo and deck must show.
 - **Author:** Claude (Claude Code) with the team · **Date:** 2026-10-24
-- **Status:** Agreed direction from the whiteboard session. Use case not yet chosen; assess candidates with [PRODUCT_CRITERIA.md](PRODUCT_CRITERIA.md).
-- **Basis:** [HACKATHON.md](HACKATHON.md) (Mubit behaviour and staff Q&A) and [research/weight-updates-vs-context.gpt.md](research/weight-updates-vs-context.gpt.md).
+- **Status:** Agreed direction from the whiteboard session, revised after review on 2026-10-24. Primary track: **2, Own your intelligence layer**. Leading use case: on-style SVG icon generation, see [USE_CASE.md](USE_CASE.md).
+- **Basis:** [HACKATHON.md](HACKATHON.md) (Mubit behaviour and staff Q&A), [PRODUCT_CRITERIA.md](PRODUCT_CRITERIA.md) and [research/weight-updates-vs-context.gpt.md](research/weight-updates-vs-context.gpt.md).
 
 ## Pitch
 
-Every correction is sorted: rules you can write down update the context immediately, and patterns you can't become training data so Mubit updates the model. We build the router and the evaluation; Mubit does the training.
+A company generating outputs in a house style keeps learning lessons from its reviewers. The router decides, lesson by lesson, which ones it **rents** in every prompt and which ones it **owns** in its model's weights. Lessons take effect in context immediately; Mubit trains the weights; we measure quality, cost and latency of every configuration.
 
 ## Input
 
-A **correction event** on a recurring task: `(task input, model output, human-fixed output, optional "why")`.
+A **lesson** comes from one of three sources (whiteboard):
 
-- It is what judges score: "a correction becomes a model update in the demo".
-- The diff between output and fix is what the router classifies.
-- Measurements (eval drops) and new time-series data are **triggers** for when to look, not inputs. Stretch goals only.
+1. **Correction event** (primary): `(task input, model output, human-fixed output, optional "why")`. This is what judges score: "a correction becomes a model update in the demo".
+2. **Measurement**: a validator failure or an evaluation drop. Stretch goal.
+3. **New time-series data**: drift in what the task is asked to do. Stretch goal.
+
+## The constraint that shapes the design
+
+Mubit trains only on provider answers it keeps; there is no corrections API ([HACKATHON.md](HACKATHON.md)). To teach the weights anything, context must first make the provider produce the right answer. So route B always passes through context: the router does not decide *whether* context is used, it decides **where a lesson lives long-term** and therefore what every future call pays for.
 
 ## Diagram
 
 ```mermaid
 flowchart TD
     subgraph TASK["Recurring task (via Mubit proxy)"]
-        IN["Task input"] --> PROMPT["Fixed system prompt<br/>+ rules block in user message"]
-        PROMPT --> LLM["Provider LLM"]
-        LLM --> OUT["Model output"]
+        IN["Task input"] --> PROMPT["Fixed system prompt<br/>+ STYLE.md in user message"]
+        PROMPT --> LLM["Provider LLM<br/>(live call: record metadata, not kept)"]
+        LLM --> OUT["Output"]
+        OUT --> VAL["Harness validators"]
     end
 
-    OUT --> HUMAN["Human fixes output"]
-    HUMAN --> EVT["Correction event<br/>(input, output, fix, why?)"]
+    VAL --> HUMAN["Reviewer accepts or fixes"]
+    HUMAN --> LESSON["Lesson<br/>(input, output, fix, why?)"]
 
-    subgraph ROUTER["Router (our product)"]
-        EVT --> DIFF["1. Diff: what changed?"]
-        DIFF --> CLS{"2. Classify<br/>can it be written as a rule?<br/>one-off or recurring?"}
+    subgraph ROUTER["Lesson router (our product)"]
+        LESSON --> EXT["1. Extract: rule, validator or example"]
+        EXT --> RT{"2. Route on cost, stability,<br/>enforceability, reproducibility"}
     end
 
-    CLS -- "rule you can write down" --> A["A) Context, instant<br/>rules.md, versioned"]
-    CLS -- "pattern you can't easily state" --> B["B) Weights, slow<br/>rerun input with fix in context:<br/>corrected call is kept;<br/>wrong call excluded"]
+    RT -- "A: volatile, rare or code-enforceable" --> A["Context / harness<br/>STYLE.md, validators<br/>instant, versioned"]
+    RT -- "B: stable, frequent, costly to state" --> B["Weights<br/>replay with lesson in context;<br/>kept if validators pass + approved"]
+    RT -- "A∧B: stable, frequent, cheap to state" --> AB["In STYLE.md now,<br/>in weights later"]
 
-    A -- "injected into user message" --> PROMPT
-    A -. "corrected reruns" .-> B
+    A --> PROMPT
+    AB --> PROMPT
+    AB --> B
     B --> MUBIT["Mubit task<br/>≥ 25 kept examples"]
     MUBIT --> ADAPTER["Adapter vN"]
 
+    ADAPTER --> EVAL["Evaluation on fixed held-out set"]
     A --> EVAL
-    ADAPTER --> EVAL
-    subgraph EVAL["Evaluation on fixed held-out set (separate sessions)"]
-        CONF["baseline · A only · B only · A+B · frontier + A"]
-        MET["accuracy · repeat-error rate · tokens · cost"]
-    end
-
-    ADAPTER -. "rule learned by weights:<br/>remove from rules.md" .-> A
+    EVAL -. "probe passes without the lesson:<br/>retire it from STYLE.md" .-> AB
 ```
 
-The dotted loop is the core story: **A is the short-term fix and B is the long-term one.** The context grows after corrections, then shrinks as the adapter learns the same behaviour.
+## Routing rules
+
+The router decides from signals it can compute, not from an open-ended judgement.
+
+| Signal | How it is computed |
+| --- | --- |
+| Context cost | Tokens needed to state or show the lesson × calls per day |
+| Stability | Is the lesson expected to change (a brand colour this quarter) or not (a stroke width)? Set by the reviewer, defaulting to stable |
+| Enforceability | Can a validator or post-processor in the harness check or apply it? |
+| Reproducibility | Does the provider produce the fix when given the lesson in context, without seeing the fixed output? If not, Mubit has nothing correct to learn from |
+
+| Route | When | Where it lives |
+| --- | --- | --- |
+| **A** | Volatile, rare, or enforceable by code | STYLE.md and harness validators, permanently |
+| **B** | Stable, frequent, costly to state (often only showable by example) and reproducible | Weights; in context only during training replays |
+| **A∧B** | Stable, frequent, cheap to state and reproducible | STYLE.md until the adapter passes the lesson's probe set without it, then retired |
+
+A lesson that is not reproducible stays in A until it is rewritten as one that is.
+
+## Recording rules
+
+1. **The system prompt never changes.** STYLE.md goes in the user message; otherwise every lesson starts a new Mubit task with zero examples.
+2. **Nothing is kept unless approved.** Live calls go out with `x-middleware-record: metadata`, because a wrong answer cannot be identified at request time and a Bad rating does not remove a call from training. Approved outputs, accepted or fixed, are replayed with full recording.
+3. **A replay never sees its own answer.** A fixed output may serve as an example for other inputs, but not in the replay of its own input; otherwise the adapter learns to copy. For generated outputs, a replay is kept when it passes the validators and is approved, not when it matches the fix exactly.
 
 ## Platform constraints the design respects
 
 | Constraint (source: [HACKATHON.md](HACKATHON.md)) | Design response |
 | --- | --- |
-| No corrections API; a Bad rating does not remove a call from training | B is fed by controlling which calls are **kept**: rerun with the fix in context so the kept provider answer is correct; send the wrong call with `x-middleware-record: metadata` |
-| Task identity includes the system prompt | System prompt stays fixed; A's rules go in the user message, or every rule change starts a new task with zero examples |
+| No corrections API; a Bad rating does not remove a call from training | Recording rules 2 and 3: only approved replays are kept |
+| Task identity includes the system prompt | Recording rule 1 |
 | Adapter trains at ~25 kept examples; training stalls reported | B is shown with a pre-trained, timestamped adapter version; A is shown live |
-| Adapters cannot be called by model ID, only in Try models | B and A+B rows are scored manually in Try models, so the held-out set stays small (20–30 cases) |
-| Mubit's promotion test measures agreement with the provider | We run our own evaluation; Mubit's "Passed" cannot show A+B beats the provider |
+| Adapters cannot be called by model ID, only in Try models | Adapter rows are scored manually in Try models, so the held-out set stays at 20–25 cases; adapter latency is labelled as not comparable with API latency |
+| Mubit's promotion test measures agreement with the provider | We run our own evaluation; Mubit's "Passed" cannot show the adapter beats the provider |
+| Pricing is per run of ≤ 8K tokens | Context cost is reported in runs as well as tokens: a prompt that crosses 8K tokens costs an extra run |
+
+## Evaluation
+
+All configurations run on one fixed held-out set that was never corrected, held out by session.
+
+| Configuration | Question it answers |
+| --- | --- |
+| Frontier, no context | What does the user get today? |
+| Frontier + full STYLE.md (A only) | What does context alone achieve? Fair baseline: same lessons, same budget |
+| Adapter, no context (B only) | What did the weights absorb? |
+| Adapter + routed STYLE.md (A∧B) | The router's configuration |
+| Previous configuration | Did the latest lessons improve on the last version? |
+
+Metrics: validator pass rate, semantic quality (blind human ranking or a judge routed through Mubit), prompt tokens per call, cost per 1,000 outputs, latency. Report counts (n/N), not percentages alone.
 
 ## Evidence we aim to obtain
 
-In priority order. All on one fixed held-out set that was never corrected (otherwise we measure memorisation), held out by session.
+In priority order.
 
 | # | Evidence | Shape in deck | What it proves |
 | --- | --- | --- | --- |
-| 1 | Headline table: accuracy, prompt tokens per call, cost per 1K tasks for baseline, A only, A+B, frontier + A | Table | The loop improves the task |
-| 2 | Repeat-error rate: after a correction, does the same kind of mistake recur on new inputs? | Before/after bars | Corrections actually stick (the judged claim) |
-| 3 | Router ablation: everything to A vs everything to B vs routed | Grouped bars | The router earns its place: all-A bloats the prompt and plateaus; all-B is slow and needs ~25 examples |
-| 4 | Time to effect: A in seconds, B in hours | Timeline with timestamps | Honest about the two speeds |
-| 5 | Context size over time: `rules.md` grows with corrections, shrinks as B learns | Line chart | Weights absorb what context held |
+| 1 | Track 2 table: quality, tokens, cost per 1,000 and latency for each configuration | Table | Owning lessons in weights keeps quality at lower cost |
+| 2 | Transfer: corrected lessons hold on fresh inputs | Before/after bars | Corrections stick beyond the corrected case |
+| 3 | Router ablation: everything to A vs everything to B vs routed | Grouped bars | The router earns its place: all-A bloats the prompt; all-B is slow and loses volatile lessons |
+| 4 | STYLE.md size over time: grows with lessons, shrinks as lessons retire | Line chart | Weights absorb what context held |
+| 5 | Time to effect: A in seconds, B in hours | Timeline with timestamps | Honest about the two speeds |
 
-## Open questions
+## Open questions and first tests
 
-- Which use case produces corrections that are a clear mix of writable rules and tacit patterns? Without both, the router has nothing to decide.
-- Does Mubit train on the full request, including the rules block? If so, the adapter learns "rules present → behaviour", not the behaviour alone; removing rules after B may regress. Test before claiming row 5.
-- How the router classifies: LLM judge (routed via Mubit), heuristics on the diff, or both.
+- **Can a Mubit adapter produce valid, on-style output for the chosen use case?** Biggest risk; test in Try models on 20 held-out cases. See [USE_CASE.md](USE_CASE.md).
+- **Does the adapter keep a lesson once it is removed from context?** Mubit trains on the full request, including STYLE.md. If the adapter only learns "STYLE.md present → behaviour", retirement (evidence 4) fails; evidence 1–3 still stand. Test by training on replays with the lesson and comparing in Try models with and without it.
+- **Which base model and context window does the adapter use?** Not documented.
+- **Router implementation:** rules over the computed signals, plus one extraction call through Mubit under its own fixed system prompt, recorded as metadata only.
