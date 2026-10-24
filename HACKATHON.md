@@ -1,6 +1,6 @@
 # Night Shift London — event & Mubit notes
 
-Collected 2026-10-23 from Luma, the Mubit Discord, mubit.ai and docs.mubit.ai; updated 2026-10-24 from the organiser announcements supplied by Giulio and the current public docs. Where Discord and Luma disagree, Discord (Max) wins — it is newer. All event times are Europe/London.
+Collected 2026-10-23 from Luma, the Mubit Discord, mubit.ai and docs.mubit.ai; updated 2026-10-24 from the logged-in Discord channels, Luma and current public docs. Where Discord and Luma disagree, Discord (Max) wins — it is newer. All event times are Europe/London.
 
 ## Event
 
@@ -27,6 +27,7 @@ Luma says code freeze is Sun 10:00; Max's rules say 05:00. Plan for 05:00. Late 
 
 - Upload only: **video (MP4/MOV, ≤ 3 min)** + **PDF deck**. No YouTube links.
 - Repo URL is captured at `/team create`.
+- The [official team instructions](https://discord.com/channels/1531252044885921872/1562531784523120760/1562532028610642052) explicitly request a **public GitHub repo**. This conflicts with our private-repo constraint: obtain an organiser-approved arrangement; do not change visibility or share this repo's link without a human changing that instruction.
 
 ### Rules
 
@@ -47,6 +48,12 @@ Luma says code freeze is Sun 10:00; Max's rules say 05:00. Plan for 05:00. Late 
 - $1.5M Mubit credits across accepted hackers
 - Mubit is hiring and will invite people met at the event to interview
 
+### Access and redeeming credits (checked 2026-10-24)
+
+- **Mubit access:** find the email titled **“Early Access”**, including spam/junk. Eldar says this email grants platform access; missing or late-added invites should be raised with Eldar/the organisers. No public redemption code or self-service claim link was found in the event channels or Luma. [Staff reply](https://discord.com/channels/1531252044885921872/1531279500715888731/threads/1563248599947812964)
+- **Mubit allocation:** $1.5M is the total across accepted hackers, not a verified per-person entitlement. A participant reports $25 starter credit, but their question about using it despite the Connect page's provider-key warning remains unanswered; neither a universal amount nor a top-up procedure was confirmed. Use the starter-credit models listed in the console or add a provider key as documented. [Unanswered access question](https://discord.com/channels/1531252044885921872/1531279500715888731/threads/1563447108432830494)
+- **OpenAI early bird:** the **first 50 accepted hackers get $50 in OpenAI API credits at check-in**. Ask the check-in desk to fulfil the offer if eligible. This is separate from Mubit starter credit and the $35K prize-credit pool. Luma does not give a redemption URL/code, expiry or a list of other sponsor credits. [Luma](https://luma.com/nightshift-london)
+
 ### Tracks
 
 1. **Recurring tasks** — turn corrections into model updates for a repeated task
@@ -63,13 +70,13 @@ Luma says code freeze is Sun 10:00; Max's rules say 05:00. Plan for 05:00. Late 
 ### Side quests
 
 - **#1 Model Card:** `/upload your@email.com` in Discord using your own email, then upload Claude Code (`~/.claude/projects/`) or Codex (`~/.codex/sessions/`) JSONL logs. Mubit emails a model card describing the model the data would train and repeated patterns that could become a model or skill. Post on X (@MubitLabs) + LinkedIn (tag Mubit), then drop both links in `#modelcards`. Registered Night Shift hackers only; one entry per person. A subset of logs is fine. Max reviews entries against internal criteria. Prizes: Nintendo Switch 2, $100, $25 Mubit inference credits. The organiser says API keys and secrets are redacted before processing and never stored; this is an organiser claim, not a security test.
-- **The Policy Challenge (Banyan Sapling):** announced 2026-10-24 at 02:12 BST; closes **2026-10-24 at 10:30 BST**. Every registered team may enter once; the main project or a side build counts. Prize: Nintendo Switch 2; winner announced at Sunday's awards. Judged on the best use case: Sapling must do substantive work on realistic input; likes do not count. Post the task and a demo video (≤ 2 min) or screenshots on both X (@MubitLabs) and LinkedIn (tag Mubit), then submit the team name, one-line task, both post links and repo link in `#side-quests` by the deadline. Our private-repo constraint still applies; this announcement does not authorise publishing this repo or sharing its link.
+- **The Policy Challenge (Banyan Sapling):** announced 2026-10-24 at 02:16 BST; **extended to 2026-10-24 at 14:00 BST**, replacing 10:30, in Eldar's 10:42 announcement. Every registered team may enter once; the main project or a side build counts. Prize: Nintendo Switch 2; winner announced at Sunday's awards. Judged on the best use case: Sapling must do substantive work on realistic input; likes do not count. Post the task and a demo video (≤ 2 min) or screenshots on both X (@MubitLabs) and LinkedIn (tag Mubit), then submit the team name, one-line task, both post links and repo link in `#side-quests` by the deadline. Our private-repo constraint still applies; this announcement does not authorise publishing this repo or sharing its link. [Extension](https://discord.com/channels/1531252044885921872/1531279845365907478/1563487817911504957)
 - Staff hinted that sessions created during Night Shift feed a separate, unannounced quest.
 
 ### Launched 2026-10-23
 
 - **Banyan Sapling** — open-weight model that verifies claims against policies/evidence and abstains when evidence is insufficient: https://huggingface.co/MubitLabs/banyan-sapling
-- **Sapling API quickstart (organiser announcement, 2026-10-24):** claim + policy + evidence → verdict and calibrated scores in one pass, with no authentication. Endpoint: `https://6adbee0669a00298cd4774c9.endpoints.huggingface.cloud`; [playground](https://huggingface.co/spaces/MubitLabs/banyan-sapling-demo). The announcement's attached quickstart file was not supplied, so the request schema and endpoint availability have not been tested. This is the organiser's side-quest endpoint; confirm how it fits the main-event LLM-routing rule before using it in our main build.
+- **Sapling API quickstart (organiser attachment read 2026-10-24):** POST JSON `{"inputs":{"policy":"...","evidence":"...","claim":"..."}}` with `Content-Type: application/json`, no authentication, to `https://6adbee0669a00298cd4774c9.endpoints.huggingface.cloud`; [playground](https://huggingface.co/spaces/MubitLabs/banyan-sapling-demo). All three fields must be nonempty; combined limit **16,384 tokens**, rejected rather than truncated. Reply contains `status`, `raw_label`, `prediction_set`, `probabilities` and `timing_ms`. Statuses include the four labels plus `unsure`, which should go to a human. It returns labels/scores, **no explanations or external source checks**; accuracy varies by domain. No inference was performed in this review. This is the organiser's side-quest endpoint; main-project routing compatibility is still unconfirmed. [Quickstart attachment](https://discord.com/channels/1531252044885921872/1531279845365907478/1563359526315499644)
 - **Latte Bench** — benchmark of whether models improve from feedback across attempts: https://github.com/MubitLabs/latte-bench
 
 ## Mubit
@@ -80,7 +87,7 @@ A proxy in front of OpenAI / Anthropic / Gemini. Swap the base URL and use a Mub
 
 - Console: https://app.mubit.ai (Requests, Tasks, Adapters, Try models, Provider keys, Connect)
 - API: https://api.mubit.ai — server-side only (no CORS)
-- Account invites arrive by email at the start of the event.
+- Account invites arrive by email at the start of the event; search for **“Early Access”**.
 
 ### Base URLs
 
@@ -123,11 +130,23 @@ You cannot call an adapter by model ID; compare it in Try models.
 - Import past calls from Langfuse, Braintrust, Pydantic Logfire.
 - Pricing: $5 per 1,000 runs (run = ≤ 8K tokens), no token markup.
 
-### Open question: corrections
+### Corrections and adapter access (staff Q&A)
 
-Judging needs "a correction becomes a model update", but the current public docs still do not specify replacement-answer ingestion or a public correction API. The [Requests guide](https://docs.mubit.ai/guides/requests) explicitly documents **Good/Bad** reply ratings; that alone does not establish what a correction comment teaches. An unanswered #support thread asks: how to write a correction/rule (API or console), whether a Bad rating removes a call from training, whether one adapter version can be called directly, and whether a deterministic check can replace the grading model. **Ask the Mubit team early.**
+Eldar answered the original support thread on **2026-10-23 at 20:44 BST**; it is no longer unanswered. [Staff reply](https://discord.com/channels/1531252044885921872/1563250824082231380/1563276986393305238)
+
+- Corrections are made in the console; **no corrections API** and no switch to disable one for a single call. Try models adds only the task's instructions to the supplied message.
+- **A Bad rating does not remove a call from training.** Exclude a call at request time with `x-middleware-record: metadata`.
+- **No direct adapter/version model ID:** the only supported place to run one is Try models. Read-only keys read project records and cannot make calls.
+- Internal grading measures agreement with provider answers; **teams cannot select a different grading check**. Separate external evaluation remains possible, but does not replace the internal promotion test.
+
+The precise path from a replacement answer/correction to changed weights is still not specified by that reply. A [2026-10-24 follow-up](https://discord.com/channels/1531252044885921872/1531279500715888731/threads/1563447108432830494) asks whether corrections change training or only supplied instructions, and whether app-plus-Try-models is an acceptable judged demo; no reply was visible when checked. Do not infer that a Bad comment is a supervised target or that a local feedback ledger proves a model update.
 
 The [first-adapter guide](https://docs.mubit.ai/guides/first-adapter) confirms training must be enabled, calls are not necessarily kept, and daily limits or pauses can delay training. Failed training needs new examples; there is no retry button. A passing version becomes available in Try models, whose comparisons train nothing. A `Prompt only` result means the prompted base model did as well as the adapter. No fixed correction-to-update time is promised.
+
+### Observed support issues (2026-10-24)
+
+- Shankha acknowledged update-related downtime at 03:19 BST; later said the reported embedding-service warning was unrelated. At 10:29 a participant still reported seven failed jobs with `adapter job queue unavailable`; no resolution was visible. These are attributed reports, not an independent platform-health test. [Thread](https://discord.com/channels/1531252044885921872/1531279500715888731/threads/1563373882465984672)
+- Another participant reported a two-hour training stall at 10:10; Eldar replied “On it!” at 10:19. Daily review-limit increase requests were also unanswered. Build the demo around a completed, timestamped update rather than assuming a fixed live training duration. [Training task](https://discord.com/channels/1531252044885921872/1531279500715888731/threads/1563479790768357486), [limits](https://discord.com/channels/1531252044885921872/1531279500715888731/threads/1563364928604078140)
 
 ### Docs
 
