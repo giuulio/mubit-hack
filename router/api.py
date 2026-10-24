@@ -1,4 +1,8 @@
-"""HTTP API over the pipeline for the interface. Run: `.venv/bin/uvicorn router.api:app --port 8000`."""
+"""HTTP API over the pipeline for the interface. Run: `.venv/bin/uvicorn router.api:app --port 8000`.
+
+A project file holds one model (one Mubit task) and its contexts. Calls that run in a context take a `context` id in the
+body or query; without one they use the model's first context, so single-context clients keep working.
+"""
 
 import threading
 import traceback
@@ -41,10 +45,25 @@ class NewProject(BaseModel):
     name: str
     domain: str = "icons"
     calls_per_day: int = 5000
+    context: str = "Default"
+
+
+class NewContext(BaseModel):
+    name: str
+
+
+class EditContext(BaseModel):
+    name: str | None = None
+    archived: bool | None = None
+
+
+class Archive(BaseModel):
+    archived: bool = True
 
 
 class Generate(BaseModel):
     concepts: list[str]
+    context: str | None = None
 
 
 class Feedback(BaseModel):
@@ -54,15 +73,18 @@ class Feedback(BaseModel):
     chosen_id: str | None = None
     rejected_id: str | None = None
     after: str | None = None
+    context: str | None = None
 
 
 class Confirm(BaseModel):
     stability: str = "permanent"
     statement: str | None = None
+    reach: str | None = None
 
 
 class Count(BaseModel):
     count: int = 40
+    context: str | None = None
 
 
 class Adapter(BaseModel):
@@ -74,10 +96,12 @@ class Adapter(BaseModel):
 class Items(BaseModel):
     config: str | None = None
     items: list[dict]
+    context: str | None = None
 
 
 class Concept(BaseModel):
     concept: str
+    context: str | None = None
 
 
 class Pasted(BaseModel):
@@ -103,6 +127,8 @@ def projects():
             "training_calls": sum(b["calls"] for b in p["training"]),
             "adapter": p["adapters"][-1] if p["adapters"] else None,
             "samples": [o["content"] for o in reversed(p["outputs"]) if o["content"] and not o["problems"]][:6],
+            "contexts": [{"id": c["id"], "name": c["name"]} for c in store.live(p)],
+            "archived": p.get("archived"),
         }
         for p in store.all_projects()
     ]
@@ -110,7 +136,14 @@ def projects():
 
 @app.post("/api/projects")
 def create(body: NewProject):
-    return guard(store.create, body.name, body.domain, "claude-sonnet-5-5", body.calls_per_day)
+    if not body.name.strip() or not body.context.strip():
+        raise HTTPException(400, "a model needs a name and a first context")
+    return guard(store.create, body.name.strip(), body.domain, "claude-sonnet-5-5", body.calls_per_day, body.context.strip())
+
+
+@app.post("/api/projects/{pid}/archive")
+def archive(pid: str, body: Archive):
+    return guard(store.set_archived, pid, body.archived)
 
 
 @app.get("/api/projects/{pid}")
@@ -118,19 +151,29 @@ def project(pid: str):
     return guard(store.load, pid)
 
 
+@app.post("/api/projects/{pid}/contexts")
+def add_context(pid: str, body: NewContext):
+    return guard(store.add_context, pid, body.name)
+
+
+@app.post("/api/projects/{pid}/contexts/{cid}")
+def edit_context(pid: str, cid: str, body: EditContext):
+    return guard(store.edit_context, pid, cid, body.name, body.archived)
+
+
 @app.post("/api/projects/{pid}/generate")
 def generate(pid: str, body: Generate):
-    return guard(pipeline.generate, pid, [c.strip() for c in body.concepts if c.strip()][:12])
+    return guard(pipeline.generate, pid, [c.strip() for c in body.concepts if c.strip()][:12], body.context)
 
 
 @app.post("/api/projects/{pid}/feedback")
 def feedback(pid: str, body: Feedback):
-    return guard(pipeline.feedback, pid, body.model_dump())
+    return guard(pipeline.feedback, pid, body.model_dump(exclude={"context"}), body.context)
 
 
 @app.post("/api/projects/{pid}/lessons/{lid}/confirm")
 def confirm(pid: str, lid: str, body: Confirm):
-    return guard(pipeline.confirm, pid, lid, body.stability, body.statement)
+    return guard(pipeline.confirm, pid, lid, body.stability, body.statement, body.reach)
 
 
 @app.post("/api/projects/{pid}/lessons/{lid}/reject")
@@ -140,12 +183,12 @@ def reject(pid: str, lid: str):
 
 @app.post("/api/projects/{pid}/train")
 def train(pid: str, body: Count):
-    return run_job("train", pipeline.train, pid, body.count)
+    return run_job("train", pipeline.train, pid, body.count, body.context)
 
 
 @app.post("/api/projects/{pid}/eval")
 def evaluate(pid: str, body: Count):
-    return run_job("eval", pipeline.evaluate, pid, body.count)
+    return run_job("eval", pipeline.evaluate, pid, body.count, pipeline.FRONTIER, body.context)
 
 
 @app.get("/api/jobs/{jid}")
@@ -167,13 +210,13 @@ def concepts(pid: str):
 
 
 @app.get("/api/projects/{pid}/message")
-def message(pid: str, concept: str, mode: str = "bare", without: str | None = None):
-    return {"message": guard(pipeline.try_message, pid, concept, mode, without)}
+def message(pid: str, concept: str, mode: str = "bare", without: str | None = None, context: str | None = None):
+    return {"message": guard(pipeline.try_message, pid, concept, mode, without, context)}
 
 
 @app.post("/api/projects/{pid}/imports")
 def imports(pid: str, body: Items):
-    return guard(pipeline.import_outputs, pid, body.config or "adapter", body.items)
+    return guard(pipeline.import_outputs, pid, body.config or "adapter", body.items, body.context)
 
 
 @app.post("/api/projects/{pid}/lessons/{lid}/absorption")
@@ -185,7 +228,7 @@ def absorption(pid: str, lid: str, body: Items):
 def compare(pid: str, body: Concept):
     if not body.concept.strip():
         raise HTTPException(400, "no concept")
-    return guard(pipeline.compare, pid, body.concept.strip())
+    return guard(pipeline.compare, pid, body.concept.strip(), pipeline.FRONTIER, body.context)
 
 
 @app.post("/api/projects/{pid}/comparisons/{cid}")

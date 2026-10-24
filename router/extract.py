@@ -11,15 +11,17 @@ import time
 from . import mubit
 
 SCOPES = ("style", "family", "instance")
+REACHES = ("context", "model")
 EXPRESSIBLE = ("parameter", "validator", "rule", "examples")
 RELATIONS = ("new", "duplicate", "refines", "contradicts")
 
 # Fixed prompt: changing it starts a new Mubit task for the extractor.
 SYSTEM_PROMPT = """You extract lessons from a user's feedback on a model's outputs. A lesson is one atomic instruction about how future outputs should differ.
 
-The user message describes the domain, the parameters code can set, the current lessons, and one piece of feedback. Reply with JSON only: {"lessons": [...]}. Each lesson has:
+The user message describes the domain, the parameters code can set, the model's contexts (looks that share the model, such as smooth or pixel icons), the current lessons, and one piece of feedback. Reply with JSON only: {"lessons": [...]}. Each lesson has:
 - "statement": the lesson in one short sentence.
 - "scope": "style" if it should apply to all outputs, "family" if to a group of similar concepts, "instance" if only to the output concerned.
+- "reach": "model" if it holds for every context of the model, whatever its look (what makes any output correct, clear or well built); "context" if it belongs to the look of the context the feedback was given in. Examples, parameters and notes are "context".
 - "expressible_as": "parameter" if code can apply it to any output using one of the listed parameters; "validator" if code could check it but the model must draw it; "rule" if it can be stated in words but not reliably checked; "examples" if it can only be shown through example outputs.
 - "parameter": {"name": ..., "value": ...} using a listed parameter name when expressible_as is "parameter", otherwise null.
 - "relation": "new", "duplicate", "refines" or "contradicts", compared with the current lessons.
@@ -78,6 +80,7 @@ def clean(lesson, lesson_ids):
     return {
         "statement": str(lesson.get("statement", "")).strip(),
         "scope": lesson.get("scope") if lesson.get("scope") in SCOPES else None,
+        "reach": lesson.get("reach") if lesson.get("reach") in REACHES else "context",
         "expressible_as": lesson.get("expressible_as") if lesson.get("expressible_as") in EXPRESSIBLE else None,
         "parameter": {"name": str(p.get("name")), "value": str(p.get("value"))} if isinstance(p, dict) and p.get("name") else None,
         "relation": lesson.get("relation") if lesson.get("relation") in RELATIONS else None,
@@ -86,10 +89,19 @@ def clean(lesson, lesson_ids):
     }
 
 
-def extract_llm(signal, lessons, domain, model, session):
+def describe_contexts(contexts, current):
+    """The model's contexts, marking the one the feedback was given in; None outside a model (extraction evaluation)."""
+    if not contexts:
+        return None
+    return "\n".join(f"- {c['name']}{' (this feedback)' if c['id'] == current else ''}" for c in contexts)
+
+
+def extract_llm(signal, lessons, domain, model, session, contexts=None, current=None):
+    described = describe_contexts(contexts, current)
     user = "\n\n".join([
         f"## Domain\n\n{domain.description}",
         "## Parameters code can set\n\n" + "\n".join(f"- {k}: {v}" for k, v in domain.parameters.items()),
+        *([f"## Contexts of this model\n\n{described}"] if described else []),
         f"## Current lessons\n\n{describe_lessons(lessons)}",
         f"## Feedback\n\n{describe_signal(signal)}",
     ])
@@ -130,6 +142,7 @@ def parameter_lesson(statement, name, value, scope, lessons, evidence):
     return {
         "statement": statement,
         "scope": scope,
+        "reach": "context",
         "expressible_as": "parameter",
         "parameter": {"name": name, "value": value},
         "relation": relation,

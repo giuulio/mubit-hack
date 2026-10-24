@@ -34,7 +34,7 @@ def concepts(split):
 
 
 def system_prompt(project_name):
-    """One fixed system prompt per project, so each project is its own Mubit task."""
+    """One fixed system prompt per model, so each model is its own Mubit task; its contexts differ only in the user message."""
     return f"{SYSTEM_PROMPT} Project: {project_name}."
 
 
@@ -142,6 +142,7 @@ def rules(signal, lessons):
             found.append({
                 "statement": f"The {signal['before']['concept']} icon is simpler with fewer elements.",
                 "scope": "instance",
+                "reach": "context",
                 "expressible_as": "examples",
                 "parameter": None,
                 "relation": "new",
