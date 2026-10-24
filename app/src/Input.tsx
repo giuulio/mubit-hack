@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { api, type Lesson, type Output, type Project } from './api'
 import { go } from './routes'
-import { Button, Glyph, Icon, RouteBadge } from './ui'
+import { Button, Glyph, Head, Icon, RouteBadge } from './ui'
 
 type Props = { project: Project; reload: () => Promise<void>; notify: (text: string) => void }
 type Run = (key: string, fn: () => Promise<unknown>, done?: string) => Promise<void>
@@ -87,22 +87,22 @@ export function Input({ project, reload, notify }: Props) {
                 onCritique={() => setCritique({ id: o.id, text: '' })} />
             ))}
           </div>
-        ) : <div className="card empty">Generate a few concepts to start.</div>}
+        ) : <div className="card empty">Generate concepts to start.</div>}
       </div>
 
       <div className="stack">
         <div className="card">
-          <h2>Extracted lessons</h2>
-          {pending.length ? pending.map((l) => <Pending key={l.id} lesson={l} project={project} run={run} busy={busy} notify={notify} />) : <div className="empty">Critique, approve or pick icons; the lessons they contain appear here to confirm</div>}
+          <Head title="Extracted lessons" sub={pending.length ? 'Confirm to route' : 'Critique, approve or pick an icon'} />
+          {pending.map((l) => <Pending key={l.id} lesson={l} project={project} run={run} busy={busy} notify={notify} />)}
         </div>
         {routed.length ? (
           <div className="card">
-            <h3>Just routed</h3>
+            <Head title="Just routed" sub="Open for evidence" />
             {routed.map((l) => (
               <button key={l.id} className="lesson link" onClick={() => go(project.id, 'routing', l.id)}>
                 <div className="row" style={{ alignItems: 'flex-start' }}>
                   <RouteBadge route={l.route} />
-                  <span className="grow" style={{ fontSize: 'var(--sm)' }}>{l.statement}</span>
+                  <span className="grow">{l.statement}</span>
                   <Icon name="next" size={14} />
                 </div>
               </button>
@@ -123,9 +123,9 @@ function Tile({ output, selected, critiqued, busy, onSelect, onApprove, onCritiq
       <Glyph svg={output.content} />
       <span className="faint">{output.concept}</span>
       <div className="actions" onClick={(e) => e.stopPropagation()}>
-        <button className="icon-btn" title="Approve as an example of the style" onClick={onApprove} disabled={busy}>{busy ? <Icon name="loading" spin /> : <Icon name="approve" />}</button>
+        <button className="icon-btn" title="Approve as example" onClick={onApprove} disabled={busy}>{busy ? <Icon name="loading" spin /> : <Icon name="approve" />}</button>
         <button className="icon-btn" title="Critique" onClick={onCritique}><Icon name="critique" /></button>
-        <button className={`icon-btn${selected ? ' on' : ''}`} title="Pick between two" onClick={onSelect}><Icon name="pick" /></button>
+        <button className={`icon-btn${selected ? ' on' : ''}`} title="Pick" onClick={onSelect}><Icon name="pick" /></button>
       </div>
     </div>
   )
@@ -133,10 +133,10 @@ function Tile({ output, selected, critiqued, busy, onSelect, onApprove, onCritiq
 
 // What confirming does, so the wait on camera explains itself: the effect test runs only for stable style rules.
 function measuring(lesson: Lesson, stability: string) {
-  if (lesson.scope === 'instance') return 'Saving a note for this concept and redrawing it…'
-  if (lesson.expressible_as === 'parameter') return 'Applying it in code…'
-  if (stability === 'permanent' && (lesson.expressible_as === 'rule' || lesson.expressible_as === 'validator')) return 'Counting its tokens and drawing three probes with and without it…'
-  return 'Counting its tokens…'
+  if (lesson.scope === 'instance') return 'Saving note, redrawing…'
+  if (lesson.expressible_as === 'parameter') return 'Applying in code…'
+  if (stability === 'permanent' && (lesson.expressible_as === 'rule' || lesson.expressible_as === 'validator')) return 'Testing on 3 probes…'
+  return 'Counting tokens…'
 }
 
 function Pending({ lesson, project, run, busy, notify }: { lesson: Lesson; project: Project; run: Run; busy: string | null; notify: (text: string) => void }) {
@@ -144,7 +144,7 @@ function Pending({ lesson, project, run, busy, notify }: { lesson: Lesson; proje
   const key = `confirm-${lesson.id}`
   return (
     <div className="lesson">
-      <span style={{ fontSize: 'var(--sm)' }}>{lesson.statement}</span>
+      <span>{lesson.statement}</span>
       <div className="row wrap">
         <span className="chip">{lesson.scope}</span>
         <span className="chip">{lesson.expressible_as}</span>

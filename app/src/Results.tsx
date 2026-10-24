@@ -2,8 +2,8 @@
 // Mubit's Try models, so their outputs are pasted in from there.
 import { useEffect, useState } from 'react'
 import { api, waitFor, type Comparison, type EvalRow, type Project } from './api'
-import { describe, fmt } from './routes'
-import { Button, Fold, Glyph, Icon } from './ui'
+import { describe, fmt, routeInk, type Described } from './routes'
+import { Button, Fold, Glyph, Head, Icon } from './ui'
 
 type Props = { project: Project; reload: () => Promise<void>; notify: (text: string) => void }
 
@@ -13,7 +13,7 @@ const score = (v: number | null) => (v === null ? '—' : v.toFixed(2))
 const copyMessage = async (project: Project, concept: string, mode: 'bare' | 'routed', notify: (t: string) => void) => {
   const { message } = await api.message(project.id, concept, mode)
   await navigator.clipboard.writeText(message)
-  notify('Message copied: paste it into Try models')
+  notify('Copied')
 }
 
 export function Results({ project, reload, notify }: Props) {
@@ -45,16 +45,13 @@ function Compare({ project, reload, notify }: Props) {
   }
   return (
     <div className="card stack">
+      <Head title="Prompt a bespoke icon" sub="Every configuration, one concept. Not kept for training." />
       <div className="row">
-        <h2 className="grow">Prompt a bespoke icon</h2>
-        <span className="faint">every configuration on one concept; nothing here is kept for training</span>
-      </div>
-      <div className="row">
-        <input className="input grow" placeholder="Any concept: heat pump, sourdough starter, tide chart…" value={concept} onChange={(e) => setConcept(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && submit()} />
+        <input className="input grow" placeholder="Any concept, e.g. heat pump" value={concept} onChange={(e) => setConcept(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && submit()} />
         <Button kind="primary" busy={busy} disabled={!concept.trim()} onClick={submit}><Icon name="generate" /> Compare</Button>
       </div>
       {latest ? <Row key={latest.id} project={project} comparison={latest} reload={reload} notify={notify} /> : (
-        <div className="empty">Name a concept the project has never seen. The raw frontier, the frontier with every lesson, the routed context and the fine-tuned adapter draw it side by side.</div>
+        <div className="empty">Raw, context and fine-tuned, side by side</div>
       )}
       {earlier.length ? (
         <table>
@@ -75,7 +72,7 @@ function Compare({ project, reload, notify }: Props) {
 function Row({ project, comparison, reload, notify }: Props & { comparison: Comparison }) {
   return (
     <div className="stack" style={{ gap: '0.5rem' }}>
-      <div className="row"><b className="display grow">{comparison.concept}</b><span className="faint">{comparison.t.slice(11, 16)}</span></div>
+      <div className="row"><h3 className="grow">{comparison.concept}</h3><span className="faint">{comparison.t.slice(11, 16)}</span></div>
       <div className="compare">
         {columns.map((config) => {
           const out = comparison.outputs[config]
@@ -86,7 +83,7 @@ function Row({ project, comparison, reload, notify }: Props & { comparison: Comp
               <Glyph svg={out?.content ?? null} size="large" title={`${comparison.concept}, ${label.title}`} />
               <Label {...label} />
               <span className="faint">
-                {!out ? '—' : out.problems.length ? out.problems.join('; ') : `${out.input_tokens === null ? '—' : fmt(out.input_tokens)} tokens in${out.seconds ? `, ${out.seconds} s` : ''}`}
+                {!out ? '—' : out.problems.length ? out.problems.join('; ') : `${out.input_tokens === null ? '—' : fmt(out.input_tokens)} tokens${out.seconds ? ` · ${out.seconds} s` : ''}`}
               </span>
             </div>
           )
@@ -96,17 +93,17 @@ function Row({ project, comparison, reload, notify }: Props & { comparison: Comp
   )
 }
 
-function Label({ title, sub, model }: { title: string; sub: string; model: string }) {
+function Label({ title, sub, model, route }: Described) {
   return (
     <div className="stack" style={{ gap: '0.125rem', alignItems: 'center' }}>
-      <b style={{ fontSize: 'var(--sm)' }}>{title}</b>
+      <h3 className={route ? routeInk[route] : undefined}>{title}</h3>
+      <span className="muted">{sub}</span>
       <span className="faint">{model}</span>
-      <span className="faint">{sub}</span>
     </div>
   )
 }
 
-function AdapterCell({ project, comparison, label, reload, notify }: Props & { comparison: Comparison; label: { title: string; sub: string; model: string } }) {
+function AdapterCell({ project, comparison, label, reload, notify }: Props & { comparison: Comparison; label: Described }) {
   const [text, setText] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
   const save = async () => {
@@ -125,7 +122,7 @@ function AdapterCell({ project, comparison, label, reload, notify }: Props & { c
     <div className="compare-cell owned">
       <div className="glyph large empty-glyph" />
       <Label {...label} />
-      <span className="faint">Adapters run only in Mubit's Try models.</span>
+      <span className="faint">Runs in Mubit Try models</span>
       {text === null ? (
         <div className="row">
           <Button small onClick={() => copyMessage(project, comparison.concept, 'bare', notify)}><Icon name="copy" /> Copy message</Button>
@@ -133,7 +130,7 @@ function AdapterCell({ project, comparison, label, reload, notify }: Props & { c
         </div>
       ) : (
         <>
-          <textarea className="input mono" autoFocus placeholder="Paste the SVG from Try models" value={text} onChange={(e) => setText(e.target.value)} />
+          <textarea className="input mono" autoFocus placeholder="SVG from Try models" value={text} onChange={(e) => setText(e.target.value)} />
           <Button small kind="primary" busy={busy} disabled={!text.includes('<svg')} onClick={save}>Add</Button>
         </>
       )}
@@ -159,7 +156,7 @@ function Evaluation({ project, reload, notify }: Props) {
   }
 
   // The whiteboard's baselines: raw frontier, frontier with context, the previous routed configuration, A only, B only, A + B.
-  type Line = { key: string; row: EvalRow; title: string; sub: string; model: string; icons: (string | null)[] }
+  type Line = Described & { key: string; row: EvalRow; icons: (string | null)[] }
   const line = (row: EvalRow, source: NonNullable<typeof evaluation>, key = row.config): Line => ({
     key, row, ...describe(row.config, row.model ?? (row.config === 'provider + routed context' ? project.model : undefined)),
     icons: (source.outputs[row.config] ?? []).slice(0, 8).map((o) => o.content),
@@ -169,7 +166,7 @@ function Evaluation({ project, reload, notify }: Props) {
     for (const row of evaluation.rows) {
       const old = previous?.rows.find((r) => r.config === row.config)
       if (row.config === 'provider + routed context' && previous && old) {
-        lines.push({ ...line(old, previous, 'previous'), title: 'Previous context', sub: `routed context at ${previous.t.slice(11, 16)}` })
+        lines.push({ ...line(old, previous, 'previous'), title: 'Previous context', sub: `routed, ${previous.t.slice(11, 16)}` })
       }
       lines.push(line(row, evaluation))
     }
@@ -178,17 +175,15 @@ function Evaluation({ project, reload, notify }: Props) {
 
   return (
     <div className="card stack">
-      <div className="row">
-        <h2 className="grow">Held-out evaluation</h2>
-        {evaluation ? <span className="faint">{evaluation.concepts.length} concepts never corrected; blind judge, 1–5; {evaluation.t.slice(11, 16)}</span> : null}
+      <Head title="Held-out evaluation" sub={evaluation ? `${evaluation.concepts.length} unseen concepts · blind judge, 1–5 · ${evaluation.t.slice(11, 16)}` : 'Unseen concepts · blind judge, 1–5'}>
         <Button kind="primary" busy={busy} onClick={evaluate}><Icon name="chart" /> Evaluate</Button>
-      </div>
+      </Head>
       {evaluation ? (
         <table>
           <thead><tr><th>Configuration</th><th>Held-out icons</th><th className="r">Valid</th><th className="r">Style</th><th className="r">Recognisable</th><th className="r">Input tokens</th><th className="r">Seconds</th></tr></thead>
           <tbody>{lines.map((l) => (
             <tr key={l.key}>
-              <td className="nowrap"><div>{l.title}</div><div className="faint">{l.model}, {l.sub}</div></td>
+              <td className="nowrap"><div className={l.route ? routeInk[l.route] : undefined} style={{ fontWeight: 600 }}>{l.title}</div><div className="faint">{l.sub} · {l.model}</div></td>
               <td><div className="row" style={{ gap: '0.25rem' }}>{l.icons.map((svg, i) => <Glyph key={i} svg={svg} size="small" />)}</div></td>
               <td className="r">{l.row.valid}/{l.row.n}</td>
               <td className="r">{l === best ? <b>{score(l.row.style)}</b> : score(l.row.style)}</td>
@@ -198,7 +193,7 @@ function Evaluation({ project, reload, notify }: Props) {
             </tr>
           ))}</tbody>
         </table>
-      ) : <div className="empty">The frontier with no context and with every lesson, against the routed context, on concepts never corrected. Adapter rows appear after adding its outputs below.</div>}
+      ) : <div className="empty">Not run yet</div>}
     </div>
   )
 }
@@ -221,17 +216,17 @@ function TryModels({ project, reload, notify }: Props) {
     try {
       await api.importOutputs(project.id, config, Object.entries(pasted).filter(([, v]) => v.trim()).map(([concept, content]) => ({ concept, content })))
       await reload()
-      notify('Adapter outputs saved')
+      notify('Saved')
     } finally {
       setBusy(false)
     }
   }
   const imported = (key: string) => project.imports[key]?.length ?? 0
   return (
-    <Fold title={<><h2>Adapter outputs for the held-out set</h2><span className="faint">from Try models</span></>}
-      aside={<span className="faint">{imported('adapter')} without context, {imported('adapter + routed context')} with</span>}>
+    <Fold title="Adapter outputs" sub="Held-out set, from Try models. Scored at the next evaluation."
+      aside={<span className="faint">{imported('adapter')} bare · {imported('adapter + routed context')} routed</span>}>
       <div className="row">
-        <span className="faint grow">Copy each message into Try models and paste the SVG it returns. They are scored at the next evaluation.</span>
+        <span className="faint grow">Copy → Try models → paste SVG</span>
         <div className="seg">
           <button className={mode === 'bare' ? 'on' : ''} onClick={() => setMode('bare')}>No context</button>
           <button className={mode === 'routed' ? 'on' : ''} onClick={() => setMode('routed')}>Routed context</button>
@@ -246,7 +241,7 @@ function TryModels({ project, reload, notify }: Props) {
               <button className="icon-btn" title="Copy message for Try models" onClick={() => copyMessage(project, c, mode, notify)}><Icon name="copy" /></button>
               <Glyph svg={pasted[c]?.includes('<svg') ? pasted[c] : null} size="small" />
             </div>
-            <textarea className="input mono" placeholder="Paste SVG" value={pasted[c] ?? ''} onChange={(e) => setPasted({ ...pasted, [c]: e.target.value })} />
+            <textarea className="input mono" placeholder="SVG" value={pasted[c] ?? ''} onChange={(e) => setPasted({ ...pasted, [c]: e.target.value })} />
           </div>
         ))}
       </div>

@@ -95,21 +95,21 @@ export default function App() {
         )}
 
         <span className="grow" />
-        <span className="faint" style={{ padding: '0 0.5rem' }}>LLM calls and adapters run on Mubit</span>
+        <span className="faint" style={{ padding: '0 0.5rem' }}>Runs on Mubit</span>
       </aside>
 
       <main className="main" ref={main}>
         {open ? (
           <>
             <div className="header">
-              <div className="grow stack" style={{ gap: '0.375rem' }}>
+              <div className="grow stack" style={{ gap: '0.25rem' }}>
                 <div className="row faint">
                   <button className="crumb" onClick={() => go(null)}>Projects</button>/
                   <button className="crumb" onClick={() => go(open.id)}>{open.name}</button>/
                   <span>{page.title}</span>
                 </div>
                 <h1>{page.title}</h1>
-                <span className="muted">{page.text}</span>
+                <p className="lede">{page.text}</p>
               </div>
               <span className="chip">{open.domain} plugin</span>
               <span className="chip">{open.model} via Mubit</span>

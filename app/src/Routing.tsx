@@ -5,7 +5,7 @@ import { api, type Lesson, type Project, type Route } from './api'
 import { Context } from './Context'
 import { Probes } from './Probes'
 import { routeInfo } from './routes'
-import { Icon, RouteBadge } from './ui'
+import { Head, Icon, RouteBadge } from './ui'
 import { Weights } from './Weights'
 
 const groups: Route[] = ['A', 'A∧B', 'B', 'note', 'rephrase']
@@ -30,14 +30,15 @@ export function Routing({ project, focus, reload, notify }: Props) {
         <Weights project={project} probes={probes} reload={reload} notify={notify} />
       </div>
 
-      <div className="card" style={{ paddingTop: '0.75rem' }}>
-        <div className="row wrap" style={{ padding: '0 0.5rem' }}>
-          <h2 className="grow">Lessons</h2>
-          {groups.map((r) => {
-            const n = live.filter((l) => l.route === r).length
-            return n ? <span key={r} className="row" style={{ gap: '0.375rem' }}><RouteBadge route={r} /><span className="muted">{n}</span></span> : null
-          })}
-        </div>
+      <div className="card stack" style={{ gap: '0.5rem' }}>
+        <Head title="Lessons" sub="Open one for its probes">
+          <div className="row wrap">
+            {groups.map((r) => {
+              const n = live.filter((l) => l.route === r).length
+              return n ? <span key={r} className="row" style={{ gap: '0.375rem' }}><RouteBadge route={r} /><span className="muted">{n}</span></span> : null
+            })}
+          </div>
+        </Head>
         {live.length ? (
           <table>
             <thead><tr><th>Lesson</th><th className="r">Tokens</th><th className="r">Effect</th><th>Lives in</th></tr></thead>
@@ -48,8 +49,8 @@ export function Routing({ project, focus, reload, notify }: Props) {
                 <tbody key={route}>
                   <tr className="group">
                     <td colSpan={4}>
-                      <div className="row"><RouteBadge route={route} /><b>{routeInfo[route].title}</b><span className="faint">{lessons.length}</span></div>
-                      <div className="faint" style={{ marginTop: '0.25rem' }}>{routeInfo[route].text}</div>
+                      <div className="row"><RouteBadge route={route} /><h3>{routeInfo[route].title}</h3><span className="faint">{lessons.length}</span></div>
+                      <div className="sub" style={{ marginTop: '0.25rem' }}>{routeInfo[route].text}</div>
                     </td>
                   </tr>
                   {lessons.map((l, i) => <Row key={l.id} lesson={l} quote={l.feedback !== lessons[i - 1]?.feedback} trained={trained.has(l.id)} open={open === l.id} toggle={() => toggle(l.id)} />)}
@@ -57,10 +58,10 @@ export function Routing({ project, focus, reload, notify }: Props) {
               )
             })}
           </table>
-        ) : <div className="empty">No lessons yet: give feedback on the Input page</div>}
+        ) : <div className="empty">No lessons yet</div>}
         {inactive.length ? (
           <details className="inactive">
-            <summary className="faint">{inactive.length} superseded, duplicate or rejected</summary>
+            <summary className="faint">{inactive.length} inactive</summary>
             <table><tbody>{inactive.map((l) => (
               <tr key={l.id}><td className="muted">{l.statement}</td><td className="faint">{l.status}</td></tr>
             ))}</tbody></table>
@@ -73,10 +74,10 @@ export function Routing({ project, focus, reload, notify }: Props) {
 
 // Where a lesson lives now: code, the prompt, training calls, or the adapter's weights.
 function where(lesson: Lesson, trained: boolean) {
-  if (lesson.status === 'needs_rephrase') return 'nowhere yet'
+  if (lesson.status === 'needs_rephrase') return 'nowhere'
   if (lesson.expressible_as === 'parameter') return 'code'
   if (lesson.route === 'B' && !lesson.in_context) return 'weights'
-  if (lesson.route === 'A∧B' || lesson.route === 'B') return trained ? 'prompt · in training calls' : 'prompt · to train'
+  if (lesson.route === 'A∧B' || lesson.route === 'B') return trained ? 'prompt · training' : 'prompt · to train'
   return 'prompt'
 }
 
@@ -98,12 +99,11 @@ function Row({ lesson, quote, trained, open, toggle }: { lesson: Lesson; quote: 
           {evidence ? <span className={`chevron${open ? ' open' : ''}`}><Icon name="expand" size={14} /></span> : null}
         </td>
       </tr>
-      {open ? (
+      {open && (evidence || lesson.absorption) ? (
         <tr className="detail">
           <td colSpan={4}>
             <div className="stack" style={{ gap: '0.75rem', maxWidth: '28rem' }}>
-              <span className="faint">{lesson.reason}</span>
-              {lesson.absorption ? <span className="faint">Adapter without the lesson: follows it in {Math.round(lesson.absorption.share * 100)}% of {lesson.absorption.n}</span> : null}
+              {lesson.absorption ? <span className="faint">Adapter alone: {Math.round(lesson.absorption.share * 100)}% of {lesson.absorption.n}</span> : null}
               <Probes lesson={lesson} />
             </div>
           </td>

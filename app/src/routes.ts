@@ -3,20 +3,23 @@ import type { Route } from './api'
 
 export const routeColor: Record<Route, string> = { A: 'var(--blue)', 'A∧B': 'var(--purple)', B: 'var(--cranberry)', note: 'var(--gray-80)', rephrase: 'var(--orange)' }
 
+// Text colour classes for titles that belong to a route (styles.css, "Route inks").
+export const routeInk: Partial<Record<Route, string>> = { A: 'ink-a', 'A∧B': 'ink-ab', B: 'ink-b' }
+
 // Where a lesson ends up (ARCHITECTURE.md, "Routing rules").
 export const routeInfo: Record<Route, { title: string; text: string }> = {
-  A: { title: 'Context or code', text: 'Parameters code applies at zero tokens, and lessons marked for now: instant and editable.' },
-  'A∧B': { title: 'Context and weights', text: 'Stable, effective and cheap to state: trained into the adapter and kept in the prompt.' },
-  B: { title: 'Weights', text: 'Stable but costly to state, like example icons: trained into the adapter, then retired from the prompt.' },
-  note: { title: 'Notes', text: 'One concept only: sent only when that concept is drawn.' },
-  rephrase: { title: 'Rephrase', text: 'Changed fewer than half the probes in context, so the weights have nothing correct to learn yet.' },
+  A: { title: 'Context or code', text: 'Instant and editable. Parameters run in code.' },
+  'A∧B': { title: 'Context and weights', text: 'Cheap and stable: trained, and kept in the prompt.' },
+  B: { title: 'Weights', text: 'Costly to state: trained, then dropped from the prompt.' },
+  note: { title: 'Notes', text: 'One concept only.' },
+  rephrase: { title: 'Rephrase', text: 'No effect in context, so nothing to train.' },
 }
 
 // A project's pages follow the architecture: input, routing to context and weights, results.
 export const pages = [
-  { id: 'input', title: 'Input', text: 'Feedback on outputs becomes atomic lessons.' },
-  { id: 'routing', title: 'Routing', text: 'Hone updates the context (A) at once; Mubit trains the weights (B) from calls made under it.' },
-  { id: 'results', title: 'Results', text: 'The same concepts through raw models, context only, weights only and both.' },
+  { id: 'input', title: 'Input', text: 'Feedback becomes lessons.' },
+  { id: 'routing', title: 'Routing', text: 'Each lesson goes to context (A), weights (B) or both.' },
+  { id: 'results', title: 'Results', text: 'Same concepts, every configuration.' },
 ] as const
 export type Page = (typeof pages)[number]['id']
 
@@ -35,16 +38,18 @@ export function go(project: string | null, page: Page = 'input', lesson: string 
 // Configurations in the whiteboard's terms: raw frontier, frontier with context, A only, B only, A and B.
 const FRONTIER = 'claude-opus-5-5' // pipeline.FRONTIER, for evaluations recorded before rows carried their model
 
-export function describe(config: string, model?: string): { title: string; sub: string; model: string } {
-  const labels: Record<string, [string, string, string]> = {
+export type Described = { title: string; sub: string; model: string; route?: Route }
+
+export function describe(config: string, model?: string): Described {
+  const labels: Record<string, [string, string, string, Route?]> = {
     frontier: ['Raw frontier', 'no context', FRONTIER],
-    'frontier + full context': ['Frontier + context', 'every lesson in the prompt', FRONTIER],
-    'provider + routed context': ['A · context', 'routed context, no fine-tuning', model ?? ''],
-    adapter: ['B · weights', 'fine-tuned adapter, no context', 'Mubit adapter'],
-    'adapter + routed context': ['A + B', 'fine-tuned adapter, routed context', 'Mubit adapter'],
+    'frontier + full context': ['Frontier + context', 'all lessons', FRONTIER],
+    'provider + routed context': ['A · context', 'routed context', model ?? '', 'A'],
+    adapter: ['B · weights', 'fine-tuned', 'Mubit adapter', 'B'],
+    'adapter + routed context': ['A + B', 'fine-tuned + routed context', 'Mubit adapter', 'A∧B'],
   }
-  const [title, sub, fallback] = labels[config] ?? [config, '', '']
-  return { title, sub, model: model && model !== 'adapter' ? model : fallback }
+  const [title, sub, fallback, route] = labels[config] ?? [config, '', '']
+  return { title, sub, model: model && model !== 'adapter' ? model : fallback, route }
 }
 
 export const fmt = (n: number) => n.toLocaleString('en-GB')

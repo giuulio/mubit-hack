@@ -27,7 +27,7 @@ export function Probes({ lesson }: { lesson: Lesson }) {
           {c.result === 'won' ? <Icon name="check" size={14} /> : c.result === 'same' ? 'same' : c.result ? <Icon name="close" size={14} /> : '—'}
         </span>
       ))}
-      <span className="faint probe-summary">A blind judge saw the lesson in {won} of {pair} probes</span>
+      <span className="faint probe-summary">Blind judge: {won} of {pair}</span>
     </div>
   )
 }

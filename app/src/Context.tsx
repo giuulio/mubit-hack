@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { api, type Lesson, type Project } from './api'
 import { Line } from './charts'
 import { fmt, perDay, routeColor } from './routes'
-import { Fold, Glyph, RouteBadge } from './ui'
+import { Fold, Glyph, Head, RouteBadge } from './ui'
 
 const tokens = (lessons: Lesson[]) => lessons.reduce((n, l) => n + (l.signals?.tokens ?? 0), 0)
 
@@ -31,22 +31,19 @@ export function Context({ project }: { project: Project }) {
     { label: 'B examples', tokens: ownedTokens, color: routeColor.B },
   ].filter((s) => s.tokens > 0)
   const after = total - ownedTokens
+  const perCall = (n: number) => perDay(n * project.calls_per_day)
 
   return (
     <div className="card stack">
-      <div className="row">
-        <RouteBadge route="A" />
-        <h2 className="grow">Context</h2>
-        <span className="faint">updated by Hone on every confirmed lesson</span>
-      </div>
+      <Head route="A" title="Context" sub="Updated by Hone, instantly" />
 
       <div className="stack" style={{ gap: '0.625rem' }}>
         <div className="row" style={{ alignItems: 'baseline' }}>
           <h3 className="grow">Every call</h3>
-          <span className="display" style={{ fontSize: 'var(--xl)' }}>{fmt(total)}</span>
+          <span className="display" style={{ fontSize: 'var(--xxxl)' }}>{fmt(total)}</span>
           <span className="muted">tokens</span>
         </div>
-        <div className="split-bar" title={`${fmt(total)} tokens in context`}>
+        <div className="split-bar" title={`${fmt(total)} tokens`}>
           {segments.map((s) => <div key={s.label} style={{ flexGrow: s.tokens, background: s.color }} />)}
         </div>
         {ownedTokens > 0 ? (
@@ -54,9 +51,7 @@ export function Context({ project }: { project: Project }) {
             <div className="split-bar after" style={{ width: `${(after / total) * 100}%` }}>
               {segments.filter((s) => s.label !== 'B examples').map((s) => <div key={s.label} style={{ flexGrow: s.tokens, background: s.color }} />)}
             </div>
-            <span className="faint">
-              <b style={{ color: 'var(--text)' }}>{fmt(after)}</b> once the adapter owns B, {Math.round((ownedTokens / total) * 100)}% fewer: projected until its absorption test passes
-            </span>
+            <span className="sub"><b style={{ color: 'var(--text)' }}>{fmt(after)}</b> once B is absorbed: −{Math.round((ownedTokens / total) * 100)}%, projected</span>
           </>
         ) : null}
         <div className="legend">
@@ -68,14 +63,11 @@ export function Context({ project }: { project: Project }) {
             </span>
           ))}
         </div>
-        <span className="faint">
-          {perDay(total * project.calls_per_day)} input tokens a day at {fmt(project.calls_per_day)} calls
-          {ownedTokens > 0 ? `, ${perDay(after * project.calls_per_day)} once B is owned` : ''}.
-        </span>
+        <span className="faint">Per day at {fmt(project.calls_per_day)} calls: {perCall(total)} tokens{ownedTokens > 0 ? ` → ${perCall(after)}` : ''}</span>
       </div>
 
       <div className="stack" style={{ gap: '0.5rem' }}>
-        <h3>Style guide, as Hone keeps it</h3>
+        <h3>Style guide</h3>
         <ul className="rules">
           {rules.map((l) => <li key={l.id}><RouteBadge route={l.route} /><span>{l.statement}</span></li>)}
         </ul>
@@ -83,26 +75,26 @@ export function Context({ project }: { project: Project }) {
           <div className="row wrap">
             <RouteBadge route="B" />
             {examples.map((e) => <Glyph key={e.id} svg={e.content} size="small" title={e.concept} />)}
-            <span className="faint">example icons, {fmt(ownedTokens)} tokens</span>
+            <span className="faint">{fmt(ownedTokens)} tokens</span>
           </div>
         ) : null}
         {params.length ? (
           <div className="row wrap">
-            <span className="faint">In code, 0 tokens:</span>
+            <span className="faint">In code</span>
             {params.map((l) => <span key={l.id} className="chip">{l.parameter?.name}: {l.parameter?.value}</span>)}
           </div>
         ) : null}
-        {notes ? <span className="faint">{notes} notes for single concepts are sent only when that concept is drawn.</span> : null}
+        {notes ? <span className="faint">+{notes} single-concept notes</span> : null}
       </div>
 
       {project.context_history.length > 1 ? (
         <div className="stack" style={{ gap: '0.25rem' }}>
-          <h3>Tokens per call, lesson by lesson</h3>
+          <h3>Tokens per call</h3>
           <Line values={project.context_history.map((h) => h.tokens)} width={640} height={64} />
         </div>
       ) : null}
 
-      <Fold plain title={<h3>What the model receives</h3>}>
+      <Fold plain title="Full prompt">
         <div className="mono" style={{ maxHeight: '24rem', overflow: 'auto' }}>{message}</div>
       </Fold>
     </div>

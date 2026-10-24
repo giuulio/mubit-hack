@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { api, waitFor, type Lesson, type Project } from './api'
 import { fmt } from './routes'
-import { Button, Glyph, Icon, RouteBadge } from './ui'
+import { Button, Glyph, Head, Icon, Stat } from './ui'
 
 type Props = { project: Project; probes: string[]; reload: () => Promise<void>; notify: (text: string) => void }
 
@@ -32,33 +32,23 @@ export function Weights({ project, probes, reload, notify }: Props) {
 
   return (
     <div className="card stack">
-      <div className="row">
-        <RouteBadge route="B" />
-        <h2 className="grow">Weights</h2>
-        <span className="faint">trained by Mubit</span>
-      </div>
+      <Head route="B" title="Weights" sub="Trained by Mubit" />
 
       <div className="stats" style={{ gridTemplateColumns: '1fr 1fr' }}>
-        <div className="stat">
-          <span className="faint">Kept for training</span>
-          <b>{calls}</b>
-          <span className="faint">{calls ? `${valid}/${calls} valid; Mubit trains from 25` : 'Mubit trains from 25 kept calls'}</span>
-        </div>
-        <div className="stat">
-          <span className="faint">Adapter</span>
-          <b>{adapter?.version ?? '—'}</b>
-          <span className="faint">{adapter ? `${adapter.status}, ${adapter.t.slice(11, 16)}` : calls ? 'none recorded from the console yet' : 'none yet'}</span>
-        </div>
+        <Stat label="Kept calls" value={calls} sub={calls ? `${valid}/${calls} valid · trains at 25` : 'trains at 25'} />
+        <Stat label="Adapter" value={adapter?.version ?? '—'} sub={adapter ? `${adapter.status} · ${adapter.t.slice(11, 16)}` : 'none yet'} />
       </div>
 
       <div className="stack" style={{ gap: '0.5rem' }}>
         <div className="row">
-          <h3 className="grow">Training calls</h3>
-          <Button small kind="primary" busy={busy === 'train'} onClick={() => run('train', async () => waitFor(await api.train(project.id, 40)), 'Training calls sent')}>
+          <div className="grow">
+            <h3>Training calls</h3>
+            <span className="faint">Kept in full; previews and probes are not</span>
+          </div>
+          <Button small kind="primary" busy={busy === 'train'} onClick={() => run('train', async () => waitFor(await api.train(project.id, 40)), 'Sent')}>
             <Icon name="train" /> Send 40
           </Button>
         </div>
-        <span className="faint">Calls under the approved context, recorded in full so Mubit can keep them. Previews, probes and judges are recorded as metadata only.</span>
         {project.training.length ? (
           <table>
             <thead><tr><th>Batch</th><th className="r">Calls</th><th className="r">Valid</th><th className="r">Context</th><th className="r">Lessons</th><th>Sent</th></tr></thead>
@@ -73,10 +63,12 @@ export function Weights({ project, probes, reload, notify }: Props) {
       </div>
 
       <div className="stack" style={{ gap: '0.5rem' }}>
-        <h3>Adapter versions</h3>
-        <span className="faint">Recorded from the Mubit console with their test result.</span>
+        <div>
+          <h3>Adapter versions</h3>
+          <span className="faint">From the Mubit console</span>
+        </div>
         <div className="row">
-          <input className="input grow" placeholder="Version, e.g. v1" value={version} onChange={(e) => setVersion(e.target.value)} />
+          <input className="input grow" placeholder="v1" value={version} onChange={(e) => setVersion(e.target.value)} />
           <select className="input" value={status} onChange={(e) => setStatus(e.target.value)}>
             {['training', 'passed', 'below target', 'prompt only', 'failed'].map((s) => <option key={s}>{s}</option>)}
           </select>
@@ -91,8 +83,8 @@ export function Weights({ project, probes, reload, notify }: Props) {
 
       {owned.length ? (
         <div className="stack" style={{ gap: '0.25rem' }}>
-          <h3>Retire from context</h3>
-          <span className="faint">The adapter draws each B lesson's probes without it. If it holds in two of three, the lesson leaves the prompt and every call gets cheaper.</span>
+          <h3>Retire</h3>
+          <span className="faint">Holds in 2 of 3 probes without it → leaves the prompt</span>
           <div>{owned.map((l) => <Absorb key={l.id} project={project} lesson={l} probes={l.probe?.probes ?? probes} notify={notify} reload={reload} />)}</div>
         </div>
       ) : null}
@@ -109,24 +101,24 @@ function Absorb({ project, lesson, probes, notify, reload }: { project: Project;
   const copy = async (concept: string) => {
     const { message } = await api.message(project.id, concept, 'routed', lesson.id)
     await navigator.clipboard.writeText(message)
-    notify('Message copied')
+    notify('Copied')
   }
   const test = async () => {
     setBusy(true)
     try {
       const result = await api.absorb(project.id, lesson.id, Object.entries(pasted).filter(([, v]) => v.trim()).map(([concept, content]) => ({ concept, content })))
       await reload()
-      notify(result.retired ? 'Absorbed: removed from context' : 'Not absorbed yet')
+      notify(result.retired ? 'Retired from context' : 'Not absorbed yet')
     } finally {
       setBusy(false)
     }
   }
-  const state = !lesson.in_context ? 'retired' : lesson.absorption ? `held in ${Math.round(lesson.absorption.share * 100)}%` : 'in prompt'
+  const state = !lesson.in_context ? 'retired' : lesson.absorption ? `held ${Math.round(lesson.absorption.share * 100)}%` : 'in prompt'
   return (
     <div className="lesson">
       <div className="row">
         {example ? <Glyph svg={example.content} size="small" title={example.concept} /> : null}
-        <span className="grow clamp" style={{ fontSize: 'var(--sm)' }}>{lesson.statement}</span>
+        <span className="grow clamp">{lesson.statement}</span>
         <span className="faint nowrap">{lesson.signals?.tokens ?? '—'} tokens</span>
         <span className="chip">{state}</span>
         {lesson.in_context ? <Button small onClick={() => setOpen(!open)}>Test</Button> : null}
@@ -138,14 +130,14 @@ function Absorb({ project, lesson, probes, notify, reload }: { project: Project;
               <div key={c} className="tile" style={{ alignItems: 'stretch' }}>
                 <div className="row">
                   <span className="muted grow">{c}</span>
-                  <button className="icon-btn" title="Copy message without this lesson, for Try models" onClick={() => copy(c)}><Icon name="copy" /></button>
+                  <button className="icon-btn" title="Copy message without this lesson" onClick={() => copy(c)}><Icon name="copy" /></button>
                   <Glyph svg={pasted[c]?.includes('<svg') ? pasted[c] : null} size="small" />
                 </div>
-                <textarea className="input mono" placeholder="Paste SVG" value={pasted[c] ?? ''} onChange={(e) => setPasted({ ...pasted, [c]: e.target.value })} />
+                <textarea className="input mono" placeholder="SVG from Try models" value={pasted[c] ?? ''} onChange={(e) => setPasted({ ...pasted, [c]: e.target.value })} />
               </div>
             ))}
           </div>
-          <div className="row"><span className="grow" /><Button kind="primary" busy={busy} onClick={test}><Icon name="check" /> Test absorption</Button></div>
+          <div className="row"><span className="grow" /><Button kind="primary" busy={busy} onClick={test}><Icon name="check" /> Test</Button></div>
         </div>
       ) : null}
     </div>
