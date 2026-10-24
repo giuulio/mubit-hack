@@ -340,7 +340,28 @@ details > summary::-webkit-details-marker { display: none; }
 .setting-row.archived > .grow { color: var(--text-3); text-decoration: line-through; }
 .danger { display: flex; align-items: center; gap: 0.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
 
-/* Results: one concept through every configuration, then the held-out scores */
+/* Results: the styles grid, the serving ladder, the held-out scores */
+.styles-grid { display: grid; grid-template-columns: 8rem repeat(4, minmax(0, 1fr)); gap: 0.5rem 1rem; align-items: center; }
+.style-row { display: contents; }
+.style-corner { display: flex; flex-direction: column; gap: 0.125rem; }
+.style-head { display: flex; flex-direction: column; align-items: center; gap: 0.125rem; text-align: center; font-weight: 600; }
+.style-shared { grid-column: 2; align-self: stretch; display: flex; align-items: center; justify-content: center; border-radius: 1rem; background: var(--bg-2); }
+.style-name { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; }
+.style-row.current .style-name { color: var(--ink-context); }
+.style-cell { display: flex; flex-direction: column; align-items: center; gap: 0.375rem; padding: 0.75rem 0.5rem; border-radius: 0.875rem; text-align: center; }
+.style-row.current .style-cell { background: var(--bg-2); }
+.chip.pick { cursor: pointer; transition: var(--transition); }
+.chip.pick:hover { color: var(--text); }
+.chip.pick.on { background: var(--text); color: var(--bg); }
+.serving { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.rung { display: flex; flex-direction: column; gap: 0.375rem; padding: 1rem; border-radius: 0.875rem; border-top: 3px solid var(--line-strong); background: var(--bg-2); }
+.rung.pass { border-top-color: var(--weights); }
+.rung.fail { border-top-color: var(--context); }
+.rung.missing { opacity: 0.6; }
+.rung.serves { box-shadow: inset 0 0 0 2px var(--weights); }
+.rung-numbers { display: flex; flex-wrap: wrap; gap: 0.25rem 0.875rem; font-size: var(--xs); color: var(--text-3); }
+.rung-numbers b { color: var(--text); font-size: var(--sm); font-weight: 600; }
+
 .results { gap: 3.5rem; max-width: 72rem; margin: 0 auto; }
 .section { gap: 1.25rem; }
 .compare { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
@@ -413,7 +434,8 @@ details > summary::-webkit-details-marker { display: none; }
 @media (max-width: 760px) {
   .shell { grid-template-columns: 1fr; }
   .sidebar { display: none; }
-  .loop, .halves, .compare, .routes-explained { grid-template-columns: 1fr; }
+  .loop, .halves, .compare, .routes-explained, .serving { grid-template-columns: 1fr; }
+  .styles-grid { grid-template-columns: 5rem repeat(4, minmax(0, 1fr)); }
   .main { padding: 1rem 1rem 0; }
   .rail { flex-direction: column; }
 }

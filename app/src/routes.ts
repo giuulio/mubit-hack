@@ -99,11 +99,11 @@ export type Described = { title: string; sub: string; model: string; route?: Rou
 
 export function describe(config: string, model?: string): Described {
   const labels: Record<string, [string, string, string, Route?]> = {
-    frontier: ['Raw model', 'no lessons', FRONTIER],
-    'frontier + full context': ['All lessons', 'every lesson in the prompt', FRONTIER],
-    'provider + routed context': ['Routed', 'routed context', model ?? '', 'A'],
+    frontier: ['Raw frontier', 'no context', FRONTIER],
+    'frontier + full context': ['Frontier + context', 'every lesson in the prompt', FRONTIER],
+    'provider + routed context': ['Hone', "Hone's routed context", model ?? '', 'A'],
     adapter: ['Adapter', 'fine-tuned, no prompt', 'Mubit adapter', 'B'],
-    'adapter + routed context': ['Adapter + context', 'fine-tuned + routed context', 'Mubit adapter', 'A∧B'],
+    'adapter + routed context': ['Adapter + context', "fine-tuned + Hone's context", 'Mubit adapter', 'A∧B'],
   }
   const [title, sub, fallback, route] = labels[config] ?? [config, '', '']
   return { title, sub, model: model && model !== 'adapter' ? model : fallback, route }

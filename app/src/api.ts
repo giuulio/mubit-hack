@@ -42,11 +42,14 @@ export type Probe = {
 export type Output = { id: string; context: string; concept: string; content: string | null; problems: string[]; input_tokens: number; output_tokens: number; runs: number; seconds: number; t: string }
 export type Example = { id: string; lesson_id: string; context: string; concept: string; content: string }
 export type EvalRow = { config: string; model?: string; n: number; valid: number; style: number | null; recognisable: number | null; input_tokens: number | null; runs_per_call: number | null; seconds: number | null }
-export type Evaluation = { id: string; t: string; context: string; concepts: string[]; rows: EvalRow[]; outputs: Record<string, { concept: string; content: string | null }[]> }
+// Which configuration should answer a context's calls: the cheapest rung of the ladder that holds up (router/serve.py).
+export type ServingCheck = { config: string; status: 'pass' | 'fail' | 'missing'; style?: number; valid?: number; n?: number; input_tokens?: number | null }
+export type Serving = { config: string; reason: string; reference: number; tolerance: number; checks: ServingCheck[] }
+export type Evaluation = { id: string; t: string; context: string; concepts: string[]; rows: EvalRow[]; outputs: Record<string, { concept: string; content: string | null }[]>; serving?: Serving | null }
 export type Batch = { batch: number; t: string; context: string; calls: number; valid: number; context_tokens: number; lessons_in_context?: string[] }
 export type AdapterVersion = { version: string; status: string; note: string; t: string }
 export type Compared = { content: string | null; problems: string[]; model: string; input_tokens: number | null; seconds: number | null }
-export type Comparison = { id: string; t: string; context: string; concept: string; outputs: Record<string, Compared> }
+export type Comparison = { id: string; t: string; context: string; group?: string; concept: string; outputs: Record<string, Compared> }
 
 export type Project = {
   id: string
@@ -111,6 +114,7 @@ export const api = {
     call<{ message: string }>(`/projects/${id}/message?${new URLSearchParams({ concept, mode, context: cid, ...(without ? { without } : {}) })}`),
   importOutputs: (id: string, cid: string, config: string, items: { concept: string; content: string }[]) => call(`/projects/${id}/imports`, { config, items, context: cid }),
   absorb: (id: string, lesson: string, items: { concept: string; content: string }[]) => call<Lesson>(`/projects/${id}/lessons/${lesson}/absorption`, { items }),
+  compareStyles: (id: string, concept: string) => call<Comparison[]>(`/projects/${id}/compare-styles`, { concept }),
   compare: (id: string, cid: string, concept: string) => call<Comparison>(`/projects/${id}/compare`, { concept, context: cid }),
   compareAdapter: (id: string, comparison: string, content: string) => call<Comparison>(`/projects/${id}/comparisons/${comparison}`, { config: 'adapter', content }),
 }

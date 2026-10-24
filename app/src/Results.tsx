@@ -1,34 +1,56 @@
-// Results: one concept through every configuration side by side, then the held-out evaluation. The adapter's answers
-// come from Mubit's Try models and are pasted in through the operator drawer.
+// Results: one concept in every context of the model and every configuration (the styles grid), which configuration
+// should serve this context (the serving ladder), and this context's held-out evaluation. The adapter's answers come from
+// Mubit's Try models and are pasted in through the operator drawer.
 import { useState } from 'react'
-import { api, waitFor, type Comparison, type EvalRow } from './api'
-import { clock, describe, fmt, routeColor, routeInk, type Described, type View } from './routes'
-import { Button, Glyph, Head, Icon } from './ui'
+import { api, waitFor, type Comparison, type EvalRow, type Serving } from './api'
+import { clock, describe, fmt, live, routeColor, routeInk, type Described, type View } from './routes'
+import { Button, Dot, Glyph, Head, Icon } from './ui'
 
 type Props = { project: View; reload: () => Promise<void>; notify: (text: string) => void }
 
-const columns = ['frontier', 'frontier + full context', 'provider + routed context', 'adapter']
+// Columns of the styles grid after the shared raw frontier: what changes from one to the next is the context, then the model.
+const ladder = ['frontier + full context', 'provider + routed context', 'adapter + routed context']
 const score = (v: number | null) => (v === null ? '—' : v.toFixed(2))
 
 export function Results({ project, reload, notify }: Props) {
   return (
     <div className="stack results">
-      <Compare project={project} reload={reload} notify={notify} />
+      <Styles project={project} reload={reload} notify={notify} />
+      <ServingLadder project={project} />
       <Evaluation project={project} reload={reload} notify={notify} />
     </div>
   )
 }
 
-function Compare({ project, reload, notify }: Props) {
+function Cell({ out, title }: { out: Comparison['outputs'][string] | undefined; title: string }) {
+  return (
+    <div className="style-cell enter">
+      <Glyph svg={out?.content ?? null} size="large" title={title} />
+      <span className="faint">
+        {!out ? '—' : out.problems.length ? out.problems.join('; ') : `${out.input_tokens === null ? '—' : fmt(out.input_tokens)} tokens${out.seconds ? ` · ${out.seconds} s` : ''}`}
+      </span>
+    </div>
+  )
+}
+
+function Styles({ project, notify, reload }: Props) {
+  const whole = project.whole
+  const contexts = live(whole)
+  const groups = [...new Set((whole.comparisons ?? []).filter((c) => c.group).map((c) => c.group as string))].reverse()
+  const [chosen, setChosen] = useState<string | null>(null)
   const [concept, setConcept] = useState('')
   const [busy, setBusy] = useState<string | null>(null)
-  const [latest, ...earlier] = [...(project.comparisons ?? [])].reverse()
+  const group = chosen ?? groups[0] ?? null
+  const rows = (whole.comparisons ?? []).filter((c) => c.group === group)
+  const shown = busy ?? rows[0]?.concept ?? null
+
   const submit = async () => {
     if (!concept.trim()) return
-    setBusy(concept)
+    setBusy(concept.trim())
     setConcept('')
     try {
-      await api.compare(project.id, project.cid, concept)
+      await api.compareStyles(whole.id, concept.trim())
+      setChosen(null)
       await reload()
     } catch (e) {
       notify(String(e instanceof Error ? e.message : e))
@@ -36,61 +58,94 @@ function Compare({ project, reload, notify }: Props) {
       setBusy(null)
     }
   }
+
+  const head = (config: string) => {
+    const d = describe(config, config === 'provider + routed context' ? whole.model : undefined)
+    return <div className="style-head"><span className={d.route ? routeInk[d.route] : undefined} data-tip={d.sub}>{d.title}</span><span className="faint">{d.model}</span></div>
+  }
+
   return (
     <section className="stack section">
-      <Head title="Compare" tip="One new concept through every configuration; not kept for training">
+      <Head title="Styles" tip="One concept in every context of the model, through each configuration; nothing here is kept for training">
         <div className="row">
           <input className="input" style={{ width: '16rem' }} placeholder="heat pump" value={concept} onChange={(e) => setConcept(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && submit()} />
-          <Button kind="primary" busy={busy !== null} disabled={!concept.trim()} onClick={submit} tip="Draw it in every configuration"><Icon name="generate" /></Button>
+          <Button kind="primary" busy={busy !== null} disabled={!concept.trim()} onClick={submit} tip="Draw it in every context and configuration"><Icon name="generate" /></Button>
         </div>
       </Head>
-      {busy ? <Row project={project} comparison={null} concept={busy} /> : latest ? <Row key={latest.id} project={project} comparison={latest} concept={latest.concept} /> : (
-        <div className="empty">Any concept</div>
-      )}
-      {earlier.length ? (
-        <table>
-          <tbody>{(busy && latest ? [latest, ...earlier] : earlier).slice(0, 5).map((c) => (
-            <tr key={c.id}>
-              <td className="muted">{c.concept}</td>
-              {columns.map((config) => <td key={config}><Glyph svg={c.outputs[config]?.content ?? null} size="small" title={`${c.concept}, ${describe(config).title}`} /></td>)}
-              <td className="faint r">{clock(c.t)}</td>
-            </tr>
-          ))}</tbody>
-        </table>
+      {shown ? (
+        <div className="styles-grid" style={{ gridTemplateRows: `auto repeat(${contexts.length}, auto)` }}>
+          <div className="style-corner"><h3>{shown}</h3>{rows[0] ? <span className="faint">{clock(rows[0].t)}</span> : null}</div>
+          {head('frontier')}
+          {ladder.map((c) => <div key={c}>{head(c)}</div>)}
+          {/* The raw frontier uses no context, so one drawing stands for every row. */}
+          <div className="style-shared" style={{ gridRow: `2 / span ${contexts.length}` }}>
+            {busy ? <div className="shimmer large" /> : <Cell out={rows[0]?.outputs.frontier} title={`${shown}, raw frontier`} />}
+          </div>
+          {contexts.map((c) => {
+            const row = rows.find((r) => r.context === c.id)
+            return (
+              <div key={c.id} className={`style-row${c.id === project.cid ? ' current' : ''}`}>
+                <div className="style-name"><Dot route="A" />{c.name}</div>
+                {ladder.map((config) => (
+                  <div key={config}>
+                    {busy ? <div className="style-cell"><div className="shimmer large" /></div>
+                      : config.startsWith('adapter') && !row?.outputs[config] && !row?.outputs.adapter
+                        ? <div className="style-cell"><div className="glyph large empty-glyph" /><span className="faint">Try models</span></div>
+                        : <Cell out={row?.outputs[config] ?? (config.startsWith('adapter') ? row?.outputs.adapter : undefined)} title={`${shown}, ${c.name}, ${describe(config).title}`} />}
+                  </div>
+                ))}
+              </div>
+            )
+          })}
+        </div>
+      ) : <div className="empty">One concept, every context</div>}
+      {groups.length > 1 ? (
+        <div className="row wrap" style={{ gap: '0.375rem' }}>
+          <span className="faint">Earlier</span>
+          {groups.slice(0, 8).map((g) => {
+            const name = whole.comparisons?.find((c) => c.group === g)?.concept
+            return <button key={g} className={`chip pick${g === group ? ' on' : ''}`} onClick={() => setChosen(g)}>{name}</button>
+          })}
+        </div>
       ) : null}
     </section>
   )
 }
 
-function Row({ project, comparison, concept }: { project: View; comparison: Comparison | null; concept: string }) {
+// The ladder for this context, cheapest first, from its latest evaluation: which rung passes against the frontier with
+// context, and which one serves. Mubit's task rules route live calls; this is what they should serve.
+function ServingLadder({ project }: { project: View }) {
+  const serving: Serving | null | undefined = project.evals.at(-1)?.serving
   return (
-    <div className="stack" style={{ gap: '0.75rem' }}>
-      <h3 className="center-text">{concept}</h3>
-      <div className="compare">
-        {columns.map((config) => {
-          const out = comparison?.outputs[config]
-          const label = describe(config, out?.model ?? (config === 'provider + routed context' ? project.model : undefined))
-          return (
-            <div key={config} className="compare-cell enter" style={{ borderTopColor: label.route ? routeColor[label.route] : undefined }}>
-              {comparison ? <Glyph svg={out?.content ?? null} size="large" title={`${concept}, ${label.title}`} /> : <div className="shimmer large" />}
-              <Label {...label} />
-              <span className="faint">
-                {!out ? '—' : out.problems.length ? out.problems.join('; ') : `${out.input_tokens === null ? '—' : fmt(out.input_tokens)} tokens${out.seconds ? ` · ${out.seconds} s` : ''}`}
-              </span>
-            </div>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
-
-function Label({ title, sub, model, route }: Described) {
-  return (
-    <div className="stack" style={{ gap: '0.125rem', alignItems: 'center' }}>
-      <h3 className={route ? routeInk[route] : undefined} data-tip={sub}>{title}</h3>
-      <span className="faint">{model}</span>
-    </div>
+    <section className="stack section">
+      <Head title="Serving" tip="Cheapest first: a rung serves when its style is within a quarter point of the frontier with context and it has at most one more invalid output" />
+      {serving ? (
+        <>
+          <div className="serving">
+            {serving.checks.map((check) => {
+              const d = describe(check.config, check.config === 'provider + routed context' ? project.model : undefined)
+              const serves = check.config === serving.config
+              return (
+                <div key={check.config} className={`rung ${check.status}${serves ? ' serves' : ''}`}>
+                  <div className="row"><span className={`grow ${d.route ? routeInk[d.route] ?? '' : ''}`} style={{ fontWeight: 600 }}>{d.title}</span>{serves ? <span className="badge" style={{ background: 'var(--weights)' }}>serves</span> : null}</div>
+                  <span className="faint">{d.model}</span>
+                  {check.status === 'missing' ? (
+                    <span className="muted">{check.config.startsWith('adapter') ? 'No adapter version yet' : 'Not evaluated'}</span>
+                  ) : (
+                    <div className="rung-numbers">
+                      <span><b>{check.style?.toFixed(2)}</b> style</span>
+                      <span><b>{check.valid}/{check.n}</b> valid</span>
+                      <span><b>{check.input_tokens == null ? '—' : fmt(check.input_tokens)}</b> tokens</span>
+                    </div>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+          <span className="faint">{serving.reason}</span>
+        </>
+      ) : <div className="empty">Run the held-out evaluation for a serving decision</div>}
+    </section>
   )
 }
 
