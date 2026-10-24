@@ -108,7 +108,9 @@ const licences: [string, string, string][] = [
 
 function License() {
   return (
-    <Prose title="License" lede="© 2026 the Hone team. All rights reserved while the repository is private; no licence is granted yet.">
+    <Prose title="License" lede="Hone is released under the MIT License. © 2026 the Hone team.">
+      <p>Permission is granted, free of charge, to use, copy, modify, merge, publish, distribute, sublicense and sell copies of the software, provided the copyright notice and this permission notice are included in all copies or substantial portions of it. The software is provided “as is”, without warranty of any kind. The full text is in the LICENSE file at the root of the repository.</p>
+      <p>The Michelangelus wordmark font is not covered: it is Microsoft's, under its own licence, and is never redistributed with Hone.</p>
       <h2>Third-party software and type</h2>
       <table className="licences">
         <thead><tr><th>Component</th><th>Licence</th><th>Used for</th></tr></thead>
