@@ -77,8 +77,10 @@ A lesson that is not reproducible stays in A until it is rewritten as one that i
 ## Recording rules
 
 1. **The system prompt never changes.** STYLE.md goes in the user message; otherwise every lesson starts a new Mubit task with zero examples.
-2. **Nothing is kept unless approved.** Live calls go out with `x-middleware-record: metadata`, because a wrong answer cannot be identified at request time and a Bad rating does not remove a call from training. Approved outputs, accepted or fixed, are replayed with full recording.
-3. **A replay never sees its own answer.** A fixed output may serve as an example for other inputs, but not in the replay of its own input; otherwise the adapter learns to copy. For generated outputs, a replay is kept when it passes the validators and is approved, not when it matches the fix exactly.
+2. **Only an approved context is recorded in full.** Whether a call is recorded is fixed at request time, and a Bad rating does not remove a call from training, so an individual output cannot be approved before it is kept. Previews, evaluation calls and calls under an unapproved context therefore go out with `x-middleware-record: metadata`. Once the reviewer approves a context (STYLE.md plus examples) on a preview batch, training calls under that context are recorded in full. Validators measure the quality of what was kept.
+3. **A training call never sees its own answer.** A fixed output may serve as an example for other inputs, but not in a training call for its own input; otherwise the adapter learns to copy.
+
+Replays are not deterministic: on 2026-10-24 two identical calls to `claude-sonnet-5-5` returned different SVGs, and the current Anthropic API takes no `temperature`. So a replay cannot be relied on to reproduce an approved output, which is why approval applies to the context rather than to each output.
 
 ## Platform constraints the design respects
 

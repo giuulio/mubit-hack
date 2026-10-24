@@ -22,8 +22,13 @@ Hard constraints:
 | `research/` | Objective research notes. Format: [research/README.md](research/README.md) |
 | `ideas/` | Project ideas, one per file. Format: [ideas/README.md](ideas/README.md) |
 | `AGENTS.md` | This file |
+| `ARCHITECTURE.md`, `USE_CASE.md` | The lesson router and the chosen use case |
+| `icons/` | Python package: Mubit client, fixed task prompt, SVG validators, slop score, experiment runner (`python -m icons.run`) |
+| `style/` | Hidden target style (`target.md`) and hand-drawn seed icons |
+| `data/` | Concept lists for training and held-out evaluation |
+| `runs/` | Experiment outputs: `results.jsonl` and SVGs per run; HTML sheets are regenerated, not committed |
 
-Code layout is to be decided once an idea is chosen; record it here when it is.
+Python setup: `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`; Lucide is fetched into `.cache/` with npm on first use.
 
 ## Writing conventions
 

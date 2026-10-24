@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <g id="a">
+      <path d="M9.8 6.6l1-1.8a1.4 1.4 0 0 1 2.4 0l3.3 5.7"/>
+      <path d="M18.4 9.4L14.6 11.6L17.7 12.6Z" fill="currentColor" stroke-width="1"/>
+    </g>
+  </defs>
+  <use href="#a"/>
+  <use href="#a" transform="rotate(120 12 12)"/>
+  <use href="#a" transform="rotate(240 12 12)"/>
+</svg>

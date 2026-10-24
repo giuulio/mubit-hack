@@ -1,0 +1,15 @@
+{
+  "train": [
+    "settings", "trash", "mail", "camera", "lock", "cloud", "download", "upload", "heart", "star",
+    "map pin", "phone", "chat", "image", "music", "video", "battery", "wifi", "link", "pencil",
+    "filter", "share", "bookmark", "clock", "gift", "shopping cart", "key", "globe", "flag", "tag",
+    "document", "printer", "sun", "moon", "lightning", "leaf", "coffee", "rocket", "eye", "shield"
+  ],
+  "heldout": [
+    "heat pump", "drone delivery", "sourdough starter", "kombucha", "solar inverter",
+    "bike repair", "beehive", "compost bin", "scooter dock", "vinyl record",
+    "pipette", "tide chart", "mushroom foraging", "carbon offset", "sign language",
+    "wind turbine", "3D printer", "watering can", "satellite dish", "ferry",
+    "library book return", "recycling", "telescope", "quiet carriage", "night shift"
+  ]
+}
