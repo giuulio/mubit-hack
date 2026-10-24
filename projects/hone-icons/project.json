@@ -1761,6 +1761,734 @@
    "probe": {},
    "confirmed": "2026-10-24T19:11:10+0100",
    "context": "smooth"
+  },
+  {
+   "statement": "Build every icon only from axis-aligned square cells on a 12 by 12 grid, each cell 2 by 2 units.",
+   "scope": "style",
+   "reach": "context",
+   "expressible_as": "validator",
+   "parameter": null,
+   "relation": "new",
+   "related_to": null,
+   "evidence": "Build every icon only from axis-aligned square cells on a 12 by 12 grid, each cell 2 by 2 units",
+   "id": "les_274fcfbb",
+   "status": "active",
+   "context": "pixel",
+   "signal": "direction",
+   "feedback": "8-bit pixel art. Build every icon only from axis-aligned square cells on a 12 by 12 grid, each cell 2 by 2 units, filled solid with no outlines. No curves, no diagonals, no circles. Silhouettes should read like classic 8-bit game sprites.",
+   "sources": [],
+   "concept": null,
+   "route": "A",
+   "reason": "specific to the Pixel context, and the weights are shared by every context: it stays in context (48 tokens \u00d7 5,000 calls/day); changed 100% of probes",
+   "in_context": true,
+   "signals": {
+    "tokens": 48,
+    "stability": "permanent",
+    "effect": 1.0
+   },
+   "created": "2026-10-24T22:37:45+0100",
+   "probe": {
+    "probes": [
+     "document",
+     "heart",
+     "chat"
+    ],
+    "verdicts": [
+     {
+      "pair": 1,
+      "lesson_side": "Y",
+      "verdict": "Y"
+     },
+     {
+      "pair": 2,
+      "lesson_side": "X",
+      "verdict": "X"
+     },
+     {
+      "pair": 3,
+      "lesson_side": "Y",
+      "verdict": "Y"
+     }
+    ],
+    "with": [
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\">\n<rect x=\"4\" y=\"2\" width=\"2\" height=\"2\" />\n<rect x=\"6\" y=\"2\" width=\"2\" height=\"2\" />\n<rect x=\"8\" y=\"2\" width=\"2\" height=\"2\" />\n<rect x=\"10\" y=\"2\" width=\"2\" height=\"2\" />\n<rect x=\"12\" y=\"2\" width=\"2\" height=\"2\" />\n<rect x=\"4\" y=\"4\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"4\" width=\"2\" height=\"2\" />\n<rect x=\"4\" y=\"6\" width=\"2\" height=\"2\" />\n<rect x=\"16\" y=\"6\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"6\" width=\"2\" height=\"2\" />\n<rect x=\"4\" y=\"8\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"8\" width=\"2\" height=\"2\" />\n<rect x=\"4\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"8\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"10\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"12\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"4\" y=\"12\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"12\" width=\"2\" height=\"2\" />\n<rect x=\"4\" y=\"14\" width=\"2\" height=\"2\" />\n<rect x=\"8\" y=\"14\" width=\"2\" height=\"2\" />\n<rect x=\"10\" y=\"14\" width=\"2\" height=\"2\" />\n<rect x=\"12\" y=\"14\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"14\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"14\" width=\"2\" height=\"2\" />\n<rect x=\"4\" y=\"16\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"16\" width=\"2\" height=\"2\" />\n<rect x=\"4\" y=\"18\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"18\" width=\"2\" height=\"2\" />\n<rect x=\"4\" y=\"20\" width=\"2\" height=\"2\" />\n<rect x=\"6\" y=\"20\" width=\"2\" height=\"2\" />\n<rect x=\"8\" y=\"20\" width=\"2\" height=\"2\" />\n<rect x=\"10\" y=\"20\" width=\"2\" height=\"2\" />\n<rect x=\"12\" y=\"20\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"20\" width=\"2\" height=\"2\" />\n<rect x=\"16\" y=\"20\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"20\" width=\"2\" height=\"2\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"currentColor\" stroke-width=\"0\">\n<path d=\"M4 2h2v2h-2zM6 2h2v2h-2zM8 2h2v2h-2zM14 2h2v2h-2zM16 2h2v2h-2zM18 2h2v2h-2z\" />\n<path d=\"M2 4h2v2h-2zM4 4h2v2h-2zM6 4h2v2h-2zM8 4h2v2h-2zM10 4h2v2h-2zM12 4h2v2h-2zM14 4h2v2h-2zM16 4h2v2h-2zM18 4h2v2h-2zM20 4h2v2h-2z\" />\n<path d=\"M2 6h2v2h-2zM4 6h2v2h-2zM6 6h2v2h-2zM8 6h2v2h-2zM10 6h2v2h-2zM12 6h2v2h-2zM14 6h2v2h-2zM16 6h2v2h-2zM18 6h2v2h-2zM20 6h2v2h-2z\" />\n<path d=\"M2 8h2v2h-2zM4 8h2v2h-2zM6 8h2v2h-2zM8 8h2v2h-2zM10 8h2v2h-2zM12 8h2v2h-2zM14 8h2v2h-2zM16 8h2v2h-2zM18 8h2v2h-2zM20 8h2v2h-2z\" />\n<path d=\"M4 10h2v2h-2zM6 10h2v2h-2zM8 10h2v2h-2zM10 10h2v2h-2zM12 10h2v2h-2zM14 10h2v2h-2zM16 10h2v2h-2zM18 10h2v2h-2z\" />\n<path d=\"M6 12h2v2h-2zM8 12h2v2h-2zM10 12h2v2h-2zM12 12h2v2h-2zM14 12h2v2h-2zM16 12h2v2h-2z\" />\n<path d=\"M8 14h2v2h-2zM10 14h2v2h-2zM12 14h2v2h-2zM14 14h2v2h-2z\" />\n<path d=\"M10 16h2v2h-2zM12 16h2v2h-2z\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"2\" y=\"2\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"4\" width=\"2\" height=\"12\" />\n  <rect x=\"20\" y=\"4\" width=\"2\" height=\"12\" />\n  <rect x=\"2\" y=\"16\" width=\"20\" height=\"2\" />\n  <rect x=\"6\" y=\"18\" width=\"4\" height=\"2\" />\n  <rect x=\"6\" y=\"20\" width=\"2\" height=\"2\" />\n  <rect x=\"6\" y=\"8\" width=\"12\" height=\"2\" />\n  <rect x=\"6\" y=\"12\" width=\"8\" height=\"2\" />\n</svg>"
+    ],
+    "without": [
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 2.75H7A2.25 2.25 0 0 0 4.75 5v14A2.25 2.25 0 0 0 7 21.25h10A2.25 2.25 0 0 0 19.25 19V8z\" /><path d=\"M14 2.75V8h5.25\" /><path d=\"M8.5 12.5h7\" /><path d=\"M8.5 16h7\" /><path d=\"M8.5 9h2\" /></svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20.5s-8-4.9-8-11A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.500c0 6.100-8 11-8 11z\" /></svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3.5c-4.97 0-9 3.358-9 7.5 0 2.1 1.04 4 2.72 5.36-.1 1.3-.62 2.5-1.47 3.45a.5.5 0 0 0 .4.83c1.9-.1 3.48-.8 4.6-1.64.87.2 1.8.3 2.75.3 4.97 0 9-3.358 9-7.5S16.97 3.5 12 3.5Z\" /><path d=\"M8 11h.01M12 11h.01M16 11h.01\" stroke-width=\"2\" /></svg>"
+    ]
+   },
+   "confirmed": "2026-10-24T22:38:23+0100"
+  },
+  {
+   "statement": "Fill the cells solid and draw no outlines.",
+   "scope": "style",
+   "reach": "context",
+   "expressible_as": "parameter",
+   "parameter": {
+    "name": "stroke-width",
+    "value": "0"
+   },
+   "relation": "new",
+   "related_to": null,
+   "evidence": "filled solid with no outlines",
+   "id": "les_0de83125",
+   "status": "active",
+   "context": "pixel",
+   "signal": "direction",
+   "feedback": "8-bit pixel art. Build every icon only from axis-aligned square cells on a 12 by 12 grid, each cell 2 by 2 units, filled solid with no outlines. No curves, no diagonals, no circles. Silhouettes should read like classic 8-bit game sprites.",
+   "sources": [],
+   "concept": null,
+   "route": "A",
+   "reason": "code applies it to every output at zero tokens",
+   "in_context": false,
+   "signals": {
+    "tokens": 0,
+    "stability": "permanent",
+    "effect": null
+   },
+   "created": "2026-10-24T22:37:45+0100",
+   "probe": {},
+   "confirmed": "2026-10-24T22:38:03+0100"
+  },
+  {
+   "statement": "Use no curves, diagonals or circles; show rounded or slanted forms as stepped cells.",
+   "scope": "style",
+   "reach": "context",
+   "expressible_as": "validator",
+   "parameter": null,
+   "relation": "new",
+   "related_to": null,
+   "evidence": "No curves, no diagonals, no circles.",
+   "id": "les_3f0c1bca",
+   "status": "active",
+   "context": "pixel",
+   "signal": "direction",
+   "feedback": "8-bit pixel art. Build every icon only from axis-aligned square cells on a 12 by 12 grid, each cell 2 by 2 units, filled solid with no outlines. No curves, no diagonals, no circles. Silhouettes should read like classic 8-bit game sprites.",
+   "sources": [],
+   "concept": null,
+   "route": "A",
+   "reason": "specific to the Pixel context, and the weights are shared by every context: it stays in context (39 tokens \u00d7 5,000 calls/day); changed 100% of probes",
+   "in_context": true,
+   "signals": {
+    "tokens": 39,
+    "stability": "permanent",
+    "effect": 1.0
+   },
+   "created": "2026-10-24T22:37:45+0100",
+   "probe": {
+    "probes": [
+     "shopping cart",
+     "lock",
+     "flag"
+    ],
+    "verdicts": [
+     {
+      "pair": 1,
+      "lesson_side": "Y",
+      "verdict": "Y"
+     },
+     {
+      "pair": 2,
+      "lesson_side": "X",
+      "verdict": "X"
+     },
+     {
+      "pair": 3,
+      "lesson_side": "Y",
+      "verdict": "Y"
+     }
+    ],
+    "with": [
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"0\" y=\"2\" width=\"4\" height=\"2\" /><rect x=\"2\" y=\"4\" width=\"2\" height=\"12\" /><rect x=\"4\" y=\"6\" width=\"18\" height=\"2\" /><rect x=\"6\" y=\"8\" width=\"14\" height=\"2\" /><rect x=\"6\" y=\"10\" width=\"12\" height=\"2\" /><rect x=\"6\" y=\"12\" width=\"12\" height=\"2\" /><rect x=\"4\" y=\"14\" width=\"14\" height=\"2\" /><rect x=\"6\" y=\"18\" width=\"4\" height=\"4\" /><rect x=\"14\" y=\"18\" width=\"4\" height=\"4\" /></svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><path d=\"M8 2h8v2h2v6h-2V4H8v6H6V4h2z\" /><path fill-rule=\"evenodd\" d=\"M4 10h16v12H4z M10 13h4v2h-1v4h-2v-4h-1z\" /></svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><path d=\"M4 2h2v20H4z\" /><path d=\"M6 4h12v2h2v4h-2v2h-2v2H6z\" /></svg>"
+    ],
+    "without": [
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 3h2.5l2.2 11.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L20 7H5.2\" /><circle cx=\"9\" cy=\"19.5\" r=\"1.5\" /><circle cx=\"17\" cy=\"19.5\" r=\"1.5\" /></svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"10.5\" width=\"16\" height=\"10.5\" rx=\"2.5\" /><path d=\"M8 10.5V7.5a4 4 0 0 1 8 0v3\" /><circle cx=\"12\" cy=\"15.5\" r=\"1.25\" fill=\"currentColor\" stroke=\"none\" /><path d=\"M12 16.5v1.75\" /></svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 21V4\" /><path d=\"M5 4h11l-2 4 2 4H5\" /></svg>"
+    ]
+   },
+   "confirmed": "2026-10-24T22:38:19+0100"
+  },
+  {
+   "statement": "Make silhouettes read like classic 8-bit game sprites.",
+   "scope": "style",
+   "reach": "context",
+   "expressible_as": "rule",
+   "parameter": null,
+   "relation": "new",
+   "related_to": null,
+   "evidence": "Silhouettes should read like classic 8-bit game sprites.",
+   "id": "les_3b893660",
+   "status": "active",
+   "context": "pixel",
+   "signal": "direction",
+   "feedback": "8-bit pixel art. Build every icon only from axis-aligned square cells on a 12 by 12 grid, each cell 2 by 2 units, filled solid with no outlines. No curves, no diagonals, no circles. Silhouettes should read like classic 8-bit game sprites.",
+   "sources": [],
+   "concept": null,
+   "route": "A",
+   "reason": "specific to the Pixel context, and the weights are shared by every context: it stays in context (29 tokens \u00d7 5,000 calls/day); changed 100% of probes",
+   "in_context": true,
+   "signals": {
+    "tokens": 29,
+    "stability": "permanent",
+    "effect": 1.0
+   },
+   "created": "2026-10-24T22:37:45+0100",
+   "probe": {
+    "probes": [
+     "globe",
+     "image",
+     "link"
+    ],
+    "verdicts": [
+     {
+      "pair": 1,
+      "lesson_side": "Y",
+      "verdict": "Y"
+     },
+     {
+      "pair": 2,
+      "lesson_side": "X",
+      "verdict": "X"
+     }
+    ],
+    "with": [
+     null,
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"1\" y=\"2\" width=\"14\" height=\"1\" />\n  <rect x=\"1\" y=\"13\" width=\"14\" height=\"1\" />\n  <rect x=\"1\" y=\"3\" width=\"1\" height=\"10\" />\n  <rect x=\"14\" y=\"3\" width=\"1\" height=\"10\" />\n  <rect x=\"10\" y=\"4\" width=\"2\" height=\"2\" />\n  <rect x=\"5\" y=\"6\" width=\"2\" height=\"1\" />\n  <rect x=\"4\" y=\"7\" width=\"4\" height=\"1\" />\n  <rect x=\"3\" y=\"8\" width=\"6\" height=\"1\" />\n  <rect x=\"10\" y=\"8\" width=\"2\" height=\"1\" />\n  <rect x=\"2\" y=\"9\" width=\"8\" height=\"1\" />\n  <rect x=\"9\" y=\"9\" width=\"4\" height=\"1\" />\n  <rect x=\"2\" y=\"10\" width=\"12\" height=\"1\" />\n  <rect x=\"2\" y=\"12\" width=\"12\" height=\"1\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  \n  <rect x=\"2\" y=\"4\" width=\"6\" height=\"1\" />\n  <rect x=\"1\" y=\"5\" width=\"8\" height=\"1\" />\n  <rect x=\"0\" y=\"6\" width=\"2\" height=\"4\" />\n  <rect x=\"8\" y=\"6\" width=\"2\" height=\"4\" />\n  <rect x=\"1\" y=\"10\" width=\"8\" height=\"1\" />\n  <rect x=\"2\" y=\"11\" width=\"6\" height=\"1\" />\n  \n  <rect x=\"8\" y=\"4\" width=\"6\" height=\"1\" />\n  <rect x=\"7\" y=\"5\" width=\"8\" height=\"1\" />\n  <rect x=\"6\" y=\"6\" width=\"2\" height=\"4\" />\n  <rect x=\"14\" y=\"6\" width=\"2\" height=\"4\" />\n  <rect x=\"7\" y=\"10\" width=\"8\" height=\"1\" />\n  <rect x=\"8\" y=\"11\" width=\"6\" height=\"1\" />\n</svg>"
+    ],
+    "without": [
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\" /><path d=\"M3 12h18\" /><path d=\"M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.500 5.500 12 3z\" /><path d=\"M4.500 7.500h15\" /><path d=\"M4.500 16.500h15\" /></svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\" /><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\" /><path d=\"M21 15l-5-5L5 21\" /></svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5\" /><path d=\"M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5\" /></svg>"
+    ]
+   },
+   "confirmed": "2026-10-24T22:38:23+0100"
+  },
+  {
+   "statement": "Draw main shapes as solid fills with no outlines.",
+   "scope": "style",
+   "reach": "context",
+   "expressible_as": "parameter",
+   "parameter": {
+    "name": "fill",
+    "value": "#1D6B45"
+   },
+   "relation": "new",
+   "related_to": null,
+   "evidence": "Filled duotone icons. Solid shapes with no outlines.",
+   "id": "les_d5086dd2",
+   "status": "active",
+   "context": "duotone",
+   "signal": "direction",
+   "feedback": "Filled duotone icons. Solid shapes with no outlines. Main shapes in forest green #1D6B45, plus exactly one small accent shape in orange #FF4A14. Bold, simple geometry with softly rounded corners.",
+   "sources": [],
+   "concept": null,
+   "route": "A",
+   "reason": "code applies it to every output at zero tokens",
+   "in_context": false,
+   "signals": {
+    "tokens": 0,
+    "stability": "permanent",
+    "effect": null
+   },
+   "created": "2026-10-24T22:37:48+0100",
+   "probe": {},
+   "confirmed": "2026-10-24T22:38:04+0100"
+  },
+  {
+   "statement": "Color the main shapes forest green #1D6B45.",
+   "scope": "style",
+   "reach": "context",
+   "expressible_as": "parameter",
+   "parameter": {
+    "name": "fill",
+    "value": "#1D6B45"
+   },
+   "relation": "new",
+   "related_to": null,
+   "evidence": "Main shapes in forest green #1D6B45",
+   "id": "les_7a505fff",
+   "status": "rejected",
+   "context": "duotone",
+   "signal": "direction",
+   "feedback": "Filled duotone icons. Solid shapes with no outlines. Main shapes in forest green #1D6B45, plus exactly one small accent shape in orange #FF4A14. Bold, simple geometry with softly rounded corners.",
+   "sources": [],
+   "concept": null,
+   "route": null,
+   "reason": null,
+   "in_context": false,
+   "signals": {},
+   "created": "2026-10-24T22:37:48+0100"
+  },
+  {
+   "statement": "Include exactly one small accent shape per icon.",
+   "scope": "style",
+   "reach": "context",
+   "expressible_as": "parameter",
+   "parameter": {
+    "name": "accent",
+    "value": "one"
+   },
+   "relation": "new",
+   "related_to": null,
+   "evidence": "plus exactly one small accent shape",
+   "id": "les_dd14ba0a",
+   "status": "active",
+   "context": "duotone",
+   "signal": "direction",
+   "feedback": "Filled duotone icons. Solid shapes with no outlines. Main shapes in forest green #1D6B45, plus exactly one small accent shape in orange #FF4A14. Bold, simple geometry with softly rounded corners.",
+   "sources": [],
+   "concept": null,
+   "route": "A",
+   "reason": "code applies it to every output at zero tokens",
+   "in_context": false,
+   "signals": {
+    "tokens": 0,
+    "stability": "permanent",
+    "effect": null
+   },
+   "created": "2026-10-24T22:37:48+0100",
+   "probe": {},
+   "confirmed": "2026-10-24T22:38:04+0100"
+  },
+  {
+   "statement": "Color the accent shape orange #FF4A14.",
+   "scope": "style",
+   "reach": "context",
+   "expressible_as": "parameter",
+   "parameter": {
+    "name": "accent-color",
+    "value": "#FF4A14"
+   },
+   "relation": "new",
+   "related_to": null,
+   "evidence": "exactly one small accent shape in orange #FF4A14",
+   "id": "les_02f906fb",
+   "status": "active",
+   "context": "duotone",
+   "signal": "direction",
+   "feedback": "Filled duotone icons. Solid shapes with no outlines. Main shapes in forest green #1D6B45, plus exactly one small accent shape in orange #FF4A14. Bold, simple geometry with softly rounded corners.",
+   "sources": [],
+   "concept": null,
+   "route": "A",
+   "reason": "code applies it to every output at zero tokens",
+   "in_context": false,
+   "signals": {
+    "tokens": 0,
+    "stability": "permanent",
+    "effect": null
+   },
+   "created": "2026-10-24T22:37:48+0100",
+   "probe": {},
+   "confirmed": "2026-10-24T22:38:05+0100"
+  },
+  {
+   "statement": "Use bold, simple geometry with softly rounded corners.",
+   "scope": "style",
+   "reach": "context",
+   "expressible_as": "rule",
+   "parameter": null,
+   "relation": "new",
+   "related_to": null,
+   "evidence": "Bold, simple geometry with softly rounded corners.",
+   "id": "les_7a6aeb25",
+   "status": "needs_rephrase",
+   "context": "duotone",
+   "signal": "direction",
+   "feedback": "Filled duotone icons. Solid shapes with no outlines. Main shapes in forest green #1D6B45, plus exactly one small accent shape in orange #FF4A14. Bold, simple geometry with softly rounded corners.",
+   "sources": [],
+   "concept": null,
+   "route": "rephrase",
+   "reason": "changed 33% of probes in context; nothing for the weights to learn yet",
+   "in_context": false,
+   "signals": {
+    "tokens": 27,
+    "stability": "permanent",
+    "effect": 0.3333333333333333
+   },
+   "created": "2026-10-24T22:37:48+0100",
+   "probe": {
+    "probes": [
+     "gift",
+     "eye",
+     "image"
+    ],
+    "verdicts": [
+     {
+      "pair": 1,
+      "lesson_side": "X",
+      "verdict": "X"
+     },
+     {
+      "pair": 2,
+      "lesson_side": "Y",
+      "verdict": "X"
+     },
+     {
+      "pair": 3,
+      "lesson_side": "Y",
+      "verdict": "X"
+     }
+    ],
+    "with": [
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <rect x=\"3\" y=\"8\" width=\"18\" height=\"4\" rx=\"1.5\" />\n  <path d=\"M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7\" />\n  <path d=\"M12 8v13\" />\n  <path d=\"M12 8c-1-3-2.500-4.500-4.500-4.500a2 2 0 0 0 0 4.500H12z\" />\n  <path d=\"M12 8c1-3 2.500-4.500 4.500-4.500a2 2 0 0 1 0 4.500H12z\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2.5 12C5 7.5 8.3 5.5 12 5.5s7 2 9.5 6.5c-2.5 4.5-5.800 6.500-9.500 6.500S5 16.500 2.500 12z\" /><circle cx=\"12\" cy=\"12\" r=\"2.8\" fill=\"currentColor\" stroke=\"none\" /></svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3.5\" width=\"18\" height=\"17\" rx=\"4\" /><circle cx=\"8.5\" cy=\"9\" r=\"1.75\" fill=\"currentColor\" stroke=\"none\" /><path d=\"M3.5 17l4.5-4.5a2 2 0 0 1 2.8 0L14 15.700\" /><path d=\"M12.500 14.500l2-2a2 2 0 0 1 2.800 0l3.200 3.200\" /></svg>"
+    ],
+    "without": [
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"8\" width=\"18\" height=\"4\" rx=\"1\" /><path d=\"M12 8v13\" /><path d=\"M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7\" /><path d=\"M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5\" /></svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z\" /><circle cx=\"12\" cy=\"12\" r=\"3.25\" /></svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" /><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\" /><path d=\"M21 15l-5-5L5 21\" /></svg>"
+    ]
+   },
+   "confirmed": "2026-10-24T22:38:12+0100"
+  },
+  {
+   "statement": "Keep a one-cell empty margin around every pixel icon: draw only within x and y from 2 to 22.",
+   "scope": "style",
+   "reach": "context",
+   "expressible_as": "validator",
+   "parameter": null,
+   "relation": "new",
+   "related_to": null,
+   "evidence": "It touches the edge of the canvas. Keep a one-cell empty margin: draw only inside x and y from 2 to 22.",
+   "id": "les_84da3408",
+   "status": "active",
+   "context": "pixel",
+   "signal": "critique",
+   "feedback": "It touches the edge of the canvas. Keep a one-cell empty margin: draw only inside x and y from 2 to 22.",
+   "sources": [
+    "out_c9f700b3"
+   ],
+   "concept": "bell",
+   "route": "A",
+   "reason": "specific to the Pixel context, and the weights are shared by every context: it stays in context (37 tokens \u00d7 5,000 calls/day); changed 100% of probes",
+   "in_context": true,
+   "signals": {
+    "tokens": 37,
+    "stability": "permanent",
+    "effect": 1.0
+   },
+   "created": "2026-10-24T22:39:28+0100",
+   "probe": {
+    "probes": [
+     "bell",
+     "key",
+     "star"
+    ],
+    "verdicts": [
+     {
+      "pair": 1,
+      "lesson_side": "Y",
+      "verdict": "Y"
+     },
+     {
+      "pair": 2,
+      "lesson_side": "Y",
+      "verdict": "Y"
+     },
+     {
+      "pair": 3,
+      "lesson_side": "Y",
+      "verdict": "Y"
+     }
+    ],
+    "with": [
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"10\" y=\"2\" width=\"4\" height=\"2\" />\n  <rect x=\"8\" y=\"4\" width=\"8\" height=\"2\" />\n  <rect x=\"6\" y=\"6\" width=\"12\" height=\"2\" />\n  <rect x=\"6\" y=\"8\" width=\"2\" height=\"2\" />\n  <rect x=\"10\" y=\"8\" width=\"8\" height=\"2\" />\n  <rect x=\"6\" y=\"10\" width=\"2\" height=\"2\" />\n  <rect x=\"10\" y=\"10\" width=\"8\" height=\"2\" />\n  <rect x=\"4\" y=\"12\" width=\"16\" height=\"2\" />\n  <rect x=\"4\" y=\"14\" width=\"16\" height=\"2\" />\n  <rect x=\"2\" y=\"16\" width=\"20\" height=\"2\" />\n  <rect x=\"8\" y=\"18\" width=\"8\" height=\"2\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n<rect x=\"4\" y=\"2\" width=\"4\" height=\"2\" />\n<rect x=\"2\" y=\"4\" width=\"2\" height=\"4\" />\n<rect x=\"8\" y=\"4\" width=\"2\" height=\"4\" />\n<rect x=\"4\" y=\"8\" width=\"4\" height=\"2\" />\n<rect x=\"8\" y=\"8\" width=\"4\" height=\"2\" />\n<rect x=\"10\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"12\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"12\" y=\"12\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"12\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"14\" width=\"2\" height=\"2\" />\n<rect x=\"16\" y=\"14\" width=\"2\" height=\"2\" />\n<rect x=\"16\" y=\"16\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"16\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"18\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"16\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"20\" width=\"2\" height=\"2\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"10\" y=\"2\" width=\"4\" height=\"2\" />\n  <rect x=\"10\" y=\"4\" width=\"4\" height=\"2\" />\n  <rect x=\"8\" y=\"6\" width=\"8\" height=\"2\" />\n  <rect x=\"2\" y=\"8\" width=\"20\" height=\"2\" />\n  <rect x=\"4\" y=\"10\" width=\"16\" height=\"2\" />\n  <rect x=\"6\" y=\"12\" width=\"12\" height=\"2\" />\n  <rect x=\"6\" y=\"14\" width=\"12\" height=\"2\" />\n  <rect x=\"4\" y=\"16\" width=\"16\" height=\"2\" />\n  <rect x=\"4\" y=\"18\" width=\"6\" height=\"2\" />\n  <rect x=\"14\" y=\"18\" width=\"6\" height=\"2\" />\n  <rect x=\"4\" y=\"20\" width=\"4\" height=\"2\" />\n  <rect x=\"16\" y=\"20\" width=\"4\" height=\"2\" />\n</svg>"
+    ],
+    "without": [
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" shape-rendering=\"crispEdges\" stroke-width=\"0\"><g fill=\"#000\"><rect x=\"10\" y=\"0\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"2\" width=\"8\" height=\"2\" /><rect x=\"6\" y=\"4\" width=\"12\" height=\"2\" /><rect x=\"6\" y=\"6\" width=\"2\" height=\"4\" /><rect x=\"10\" y=\"6\" width=\"8\" height=\"4\" /><rect x=\"4\" y=\"10\" width=\"16\" height=\"6\" /><rect x=\"2\" y=\"16\" width=\"20\" height=\"4\" /><rect x=\"10\" y=\"20\" width=\"4\" height=\"2\" /></g></svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n<rect x=\"4\" y=\"2\" width=\"6\" height=\"2\" />\n<rect x=\"2\" y=\"4\" width=\"2\" height=\"6\" />\n<rect x=\"10\" y=\"4\" width=\"2\" height=\"6\" />\n<rect x=\"4\" y=\"10\" width=\"6\" height=\"2\" />\n<rect x=\"12\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"10\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"12\" y=\"12\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"12\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"14\" width=\"2\" height=\"2\" />\n<rect x=\"16\" y=\"14\" width=\"2\" height=\"2\" />\n<rect x=\"16\" y=\"16\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"16\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"18\" width=\"2\" height=\"2\" />\n<rect x=\"20\" y=\"18\" width=\"2\" height=\"2\" />\n<rect x=\"20\" y=\"20\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"16\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"20\" width=\"2\" height=\"2\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n<rect x=\"10\" y=\"0\" width=\"4\" height=\"4\" />\n<rect x=\"8\" y=\"4\" width=\"8\" height=\"4\" />\n<rect x=\"0\" y=\"8\" width=\"24\" height=\"2\" />\n<rect x=\"0\" y=\"8\" width=\"24\" height=\"2\" />\n<rect x=\"2\" y=\"10\" width=\"20\" height=\"2\" />\n<rect x=\"4\" y=\"12\" width=\"16\" height=\"2\" />\n<rect x=\"6\" y=\"14\" width=\"12\" height=\"2\" />\n<rect x=\"4\" y=\"16\" width=\"16\" height=\"2\" />\n<rect x=\"4\" y=\"18\" width=\"6\" height=\"2\" />\n<rect x=\"14\" y=\"18\" width=\"6\" height=\"2\" />\n<rect x=\"2\" y=\"20\" width=\"6\" height=\"4\" />\n<rect x=\"16\" y=\"20\" width=\"6\" height=\"4\" />\n</svg>"
+    ]
+   },
+   "confirmed": "2026-10-24T22:40:11+0100"
+  },
+  {
+   "statement": "Use flat fills only, with no black or stroked outlines on any shape.",
+   "scope": "style",
+   "reach": "context",
+   "expressible_as": "parameter",
+   "parameter": {
+    "name": "fill",
+    "value": "#1D6B45"
+   },
+   "relation": "duplicate",
+   "related_to": "les_d5086dd2",
+   "evidence": "No black outlines at all, only flat fills.",
+   "id": "les_957f67c9",
+   "status": "rejected",
+   "context": "duotone",
+   "signal": "critique",
+   "feedback": "No black outlines at all, only flat fills. And it is missing the orange accent: add exactly one small accent element with class=accent, like a dot, clapper or highlight.",
+   "sources": [
+    "out_a3f3a00e"
+   ],
+   "concept": "bell",
+   "route": null,
+   "reason": null,
+   "in_context": false,
+   "signals": {},
+   "created": "2026-10-24T22:39:34+0100"
+  },
+  {
+   "statement": "Mark the single accent element with class=\"accent\", as a small dot, clapper or highlight, so it can be coloured separately.",
+   "scope": "style",
+   "reach": "context",
+   "expressible_as": "validator",
+   "parameter": null,
+   "relation": "refines",
+   "related_to": "les_dd14ba0a",
+   "evidence": "it is missing the orange accent: add exactly one small accent element with class=accent, like a dot, clapper or highlight.",
+   "id": "les_50bd4e00",
+   "status": "active",
+   "context": "duotone",
+   "signal": "critique",
+   "feedback": "No black outlines at all, only flat fills. And it is missing the orange accent: add exactly one small accent element with class=accent, like a dot, clapper or highlight.",
+   "sources": [
+    "out_a3f3a00e"
+   ],
+   "concept": "bell",
+   "route": "A",
+   "reason": "specific to the Duotone context, and the weights are shared by every context: it stays in context (46 tokens \u00d7 5,000 calls/day); changed 100% of probes",
+   "in_context": true,
+   "signals": {
+    "tokens": 46,
+    "stability": "permanent",
+    "effect": 1.0
+   },
+   "created": "2026-10-24T22:39:34+0100",
+   "probe": {
+    "probes": [
+     "bell",
+     "link",
+     "lock"
+    ],
+    "verdicts": [
+     {
+      "pair": 1,
+      "lesson_side": "X",
+      "verdict": "X"
+     },
+     {
+      "pair": 2,
+      "lesson_side": "Y",
+      "verdict": "Y"
+     },
+     {
+      "pair": 3,
+      "lesson_side": "X",
+      "verdict": "X"
+     }
+    ],
+    "with": [
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M12 3v1.5\" />\n  <path d=\"M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z\" />\n  <circle class=\"accent\" cx=\"12\" cy=\"20.75\" r=\"1.25\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M10 14a4.5 4.5 0 0 0 6.36 0l3-3a4.5 4.5 0 0 0-6.36-6.36l-1 1\" />\n  <path d=\"M14 10a4.5 4.5 0 0 0-6.36 0l-3 3a4.5 4.5 0 0 0 6.36 6.36l1-1\" />\n  <circle class=\"accent\" cx=\"12\" cy=\"12\" r=\"1.2\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <rect x=\"4.5\" y=\"10.5\" width=\"15\" height=\"10\" rx=\"2\" />\n  <path d=\"M8 10.5V7.5a4 4 0 0 1 8 0v3\" />\n  <circle class=\"accent\" cx=\"12\" cy=\"15\" r=\"1.5\" fill=\"#FF4A14\" stroke=\"none\" />\n  <path d=\"M12 16.5v1.5\" />\n</svg>"
+    ],
+    "without": [
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9\" /><path d=\"M13.73 21a2 2 0 0 1-3.46 0\" /></svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5\" /><path d=\"M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5\" /></svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"10.5\" width=\"16\" height=\"10.5\" rx=\"2.5\" /><path d=\"M8 10.5V7a4 4 0 0 1 8 0v3.5\" /><circle cx=\"12\" cy=\"15.5\" r=\"1.25\" fill=\"currentColor\" stroke=\"none\" /><path d=\"M12 16.5v2\" /></svg>"
+    ]
+   },
+   "confirmed": "2026-10-24T22:39:55+0100"
+  },
+  {
+   "statement": "Set stroke width to 0 so shapes have no outline at all.",
+   "scope": "style",
+   "reach": "context",
+   "expressible_as": "parameter",
+   "parameter": {
+    "name": "stroke-width",
+    "value": "0"
+   },
+   "relation": "refines",
+   "related_to": "les_d5086dd2",
+   "evidence": "Stroke width 0: shapes have no outline at all.",
+   "id": "les_e747f75f",
+   "status": "active",
+   "context": "duotone",
+   "signal": "direction",
+   "feedback": "Stroke width 0: shapes have no outline at all.",
+   "sources": [],
+   "concept": null,
+   "route": "A",
+   "reason": "code applies it to every output at zero tokens",
+   "in_context": false,
+   "signals": {
+    "tokens": 0,
+    "stability": "permanent",
+    "effect": null
+   },
+   "created": "2026-10-24T22:39:47+0100",
+   "probe": {},
+   "confirmed": "2026-10-24T22:39:48+0100"
+  },
+  {
+   "statement": "Show inner details such as a flap, lens or window as white (#FFFFFF) cut-out shapes layered on top of the green fill, never as strokes.",
+   "scope": "style",
+   "reach": "context",
+   "expressible_as": "rule",
+   "parameter": null,
+   "relation": "new",
+   "related_to": null,
+   "evidence": "Show inner details like the flap, a lens or a window as white cut-out shapes (fill #FFFFFF) on top of the green, never as strokes.",
+   "id": "les_3b168910",
+   "status": "active",
+   "context": "duotone",
+   "signal": "critique",
+   "feedback": "The envelope lost its flap and reads as a plain box. Show inner details like the flap, a lens or a window as white cut-out shapes (fill #FFFFFF) on top of the green, never as strokes.",
+   "sources": [
+    "out_3b20b94b"
+   ],
+   "concept": "mail",
+   "route": "A",
+   "reason": "specific to the Duotone context, and the weights are shared by every context: it stays in context (51 tokens \u00d7 5,000 calls/day); changed 100% of probes",
+   "in_context": true,
+   "signals": {
+    "tokens": 51,
+    "stability": "permanent",
+    "effect": 1.0
+   },
+   "created": "2026-10-24T22:41:00+0100",
+   "probe": {
+    "probes": [
+     "mail",
+     "phone",
+     "coffee"
+    ],
+    "verdicts": [
+     {
+      "pair": 1,
+      "lesson_side": "X",
+      "verdict": "X"
+     },
+     {
+      "pair": 2,
+      "lesson_side": "Y",
+      "verdict": "Y"
+     },
+     {
+      "pair": 3,
+      "lesson_side": "X",
+      "verdict": "X"
+     }
+    ],
+    "with": [
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"3\" fill=\"#1F9D55\" />\n  <path d=\"M4.5 7.5 L12 13 L19.5 7.5 L19.5 9.2 L12 14.7 L4.5 9.2 Z\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"19\" cy=\"5\" r=\"3\" fill=\"#FF4A14\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <rect x=\"6\" y=\"2\" width=\"12\" height=\"20\" rx=\"2.5\" fill=\"#1F9D55\" />\n  <rect x=\"8\" y=\"5\" width=\"8\" height=\"12\" rx=\"1\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"12\" cy=\"19.5\" r=\"1.1\" fill=\"#FF4A14\" />\n  <rect x=\"10.5\" y=\"3.2\" width=\"3\" height=\"0.9\" rx=\"0.45\" fill=\"#FFFFFF\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 48 48\" width=\"48\" height=\"48\" stroke-width=\"0\" fill=\"#1D6B45\">\n  \n  <path d=\"M6 40h32a0 0 0 0 1 0 0c0 2-2 3-4 3H10c-2 0-4-1-4-3z\" fill=\"#1E8A4C\" />\n  \n  <path d=\"M8 18h28v10c0 6.075-4.925 11-11 11h-6C12.925 39 8 34.075 8 28z\" fill=\"#1E8A4C\" />\n  \n  <path d=\"M36 21h2.5a5.5 5.5 0 0 1 0 11H35v-3.5h3.5a2 2 0 0 0 0-4H36z\" fill=\"#1E8A4C\" />\n  \n  <rect x=\"12\" y=\"21.5\" width=\"20\" height=\"4\" rx=\"2\" fill=\"#FFFFFF\" />\n  \n  <path d=\"M13 29.5c0 3 2 5.500 5 6.500\" fill=\"none\" />\n  <ellipse cx=\"15\" cy=\"30.500\" rx=\"1.500\" ry=\"3\" fill=\"#FFFFFF\" />\n  \n  <circle class=\"accent\" cx=\"22\" cy=\"10\" r=\"3\" fill=\"#FF4A14\" />\n</svg>"
+    ],
+    "without": [
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\" />\n  <path d=\"M3.5 6.5L12 13l8.5-6.5\" />\n  <circle class=\"accent\" cx=\"19\" cy=\"6\" r=\"2.5\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <rect x=\"7\" y=\"2\" width=\"10\" height=\"20\" rx=\"2.5\" />\n  <path d=\"M10.5 5h3\" />\n  <circle class=\"accent\" cx=\"12\" cy=\"18.5\" r=\"1\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M4 10h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z\" />\n  <path d=\"M16 11h1.5a2.5 2.5 0 0 1 0 5H15.5\" />\n  <path d=\"M3 22h14\" />\n  <path d=\"M8 3c-1 1 1 2 0 3.5\" />\n  <circle class=\"accent\" cx=\"12.5\" cy=\"4.5\" r=\"1\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>"
+    ]
+   },
+   "confirmed": "2026-10-24T22:41:16+0100"
+  },
+  {
+   "statement": "Keep the identifying inner detail of an icon visible (for example the envelope flap) so it does not collapse into a plain box.",
+   "scope": "family",
+   "reach": "model",
+   "expressible_as": "rule",
+   "parameter": null,
+   "relation": "new",
+   "related_to": null,
+   "evidence": "The envelope lost its flap and reads as a plain box.",
+   "id": "les_a92a2999",
+   "status": "needs_rephrase",
+   "context": "duotone",
+   "signal": "critique",
+   "feedback": "The envelope lost its flap and reads as a plain box. Show inner details like the flap, a lens or a window as white cut-out shapes (fill #FFFFFF) on top of the green, never as strokes.",
+   "sources": [
+    "out_3b20b94b"
+   ],
+   "concept": "mail",
+   "route": "rephrase",
+   "reason": "changed 0% of probes in context; nothing for the weights to learn yet",
+   "in_context": false,
+   "signals": {
+    "tokens": 42,
+    "stability": "permanent",
+    "effect": 0.0
+   },
+   "created": "2026-10-24T22:41:00+0100",
+   "probe": {
+    "probes": [
+     "mail",
+     "camera",
+     "document"
+    ],
+    "verdicts": [
+     {
+      "pair": 1,
+      "lesson_side": "X",
+      "verdict": "same"
+     },
+     {
+      "pair": 2,
+      "lesson_side": "Y",
+      "verdict": "same"
+     },
+     {
+      "pair": 3,
+      "lesson_side": "Y",
+      "verdict": "same"
+     }
+    ],
+    "with": [
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\" />\n  <path d=\"M3.5 7.5l8.5 6 8.5-6\" />\n  <circle class=\"accent\" cx=\"19\" cy=\"6\" r=\"2.2\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M3 8.5a2 2 0 0 1 2-2h2.2a1 1 0 0 0 .8-.4l.9-1.2a1 1 0 0 1 .8-.4h4.6a1 1 0 0 1 .8.4l.9 1.2a1 1 0 0 0 .8.4H19a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\" />\n  <circle cx=\"12\" cy=\"12.5\" r=\"3.5\" />\n  <circle class=\"accent\" cx=\"17.5\" cy=\"9.5\" r=\"0.9\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M6 3h8l4 4v14H6z\" />\n  <path d=\"M14 3v4h4\" />\n  <path d=\"M9 12h6\" />\n  <path d=\"M9 15h6\" />\n  <circle class=\"accent\" cx=\"9.5\" cy=\"18.5\" r=\"1\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>"
+    ],
+    "without": [
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\" />\n  <path d=\"M3.5 6.5l8.5 6.5 8.5-6.5\" />\n  <circle class=\"accent\" cx=\"19\" cy=\"6\" r=\"2.5\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M3 8.5a2 2 0 0 1 2-2h2.2a1 1 0 0 0 .8-.4l.9-1.2a1 1 0 0 1 .8-.4h4.6a1 1 0 0 1 .8.4l.9 1.2a1 1 0 0 0 .8.4H19a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\" />\n  <circle cx=\"12\" cy=\"12.5\" r=\"3.5\" />\n  <circle class=\"accent\" cx=\"17.5\" cy=\"9.5\" r=\"0.9\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>",
+     "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M6 3h8l5 5v13H6z\" />\n  <path d=\"M14 3v5h5\" />\n  <path d=\"M9 13h7\" />\n  <path d=\"M9 17h5\" />\n  <circle class=\"accent\" cx=\"9.5\" cy=\"9\" r=\"1.2\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>"
+    ]
+   },
+   "confirmed": "2026-10-24T22:41:15+0100"
+  },
+  {
+   "statement": "Always use viewBox=\"0 0 24 24\" on the root svg, with coordinates drawn for a 24 by 24 canvas.",
+   "scope": "style",
+   "reach": "model",
+   "expressible_as": "validator",
+   "parameter": null,
+   "relation": "new",
+   "related_to": null,
+   "evidence": "This was drawn on a 48 by 48 canvas. Every icon, in every style, must use viewBox 0 0 24 24.",
+   "id": "les_635de23c",
+   "status": "active",
+   "context": "duotone",
+   "signal": "critique",
+   "feedback": "This was drawn on a 48 by 48 canvas. Every icon, in every style, must use viewBox 0 0 24 24.",
+   "sources": [
+    "out_34e61e61"
+   ],
+   "concept": "camera",
+   "route": "A",
+   "reason": "marked temporary, so it stays editable in context (45 tokens \u00d7 5,000 calls/day)",
+   "in_context": true,
+   "signals": {
+    "tokens": 45,
+    "stability": "temporary",
+    "effect": null
+   },
+   "created": "2026-10-24T22:42:18+0100",
+   "probe": {},
+   "confirmed": "2026-10-24T22:43:04+0100"
   }
  ],
  "examples": [
@@ -2857,6 +3585,582 @@
    "seconds": 3.05,
    "t": "2026-10-24T19:11:13+0100",
    "context": "smooth"
+  },
+  {
+   "id": "out_a3f3a00e",
+   "concept": "bell",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9\" /><path d=\"M13.73 21a2 2 0 0 1-3.46 0\" /></svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fd9e6547d23a4de676d9d259b51",
+   "input_tokens": 103,
+   "output_tokens": 168,
+   "runs": 1,
+   "seconds": 2.14,
+   "t": "2026-10-24T22:38:35+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_1db1549e",
+   "concept": "camera",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 8.5A1.5 1.5 0 0 1 4.5 7h2.2a1 1 0 0 0 .8-.4l1-1.4A1 1 0 0 1 9.3 4.8h5.4a1 1 0 0 1 .8.4l1 1.4a1 1 0 0 0 .8.4h2.2A1.5 1.5 0 0 1 21 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5z\" /><circle cx=\"12\" cy=\"12.5\" r=\"3.5\" /><circle cx=\"17.5\" cy=\"9.7\" r=\".6\" fill=\"currentColor\" stroke=\"none\" /></svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fd9e6357fe2a4fdde4595f818d4",
+   "input_tokens": 103,
+   "output_tokens": 342,
+   "runs": 1,
+   "seconds": 3.34,
+   "t": "2026-10-24T22:38:36+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_e7ad88d5",
+   "concept": "leaf",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 4C11 4 5 8.5 5 14.5c0 1.4.4 2.6 1 3.5C7 19 8.4 20 10.5 20 16.5 20 20 14 20 4z\" /><path d=\"M4 21c1.5-4.5 4.500-8 9-10.500\" /></svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fd9e68e7553a2d9445bce6ace85",
+   "input_tokens": 104,
+   "output_tokens": 198,
+   "runs": 1,
+   "seconds": 2.95,
+   "t": "2026-10-24T22:38:36+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_4f1404b8",
+   "concept": "heart",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20.5s-8-4.6-8-10.7C4 6.9 6.1 5 8.5 5c1.5 0 2.7.7 3.5 2 .8-1.3 2-2 3.5-2C17.9 5 20 6.900 20 9.800c0 6.100-8 10.700-8 10.700z\" /></svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fd9e61476009fac4364869b64de",
+   "input_tokens": 103,
+   "output_tokens": 208,
+   "runs": 1,
+   "seconds": 2.67,
+   "t": "2026-10-24T22:38:36+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_71f3f18c",
+   "concept": "home",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 11.5 12 4l9 7.5\" /><path d=\"M5.5 10v9.5a1 1 0 0 0 1 1H10v-5.5h4v5.5h3.5a1 1 0 0 0 1-1V10\" /></svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fd9eddd7ba38979796fb888ef8c",
+   "input_tokens": 102,
+   "output_tokens": 178,
+   "runs": 1,
+   "seconds": 2.07,
+   "t": "2026-10-24T22:38:37+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_781e9630",
+   "concept": "mail",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\" /><path d=\"m3.5 7.5 7.4 5.2a2 2 0 0 0 2.2 0l7.4-5.2\" /></svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fd9efef7b83bfa44682a7901469",
+   "input_tokens": 103,
+   "output_tokens": 164,
+   "runs": 1,
+   "seconds": 1.93,
+   "t": "2026-10-24T22:38:38+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_fb1edee1",
+   "concept": "rocket",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2.5c3 2 4.5 5.5 4.5 9.5v4.5h-9V12c0-4 1.5-7.500 4.500-9.500z\" /><circle cx=\"12\" cy=\"10\" r=\"1.75\" /><path d=\"M7.500 12.500L4.500 15.500v3l3-1.500\" /><path d=\"M16.500 12.500l3 3v3l-3-1.500\" /><path d=\"M10 19.500c0 1.200.5 2 2 3 1.500-1 2-1.800 2-3\" /></svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fd9f1057a51ad369c4b926a1056",
+   "input_tokens": 104,
+   "output_tokens": 276,
+   "runs": 1,
+   "seconds": 3.22,
+   "t": "2026-10-24T22:38:39+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_838c4be5",
+   "concept": "coffee",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9z\" /><path d=\"M16 10h1.5a2.5 2.5 0 0 1 0 5H15.5\" /><path d=\"M8 3.5c-.8.9.8 1.6 0 2.5\" /><path d=\"M12 3.5c-.8.9.8 1.6 0 2.5\" /><path d=\"M3 21.5h14\" /></svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fd9f28d7e61b103be217ccfbb5b",
+   "input_tokens": 104,
+   "output_tokens": 252,
+   "runs": 1,
+   "seconds": 2.35,
+   "t": "2026-10-24T22:38:39+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_c9f700b3",
+   "concept": "bell",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"10\" y=\"0\" width=\"4\" height=\"2\" />\n  <rect x=\"8\" y=\"2\" width=\"8\" height=\"2\" />\n  <rect x=\"6\" y=\"4\" width=\"12\" height=\"4\" />\n  <rect x=\"4\" y=\"8\" width=\"2\" height=\"4\" />\n  <rect x=\"8\" y=\"8\" width=\"12\" height=\"4\" />\n  <rect x=\"4\" y=\"12\" width=\"16\" height=\"2\" />\n  <rect x=\"2\" y=\"14\" width=\"20\" height=\"4\" />\n  <rect x=\"0\" y=\"18\" width=\"24\" height=\"2\" />\n  <rect x=\"8\" y=\"20\" width=\"8\" height=\"2\" />\n  <rect x=\"10\" y=\"22\" width=\"4\" height=\"2\" />\n</svg>",
+   "problems": [
+    "ink touches the canvas edge"
+   ],
+   "record": "metadata",
+   "request_id": "mreq_01a16fd9e5d775e1844f741cc5e18766",
+   "input_tokens": 207,
+   "output_tokens": 1121,
+   "runs": 1,
+   "seconds": 8.08,
+   "t": "2026-10-24T22:38:41+0100",
+   "context": "pixel"
+  },
+  {
+   "id": "out_b8c45b53",
+   "concept": "camera",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"6\" y=\"4\" width=\"6\" height=\"2\" />\n  <rect x=\"18\" y=\"4\" width=\"2\" height=\"2\" />\n  <rect x=\"2\" y=\"6\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"8\" width=\"8\" height=\"2\" />\n  <rect x=\"14\" y=\"8\" width=\"8\" height=\"2\" />\n  <rect x=\"2\" y=\"10\" width=\"6\" height=\"2\" />\n  <rect x=\"10\" y=\"10\" width=\"4\" height=\"2\" />\n  <rect x=\"16\" y=\"10\" width=\"6\" height=\"2\" />\n  <rect x=\"2\" y=\"12\" width=\"6\" height=\"2\" />\n  <rect x=\"10\" y=\"12\" width=\"4\" height=\"2\" />\n  <rect x=\"16\" y=\"12\" width=\"6\" height=\"2\" />\n  <rect x=\"2\" y=\"14\" width=\"8\" height=\"2\" />\n  <rect x=\"14\" y=\"14\" width=\"8\" height=\"2\" />\n  <rect x=\"2\" y=\"16\" width=\"20\" height=\"2\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fd9e5f57ee28f1e78d063c5d583",
+   "input_tokens": 207,
+   "output_tokens": 1594,
+   "runs": 1,
+   "seconds": 12.14,
+   "t": "2026-10-24T22:38:45+0100",
+   "context": "pixel"
+  },
+  {
+   "id": "out_538a1bc3",
+   "concept": "leaf",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" shape-rendering=\"crispEdges\" fill=\"currentColor\" stroke-width=\"0\">\n<rect x=\"18\" y=\"0\" width=\"6\" height=\"2\" />\n<rect x=\"12\" y=\"2\" width=\"12\" height=\"2\" />\n<rect x=\"8\" y=\"4\" width=\"10\" height=\"2\" />\n<rect x=\"20\" y=\"4\" width=\"4\" height=\"2\" />\n<rect x=\"6\" y=\"6\" width=\"10\" height=\"2\" />\n<rect x=\"18\" y=\"6\" width=\"6\" height=\"2\" />\n<rect x=\"6\" y=\"8\" width=\"8\" height=\"2\" />\n<rect x=\"16\" y=\"8\" width=\"6\" height=\"2\" />\n<rect x=\"4\" y=\"10\" width=\"8\" height=\"2\" />\n<rect x=\"14\" y=\"10\" width=\"6\" height=\"2\" />\n<rect x=\"4\" y=\"12\" width=\"6\" height=\"2\" />\n<rect x=\"12\" y=\"12\" width=\"6\" height=\"2\" />\n<rect x=\"4\" y=\"14\" width=\"4\" height=\"2\" />\n<rect x=\"10\" y=\"14\" width=\"6\" height=\"2\" />\n<rect x=\"2\" y=\"16\" width=\"4\" height=\"2\" />\n<rect x=\"8\" y=\"16\" width=\"4\" height=\"2\" />\n<rect x=\"2\" y=\"18\" width=\"6\" height=\"2\" />\n<rect x=\"0\" y=\"20\" width=\"4\" height=\"2\" />\n<rect x=\"0\" y=\"22\" width=\"2\" height=\"2\" />\n</svg>",
+   "problems": [
+    "ink touches the canvas edge"
+   ],
+   "record": "metadata",
+   "request_id": "mreq_01a16fd9e6737113bcd5a9431fade960",
+   "input_tokens": 208,
+   "output_tokens": 1938,
+   "runs": 1,
+   "seconds": 13.21,
+   "t": "2026-10-24T22:38:46+0100",
+   "context": "pixel"
+  },
+  {
+   "id": "out_08dd47c4",
+   "concept": "heart",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"4\" y=\"2\" width=\"6\" height=\"2\" />\n  <rect x=\"14\" y=\"2\" width=\"6\" height=\"2\" />\n  <rect x=\"2\" y=\"4\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"6\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"8\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"10\" width=\"20\" height=\"2\" />\n  <rect x=\"4\" y=\"12\" width=\"16\" height=\"2\" />\n  <rect x=\"6\" y=\"14\" width=\"12\" height=\"2\" />\n  <rect x=\"8\" y=\"16\" width=\"8\" height=\"2\" />\n  <rect x=\"10\" y=\"18\" width=\"4\" height=\"2\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fd9e5ae7df097289bea051bcc45",
+   "input_tokens": 207,
+   "output_tokens": 837,
+   "runs": 1,
+   "seconds": 6.78,
+   "t": "2026-10-24T22:38:40+0100",
+   "context": "pixel"
+  },
+  {
+   "id": "out_e03d75b0",
+   "concept": "home",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" shape-rendering=\"crispEdges\" stroke-width=\"0\"><g fill=\"currentColor\"><rect x=\"10\" y=\"0\" width=\"4\" height=\"2\" /><rect x=\"16\" y=\"0\" width=\"4\" height=\"4\" /><rect x=\"8\" y=\"2\" width=\"8\" height=\"2\" /><rect x=\"6\" y=\"4\" width=\"12\" height=\"2\" /><rect x=\"18\" y=\"4\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"6\" width=\"16\" height=\"2\" /><rect x=\"2\" y=\"8\" width=\"20\" height=\"2\" /><rect x=\"0\" y=\"10\" width=\"24\" height=\"2\" /><rect x=\"4\" y=\"12\" width=\"6\" height=\"12\" /><rect x=\"14\" y=\"12\" width=\"6\" height=\"12\" /><rect x=\"10\" y=\"12\" width=\"4\" height=\"4\" /></g></svg>",
+   "problems": [
+    "ink touches the canvas edge"
+   ],
+   "record": "metadata",
+   "request_id": "mreq_01a16fd9fff77971a3098ebc903659fd",
+   "input_tokens": 206,
+   "output_tokens": 1198,
+   "runs": 1,
+   "seconds": 9.01,
+   "t": "2026-10-24T22:38:49+0100",
+   "context": "pixel"
+  },
+  {
+   "id": "out_4fa3afdf",
+   "concept": "mail",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"0\" y=\"4\" width=\"24\" height=\"2\" />\n  <rect x=\"0\" y=\"6\" width=\"4\" height=\"2\" />\n  <rect x=\"20\" y=\"6\" width=\"4\" height=\"2\" />\n  <rect x=\"0\" y=\"8\" width=\"2\" height=\"2\" />\n  <rect x=\"4\" y=\"8\" width=\"2\" height=\"2\" />\n  <rect x=\"18\" y=\"8\" width=\"2\" height=\"2\" />\n  <rect x=\"22\" y=\"8\" width=\"2\" height=\"2\" />\n  <rect x=\"0\" y=\"10\" width=\"2\" height=\"2\" />\n  <rect x=\"6\" y=\"10\" width=\"2\" height=\"2\" />\n  <rect x=\"16\" y=\"10\" width=\"2\" height=\"2\" />\n  <rect x=\"22\" y=\"10\" width=\"2\" height=\"2\" />\n  <rect x=\"0\" y=\"12\" width=\"2\" height=\"2\" />\n  <rect x=\"8\" y=\"12\" width=\"2\" height=\"2\" />\n  <rect x=\"14\" y=\"12\" width=\"2\" height=\"2\" />\n  <rect x=\"22\" y=\"12\" width=\"2\" height=\"2\" />\n  <rect x=\"0\" y=\"14\" width=\"2\" height=\"2\" />\n  <rect x=\"10\" y=\"14\" width=\"4\" height=\"2\" />\n  <rect x=\"22\" y=\"14\" width=\"2\" height=\"2\" />\n  <rect x=\"0\" y=\"16\" width=\"2\" height=\"2\" />\n  <rect x=\"22\" y=\"16\" width=\"2\" height=\"2\" />\n  <rect x=\"0\" y=\"18\" width=\"24\" height=\"2\" />\n</svg>",
+   "problems": [
+    "ink touches the canvas edge"
+   ],
+   "record": "metadata",
+   "request_id": "mreq_01a16fda050f78d09f45fd9ed51f91cf",
+   "input_tokens": 207,
+   "output_tokens": 1302,
+   "runs": 1,
+   "seconds": 8.65,
+   "t": "2026-10-24T22:38:50+0100",
+   "context": "pixel"
+  },
+  {
+   "id": "out_e187e067",
+   "concept": "rocket",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n<rect x=\"10\" y=\"0\" width=\"4\" height=\"2\" />\n<rect x=\"8\" y=\"2\" width=\"8\" height=\"2\" />\n<rect x=\"8\" y=\"4\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"4\" width=\"2\" height=\"2\" />\n<rect x=\"8\" y=\"6\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"6\" width=\"2\" height=\"2\" />\n<rect x=\"8\" y=\"8\" width=\"8\" height=\"2\" />\n<rect x=\"6\" y=\"10\" width=\"12\" height=\"2\" />\n<rect x=\"4\" y=\"12\" width=\"16\" height=\"2\" />\n<rect x=\"4\" y=\"14\" width=\"16\" height=\"2\" />\n<rect x=\"4\" y=\"16\" width=\"6\" height=\"2\" />\n<rect x=\"14\" y=\"16\" width=\"6\" height=\"2\" />\n<rect x=\"10\" y=\"18\" width=\"4\" height=\"2\" />\n<rect x=\"10\" y=\"20\" width=\"4\" height=\"2\" />\n</svg>",
+   "problems": [
+    "ink touches the canvas edge"
+   ],
+   "record": "metadata",
+   "request_id": "mreq_01a16fda14e77c519587d71de56b9fcc",
+   "input_tokens": 208,
+   "output_tokens": 1795,
+   "runs": 1,
+   "seconds": 13.48,
+   "t": "2026-10-24T22:38:59+0100",
+   "context": "pixel"
+  },
+  {
+   "id": "out_c192f41d",
+   "concept": "coffee",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <g fill=\"#000\">\n    <rect x=\"8\" y=\"0\" width=\"2\" height=\"2\" />\n    <rect x=\"14\" y=\"0\" width=\"2\" height=\"2\" />\n    <rect x=\"10\" y=\"2\" width=\"2\" height=\"2\" />\n    <rect x=\"16\" y=\"2\" width=\"2\" height=\"2\" />\n    <rect x=\"8\" y=\"4\" width=\"2\" height=\"2\" />\n    <rect x=\"14\" y=\"4\" width=\"2\" height=\"2\" />\n    <rect x=\"4\" y=\"8\" width=\"14\" height=\"2\" />\n    <rect x=\"4\" y=\"10\" width=\"18\" height=\"2\" />\n    <rect x=\"4\" y=\"12\" width=\"14\" height=\"2\" />\n    <rect x=\"20\" y=\"12\" width=\"2\" height=\"2\" />\n    <rect x=\"4\" y=\"14\" width=\"18\" height=\"2\" />\n    <rect x=\"4\" y=\"16\" width=\"14\" height=\"2\" />\n    <rect x=\"6\" y=\"18\" width=\"10\" height=\"2\" />\n    <rect x=\"2\" y=\"20\" width=\"18\" height=\"2\" />\n  </g>\n</svg>",
+   "problems": [
+    "ink touches the canvas edge"
+   ],
+   "record": "metadata",
+   "request_id": "mreq_01a16fda191a71e0b7f7a39d241b0c22",
+   "input_tokens": 208,
+   "output_tokens": 1375,
+   "runs": 1,
+   "seconds": 9.53,
+   "t": "2026-10-24T22:38:56+0100",
+   "context": "pixel"
+  },
+  {
+   "id": "out_0250a5a6",
+   "concept": "bell",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M12 3v1.5\" />\n  <path d=\"M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z\" />\n  <circle class=\"accent\" cx=\"12\" cy=\"20.75\" r=\"1.25\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdb84067680acceee6c57249fd2",
+   "input_tokens": 149,
+   "output_tokens": 199,
+   "runs": 1,
+   "seconds": 2.22,
+   "t": "2026-10-24T22:40:21+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_7c2b41ce",
+   "concept": "camera",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z\" />\n  <circle cx=\"12\" cy=\"13\" r=\"3.5\" />\n  <circle class=\"accent\" cx=\"18\" cy=\"10.5\" r=\"0.9\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdb83b97aa0ba439c4fca0850e2",
+   "input_tokens": 149,
+   "output_tokens": 255,
+   "runs": 1,
+   "seconds": 2.45,
+   "t": "2026-10-24T22:40:21+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_45e785a4",
+   "concept": "leaf",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M5 19C4 11 9 5 20 4c1 10-5 16-13 15\" />\n  <path d=\"M5 19c3-4 6-7 10-9\" />\n  <circle class=\"accent\" cx=\"16.5\" cy=\"7.5\" r=\"1\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdb837473c2af64a79b01542b95",
+   "input_tokens": 150,
+   "output_tokens": 202,
+   "runs": 1,
+   "seconds": 2.12,
+   "t": "2026-10-24T22:40:21+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_d036cb7a",
+   "concept": "heart",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M12 20.5C7 16.5 3 13.2 3 9a4.6 4.6 0 0 1 9-1.4A4.6 4.6 0 0 1 21 9c0 4.2-4 7.500-9 11.500z\" />\n  <circle class=\"accent\" cx=\"7.500\" cy=\"8.500\" r=\"1\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdb83997ff0b3d879850e02b55a",
+   "input_tokens": 149,
+   "output_tokens": 226,
+   "runs": 1,
+   "seconds": 2.1,
+   "t": "2026-10-24T22:40:21+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_86873021",
+   "concept": "home",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M3 11.5 12 4l9 7.5\" />\n  <path d=\"M5.5 10v9.5h13V10\" />\n  <path d=\"M10 19.5v-5h4v5\" />\n  <circle class=\"accent\" cx=\"12\" cy=\"10.5\" r=\"1.1\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdb8b3576d1ae356c23cb1c0ab3",
+   "input_tokens": 148,
+   "output_tokens": 210,
+   "runs": 1,
+   "seconds": 2.48,
+   "t": "2026-10-24T22:40:23+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_3b20b94b",
+   "concept": "mail",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\" />\n  <path d=\"M3.5 7.5l8.5 6 8.5-6\" />\n  <circle class=\"accent\" cx=\"19\" cy=\"6\" r=\"2.25\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdb8b467392a207983f11c8759e",
+   "input_tokens": 149,
+   "output_tokens": 195,
+   "runs": 1,
+   "seconds": 1.79,
+   "t": "2026-10-24T22:40:23+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_021956c7",
+   "concept": "rocket",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M12 2c3 2 4.5 5.5 4.5 9v4h-9v-4C7.5 7.5 9 4 12 2z\" />\n  <path d=\"M7.5 12.5L4.5 15v3.5l3-1.5\" />\n  <path d=\"M16.5 12.5l3 2.5v3.5l-3-1.5\" />\n  <path d=\"M10 15v2.5L12 21l2-3.5V15\" />\n  <circle class=\"accent\" cx=\"12\" cy=\"9\" r=\"1.5\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdb8baa7ca1aa186f44dcd6285e",
+   "input_tokens": 150,
+   "output_tokens": 290,
+   "runs": 1,
+   "seconds": 2.97,
+   "t": "2026-10-24T22:40:24+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_6420f11d",
+   "concept": "coffee",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"#1D6B45\" stroke=\"currentColor\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n  <path d=\"M4 10h12v5a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-5z\" />\n  <path d=\"M16 11h1.5a2.5 2.5 0 0 1 0 5H16\" />\n  <path d=\"M3 21h14\" />\n  <path d=\"M8 3c-.8 1 .8 2 0 3\" />\n  <circle class=\"accent\" cx=\"12.5\" cy=\"4.5\" r=\"1\" fill=\"#FF4A14\" stroke=\"none\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdb8c9178c3b8f83e0ad6994993",
+   "input_tokens": 150,
+   "output_tokens": 271,
+   "runs": 1,
+   "seconds": 2.22,
+   "t": "2026-10-24T22:40:23+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_197ded60",
+   "concept": "bell",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"10\" y=\"2\" width=\"4\" height=\"2\" />\n  <rect x=\"8\" y=\"4\" width=\"8\" height=\"2\" />\n  <rect x=\"6\" y=\"6\" width=\"12\" height=\"6\" />\n  <rect x=\"4\" y=\"12\" width=\"16\" height=\"4\" />\n  <rect x=\"2\" y=\"16\" width=\"20\" height=\"2\" />\n  <rect x=\"8\" y=\"18\" width=\"8\" height=\"2\" />\n  <rect x=\"10\" y=\"20\" width=\"4\" height=\"2\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdb83d57ad0a75cd161cbe34358",
+   "input_tokens": 244,
+   "output_tokens": 1034,
+   "runs": 1,
+   "seconds": 8.07,
+   "t": "2026-10-24T22:40:27+0100",
+   "context": "pixel"
+  },
+  {
+   "id": "out_54f2706a",
+   "concept": "camera",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"6\" y=\"4\" width=\"6\" height=\"2\" />\n  <rect x=\"16\" y=\"4\" width=\"2\" height=\"2\" />\n  <rect x=\"2\" y=\"6\" width=\"20\" height=\"4\" />\n  <rect x=\"2\" y=\"10\" width=\"8\" height=\"2\" />\n  <rect x=\"14\" y=\"10\" width=\"8\" height=\"2\" />\n  <rect x=\"2\" y=\"12\" width=\"6\" height=\"4\" />\n  <rect x=\"10\" y=\"12\" width=\"4\" height=\"4\" />\n  <rect x=\"16\" y=\"12\" width=\"6\" height=\"4\" />\n  <rect x=\"2\" y=\"16\" width=\"8\" height=\"2\" />\n  <rect x=\"14\" y=\"16\" width=\"8\" height=\"2\" />\n  <rect x=\"2\" y=\"18\" width=\"20\" height=\"4\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdb83f074d3857afb0d379db115",
+   "input_tokens": 244,
+   "output_tokens": 1534,
+   "runs": 1,
+   "seconds": 12.48,
+   "t": "2026-10-24T22:40:31+0100",
+   "context": "pixel"
+  },
+  {
+   "id": "out_eeaef906",
+   "concept": "leaf",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n<rect x=\"14\" y=\"2\" width=\"8\" height=\"2\" />\n<rect x=\"10\" y=\"4\" width=\"12\" height=\"2\" />\n<rect x=\"8\" y=\"6\" width=\"6\" height=\"2\" />\n<rect x=\"16\" y=\"6\" width=\"6\" height=\"2\" />\n<rect x=\"6\" y=\"8\" width=\"6\" height=\"2\" />\n<rect x=\"14\" y=\"8\" width=\"8\" height=\"2\" />\n<rect x=\"6\" y=\"10\" width=\"4\" height=\"2\" />\n<rect x=\"12\" y=\"10\" width=\"8\" height=\"2\" />\n<rect x=\"4\" y=\"12\" width=\"4\" height=\"2\" />\n<rect x=\"10\" y=\"12\" width=\"8\" height=\"2\" />\n<rect x=\"4\" y=\"14\" width=\"12\" height=\"2\" />\n<rect x=\"4\" y=\"16\" width=\"8\" height=\"2\" />\n<rect x=\"2\" y=\"18\" width=\"4\" height=\"2\" />\n<rect x=\"2\" y=\"20\" width=\"2\" height=\"2\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdb83367c62af9230412ffe40fd",
+   "input_tokens": 245,
+   "output_tokens": 1534,
+   "runs": 1,
+   "seconds": 10.62,
+   "t": "2026-10-24T22:40:29+0100",
+   "context": "pixel"
+  },
+  {
+   "id": "out_ebd2b6ea",
+   "concept": "heart",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"4\" y=\"4\" width=\"6\" height=\"2\" />\n  <rect x=\"14\" y=\"4\" width=\"6\" height=\"2\" />\n  <rect x=\"2\" y=\"6\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"8\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"10\" width=\"20\" height=\"2\" />\n  <rect x=\"4\" y=\"12\" width=\"16\" height=\"2\" />\n  <rect x=\"6\" y=\"14\" width=\"12\" height=\"2\" />\n  <rect x=\"8\" y=\"16\" width=\"8\" height=\"2\" />\n  <rect x=\"10\" y=\"18\" width=\"4\" height=\"2\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdb83557bc394593b76f3b6840f",
+   "input_tokens": 244,
+   "output_tokens": 933,
+   "runs": 1,
+   "seconds": 6.44,
+   "t": "2026-10-24T22:40:25+0100",
+   "context": "pixel"
+  },
+  {
+   "id": "out_0d35aaca",
+   "concept": "home",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"10\" y=\"2\" width=\"4\" height=\"2\" />\n  <rect x=\"16\" y=\"2\" width=\"2\" height=\"4\" />\n  <rect x=\"8\" y=\"4\" width=\"8\" height=\"2\" />\n  <rect x=\"6\" y=\"6\" width=\"12\" height=\"2\" />\n  <rect x=\"4\" y=\"8\" width=\"16\" height=\"2\" />\n  <rect x=\"2\" y=\"10\" width=\"20\" height=\"2\" />\n  <rect x=\"4\" y=\"12\" width=\"16\" height=\"4\" />\n  <rect x=\"4\" y=\"16\" width=\"6\" height=\"6\" />\n  <rect x=\"14\" y=\"16\" width=\"6\" height=\"6\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdb9c3674e289a2a4f37e7ea0ee",
+   "input_tokens": 243,
+   "output_tokens": 1035,
+   "runs": 1,
+   "seconds": 7.62,
+   "t": "2026-10-24T22:40:33+0100",
+   "context": "pixel"
+  },
+  {
+   "id": "out_4e8414c6",
+   "concept": "mail",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\"><path d=\"M2 4h2v2H2zM4 4h2v2H4zM6 4h2v2H6zM8 4h2v2H8zM10 4h2v2h-2zM12 4h2v2h-2zM14 4h2v2h-2zM16 4h2v2h-2zM18 4h2v2h-2zM20 4h2v2h-2z\" /><path d=\"M2 6h2v2H2zM4 6h2v2H4zM18 6h2v2h-2zM20 6h2v2h-2z\" /><path d=\"M2 8h2v2H2zM6 8h2v2H6zM16 8h2v2h-2zM20 8h2v2h-2z\" /><path d=\"M2 10h2v2H2zM8 10h2v2H8zM14 10h2v2h-2zM20 10h2v2h-2z\" /><path d=\"M2 12h2v2H2zM10 12h2v2h-2zM12 12h2v2h-2zM20 12h2v2h-2z\" /><path d=\"M2 14h2v2H2zM20 14h2v2h-2zM2 16h2v2H2zM20 16h2v2h-2z\" /><path d=\"M2 18h2v2H2zM4 18h2v2H4zM6 18h2v2H6zM8 18h2v2H8zM10 18h2v2h-2zM12 18h2v2h-2zM14 18h2v2h-2zM16 18h2v2h-2zM18 18h2v2h-2zM20 18h2v2h-2z\" /></svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdba2887c91b96cab29a70e55c1",
+   "input_tokens": 244,
+   "output_tokens": 1401,
+   "runs": 1,
+   "seconds": 10.36,
+   "t": "2026-10-24T22:40:37+0100",
+   "context": "pixel"
+  },
+  {
+   "id": "out_892dca8c",
+   "concept": "rocket",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n<rect x=\"10\" y=\"2\" width=\"4\" height=\"2\" />\n<rect x=\"10\" y=\"4\" width=\"4\" height=\"2\" />\n<rect x=\"8\" y=\"6\" width=\"8\" height=\"2\" />\n<rect x=\"8\" y=\"8\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"8\" width=\"2\" height=\"2\" />\n<rect x=\"8\" y=\"10\" width=\"8\" height=\"2\" />\n<rect x=\"6\" y=\"12\" width=\"12\" height=\"2\" />\n<rect x=\"4\" y=\"14\" width=\"16\" height=\"2\" />\n<rect x=\"8\" y=\"16\" width=\"8\" height=\"2\" />\n<rect x=\"8\" y=\"18\" width=\"8\" height=\"2\" />\n<rect x=\"10\" y=\"20\" width=\"4\" height=\"2\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdbac9f70a1a640ba3dfe2b627e",
+   "input_tokens": 245,
+   "output_tokens": 1551,
+   "runs": 1,
+   "seconds": 12.25,
+   "t": "2026-10-24T22:40:42+0100",
+   "context": "pixel"
+  },
+  {
+   "id": "out_d7fbae0e",
+   "concept": "coffee",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n<rect x=\"8\" y=\"2\" width=\"2\" height=\"2\" />\n<rect x=\"12\" y=\"2\" width=\"2\" height=\"2\" />\n<rect x=\"10\" y=\"4\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"4\" width=\"2\" height=\"2\" />\n<rect x=\"4\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"8\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"8\" width=\"2\" height=\"2\" />\n<rect x=\"4\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"8\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"20\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"4\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"8\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"12\" width=\"2\" height=\"2\" />\n<rect x=\"20\" y=\"12\" width=\"2\" height=\"2\" />\n<rect x=\"4\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"8\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"14\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"20\" y=\"14\" width=\"2\" height=\"2\" />\n<rect x=\"6\" y=\"16\" width=\"2\" height=\"2\" /><rect x=\"8\" y=\"16\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"16\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"16\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"16\" width=\"2\" height=\"2\" />\n<rect x=\"2\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"8\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"12\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"16\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"18\" width=\"2\" height=\"2\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdbb3ca72b18c5abe35adbc4452",
+   "input_tokens": 245,
+   "output_tokens": 1830,
+   "runs": 1,
+   "seconds": 10.73,
+   "t": "2026-10-24T22:40:42+0100",
+   "context": "pixel"
+  },
+  {
+   "id": "out_96ed65cb",
+   "concept": "bell",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <circle cx=\"12\" cy=\"3.5\" r=\"1.5\" fill=\"#2E9E5B\" />\n  <path fill=\"#2E9E5B\" d=\"M12 5C8.5 5 6.5 7.8 6.5 11V14.5L4.5 17V18.5H19.5V17L17.5 14.5V11C17.5 7.8 15.5 5 12 5Z\" />\n  <path fill=\"#FFFFFF\" d=\"M8.8 14V11C8.8 9.6 9.5 8.5 10.6 8C9.9 9 9.6 10 9.6 11V14Z\" />\n  <circle class=\"accent\" cx=\"12\" cy=\"20.6\" r=\"1.7\" fill=\"#FF4A14\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdc832a7af1bdb5f7cd7e658c2e",
+   "input_tokens": 200,
+   "output_tokens": 802,
+   "runs": 1,
+   "seconds": 6.55,
+   "t": "2026-10-24T22:41:31+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_34e61e61",
+   "concept": "camera",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 48 48\" width=\"48\" height=\"48\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#1F9D55\" d=\"M17 9a2 2 0 0 1 1.7-1h10.6a2 2 0 0 1 1.7 1l1.6 3H41a3 3 0 0 1 3 3v22a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V15a3 3 0 0 1 3-3h8.400z\" />\n  <circle cx=\"24\" cy=\"25\" r=\"10\" fill=\"#FFFFFF\" />\n  <circle cx=\"24\" cy=\"25\" r=\"6\" fill=\"#1F9D55\" />\n  <circle cx=\"21.800\" cy=\"22.800\" r=\"1.800\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"37\" cy=\"18\" r=\"2\" fill=\"#FF4A14\" />\n</svg>",
+   "problems": [
+    "viewBox is '0 0 48 48', expected '0 0 24 24'"
+   ],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdc830976a3bd03cd4d954982d0",
+   "input_tokens": 200,
+   "output_tokens": 312,
+   "runs": 1,
+   "seconds": 2.81,
+   "t": "2026-10-24T22:41:27+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_1ff6569a",
+   "concept": "leaf",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#2E9E5B\" d=\"M20.5 3.5C11 3 4.5 7.5 4.5 14.2c0 1.6.5 3 1.3 4.1L3.7 20.4a1 1 0 1 0 1.4 1.4l2.1-2.1c1.1.7 2.4 1.1 3.9 1.1C18 20.8 21 13 20.5 3.5Z\" />\n  <path fill=\"#FFFFFF\" d=\"M8.2 16.6c.5-3.2 3-6.1 6.6-8.1-2.6 2.4-4.6 5-5.4 8.6-.4.1-.9.1-1.2-.5Z\" />\n  <circle class=\"accent\" cx=\"16.6\" cy=\"12.6\" r=\"1.3\" fill=\"#FF4A14\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdc82e77432a4ab3820f5d9861a",
+   "input_tokens": 201,
+   "output_tokens": 325,
+   "runs": 1,
+   "seconds": 3.48,
+   "t": "2026-10-24T22:41:28+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_efa23cd0",
+   "concept": "heart",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#2E9E5B\" d=\"M12 21.2c-.3 0-.6-.1-.8-.3C6.200 16.800 2.500 13.600 2.500 9.300 2.500 6.300 4.800 4 7.700 4c1.700 0 3.300.8 4.300 2.100C13 4.800 14.600 4 16.300 4c2.900 0 5.200 2.300 5.200 5.300 0 4.300-3.700 7.500-8.700 11.600-.2.200-.5.300-.8.300z\" />\n  <path fill=\"#FFFFFF\" d=\"M6.200 9.400c0-1.300 1-2.300 2.200-2.300.5 0 .8.300.8.700s-.3.700-.8.700c-.4 0-.7.400-.7.900 0 .4-.3.800-.7.800s-.8-.3-.8-.8z\" />\n  <circle class=\"accent\" cx=\"17.200\" cy=\"8.600\" r=\"1.200\" fill=\"#FF4A14\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdc82c371e0bae5a7f32564e3ca",
+   "input_tokens": 200,
+   "output_tokens": 386,
+   "runs": 1,
+   "seconds": 6.82,
+   "t": "2026-10-24T22:41:31+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_e75e8c76",
+   "concept": "home",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#2E9E5B\" d=\"M12 2.5 1.8 11.4a1 1 0 0 0 .66 1.76H4.5V20a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5v-6.84h2.04a1 1 0 0 0 .66-1.76L12 2.5Z\" />\n  <path fill=\"#FFFFFF\" d=\"M10 21.5v-5a2 2 0 0 1 4 0v5h-4Z\" />\n  <rect fill=\"#FFFFFF\" x=\"14.8\" y=\"10.2\" width=\"2.6\" height=\"2.6\" rx=\".5\" />\n  <circle class=\"accent\" cx=\"17.5\" cy=\"4.8\" r=\"1.4\" fill=\"#FF4A14\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdc8d807973b068316a9d573516",
+   "input_tokens": 199,
+   "output_tokens": 327,
+   "runs": 1,
+   "seconds": 3.08,
+   "t": "2026-10-24T22:41:30+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_7dde6e77",
+   "concept": "mail",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"3\" fill=\"#1E9E5A\" />\n  <path d=\"M4.2 7.2 L12 13 L19.8 7.2 L19.8 9 L12 14.9 L4.2 9 Z\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"19\" cy=\"5\" r=\"3\" fill=\"#FF4A14\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdc901e77138b3a4b97f78d562f",
+   "input_tokens": 200,
+   "output_tokens": 191,
+   "runs": 1,
+   "seconds": 2.0,
+   "t": "2026-10-24T22:41:30+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_f7225173",
+   "concept": "rocket",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  \n  <path d=\"M7.5 12.5 L4 14.5 L4.5 19 L8.5 16.5 Z\" fill=\"#1F9D55\" />\n  <path d=\"M16.5 12.5 L20 14.5 L19.5 19 L15.5 16.5 Z\" fill=\"#1F9D55\" />\n  \n  <path d=\"M12 1.5 C15.5 4 17 8 16.5 13 L15.5 17 L8.5 17 L7.5 13 C7 8 8.5 4 12 1.5 Z\" fill=\"#1F9D55\" />\n  \n  <circle cx=\"12\" cy=\"9\" r=\"2.2\" fill=\"#FFFFFF\" />\n  \n  <rect x=\"9.5\" y=\"17\" width=\"5\" height=\"1.8\" rx=\"0.6\" fill=\"#1F9D55\" />\n  \n  <path class=\"accent\" d=\"M12 19.8 C13.4 21 13.4 22.4 12 23 C10.6 22.4 10.6 21 12 19.8 Z\" fill=\"#FF4A14\" />\n</svg>",
+   "problems": [],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdc97ea7092bc76957c27647f92",
+   "input_tokens": 201,
+   "output_tokens": 451,
+   "runs": 1,
+   "seconds": 3.7,
+   "t": "2026-10-24T22:41:33+0100",
+   "context": "duotone"
+  },
+  {
+   "id": "out_d16705c4",
+   "concept": "coffee",
+   "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" width=\"64\" height=\"64\" stroke-width=\"0\" fill=\"#1D6B45\">\n  \n  <path d=\"M8 52h42a0 0 0 0 1 0 0c-2 4-6 6-10 6H18c-4 0-8-2-10-6z\" fill=\"#1F9D55\" />\n  \n  <path d=\"M10 22h38v14c0 8-6 14-14 14H24c-8 0-14-6-14-14z\" fill=\"#1F9D55\" />\n  \n  <path d=\"M48 26h4a8 8 0 0 1 0 16h-6v-5h6a3 3 0 0 0 0-6h-4z\" fill=\"#1F9D55\" />\n  \n  <path d=\"M16 28h8v8a6 6 0 0 0 4 5.600C21 42 16 38 16 33z\" fill=\"#FFFFFF\" />\n  \n  <rect x=\"30\" y=\"28\" width=\"12\" height=\"4\" rx=\"2\" fill=\"#FFFFFF\" />\n  \n  <path d=\"M22 8c-3 3 3 5 0 9-1 1-1 2-1 2h4s0-1 1-2c3-4-3-6 0-9z\" fill=\"#1F9D55\" />\n  <circle class=\"accent\" cx=\"36\" cy=\"12\" r=\"3.500\" fill=\"#FF4A14\" />\n</svg>",
+   "problems": [
+    "viewBox is '0 0 64 64', expected '0 0 24 24'"
+   ],
+   "record": "metadata",
+   "request_id": "mreq_01a16fdc998a7a23afae695c03f7550a",
+   "input_tokens": 201,
+   "output_tokens": 523,
+   "runs": 1,
+   "seconds": 4.72,
+   "t": "2026-10-24T22:41:35+0100",
+   "context": "duotone"
   }
  ],
  "events": [
@@ -3491,6 +4795,276 @@
    "t": "2026-10-24T22:11:59+0100",
    "type": "relabelled",
    "label": "Icon Master"
+  },
+  {
+   "t": "2026-10-24T22:37:38+0100",
+   "type": "context_created",
+   "context": "pixel"
+  },
+  {
+   "t": "2026-10-24T22:37:38+0100",
+   "type": "context_created",
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:37:45+0100",
+   "type": "feedback",
+   "signal": "direction",
+   "lessons": 4,
+   "seconds": 6.79,
+   "context": "pixel"
+  },
+  {
+   "t": "2026-10-24T22:37:48+0100",
+   "type": "feedback",
+   "signal": "direction",
+   "lessons": 5,
+   "seconds": 3.44,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:38:03+0100",
+   "type": "lesson_rejected",
+   "lesson": "les_7a505fff"
+  },
+  {
+   "t": "2026-10-24T22:38:03+0100",
+   "type": "lesson_routed",
+   "lesson": "les_0de83125",
+   "route": "A",
+   "tokens": 0,
+   "effect": null,
+   "context": "pixel",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:38:04+0100",
+   "type": "lesson_routed",
+   "lesson": "les_d5086dd2",
+   "route": "A",
+   "tokens": 0,
+   "effect": null,
+   "context": "duotone",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:38:04+0100",
+   "type": "lesson_routed",
+   "lesson": "les_dd14ba0a",
+   "route": "A",
+   "tokens": 0,
+   "effect": null,
+   "context": "duotone",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:38:05+0100",
+   "type": "lesson_routed",
+   "lesson": "les_02f906fb",
+   "route": "A",
+   "tokens": 0,
+   "effect": null,
+   "context": "duotone",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:38:12+0100",
+   "type": "lesson_routed",
+   "lesson": "les_7a6aeb25",
+   "route": "rephrase",
+   "tokens": 27,
+   "effect": 0.3333333333333333,
+   "context": "duotone",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:38:19+0100",
+   "type": "lesson_routed",
+   "lesson": "les_3f0c1bca",
+   "route": "A",
+   "tokens": 39,
+   "effect": 1.0,
+   "context": "pixel",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:38:23+0100",
+   "type": "lesson_routed",
+   "lesson": "les_274fcfbb",
+   "route": "A",
+   "tokens": 48,
+   "effect": 1.0,
+   "context": "pixel",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:38:23+0100",
+   "type": "lesson_routed",
+   "lesson": "les_3b893660",
+   "route": "A",
+   "tokens": 29,
+   "effect": 1.0,
+   "context": "pixel",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:38:39+0100",
+   "type": "generated",
+   "n": 8,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:38:59+0100",
+   "type": "generated",
+   "n": 8,
+   "context": "pixel"
+  },
+  {
+   "t": "2026-10-24T22:39:28+0100",
+   "type": "feedback",
+   "signal": "critique",
+   "lessons": 1,
+   "seconds": 1.73,
+   "context": "pixel"
+  },
+  {
+   "t": "2026-10-24T22:39:34+0100",
+   "type": "feedback",
+   "signal": "critique",
+   "lessons": 2,
+   "seconds": 6.13,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:39:44+0100",
+   "type": "lesson_rejected",
+   "lesson": "les_957f67c9"
+  },
+  {
+   "t": "2026-10-24T22:39:47+0100",
+   "type": "feedback",
+   "signal": "direction",
+   "lessons": 1,
+   "seconds": 3.05,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:39:48+0100",
+   "type": "lesson_routed",
+   "lesson": "les_e747f75f",
+   "route": "A",
+   "tokens": 0,
+   "effect": null,
+   "context": "duotone",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:39:55+0100",
+   "type": "lesson_routed",
+   "lesson": "les_50bd4e00",
+   "route": "A",
+   "tokens": 46,
+   "effect": 1.0,
+   "context": "duotone",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:40:11+0100",
+   "type": "lesson_routed",
+   "lesson": "les_84da3408",
+   "route": "A",
+   "tokens": 37,
+   "effect": 1.0,
+   "context": "pixel",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:40:24+0100",
+   "type": "generated",
+   "n": 8,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:40:42+0100",
+   "type": "generated",
+   "n": 8,
+   "context": "pixel"
+  },
+  {
+   "t": "2026-10-24T22:41:00+0100",
+   "type": "feedback",
+   "signal": "critique",
+   "lessons": 2,
+   "seconds": 6.08,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:41:15+0100",
+   "type": "lesson_routed",
+   "lesson": "les_a92a2999",
+   "route": "rephrase",
+   "tokens": 42,
+   "effect": 0.0,
+   "context": "duotone",
+   "reach": "model"
+  },
+  {
+   "t": "2026-10-24T22:41:16+0100",
+   "type": "lesson_routed",
+   "lesson": "les_3b168910",
+   "route": "A",
+   "tokens": 51,
+   "effect": 1.0,
+   "context": "duotone",
+   "reach": "context"
+  },
+  {
+   "t": "2026-10-24T22:41:35+0100",
+   "type": "generated",
+   "n": 8,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:42:18+0100",
+   "type": "feedback",
+   "signal": "critique",
+   "lessons": 1,
+   "seconds": 1.84,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:42:46+0100",
+   "type": "lesson_routed",
+   "lesson": "les_635de23c",
+   "route": "rephrase",
+   "tokens": 45,
+   "effect": 0.0,
+   "context": "duotone",
+   "reach": "model"
+  },
+  {
+   "t": "2026-10-24T22:43:04+0100",
+   "type": "lesson_routed",
+   "lesson": "les_635de23c",
+   "route": "A",
+   "tokens": 45,
+   "effect": null,
+   "context": "duotone",
+   "reach": "model"
+  },
+  {
+   "t": "2026-10-24T22:44:07+0100",
+   "type": "training_batch",
+   "batch": 2,
+   "calls": 40,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:45:02+0100",
+   "type": "training_batch",
+   "batch": 2,
+   "calls": 40,
+   "context": "pixel"
   }
  ],
  "context_history": [
@@ -3745,6 +5319,132 @@
    "tokens": 1312,
    "lessons_in_context": 27,
    "context": "smooth"
+  },
+  {
+   "t": "2026-10-24T22:38:03+0100",
+   "tokens": 102,
+   "lessons_in_context": 0,
+   "context": "pixel"
+  },
+  {
+   "t": "2026-10-24T22:38:04+0100",
+   "tokens": 102,
+   "lessons_in_context": 0,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:38:04+0100",
+   "tokens": 102,
+   "lessons_in_context": 0,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:38:05+0100",
+   "tokens": 102,
+   "lessons_in_context": 0,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:38:12+0100",
+   "tokens": 102,
+   "lessons_in_context": 0,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:38:19+0100",
+   "tokens": 141,
+   "lessons_in_context": 1,
+   "context": "pixel"
+  },
+  {
+   "t": "2026-10-24T22:38:23+0100",
+   "tokens": 183,
+   "lessons_in_context": 2,
+   "context": "pixel"
+  },
+  {
+   "t": "2026-10-24T22:38:23+0100",
+   "tokens": 206,
+   "lessons_in_context": 3,
+   "context": "pixel"
+  },
+  {
+   "t": "2026-10-24T22:39:48+0100",
+   "tokens": 102,
+   "lessons_in_context": 0,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:39:55+0100",
+   "tokens": 148,
+   "lessons_in_context": 1,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:40:11+0100",
+   "tokens": 243,
+   "lessons_in_context": 4,
+   "context": "pixel"
+  },
+  {
+   "t": "2026-10-24T22:41:15+0100",
+   "tokens": 1312,
+   "lessons_in_context": 27,
+   "context": "smooth"
+  },
+  {
+   "t": "2026-10-24T22:41:15+0100",
+   "tokens": 243,
+   "lessons_in_context": 4,
+   "context": "pixel"
+  },
+  {
+   "t": "2026-10-24T22:41:16+0100",
+   "tokens": 148,
+   "lessons_in_context": 1,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:41:16+0100",
+   "tokens": 199,
+   "lessons_in_context": 2,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:42:46+0100",
+   "tokens": 1312,
+   "lessons_in_context": 27,
+   "context": "smooth"
+  },
+  {
+   "t": "2026-10-24T22:42:46+0100",
+   "tokens": 243,
+   "lessons_in_context": 4,
+   "context": "pixel"
+  },
+  {
+   "t": "2026-10-24T22:42:47+0100",
+   "tokens": 199,
+   "lessons_in_context": 2,
+   "context": "duotone"
+  },
+  {
+   "t": "2026-10-24T22:43:04+0100",
+   "tokens": 1357,
+   "lessons_in_context": 28,
+   "context": "smooth"
+  },
+  {
+   "t": "2026-10-24T22:43:05+0100",
+   "tokens": 288,
+   "lessons_in_context": 5,
+   "context": "pixel"
+  },
+  {
+   "t": "2026-10-24T22:43:05+0100",
+   "tokens": 244,
+   "lessons_in_context": 3,
+   "context": "duotone"
   }
  ],
  "training": [
@@ -3986,6 +5686,438 @@
     }
    ],
    "context": "smooth"
+  },
+  {
+   "batch": 2,
+   "t": "2026-10-24T22:44:07+0100",
+   "context": "duotone",
+   "calls": 40,
+   "valid": 40,
+   "context_tokens": 244,
+   "lessons_in_context": [
+    "les_50bd4e00",
+    "les_3b168910",
+    "les_635de23c"
+   ],
+   "outputs": [
+    {
+     "concept": "settings",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <g fill=\"#1F9D55\">\n    <circle cx=\"12\" cy=\"12\" r=\"7.5\" />\n    <rect x=\"10.25\" y=\"1.5\" width=\"3.5\" height=\"5\" rx=\"0.8\" />\n    <rect x=\"10.25\" y=\"1.5\" width=\"3.5\" height=\"5\" rx=\"0.8\" transform=\"rotate(45 12 12)\" />\n    <rect x=\"10.25\" y=\"1.5\" width=\"3.5\" height=\"5\" rx=\"0.8\" transform=\"rotate(90 12 12)\" />\n    <rect x=\"10.25\" y=\"1.5\" width=\"3.5\" height=\"5\" rx=\"0.8\" transform=\"rotate(135 12 12)\" />\n    <rect x=\"10.25\" y=\"1.5\" width=\"3.5\" height=\"5\" rx=\"0.8\" transform=\"rotate(180 12 12)\" />\n    <rect x=\"10.25\" y=\"1.5\" width=\"3.5\" height=\"5\" rx=\"0.8\" transform=\"rotate(225 12 12)\" />\n    <rect x=\"10.25\" y=\"1.5\" width=\"3.5\" height=\"5\" rx=\"0.8\" transform=\"rotate(270 12 12)\" />\n    <rect x=\"10.25\" y=\"1.5\" width=\"3.5\" height=\"5\" rx=\"0.8\" transform=\"rotate(315 12 12)\" />\n  </g>\n  <circle cx=\"12\" cy=\"12\" r=\"3.8\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"12\" cy=\"12\" r=\"1.6\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde309c7bb0b3eca990c659a2ff"
+    },
+    {
+     "concept": "trash",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  \n  <path d=\"M9 2.5h6a1 1 0 0 1 1 1V5H8V3.5a1 1 0 0 1 1-1z\" fill=\"#2E9E5B\" />\n  \n  <rect x=\"3\" y=\"5\" width=\"18\" height=\"2.5\" rx=\"1.25\" fill=\"#2E9E5B\" />\n  \n  <path d=\"M5 9h14l-1 11.2a2 2 0 0 1-2 1.8H8a2 2 0 0 1-2-1.8L5 9z\" fill=\"#2E9E5B\" />\n  \n  <rect x=\"8.6\" y=\"11\" width=\"1.6\" height=\"8\" rx=\"0.8\" fill=\"#FFFFFF\" />\n  <rect x=\"13.8\" y=\"11\" width=\"1.6\" height=\"8\" rx=\"0.8\" fill=\"#FFFFFF\" />\n  \n  <circle class=\"accent\" cx=\"12\" cy=\"15\" r=\"1.2\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde308479f39d8ae7f5d74b29e7"
+    },
+    {
+     "concept": "mail",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <rect x=\"2\" y=\"4.5\" width=\"20\" height=\"15\" rx=\"2.5\" fill=\"#2E9E5B\" />\n  <path d=\"M4.5 7.5 L12 13 L19.5 7.5 L19.5 9.2 L12 14.7 L4.5 9.2 Z\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"19\" cy=\"5\" r=\"3\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde30b476839a185cdcb21f4416"
+    },
+    {
+     "concept": "camera",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#2E9E5B\" d=\"M8.5 4.5a1 1 0 0 1 .8-.4h5.4a1 1 0 0 1 .8.4L16.6 7H19a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-8a3 3 0 0 1 3-3h2.4z\" />\n  <circle fill=\"#FFFFFF\" cx=\"12\" cy=\"13.5\" r=\"5\" />\n  <circle fill=\"#2E9E5B\" cx=\"12\" cy=\"13.5\" r=\"3\" />\n  <circle fill=\"#FFFFFF\" cx=\"10.9\" cy=\"12.4\" r=\"1\" />\n  <circle class=\"accent\" fill=\"#FF4A14\" cx=\"18.5\" cy=\"10\" r=\"1\" />\n</svg>",
+     "request_id": "mreq_01a16fde30217e518b67aadd34824440"
+    },
+    {
+     "concept": "lock",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  \n  <path d=\"M7 10V7a5 5 0 0 1 10 0v3h-2.5V7a2.5 2.5 0 0 0-5 0v3z\" fill=\"#2E9E5B\" />\n  \n  <rect x=\"4\" y=\"10\" width=\"16\" height=\"12\" rx=\"2.5\" fill=\"#2E9E5B\" />\n  \n  <circle cx=\"12\" cy=\"15\" r=\"2\" fill=\"#FFFFFF\" />\n  <path d=\"M11.1 16h1.8l.6 3.2h-3z\" fill=\"#FFFFFF\" />\n  \n  <circle class=\"accent\" cx=\"17.2\" cy=\"12.8\" r=\"0.9\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde386d72409857caa39d819668"
+    },
+    {
+     "concept": "cloud",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path fill=\"#2E9E5B\" d=\"M7 18a5 5 0 0 1-.6-9.96A6 6 0 0 1 17.9 8.6 4.7 4.7 0 0 1 17.5 18H7z\" /><path fill=\"#FFFFFF\" d=\"M8.2 11.2a3.2 3.2 0 0 1 3.1-2.4c.5 0 .9.1 1.3.3a4.2 4.2 0 0 0-3.6 2.1 3.200 3.200 0 0 0-.8.0z\" /><circle class=\"accent\" cx=\"16.5\" cy=\"13.5\" r=\"1.5\" fill=\"#FF4A14\" /></svg>",
+     "request_id": "mreq_01a16fde3c207370add685dc7e9adad4"
+    },
+    {
+     "concept": "download",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#22A861\" d=\"M10 2h4a1 1 0 0 1 1 1v6h2.6a.8.8 0 0 1 .6 1.3l-5.6 6a.8.8 0 0 1-1.2 0l-5.6-6A.8.8 0 0 1 6.4 9H9V3a1 1 0 0 1 1-1z\" />\n  <rect x=\"3\" y=\"17\" width=\"18\" height=\"5\" rx=\"2\" fill=\"#22A861\" />\n  <rect x=\"6\" y=\"18.5\" width=\"8\" height=\"2\" rx=\"1\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"17.5\" cy=\"19.5\" r=\"1.2\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde3e067452af63c0c293b84e5c"
+    },
+    {
+     "concept": "upload",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  \n  <path fill=\"#2E9E5B\" d=\"M3 15a1 1 0 0 1 1-1h2.5a1 1 0 0 1 1 1v2h9v-2a1 1 0 0 1 1-1H20a1 1 0 0 1 1 1v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\" />\n  \n  <path fill=\"#2E9E5B\" d=\"M12 2.5 6.5 8.2a.8.8 0 0 0 .6 1.3H10V15a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V9.5h2.9a.8.8 0 0 0 .6-1.3z\" />\n  \n  <path fill=\"#FFFFFF\" d=\"M12 5.4 9.6 7.9h1.5a.9.9 0 0 1 .9.9V13h0V8.8a.9.9 0 0 1 .9-.9h1.5z\" />\n  \n  <rect fill=\"#FFFFFF\" x=\"5\" y=\"18.2\" width=\"8\" height=\"1.4\" rx=\".7\" />\n  \n  <circle class=\"accent\" cx=\"17.5\" cy=\"18.9\" r=\"1.2\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde426278e09978631d02746937"
+    },
+    {
+     "concept": "heart",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#2E9E5B\" d=\"M12 21.2c-.3 0-.6-.1-.8-.3C6.400 16.900 2.500 13.500 2.500 9.100 2.500 6 4.900 3.600 8 3.600c1.600 0 3.200.8 4 2.100.8-1.300 2.400-2.100 4-2.100 3.100 0 5.500 2.400 5.500 5.500 0 4.400-3.900 7.800-8.700 11.800-.2.200-.5.300-.8.300z\" />\n  <path fill=\"#FFFFFF\" d=\"M6.200 8.400c0-1.100.9-2 2-2 .5 0 .8.300.8.800s-.3.800-.8.800c-.3 0-.5.200-.5.500 0 .5-.3.800-.8.800s-.7-.4-.7-.9z\" />\n  <circle class=\"accent\" cx=\"17.500\" cy=\"8\" r=\"1.200\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde476776c0aca2cef06a90b563"
+    },
+    {
+     "concept": "star",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#2E9E5B\" d=\"M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6l-5.9 3.1 1.2-6.6L2.5 9.5l6.6-.9z\" />\n  <path fill=\"#FFFFFF\" d=\"M11.999 6.2l1.3 3-1.3.9-1.3-.9z\" />\n  <circle class=\"accent\" cx=\"19.5\" cy=\"4.5\" r=\"1.5\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde48a47e73a07c083a983e45ee"
+    },
+    {
+     "concept": "map pin",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path fill=\"#2E9E5B\" d=\"M12 2C7.58 2 4 5.58 4 10c0 5.5 6.2 10.6 7.4 11.55a1 1 0 0 0 1.2 0C13.8 20.6 20 15.5 20 10c0-4.42-3.58-8-8-8z\" /><circle cx=\"12\" cy=\"10\" r=\"3.5\" fill=\"#FFFFFF\" /><circle class=\"accent\" cx=\"12\" cy=\"10\" r=\"1.5\" fill=\"#FF4A14\" /></svg>",
+     "request_id": "mreq_01a16fde52e873f2b37a0000f643d906"
+    },
+    {
+     "concept": "phone",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <rect x=\"6\" y=\"2\" width=\"12\" height=\"20\" rx=\"2.5\" fill=\"#2E9E5B\" />\n  <rect x=\"7.75\" y=\"4.5\" width=\"8.5\" height=\"12.5\" rx=\"1\" fill=\"#FFFFFF\" />\n  <rect x=\"9.5\" y=\"2.9\" width=\"5\" height=\"1\" rx=\"0.5\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"12\" cy=\"19.5\" r=\"1.1\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde56be7c2084e50f1108e9958f"
+    },
+    {
+     "concept": "chat",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#16A34A\" d=\"M6 3h12a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-6.5L7 21v-4H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3z\" />\n  <rect fill=\"#FFFFFF\" x=\"7\" y=\"8\" width=\"10\" height=\"2\" rx=\"1\" />\n  <rect fill=\"#FFFFFF\" x=\"7\" y=\"12\" width=\"6\" height=\"2\" rx=\"1\" />\n  <circle class=\"accent\" fill=\"#FF4A14\" cx=\"16\" cy=\"13\" r=\"1.25\" />\n</svg>",
+     "request_id": "mreq_01a16fde5ad27cb18411b09f91010a44"
+    },
+    {
+     "concept": "image",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <rect x=\"2\" y=\"3\" width=\"20\" height=\"18\" rx=\"3\" fill=\"#2E9E5B\" />\n  <path d=\"M4 18 L9.5 11 L13 15.5 L15.5 12.5 L20 18 Z\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"16.5\" cy=\"8\" r=\"2\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde5e627fa19818510fb8355afe"
+    },
+    {
+     "concept": "music",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <g fill=\"#2E9E5B\">\n    <ellipse cx=\"7\" cy=\"18\" rx=\"3.2\" ry=\"2.7\" />\n    <ellipse cx=\"17\" cy=\"16\" rx=\"3.2\" ry=\"2.7\" />\n    <rect x=\"8.5\" y=\"5\" width=\"2\" height=\"13\" />\n    <rect x=\"18\" y=\"3\" width=\"2\" height=\"13\" />\n    <polygon points=\"8.5,5 20,2.8 20,7.5 8.5,9.7\" />\n  </g>\n  <ellipse cx=\"6.1\" cy=\"17.4\" rx=\"1\" ry=\"0.7\" fill=\"#FFFFFF\" />\n  <ellipse cx=\"16.1\" cy=\"15.4\" rx=\"1\" ry=\"0.7\" fill=\"#FFFFFF\" />\n  <polygon points=\"11.5,6.9 17,5.9 17,7.4 11.5,8.4\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"4\" cy=\"6\" r=\"1.6\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde632579d38dff00136cbf5c5d"
+    },
+    {
+     "concept": "video",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <rect x=\"2\" y=\"5\" width=\"14\" height=\"14\" rx=\"3\" fill=\"#2E9E5B\" />\n  <path d=\"M17.5 10.2 21.2 7.6a.8.8 0 0 1 1.3.65v7.5a.8.8 0 0 1-1.3.65l-3.7-2.6z\" fill=\"#2E9E5B\" />\n  <path d=\"M7.5 9.2v5.6a.6.6 0 0 0 .9.5l4.4-2.8a.6.6 0 0 0 0-1l-4.4-2.8a.6.6 0 0 0-.9.5z\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"13.8\" cy=\"7.8\" r=\"1.1\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde65a07eb2b2cc7f8abe83572e"
+    },
+    {
+     "concept": "battery",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <rect x=\"2\" y=\"6\" width=\"17\" height=\"12\" rx=\"2.5\" fill=\"#1F9D55\" />\n  <rect x=\"19.5\" y=\"9.5\" width=\"2.5\" height=\"5\" rx=\"1\" fill=\"#1F9D55\" />\n  <rect x=\"4.5\" y=\"8.5\" width=\"12\" height=\"7\" rx=\"1\" fill=\"#FFFFFF\" />\n  <rect x=\"5.75\" y=\"9.75\" width=\"5\" height=\"4.5\" rx=\"0.5\" fill=\"#1F9D55\" />\n  <circle class=\"accent\" cx=\"14\" cy=\"12\" r=\"1.25\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde6ad1719292d8f0ed76d7aae1"
+    },
+    {
+     "concept": "wifi",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#2E9E5B\" d=\"M12 20L2.1 10.1A14 14 0 0 1 21.9 10.1Z\" />\n  <path fill=\"#FFFFFF\" d=\"M8.46 16.46L7.05 15.05A7 7 0 0 1 16.95 15.05L15.54 16.46A5 5 0 0 0 8.46 16.46Z\" />\n  <path fill=\"#FFFFFF\" d=\"M5.28 13.28L3.87 11.87A11.5 11.5 0 0 1 20.13 11.87L18.72 13.28A9.5 9.5 0 0 0 5.28 13.28Z\" />\n  <circle class=\"accent\" fill=\"#FF4A14\" cx=\"12\" cy=\"19\" r=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fde70e27e3098093e5249de96b1"
+    },
+    {
+     "concept": "link",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <g transform=\"rotate(-45 12 12)\">\n    <rect x=\"2\" y=\"8.5\" width=\"12\" height=\"7\" rx=\"3.5\" fill=\"#1F9D55\" />\n    <rect x=\"10\" y=\"8.5\" width=\"12\" height=\"7\" rx=\"3.5\" fill=\"#1F9D55\" />\n    <rect x=\"5\" y=\"10.5\" width=\"6\" height=\"3\" rx=\"1.5\" fill=\"#FFFFFF\" />\n    <rect x=\"13\" y=\"10.5\" width=\"6\" height=\"3\" rx=\"1.5\" fill=\"#FFFFFF\" />\n    <rect x=\"9\" y=\"11\" width=\"6\" height=\"2\" rx=\"1\" fill=\"#1F9D55\" />\n  </g>\n  <circle class=\"accent\" cx=\"20\" cy=\"20\" r=\"1.5\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde73727ad18a25a3d9f9ebe6df"
+    },
+    {
+     "concept": "pencil",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <g transform=\"rotate(45 12 12)\">\n    <rect x=\"9\" y=\"1.5\" width=\"6\" height=\"4.5\" rx=\"1.5\" fill=\"#2E9E5B\" />\n    <rect x=\"9\" y=\"6\" width=\"6\" height=\"1\" fill=\"#FFFFFF\" />\n    <path d=\"M9 7H15V17L12 22.5L9 17Z\" fill=\"#2E9E5B\" />\n    <rect x=\"10.6\" y=\"9\" width=\"1\" height=\"7\" rx=\"0.5\" fill=\"#FFFFFF\" />\n    <path class=\"accent\" d=\"M10.9 20.2H13.1L12 22.5Z\" fill=\"#FF4A14\" />\n  </g>\n</svg>",
+     "request_id": "mreq_01a16fde763179709b2c6883fe14d4ff"
+    },
+    {
+     "concept": "filter",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path d=\"M3 4h18a1 1 0 0 1 .77 1.64L14.5 14.3V20a1 1 0 0 1-1.45.9l-3-1.5a1 1 0 0 1-.55-.9v-5.2L2.23 5.64A1 1 0 0 1 3 4z\" fill=\"#2E9E5B\" />\n  <path d=\"M6 6.5h12l-1.6 1.9H7.6z\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"18.5\" cy=\"18.5\" r=\"2.5\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde86c57461beb5b8b4f1555aba"
+    },
+    {
+     "concept": "share",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <polygon fill=\"#1F9D55\" points=\"5.447,12.894 4.553,11.106 18.553,4.106 19.447,5.894\" />\n  <polygon fill=\"#1F9D55\" points=\"5.447,11.106 4.553,12.894 18.553,19.894 19.447,18.106\" />\n  <circle fill=\"#1F9D55\" cx=\"5\" cy=\"12\" r=\"3.5\" />\n  <circle fill=\"#1F9D55\" cx=\"19\" cy=\"5\" r=\"3.5\" />\n  <circle fill=\"#1F9D55\" cx=\"19\" cy=\"19\" r=\"3.5\" />\n  <circle fill=\"#FFFFFF\" cx=\"19\" cy=\"5\" r=\"1.2\" />\n  <circle fill=\"#FFFFFF\" cx=\"19\" cy=\"19\" r=\"1.2\" />\n  <circle class=\"accent\" fill=\"#FF4A14\" cx=\"5\" cy=\"12\" r=\"1.4\" />\n</svg>",
+     "request_id": "mreq_01a16fde901a73619edd7eb6c5c692ab"
+    },
+    {
+     "concept": "bookmark",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#2E9E5B\" d=\"M6 3.5A1.5 1.5 0 0 1 7.5 2h9A1.5 1.5 0 0 1 18 3.5V21.2a.5.5 0 0 1-.8.4L12 17.5l-5.2 4.1a.5.5 0 0 1-.8-.4V3.5z\" />\n  <path fill=\"#FFFFFF\" d=\"M9 5h6a.8.8 0 0 1 .8.8v.4a.8.8 0 0 1-.8.8H9a.8.8 0 0 1-.8-.8v-.4A.8.8 0 0 1 9 5z\" />\n  <circle class=\"accent\" cx=\"12\" cy=\"11\" r=\"1.8\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde97cd7cc093a650257139b92e"
+    },
+    {
+     "concept": "clock",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#2E9E5B\" />\n  <circle cx=\"12\" cy=\"12\" r=\"7.5\" fill=\"#FFFFFF\" />\n  <path d=\"M11.2 6.5h1.6v5.2l3.3 2-0.8 1.4-4.1-2.4z\" fill=\"#2E9E5B\" />\n  <circle class=\"accent\" cx=\"12\" cy=\"12\" r=\"1.4\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde9b217b528abf4ed9e7089681"
+    },
+    {
+     "concept": "gift",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#1E9E5A\" d=\"M12 7C12 7 8 7.2 7.5 5C7.1 3.2 9.2 2.2 10.6 3.3C11.9 4.3 12 7 12 7Z\" />\n  <path fill=\"#1E9E5A\" d=\"M12 7C12 7 16 7.2 16.5 5C16.9 3.2 14.8 2.2 13.4 3.3C12.1 4.3 12 7 12 7Z\" />\n  <rect x=\"3\" y=\"7\" width=\"18\" height=\"4\" rx=\"1\" fill=\"#1E9E5A\" />\n  <rect x=\"4\" y=\"12\" width=\"16\" height=\"9\" rx=\"1.5\" fill=\"#1E9E5A\" />\n  <rect x=\"11\" y=\"7\" width=\"2\" height=\"14\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"12\" cy=\"6.5\" r=\"1.4\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fde9ecd7102bd10a1f69ace95a1"
+    },
+    {
+     "concept": "shopping cart",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  \n  <path fill=\"#2E9E5B\" d=\"M1.5 2.5h3.2c.5 0 .9.3 1 .8L6 5h15.2c.7 0 1.2.7 1 1.4l-1.9 7.2c-.2.7-.8 1.1-1.5 1.1H8.6l.3 1.3h10.6a1 1 0 1 1 0 2H8.1c-.5 0-.9-.3-1-.8L4 4.5H1.5a1 1 0 1 1 0-2z\" />\n  \n  <rect fill=\"#FFFFFF\" x=\"7.6\" y=\"7\" width=\"3.4\" height=\"2.4\" rx=\".6\" />\n  <rect fill=\"#FFFFFF\" x=\"12\" y=\"7\" width=\"3.4\" height=\"2.4\" rx=\".6\" />\n  <rect fill=\"#FFFFFF\" x=\"16.4\" y=\"7\" width=\"3\" height=\"2.4\" rx=\".6\" />\n  <rect fill=\"#FFFFFF\" x=\"8.4\" y=\"10.4\" width=\"3.4\" height=\"2.2\" rx=\".6\" />\n  <rect fill=\"#FFFFFF\" x=\"12.8\" y=\"10.4\" width=\"3.4\" height=\"2.2\" rx=\".6\" />\n  \n  <circle fill=\"#2E9E5B\" cx=\"9.5\" cy=\"20\" r=\"1.8\" />\n  <circle class=\"accent\" fill=\"#FF4A14\" cx=\"17.5\" cy=\"20\" r=\"1.8\" />\n</svg>",
+     "request_id": "mreq_01a16fdea26978b38215f277aded8772"
+    },
+    {
+     "concept": "key",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <g transform=\"rotate(45 12 12)\">\n    <circle cx=\"6.5\" cy=\"12\" r=\"4.5\" fill=\"#2E9E5B\" />\n    <rect x=\"10\" y=\"11\" width=\"11\" height=\"2\" rx=\"0.5\" fill=\"#2E9E5B\" />\n    <rect x=\"16.5\" y=\"12.5\" width=\"2\" height=\"3.5\" rx=\"0.5\" fill=\"#2E9E5B\" />\n    <rect x=\"19.5\" y=\"12.5\" width=\"1.5\" height=\"2.5\" rx=\"0.5\" fill=\"#2E9E5B\" />\n    <circle cx=\"6.5\" cy=\"12\" r=\"1.8\" fill=\"#FFFFFF\" />\n    <circle class=\"accent\" cx=\"13\" cy=\"12\" r=\"0.6\" fill=\"#FF4A14\" />\n  </g>\n</svg>",
+     "request_id": "mreq_01a16fdea72d7d53b1b14fb2ae0f8de5"
+    },
+    {
+     "concept": "globe",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#2E9E5B\" />\n  <rect x=\"2.6\" y=\"11.1\" width=\"18.8\" height=\"1.8\" fill=\"#FFFFFF\" />\n  <rect x=\"4.6\" y=\"6.2\" width=\"14.8\" height=\"1.6\" fill=\"#FFFFFF\" />\n  <rect x=\"4.6\" y=\"16.2\" width=\"14.8\" height=\"1.6\" fill=\"#FFFFFF\" />\n  <path fill=\"#FFFFFF\" fill-rule=\"evenodd\" d=\"M12 3.5a4.6 8.5 0 1 0 0 17a4.6 8.5 0 1 0 0-17zM12 5.2a2.8 6.8 0 1 1 0 13.6a2.8 6.8 0 1 1 0-13.6z\" />\n  <circle class=\"accent\" cx=\"18.6\" cy=\"5.4\" r=\"2.4\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fdeb32a74b298eadf62d4a64b88"
+    },
+    {
+     "concept": "flag",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <rect x=\"4\" y=\"2\" width=\"2\" height=\"20\" rx=\"1\" fill=\"#1F8A4C\" />\n  <path d=\"M6 3.5h12.5a.7.7 0 0 1 .55 1.13L16.2 8.5l2.85 3.87a.7.7 0 0 1-.55 1.13H6z\" fill=\"#2FB36A\" />\n  <path d=\"M8.5 6h6.2l-1.5 2.1 1.5 2.1H8.5z\" fill=\"#FFFFFF\" />\n  <circle class=\"accent\" cx=\"5\" cy=\"21\" r=\"1.6\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fdeb3677562b7cf7605b4089f7c"
+    },
+    {
+     "concept": "tag",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path fill=\"#2E9E5B\" d=\"M3 4.5A1.5 1.5 0 0 1 4.5 3h6.3c.4 0 .8.16 1.06.44l8.7 8.7a1.5 1.5 0 0 1 0 2.12l-6.3 6.3a1.5 1.5 0 0 1-2.12 0l-8.7-8.7A1.5 1.5 0 0 1 3 10.8z\" /><circle class=\"accent\" fill=\"#FF4A14\" cx=\"8\" cy=\"8\" r=\"2\" /></svg>",
+     "request_id": "mreq_01a16fdebddd7f91b0bd215a9f26aa5f"
+    },
+    {
+     "concept": "document",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#2E9E5B\" d=\"M6 2h8.5L20 7.5V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z\" />\n  <path fill=\"#FFFFFF\" d=\"M7.5 11h9v1.6h-9zM7.5 14.5h9v1.6h-9zM7.5 18h5.5v1.6H7.5z\" />\n  <path class=\"accent\" fill=\"#FF4A14\" d=\"M14.5 2v4a1.5 1.5 0 0 0 1.5 1.5h4z\" opacity=\"0.6\" />\n  <circle class=\"accent\" cx=\"8.3\" cy=\"7\" r=\"1.3\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fdebe3174e2a7461ed51942f347"
+    },
+    {
+     "concept": "printer",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  \n  <path d=\"M7 2h8.5L18 4.5V8H7z\" fill=\"#2E9E5B\" />\n  <path d=\"M15.5 2v3a.5.5 0 0 0 .5.5h2z\" fill=\"#FFFFFF\" />\n  \n  <rect x=\"2\" y=\"8\" width=\"20\" height=\"9\" rx=\"2.5\" fill=\"#2E9E5B\" />\n  \n  <rect x=\"6\" y=\"13\" width=\"12\" height=\"8\" rx=\"1\" fill=\"#2E9E5B\" />\n  <rect x=\"7.5\" y=\"14.5\" width=\"9\" height=\"5\" rx=\".5\" fill=\"#FFFFFF\" />\n  <rect x=\"9\" y=\"16\" width=\"6\" height=\"1\" fill=\"#2E9E5B\" />\n  <rect x=\"9\" y=\"17.8\" width=\"4\" height=\"1\" fill=\"#2E9E5B\" />\n  \n  <circle class=\"accent\" cx=\"18.5\" cy=\"10.8\" r=\"1.1\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fdec65875e1ac64c4d0aa687996"
+    },
+    {
+     "concept": "sun",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><g fill=\"#2E9E5B\"><circle cx=\"12\" cy=\"12\" r=\"5.5\" /><rect x=\"11\" y=\"1.5\" width=\"2\" height=\"3.5\" rx=\"1\" /><rect x=\"11\" y=\"19\" width=\"2\" height=\"3.5\" rx=\"1\" /><rect x=\"1.5\" y=\"11\" width=\"3.5\" height=\"2\" rx=\"1\" /><rect x=\"19\" y=\"11\" width=\"3.5\" height=\"2\" rx=\"1\" /><rect x=\"11\" y=\"1.5\" width=\"2\" height=\"3.5\" rx=\"1\" transform=\"rotate(45 12 12)\" /><rect x=\"11\" y=\"1.5\" width=\"2\" height=\"3.5\" rx=\"1\" transform=\"rotate(135 12 12)\" /><rect x=\"11\" y=\"1.5\" width=\"2\" height=\"3.5\" rx=\"1\" transform=\"rotate(225 12 12)\" /><rect x=\"11\" y=\"1.5\" width=\"2\" height=\"3.5\" rx=\"1\" transform=\"rotate(315 12 12)\" /></g><path fill=\"#FFFFFF\" d=\"M8.6 12.5a3.4 3.4 0 0 1 3.4-3.4v1.6a1.8 1.8 0 0 0-1.8 1.8z\" /><circle class=\"accent\" cx=\"14.2\" cy=\"14\" r=\"1.2\" fill=\"#FF4A14\" /></svg>",
+     "request_id": "mreq_01a16fdec9407db18c62ab70e5d32554"
+    },
+    {
+     "concept": "moon",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#2E9E5B\" d=\"M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z\" />\n  <circle fill=\"#FFFFFF\" cx=\"7\" cy=\"13\" r=\"1.2\" />\n  <circle fill=\"#FFFFFF\" cx=\"10\" cy=\"18\" r=\"1\" />\n  <circle class=\"accent\" fill=\"#FF4A14\" cx=\"18.5\" cy=\"5.5\" r=\"1.3\" />\n</svg>",
+     "request_id": "mreq_01a16fdecad675018abd7cc0a62df738"
+    },
+    {
+     "concept": "lightning",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#2E9E5B\" d=\"M14 2L5 13.5h5.2L9 22l9.5-12.2h-5.3L14 2z\" />\n  <path fill=\"#FFFFFF\" d=\"M13.2 6.6l-4 5.1h3.6l-.5 3.6 3.2-4.1h-3.5l1.2-4.6z\" />\n  <circle class=\"accent\" cx=\"18.5\" cy=\"5\" r=\"1.6\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fded4ac7250866c55d7419cee1b"
+    },
+    {
+     "concept": "leaf",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path d=\"M5 19C4 11 9 4 20 4C20 14 15 20 5 19Z\" fill=\"#2E9E5B\" /><path d=\"M2.8 20.4L4.4 18.2L5.8 19.6L3.6 21.2Z\" fill=\"#2E9E5B\" /><path d=\"M5.6 19.4L5 18.6L15.8 7.6L16.6 8.4Z\" fill=\"#FFFFFF\" /><circle class=\"accent\" cx=\"19\" cy=\"18.5\" r=\"1.5\" fill=\"#FF4A14\" /></svg>",
+     "request_id": "mreq_01a16fded59d70509fbfe616cb67a4a0"
+    },
+    {
+     "concept": "coffee",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path fill=\"#2E7D32\" d=\"M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z\" />\n  <path fill=\"#2E7D32\" d=\"M17 10h2a3 3 0 0 1 0 6h-2.3v-2H19a1 1 0 0 0 0-2h-2z\" />\n  <rect fill=\"#2E7D32\" x=\"3\" y=\"20\" width=\"16\" height=\"2\" rx=\"1\" />\n  <rect fill=\"#2E7D32\" x=\"7\" y=\"2.5\" width=\"1.8\" height=\"4.5\" rx=\"0.9\" />\n  <circle class=\"accent\" fill=\"#FF4A14\" cx=\"13\" cy=\"4.5\" r=\"1.3\" />\n  <rect fill=\"#FFFFFF\" x=\"6\" y=\"11\" width=\"9\" height=\"1.6\" rx=\"0.8\" />\n</svg>",
+     "request_id": "mreq_01a16fdedc737c1399ce4eedee318e2d"
+    },
+    {
+     "concept": "rocket",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  \n  <path d=\"M8.2 12.5 4.5 14.2 5 18.5 9 16.5Z\" fill=\"#2E9E5B\" />\n  <path d=\"M15.8 12.5 19.5 14.2 19 18.5 15 16.5Z\" fill=\"#2E9E5B\" />\n  \n  <path d=\"M12 1.5C15.2 4 16.5 7.5 16.5 11.5V17H7.5V11.5C7.5 7.5 8.8 4 12 1.5Z\" fill=\"#2E9E5B\" />\n  \n  <circle cx=\"12\" cy=\"9.5\" r=\"2.3\" fill=\"#FFFFFF\" />\n  \n  <rect x=\"7.5\" y=\"13.5\" width=\"9\" height=\"1\" fill=\"#FFFFFF\" />\n  \n  <path d=\"M9.5 17H14.5L13.5 19.5H10.5Z\" fill=\"#2E9E5B\" />\n  \n  <path class=\"accent\" d=\"M12 20.2C13.3 21.3 13.3 22.6 12 23C10.7 22.6 10.7 21.3 12 20.2Z\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fdedf417782adc43c08eff2548d"
+    },
+    {
+     "concept": "eye",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\">\n  <path d=\"M12 4.5C7 4.5 3 8.2 1.5 12c1.5 3.8 5.5 7.5 10.5 7.5s9-3.700 10.500-7.500C21 8.200 17 4.500 12 4.500z\" fill=\"#2E9E5B\" />\n  <circle cx=\"12\" cy=\"12\" r=\"5\" fill=\"#FFFFFF\" />\n  <circle cx=\"12\" cy=\"12\" r=\"2.800\" fill=\"#2E9E5B\" />\n  <circle class=\"accent\" cx=\"13\" cy=\"11\" r=\"1\" fill=\"#FF4A14\" />\n</svg>",
+     "request_id": "mreq_01a16fdee8527f71852b184e72fcc5bd"
+    },
+    {
+     "concept": "shield",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\" fill=\"#1D6B45\"><path fill=\"#2E9E5B\" d=\"M12 2L4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z\" /><path fill=\"#FFFFFF\" d=\"M12 4.6l-5.5 2.1V11c0 3.7 2.3 7 5.5 8.5 3.2-1.5 5.5-4.8 5.5-8.5V6.7L12 4.6z\" /><path fill=\"#2E9E5B\" d=\"M12 6.4l-3.8 1.4V11c0 2.8 1.6 5.2 3.8 6.5 2.2-1.3 3.8-3.7 3.8-6.5V7.8L12 6.4z\" /><circle class=\"accent\" cx=\"12\" cy=\"11.5\" r=\"1.8\" fill=\"#FF4A14\" /></svg>",
+     "request_id": "mreq_01a16fdeeebf7851b53e75b065d30465"
+    }
+   ]
+  },
+  {
+   "batch": 2,
+   "t": "2026-10-24T22:45:02+0100",
+   "context": "pixel",
+   "calls": 40,
+   "valid": 38,
+   "context_tokens": 288,
+   "lessons_in_context": [
+    "les_274fcfbb",
+    "les_3f0c1bca",
+    "les_3b893660",
+    "les_84da3408",
+    "les_635de23c"
+   ],
+   "outputs": [
+    {
+     "concept": "settings",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"10\" y=\"2\" width=\"4\" height=\"2\" />\n  <rect x=\"4\" y=\"4\" width=\"4\" height=\"2\" />\n  <rect x=\"10\" y=\"4\" width=\"4\" height=\"2\" />\n  <rect x=\"16\" y=\"4\" width=\"4\" height=\"2\" />\n  <rect x=\"4\" y=\"6\" width=\"16\" height=\"4\" />\n  <rect x=\"2\" y=\"10\" width=\"8\" height=\"4\" />\n  <rect x=\"14\" y=\"10\" width=\"8\" height=\"4\" />\n  <rect x=\"4\" y=\"14\" width=\"16\" height=\"4\" />\n  <rect x=\"4\" y=\"18\" width=\"4\" height=\"2\" />\n  <rect x=\"10\" y=\"18\" width=\"4\" height=\"2\" />\n  <rect x=\"16\" y=\"18\" width=\"4\" height=\"2\" />\n  <rect x=\"10\" y=\"20\" width=\"4\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fde30647e2381ddb5369cf782e9"
+    },
+    {
+     "concept": "trash",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"8\" y=\"2\" width=\"8\" height=\"2\" />\n  <rect x=\"2\" y=\"4\" width=\"20\" height=\"2\" />\n  <rect x=\"4\" y=\"6\" width=\"2\" height=\"14\" />\n  <rect x=\"8\" y=\"6\" width=\"2\" height=\"14\" />\n  <rect x=\"14\" y=\"6\" width=\"2\" height=\"14\" />\n  <rect x=\"18\" y=\"6\" width=\"2\" height=\"14\" />\n  <rect x=\"4\" y=\"20\" width=\"16\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fde30cd7db1b082c46fa5c1fe32"
+    },
+    {
+     "concept": "mail",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"2\" y=\"4\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"18\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"6\" width=\"2\" height=\"12\" />\n  <rect x=\"20\" y=\"6\" width=\"2\" height=\"12\" />\n  <rect x=\"4\" y=\"6\" width=\"2\" height=\"2\" />\n  <rect x=\"18\" y=\"6\" width=\"2\" height=\"2\" />\n  <rect x=\"6\" y=\"8\" width=\"2\" height=\"2\" />\n  <rect x=\"16\" y=\"8\" width=\"2\" height=\"2\" />\n  <rect x=\"8\" y=\"10\" width=\"2\" height=\"2\" />\n  <rect x=\"14\" y=\"10\" width=\"2\" height=\"2\" />\n  <rect x=\"10\" y=\"12\" width=\"4\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fde2ffc742380bc2861037bdaf9"
+    },
+    {
+     "concept": "camera",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\"><g fill=\"#000\"><rect x=\"6\" y=\"4\" width=\"4\" height=\"2\" /><rect x=\"16\" y=\"4\" width=\"2\" height=\"2\" /><rect x=\"2\" y=\"6\" width=\"20\" height=\"2\" /><rect x=\"2\" y=\"8\" width=\"2\" height=\"10\" /><rect x=\"20\" y=\"8\" width=\"2\" height=\"10\" /><rect x=\"2\" y=\"18\" width=\"20\" height=\"2\" /><rect x=\"10\" y=\"8\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"10\" width=\"2\" height=\"6\" /><rect x=\"14\" y=\"10\" width=\"2\" height=\"6\" /><rect x=\"10\" y=\"16\" width=\"4\" height=\"2\" /><rect x=\"10\" y=\"12\" width=\"4\" height=\"2\" /></g></svg>",
+     "request_id": "mreq_01a16fde30447650b8feaf85b73917f4"
+    },
+    {
+     "concept": "lock",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"8\" y=\"2\" width=\"8\" height=\"2\" />\n  <rect x=\"6\" y=\"4\" width=\"4\" height=\"6\" />\n  <rect x=\"14\" y=\"4\" width=\"4\" height=\"6\" />\n  <rect x=\"4\" y=\"10\" width=\"16\" height=\"4\" />\n  <rect x=\"4\" y=\"14\" width=\"6\" height=\"4\" />\n  <rect x=\"14\" y=\"14\" width=\"6\" height=\"4\" />\n  <rect x=\"4\" y=\"18\" width=\"16\" height=\"4\" />\n</svg>",
+     "request_id": "mreq_01a16fde478172b0b13c0f576fdc6b79"
+    },
+    {
+     "concept": "cloud",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\">\n  <rect x=\"8\" y=\"6\" width=\"4\" height=\"2\" />\n  <rect x=\"6\" y=\"8\" width=\"12\" height=\"2\" />\n  <rect x=\"4\" y=\"10\" width=\"16\" height=\"2\" />\n  <rect x=\"2\" y=\"12\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"14\" width=\"20\" height=\"2\" />\n  <rect x=\"4\" y=\"16\" width=\"16\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fde56d577a29c4bb6621753a361"
+    },
+    {
+     "concept": "download",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\">\n  <rect x=\"10\" y=\"2\" width=\"4\" height=\"8\" />\n  <rect x=\"6\" y=\"10\" width=\"12\" height=\"2\" />\n  <rect x=\"8\" y=\"12\" width=\"8\" height=\"2\" />\n  <rect x=\"10\" y=\"14\" width=\"4\" height=\"2\" />\n  <rect x=\"2\" y=\"16\" width=\"2\" height=\"6\" />\n  <rect x=\"20\" y=\"16\" width=\"2\" height=\"6\" />\n  <rect x=\"4\" y=\"20\" width=\"16\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fde5ec672a0966fb61ae910aae7"
+    },
+    {
+     "concept": "upload",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"10\" y=\"2\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"4\" width=\"8\" height=\"2\" /><rect x=\"6\" y=\"6\" width=\"12\" height=\"2\" /><rect x=\"10\" y=\"8\" width=\"4\" height=\"6\" /><rect x=\"2\" y=\"16\" width=\"2\" height=\"4\" /><rect x=\"20\" y=\"16\" width=\"2\" height=\"4\" /><rect x=\"2\" y=\"20\" width=\"20\" height=\"2\" /></svg>",
+     "request_id": "mreq_01a16fde61f470c3b16f8f88867c11c2"
+    },
+    {
+     "concept": "heart",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\">\n  <g fill=\"#e53935\">\n    <rect x=\"4\" y=\"4\" width=\"6\" height=\"2\" />\n    <rect x=\"14\" y=\"4\" width=\"6\" height=\"2\" />\n    <rect x=\"2\" y=\"6\" width=\"20\" height=\"6\" />\n    <rect x=\"4\" y=\"12\" width=\"16\" height=\"2\" />\n    <rect x=\"6\" y=\"14\" width=\"12\" height=\"2\" />\n    <rect x=\"8\" y=\"16\" width=\"8\" height=\"2\" />\n    <rect x=\"10\" y=\"18\" width=\"4\" height=\"2\" />\n  </g>\n  <rect x=\"4\" y=\"6\" width=\"2\" height=\"2\" fill=\"#ffcdd2\" />\n</svg>",
+     "request_id": "mreq_01a16fde68b97dc38023397dd7774fd9"
+    },
+    {
+     "concept": "star",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"10\" y=\"2\" width=\"4\" height=\"2\" />\n  <rect x=\"8\" y=\"4\" width=\"8\" height=\"2\" />\n  <rect x=\"8\" y=\"6\" width=\"8\" height=\"2\" />\n  <rect x=\"2\" y=\"8\" width=\"20\" height=\"2\" />\n  <rect x=\"4\" y=\"10\" width=\"16\" height=\"2\" />\n  <rect x=\"6\" y=\"12\" width=\"12\" height=\"2\" />\n  <rect x=\"6\" y=\"14\" width=\"12\" height=\"2\" />\n  <rect x=\"4\" y=\"16\" width=\"16\" height=\"2\" />\n  <rect x=\"4\" y=\"18\" width=\"6\" height=\"2\" />\n  <rect x=\"14\" y=\"18\" width=\"6\" height=\"2\" />\n  <rect x=\"4\" y=\"20\" width=\"4\" height=\"2\" />\n  <rect x=\"16\" y=\"20\" width=\"4\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fde77a670b1a15ad397bcd2e0f0"
+    },
+    {
+     "concept": "map pin",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\">\n  <rect x=\"8\" y=\"2\" width=\"8\" height=\"2\" />\n  <rect x=\"6\" y=\"4\" width=\"12\" height=\"2\" />\n  <rect x=\"4\" y=\"6\" width=\"6\" height=\"4\" />\n  <rect x=\"14\" y=\"6\" width=\"6\" height=\"4\" />\n  <rect x=\"4\" y=\"10\" width=\"16\" height=\"2\" />\n  <rect x=\"6\" y=\"12\" width=\"12\" height=\"2\" />\n  <rect x=\"8\" y=\"14\" width=\"8\" height=\"2\" />\n  <rect x=\"10\" y=\"16\" width=\"4\" height=\"6\" />\n</svg>",
+     "request_id": "mreq_01a16fde77eb7ac3be999d3f9071c8c5"
+    },
+    {
+     "concept": "phone",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"6\" y=\"2\" width=\"12\" height=\"2\" /><rect x=\"6\" y=\"20\" width=\"12\" height=\"2\" /><rect x=\"6\" y=\"4\" width=\"2\" height=\"16\" /><rect x=\"16\" y=\"4\" width=\"2\" height=\"16\" /><rect x=\"10\" y=\"6\" width=\"4\" height=\"2\" /><rect x=\"10\" y=\"16\" width=\"4\" height=\"2\" /></svg>",
+     "request_id": "mreq_01a16fde7f9b759383802304051fc927"
+    },
+    {
+     "concept": "chat",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"4\" y=\"2\" width=\"16\" height=\"2\" /><rect x=\"2\" y=\"4\" width=\"20\" height=\"2\" /><rect x=\"2\" y=\"6\" width=\"4\" height=\"2\" /><rect x=\"18\" y=\"6\" width=\"4\" height=\"2\" /><rect x=\"2\" y=\"8\" width=\"20\" height=\"2\" /><rect x=\"2\" y=\"10\" width=\"4\" height=\"2\" /><rect x=\"14\" y=\"10\" width=\"8\" height=\"2\" /><rect x=\"2\" y=\"12\" width=\"20\" height=\"2\" /><rect x=\"4\" y=\"14\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"16\" width=\"6\" height=\"2\" /><rect x=\"4\" y=\"18\" width=\"2\" height=\"2\" /></svg>",
+     "request_id": "mreq_01a16fde8ae170d3a1c364091aef6094"
+    },
+    {
+     "concept": "image",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\"><g fill=\"currentColor\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"2\" /><rect x=\"2\" y=\"18\" width=\"20\" height=\"2\" /><rect x=\"2\" y=\"6\" width=\"2\" height=\"12\" /><rect x=\"20\" y=\"6\" width=\"2\" height=\"12\" /><rect x=\"14\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"8\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"14\" width=\"6\" height=\"2\" /><rect x=\"14\" y=\"14\" width=\"4\" height=\"2\" /><rect x=\"4\" y=\"16\" width=\"16\" height=\"2\" /></g></svg>",
+     "request_id": "mreq_01a16fde92e07243b18e92dc6ccdb494"
+    },
+    {
+     "concept": "music",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"8\" y=\"2\" width=\"12\" height=\"2\" />\n  <rect x=\"8\" y=\"4\" width=\"12\" height=\"2\" />\n  <rect x=\"8\" y=\"6\" width=\"2\" height=\"10\" />\n  <rect x=\"18\" y=\"6\" width=\"2\" height=\"10\" />\n  <rect x=\"4\" y=\"16\" width=\"6\" height=\"2\" />\n  <rect x=\"14\" y=\"16\" width=\"6\" height=\"2\" />\n  <rect x=\"4\" y=\"18\" width=\"6\" height=\"2\" />\n  <rect x=\"14\" y=\"18\" width=\"6\" height=\"2\" />\n  <rect x=\"6\" y=\"20\" width=\"2\" height=\"2\" />\n  <rect x=\"16\" y=\"20\" width=\"2\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fde97d67201a091dc165b19acbe"
+    },
+    {
+     "concept": "video",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\"><rect x=\"2\" y=\"6\" width=\"12\" height=\"2\" /><rect x=\"2\" y=\"16\" width=\"12\" height=\"2\" /><rect x=\"2\" y=\"8\" width=\"2\" height=\"8\" /><rect x=\"12\" y=\"8\" width=\"2\" height=\"8\" /><rect x=\"6\" y=\"10\" width=\"4\" height=\"4\" /><rect x=\"14\" y=\"10\" width=\"2\" height=\"4\" /><rect x=\"16\" y=\"8\" width=\"2\" height=\"8\" /><rect x=\"18\" y=\"6\" width=\"2\" height=\"12\" /><rect x=\"20\" y=\"4\" width=\"2\" height=\"16\" /></svg>",
+     "request_id": "mreq_01a16fde9abb7f7194e541a0332241da"
+    },
+    {
+     "concept": "battery",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"2\" y=\"8\" width=\"16\" height=\"2\" /><rect x=\"2\" y=\"14\" width=\"16\" height=\"2\" /><rect x=\"2\" y=\"10\" width=\"2\" height=\"4\" /><rect x=\"18\" y=\"8\" width=\"2\" height=\"8\" /><rect x=\"20\" y=\"10\" width=\"2\" height=\"4\" /><rect x=\"5\" y=\"10\" width=\"0\" height=\"0\" /><rect x=\"4\" y=\"10\" width=\"4\" height=\"4\" /><rect x=\"10\" y=\"10\" width=\"4\" height=\"4\" /></svg>",
+     "request_id": "mreq_01a16fdeae927870a87279fe9a6926c8"
+    },
+    {
+     "concept": "wifi",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" stroke-width=\"0\"><g fill=\"currentColor\"><rect x=\"6\" y=\"2\" width=\"12\" height=\"2\" /><rect x=\"2\" y=\"4\" width=\"4\" height=\"2\" /><rect x=\"18\" y=\"4\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"8\" width=\"8\" height=\"2\" /><rect x=\"4\" y=\"10\" width=\"4\" height=\"2\" /><rect x=\"16\" y=\"10\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"14\" width=\"8\" height=\"2\" /><rect x=\"10\" y=\"18\" width=\"4\" height=\"4\" /></g></svg>",
+     "request_id": "mreq_01a16fdeb5dd78a289cec2ce4c4db719"
+    },
+    {
+     "concept": "link",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"4\" y=\"4\" width=\"6\" height=\"2\" />\n  <rect x=\"14\" y=\"4\" width=\"6\" height=\"2\" />\n  <rect x=\"4\" y=\"18\" width=\"6\" height=\"2\" />\n  <rect x=\"14\" y=\"18\" width=\"6\" height=\"2\" />\n  <rect x=\"2\" y=\"6\" width=\"4\" height=\"12\" />\n  <rect x=\"18\" y=\"6\" width=\"4\" height=\"12\" />\n  <rect x=\"8\" y=\"10\" width=\"8\" height=\"4\" />\n</svg>",
+     "request_id": "mreq_01a16fdebee67002b912bf2e915b50a2"
+    },
+    {
+     "concept": "pencil",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\">\n<rect x=\"2\" y=\"20\" width=\"2\" height=\"2\" />\n<rect x=\"4\" y=\"18\" width=\"2\" height=\"2\" />\n<rect x=\"6\" y=\"16\" width=\"2\" height=\"2\" />\n<rect x=\"8\" y=\"14\" width=\"2\" height=\"2\" />\n<rect x=\"10\" y=\"12\" width=\"2\" height=\"2\" />\n<rect x=\"12\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"16\" y=\"6\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"4\" width=\"2\" height=\"2\" />\n<rect x=\"4\" y=\"20\" width=\"2\" height=\"2\" />\n<rect x=\"6\" y=\"18\" width=\"2\" height=\"2\" />\n<rect x=\"8\" y=\"16\" width=\"2\" height=\"2\" />\n<rect x=\"10\" y=\"14\" width=\"2\" height=\"2\" />\n<rect x=\"12\" y=\"12\" width=\"2\" height=\"2\" />\n<rect x=\"14\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"18\" y=\"6\" width=\"2\" height=\"2\" />\n<rect x=\"20\" y=\"4\" width=\"2\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fdec0197782971fb85070ef7f11"
+    },
+    {
+     "concept": "filter",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"2\" y=\"2\" width=\"20\" height=\"2\" /><rect x=\"4\" y=\"4\" width=\"16\" height=\"2\" /><rect x=\"6\" y=\"6\" width=\"12\" height=\"2\" /><rect x=\"8\" y=\"8\" width=\"8\" height=\"4\" /><rect x=\"10\" y=\"12\" width=\"4\" height=\"10\" /></svg>",
+     "request_id": "mreq_01a16fded24671a1ae85600c362e3128"
+    },
+    {
+     "concept": "share",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\">\n<rect x=\"16\" y=\"2\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"2\" width=\"2\" height=\"2\" />\n<rect x=\"16\" y=\"4\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"4\" width=\"2\" height=\"2\" />\n<rect x=\"16\" y=\"18\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"18\" width=\"2\" height=\"2\" />\n<rect x=\"16\" y=\"20\" width=\"2\" height=\"2\" /><rect x=\"18\" y=\"20\" width=\"2\" height=\"2\" />\n<rect x=\"2\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"10\" width=\"2\" height=\"2\" />\n<rect x=\"2\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"4\" y=\"12\" width=\"2\" height=\"2\" />\n<rect x=\"6\" y=\"10\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"8\" width=\"2\" height=\"2\" />\n<rect x=\"8\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"6\" width=\"2\" height=\"2\" />\n<rect x=\"12\" y=\"6\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"4\" width=\"2\" height=\"2\" />\n<rect x=\"6\" y=\"12\" width=\"2\" height=\"2\" /><rect x=\"6\" y=\"14\" width=\"2\" height=\"2\" />\n<rect x=\"8\" y=\"14\" width=\"2\" height=\"2\" /><rect x=\"10\" y=\"16\" width=\"2\" height=\"2\" />\n<rect x=\"12\" y=\"16\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"18\" width=\"2\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fdee1e57eb0aa76b6a963c438d4"
+    },
+    {
+     "concept": "bookmark",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"6\" y=\"2\" width=\"12\" height=\"16\" />\n  <rect x=\"6\" y=\"18\" width=\"4\" height=\"2\" />\n  <rect x=\"14\" y=\"18\" width=\"4\" height=\"2\" />\n  <rect x=\"6\" y=\"20\" width=\"2\" height=\"2\" />\n  <rect x=\"16\" y=\"20\" width=\"2\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fdeede57d4080be8603b2bb4684"
+    },
+    {
+     "concept": "clock",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"6\" y=\"2\" width=\"12\" height=\"2\" />\n  <rect x=\"4\" y=\"4\" width=\"4\" height=\"2\" />\n  <rect x=\"16\" y=\"4\" width=\"4\" height=\"2\" />\n  <rect x=\"2\" y=\"6\" width=\"4\" height=\"2\" />\n  <rect x=\"10\" y=\"6\" width=\"2\" height=\"2\" />\n  <rect x=\"18\" y=\"6\" width=\"4\" height=\"2\" />\n  <rect x=\"2\" y=\"8\" width=\"2\" height=\"2\" />\n  <rect x=\"10\" y=\"8\" width=\"2\" height=\"2\" />\n  <rect x=\"20\" y=\"8\" width=\"2\" height=\"2\" />\n  <rect x=\"2\" y=\"10\" width=\"2\" height=\"2\" />\n  <rect x=\"10\" y=\"10\" width=\"2\" height=\"2\" />\n  <rect x=\"20\" y=\"10\" width=\"2\" height=\"2\" />\n  <rect x=\"2\" y=\"12\" width=\"2\" height=\"2\" />\n  <rect x=\"10\" y=\"12\" width=\"6\" height=\"2\" />\n  <rect x=\"20\" y=\"12\" width=\"2\" height=\"2\" />\n  <rect x=\"2\" y=\"14\" width=\"2\" height=\"2\" />\n  <rect x=\"20\" y=\"14\" width=\"2\" height=\"2\" />\n  <rect x=\"2\" y=\"16\" width=\"4\" height=\"2\" />\n  <rect x=\"18\" y=\"16\" width=\"4\" height=\"2\" />\n  <rect x=\"4\" y=\"18\" width=\"4\" height=\"2\" />\n  <rect x=\"16\" y=\"18\" width=\"4\" height=\"2\" />\n  <rect x=\"6\" y=\"20\" width=\"12\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fdef14f7761bfc2564c7b23d5a2"
+    },
+    {
+     "concept": "gift",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"6\" y=\"2\" width=\"4\" height=\"2\" />\n  <rect x=\"14\" y=\"2\" width=\"4\" height=\"2\" />\n  <rect x=\"4\" y=\"4\" width=\"2\" height=\"2\" />\n  <rect x=\"10\" y=\"4\" width=\"4\" height=\"2\" />\n  <rect x=\"18\" y=\"4\" width=\"2\" height=\"2\" />\n  <rect x=\"2\" y=\"6\" width=\"20\" height=\"4\" />\n  <rect x=\"4\" y=\"10\" width=\"6\" height=\"8\" />\n  <rect x=\"14\" y=\"10\" width=\"6\" height=\"8\" />\n  <rect x=\"4\" y=\"18\" width=\"16\" height=\"4\" />\n</svg>",
+     "request_id": "mreq_01a16fdefac57eb0b182cf801963ec5a"
+    },
+    {
+     "concept": "shopping cart",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\">\n<rect x=\"2\" y=\"2\" width=\"6\" height=\"2\" />\n<rect x=\"6\" y=\"4\" width=\"16\" height=\"2\" />\n<rect x=\"8\" y=\"6\" width=\"14\" height=\"2\" />\n<rect x=\"8\" y=\"8\" width=\"12\" height=\"2\" />\n<rect x=\"10\" y=\"10\" width=\"10\" height=\"2\" />\n<rect x=\"10\" y=\"12\" width=\"2\" height=\"2\" />\n<rect x=\"10\" y=\"14\" width=\"10\" height=\"2\" />\n<rect x=\"10\" y=\"16\" width=\"4\" height=\"4\" />\n<rect x=\"16\" y=\"16\" width=\"4\" height=\"4\" />\n</svg>",
+     "request_id": "mreq_01a16fdf093a7132ba3d14fc94193a35"
+    },
+    {
+     "concept": "key",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\">\n  <rect x=\"4\" y=\"8\" width=\"4\" height=\"2\" />\n  <rect x=\"2\" y=\"10\" width=\"2\" height=\"4\" />\n  <rect x=\"8\" y=\"10\" width=\"2\" height=\"4\" />\n  <rect x=\"4\" y=\"14\" width=\"4\" height=\"2\" />\n  <rect x=\"10\" y=\"10\" width=\"12\" height=\"2\" />\n  <rect x=\"16\" y=\"12\" width=\"2\" height=\"2\" />\n  <rect x=\"20\" y=\"12\" width=\"2\" height=\"4\" />\n</svg>",
+     "request_id": "mreq_01a16fdf0a5d76d3ba25fbbe71f61123"
+    },
+    {
+     "concept": "globe",
+     "content": null,
+     "request_id": "mreq_01a16fdf15617f819d3171bd67d6bbcc"
+    },
+    {
+     "concept": "flag",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"4\" y=\"2\" width=\"2\" height=\"20\" /><rect x=\"2\" y=\"20\" width=\"8\" height=\"2\" /><rect x=\"6\" y=\"2\" width=\"12\" height=\"2\" /><rect x=\"6\" y=\"4\" width=\"14\" height=\"2\" /><rect x=\"6\" y=\"6\" width=\"14\" height=\"2\" /><rect x=\"6\" y=\"8\" width=\"12\" height=\"2\" /><rect x=\"6\" y=\"10\" width=\"8\" height=\"2\" /></svg>",
+     "request_id": "mreq_01a16fdf252273e3963c834d2511bf6a"
+    },
+    {
+     "concept": "tag",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"10\" y=\"4\" width=\"12\" height=\"2\" /><rect x=\"8\" y=\"6\" width=\"14\" height=\"2\" /><rect x=\"6\" y=\"8\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"10\" width=\"4\" height=\"2\" /><rect x=\"10\" y=\"10\" width=\"12\" height=\"2\" /><rect x=\"6\" y=\"12\" width=\"16\" height=\"2\" /><rect x=\"8\" y=\"14\" width=\"14\" height=\"2\" /><rect x=\"10\" y=\"16\" width=\"12\" height=\"2\" /></svg>",
+     "request_id": "mreq_01a16fdf2a087a938f6e44e3e680e553"
+    },
+    {
+     "concept": "document",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"6\" y=\"2\" width=\"8\" height=\"2\" /><rect x=\"6\" y=\"4\" width=\"2\" height=\"16\" /><rect x=\"8\" y=\"20\" width=\"8\" height=\"2\" /><rect x=\"16\" y=\"8\" width=\"2\" height=\"14\" /><rect x=\"12\" y=\"4\" width=\"4\" height=\"2\" /><rect x=\"14\" y=\"6\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"10\" width=\"6\" height=\"2\" /><rect x=\"8\" y=\"14\" width=\"6\" height=\"2\" /><rect x=\"8\" y=\"18\" width=\"4\" height=\"2\" /></svg>",
+     "request_id": "mreq_01a16fdf392a7a13a1644aea403b040b"
+    },
+    {
+     "concept": "printer",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"6\" y=\"2\" width=\"12\" height=\"2\" />\n  <rect x=\"6\" y=\"4\" width=\"2\" height=\"2\" />\n  <rect x=\"16\" y=\"4\" width=\"2\" height=\"2\" />\n  <rect x=\"2\" y=\"6\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"8\" width=\"16\" height=\"2\" />\n  <rect x=\"20\" y=\"8\" width=\"2\" height=\"2\" />\n  <rect x=\"2\" y=\"10\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"12\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"14\" width=\"6\" height=\"2\" />\n  <rect x=\"16\" y=\"14\" width=\"6\" height=\"2\" />\n  <rect x=\"6\" y=\"16\" width=\"2\" height=\"2\" />\n  <rect x=\"10\" y=\"16\" width=\"4\" height=\"2\" />\n  <rect x=\"16\" y=\"16\" width=\"2\" height=\"2\" />\n  <rect x=\"6\" y=\"18\" width=\"12\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fdf431a7f42adb8c14df65e73fe"
+    },
+    {
+     "concept": "sun",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"8\" y=\"6\" width=\"8\" height=\"2\" />\n  <rect x=\"6\" y=\"8\" width=\"12\" height=\"8\" />\n  <rect x=\"8\" y=\"16\" width=\"8\" height=\"2\" />\n  <rect x=\"10\" y=\"2\" width=\"4\" height=\"2\" />\n  <rect x=\"10\" y=\"20\" width=\"4\" height=\"2\" />\n  <rect x=\"2\" y=\"10\" width=\"2\" height=\"4\" />\n  <rect x=\"20\" y=\"10\" width=\"2\" height=\"4\" />\n  <rect x=\"4\" y=\"4\" width=\"2\" height=\"2\" />\n  <rect x=\"18\" y=\"4\" width=\"2\" height=\"2\" />\n  <rect x=\"4\" y=\"18\" width=\"2\" height=\"2\" />\n  <rect x=\"18\" y=\"18\" width=\"2\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fdf50ed736197042cfa7cca00f6"
+    },
+    {
+     "concept": "moon",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\">\n  <rect x=\"8\" y=\"2\" width=\"10\" height=\"2\" />\n  <rect x=\"6\" y=\"4\" width=\"8\" height=\"2\" />\n  <rect x=\"4\" y=\"6\" width=\"8\" height=\"2\" />\n  <rect x=\"4\" y=\"8\" width=\"6\" height=\"2\" />\n  <rect x=\"4\" y=\"10\" width=\"6\" height=\"2\" />\n  <rect x=\"4\" y=\"12\" width=\"6\" height=\"2\" />\n  <rect x=\"4\" y=\"14\" width=\"6\" height=\"2\" />\n  <rect x=\"4\" y=\"16\" width=\"8\" height=\"2\" />\n  <rect x=\"6\" y=\"18\" width=\"8\" height=\"2\" />\n  <rect x=\"8\" y=\"20\" width=\"10\" height=\"2\" />\n  <rect x=\"18\" y=\"10\" width=\"2\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fdf58ef73a09455a34d39c41af8"
+    },
+    {
+     "concept": "lightning",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\">\n  <rect x=\"12\" y=\"2\" width=\"6\" height=\"2\" />\n  <rect x=\"10\" y=\"4\" width=\"6\" height=\"2\" />\n  <rect x=\"8\" y=\"6\" width=\"6\" height=\"2\" />\n  <rect x=\"6\" y=\"8\" width=\"6\" height=\"2\" />\n  <rect x=\"6\" y=\"10\" width=\"12\" height=\"2\" />\n  <rect x=\"10\" y=\"12\" width=\"8\" height=\"2\" />\n  <rect x=\"10\" y=\"14\" width=\"6\" height=\"2\" />\n  <rect x=\"8\" y=\"16\" width=\"6\" height=\"2\" />\n  <rect x=\"8\" y=\"18\" width=\"4\" height=\"2\" />\n  <rect x=\"8\" y=\"20\" width=\"2\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fdf6a5c75618f67586020772720"
+    },
+    {
+     "concept": "leaf",
+     "content": null,
+     "request_id": "mreq_01a16fdf6db67073900219a22ffabef1"
+    },
+    {
+     "concept": "coffee",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\">\n  <rect x=\"8\" y=\"2\" width=\"2\" height=\"4\" />\n  <rect x=\"12\" y=\"2\" width=\"2\" height=\"4\" />\n  <rect x=\"4\" y=\"8\" width=\"12\" height=\"8\" />\n  <rect x=\"6\" y=\"16\" width=\"8\" height=\"2\" />\n  <rect x=\"2\" y=\"18\" width=\"16\" height=\"2\" />\n  <rect x=\"16\" y=\"10\" width=\"4\" height=\"2\" />\n  <rect x=\"18\" y=\"12\" width=\"2\" height=\"2\" />\n  <rect x=\"16\" y=\"14\" width=\"4\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fdf73907193a4233d9d80eb65c4"
+    },
+    {
+     "concept": "rocket",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"10\" y=\"2\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"4\" width=\"8\" height=\"2\" /><rect x=\"8\" y=\"6\" width=\"8\" height=\"2\" /><rect x=\"8\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"14\" y=\"8\" width=\"2\" height=\"2\" /><rect x=\"8\" y=\"10\" width=\"8\" height=\"2\" /><rect x=\"6\" y=\"12\" width=\"12\" height=\"2\" /><rect x=\"4\" y=\"14\" width=\"16\" height=\"2\" /><rect x=\"4\" y=\"16\" width=\"4\" height=\"2\" /><rect x=\"10\" y=\"16\" width=\"4\" height=\"2\" /><rect x=\"16\" y=\"16\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"18\" width=\"8\" height=\"2\" /><rect x=\"10\" y=\"20\" width=\"4\" height=\"2\" /></svg>",
+     "request_id": "mreq_01a16fdf861b7eb18c1f0304aae44528"
+    },
+    {
+     "concept": "eye",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke-width=\"0\"><rect x=\"8\" y=\"6\" width=\"8\" height=\"2\" /><rect x=\"4\" y=\"8\" width=\"4\" height=\"2\" /><rect x=\"16\" y=\"8\" width=\"4\" height=\"2\" /><rect x=\"2\" y=\"10\" width=\"2\" height=\"4\" /><rect x=\"10\" y=\"10\" width=\"4\" height=\"4\" /><rect x=\"20\" y=\"10\" width=\"2\" height=\"4\" /><rect x=\"4\" y=\"14\" width=\"4\" height=\"2\" /><rect x=\"16\" y=\"14\" width=\"4\" height=\"2\" /><rect x=\"8\" y=\"16\" width=\"8\" height=\"2\" /></svg>",
+     "request_id": "mreq_01a16fdf88ce7eb08be3f7903db6a738"
+    },
+    {
+     "concept": "shield",
+     "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" shape-rendering=\"crispEdges\" stroke-width=\"0\">\n  <rect x=\"2\" y=\"2\" width=\"20\" height=\"2\" />\n  <rect x=\"2\" y=\"4\" width=\"10\" height=\"8\" />\n  <rect x=\"20\" y=\"4\" width=\"2\" height=\"8\" />\n  <rect x=\"4\" y=\"12\" width=\"8\" height=\"4\" />\n  <rect x=\"18\" y=\"12\" width=\"2\" height=\"4\" />\n  <rect x=\"6\" y=\"16\" width=\"6\" height=\"2\" />\n  <rect x=\"16\" y=\"16\" width=\"2\" height=\"2\" />\n  <rect x=\"8\" y=\"18\" width=\"4\" height=\"2\" />\n  <rect x=\"14\" y=\"18\" width=\"2\" height=\"2\" />\n  <rect x=\"10\" y=\"20\" width=\"4\" height=\"2\" />\n</svg>",
+     "request_id": "mreq_01a16fdfaae67771824a90537f74806d"
+    }
+   ]
   }
  ],
  "adapters": [],
@@ -4200,6 +6332,16 @@
    "id": "smooth",
    "name": "Smooth",
    "created": "2026-10-24T18:58:55+0100"
+  },
+  {
+   "id": "pixel",
+   "name": "Pixel",
+   "created": "2026-10-24T22:37:38+0100"
+  },
+  {
+   "id": "duotone",
+   "name": "Duotone",
+   "created": "2026-10-24T22:37:38+0100"
   }
  ],
  "label": "Icon Master"

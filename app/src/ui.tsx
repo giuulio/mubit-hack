@@ -20,10 +20,13 @@ export function Icon({ name, size = 16, spin = false }: { name: IconName; size?:
   return <Glyph size={size} className={spin ? 'spin' : undefined} />
 }
 
+// The ink for icons drawn in currentColor; set colours (a duotone's green and orange) stay as drawn in either theme.
+const ink = () => (document.documentElement.dataset.theme === 'dark' ? '#ffffff' : 'rgb(21, 21, 21)')
+
 export function Glyph({ svg, size = '', title }: { svg: string | null; size?: '' | 'small' | 'large'; title?: string }) {
   if (!svg) return <div className={`glyph empty-glyph ${size}`} title={title} />
   // An <img> data URI never runs scripts, so model-written SVG is safe to show.
-  return <img className={`glyph ${size}`} alt={title ?? ''} title={title} src={`data:image/svg+xml;utf8,${encodeURIComponent(svg)}`} />
+  return <img className={`glyph ${size}`} alt={title ?? ''} title={title} src={`data:image/svg+xml;utf8,${encodeURIComponent(svg.replaceAll('currentColor', ink()))}`} />
 }
 
 // A route in plain words, in its colour; the tooltip says what the destination means.
