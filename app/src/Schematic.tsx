@@ -1,4 +1,5 @@
 // The architecture as a diagram, after the team's whiteboard: feedback → extract → route → context and/or weights → evaluate.
+// Everything runs in Hone except the dashed region, which Mubit runs.
 
 type Node = { x: number; y: number; w: number; title: string; sub: string; accent?: string }
 
@@ -7,8 +8,8 @@ const nodes: Record<string, Node> = {
   feedback: { x: 12, y: 122, w: 136, title: 'Feedback', sub: 'taste · critique · pick' },
   extract: { x: 182, y: 122, w: 136, title: 'Extract', sub: 'atomic lessons' },
   route: { x: 352, y: 122, w: 150, title: 'Route', sub: 'cost · effect · stability' },
-  context: { x: 556, y: 34, w: 176, title: 'Context', sub: 'instant · paid per call', accent: 'var(--blue)' },
-  weights: { x: 556, y: 210, w: 176, title: 'Weights', sub: 'Mubit adapter · owned', accent: 'var(--cranberry)' },
+  context: { x: 552, y: 34, w: 190, title: 'Context', sub: 'updated by Hone · instant', accent: 'var(--blue)' },
+  weights: { x: 552, y: 210, w: 190, title: 'Weights', sub: 'trained by Mubit · owned', accent: 'var(--cranberry)' },
   evaluate: { x: 784, y: 122, w: 164, title: 'Evaluate', sub: 'frontier · context · weights' },
 }
 
@@ -58,6 +59,9 @@ export function Schematic() {
         <path d={`M${midX + 22} ${weights.y - 2}V${context.y + H + 4}`} />
         <path d={`M${evaluate.x + evaluate.w / 2} ${evaluate.y + H + 2}C${evaluate.x + evaluate.w / 2} 350 ${feedback.x + feedback.w / 2} 350 ${feedback.x + feedback.w / 2} ${feedback.y + H + 4}`} strokeDasharray="4 5" stroke="var(--text-3)" />
       </g>
+      <text x="12" y="22" fontSize="15" fontWeight="700" fontFamily="var(--font-display)" fill="var(--text)">Hone</text>
+      <rect x={weights.x - 10} y={weights.y - 28} width={weights.w + 20} height={H + 38} rx="16" fill="none" stroke="var(--cranberry)" strokeDasharray="5 4" />
+      <text x={weights.x + weights.w + 2} y={weights.y - 12} fontSize="12" fontWeight="700" fontFamily="var(--font-display)" fill="var(--cranberry)" textAnchor="end">Mubit</text>
       <text x={midX - 30} y={(context.y + H + weights.y) / 2 + 4} fontSize="11" fill="var(--text-3)" textAnchor="end">train</text>
       <text x={midX + 30} y={(context.y + H + weights.y) / 2 + 4} fontSize="11" fill="var(--text-3)">retire</text>
       <Label x={rx + 26} y={(ry + left(context)[1]) / 2} text="A" color="var(--blue)" />

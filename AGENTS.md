@@ -25,7 +25,7 @@ Hard constraints:
 | `ARCHITECTURE.md`, `USE_CASE.md` | The lesson router and the chosen use case |
 | `router/` | The platform core, domain-agnostic: pipeline stages, routing policy, judges, project store, CLI (`python -m router`), API (`router/api.py`) |
 | `icons/` | The icon domain plugin: task prompt, context assembly, SVG checks and post-processing, slop score, experiment runner (`python -m icons.run`) |
-| `app/` | Interface: Vite + React + TypeScript; projects with Studio, Lessons and Model views |
+| `app/` | Interface: Vite + React + TypeScript; the platform holds projects, each with Input, Routing and Results pages |
 | `projects/` | Project state, one `project.json` per project |
 | `docs/stages/` | One evaluation note per architecture stage |
 | `style/` | Hidden target style (`target.md`) and hand-drawn seed icons for the first spike |

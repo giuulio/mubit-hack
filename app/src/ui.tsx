@@ -1,7 +1,7 @@
 // Shared UI pieces. Interface icons come from reicon-react behind `Icon`, so they can be swapped for our own.
 import type { ReactNode } from 'react'
 import {
-  ChartBar, Check, ChevronDown, Copy, Cpu, Folder, Home, Layers, Message, Plus, Refresh, Scale, Send, Sparkles, ThumbsUp, X,
+  ChartBar, Check, ChevronDown, ChevronRight, Copy, Cpu, Folder, Home, Layers, Message, Plus, Refresh, Scale, Send, Sparkles, ThumbsUp, X,
 } from 'reicon-react'
 import type { Route } from './api'
 import { routeColor } from './routes'
@@ -9,7 +9,7 @@ import { routeColor } from './routes'
 const icons = {
   generate: Sparkles, send: Send, approve: ThumbsUp, critique: Message, pick: Scale, check: Check, close: X,
   train: Cpu, chart: ChartBar, copy: Copy, project: Folder, plus: Plus, layers: Layers, loading: Refresh, home: Home,
-  expand: ChevronDown,
+  expand: ChevronDown, next: ChevronRight,
 }
 
 export function Icon({ name, size = 16, spin = false }: { name: keyof typeof icons; size?: number; spin?: boolean }) {
@@ -50,9 +50,9 @@ export function Stat({ label, value, sub }: { label: string; value: ReactNode; s
 }
 
 // A collapsible card for workflow forms that the story does not need on screen by default.
-export function Fold({ title, aside, children }: { title: ReactNode; aside?: ReactNode; children: ReactNode }) {
+export function Fold({ title, aside, plain = false, children }: { title: ReactNode; aside?: ReactNode; plain?: boolean; children: ReactNode }) {
   return (
-    <details className="card fold">
+    <details className={plain ? 'fold' : 'card fold'}>
       <summary className="row">
         <span className="grow row">{title}</span>
         {aside}

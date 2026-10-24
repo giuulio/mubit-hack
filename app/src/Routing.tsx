@@ -1,30 +1,43 @@
-// Lessons: where each lesson lives (code, prompt or weights), what every call pays for it, and the evidence behind each route.
+// Routing: where each lesson went. A, the context Hone keeps up to date; B, the weights Mubit trains; and every lesson
+// with the evidence behind its route.
 import { useEffect, useState } from 'react'
 import { api, type Lesson, type Project, type Route } from './api'
-import { ContextSplit } from './ContextSplit'
+import { Context } from './Context'
 import { Probes } from './Probes'
 import { routeInfo } from './routes'
-import { Fold, Glyph, Icon, RouteBadge } from './ui'
+import { Icon, RouteBadge } from './ui'
+import { Weights } from './Weights'
 
 const groups: Route[] = ['A', 'A∧B', 'B', 'note', 'rephrase']
 
-export function Lessons({ project }: { project: Project }) {
-  const [message, setMessage] = useState('')
-  const [open, setOpen] = useState<string | null>(null)
-  useEffect(() => {
-    api.message(project.id, 'example', 'routed').then((r) => setMessage(r.message)).catch(() => setMessage(''))
-  }, [project])
+type Props = { project: Project; focus: string | null; reload: () => Promise<void>; notify: (text: string) => void }
+
+export function Routing({ project, focus, reload, notify }: Props) {
+  const [open, setOpen] = useState<string | null>(focus)
+  const [probes, setProbes] = useState<string[]>([])
+  useEffect(() => { api.concepts(project.id).then((c) => setProbes(c.train.slice(0, 3))).catch(() => undefined) }, [project.id])
+  useEffect(() => { if (focus) document.getElementById(`lesson-${focus}`)?.scrollIntoView({ block: 'center', behavior: 'smooth' }) }, [focus])
 
   const live = project.lessons.filter((l) => l.status === 'active' || l.status === 'needs_rephrase')
   const inactive = project.lessons.filter((l) => ['superseded', 'duplicate', 'rejected'].includes(l.status))
   const trained = new Set(project.training.flatMap((b) => b.lessons_in_context ?? []))
-  const lessonOf = (id: string) => project.lessons.find((l) => l.id === id)
-  const examples = project.examples.filter((e) => lessonOf(e.lesson_id)?.status === 'active')
   const toggle = (id: string) => setOpen((o) => (o === id ? null : id))
 
   return (
-    <div className="split wide">
-      <div className="card" style={{ paddingTop: '0.25rem' }}>
+    <div className="stack">
+      <div className="halves">
+        <Context project={project} />
+        <Weights project={project} probes={probes} reload={reload} notify={notify} />
+      </div>
+
+      <div className="card" style={{ paddingTop: '0.75rem' }}>
+        <div className="row wrap" style={{ padding: '0 0.5rem' }}>
+          <h2 className="grow">Lessons</h2>
+          {groups.map((r) => {
+            const n = live.filter((l) => l.route === r).length
+            return n ? <span key={r} className="row" style={{ gap: '0.375rem' }}><RouteBadge route={r} /><span className="muted">{n}</span></span> : null
+          })}
+        </div>
         {live.length ? (
           <table>
             <thead><tr><th>Lesson</th><th className="r">Tokens</th><th className="r">Effect</th><th>Lives in</th></tr></thead>
@@ -44,7 +57,7 @@ export function Lessons({ project }: { project: Project }) {
               )
             })}
           </table>
-        ) : <div className="empty">No lessons yet</div>}
+        ) : <div className="empty">No lessons yet: give feedback on the Input page</div>}
         {inactive.length ? (
           <details className="inactive">
             <summary className="faint">{inactive.length} superseded, duplicate or rejected</summary>
@@ -54,32 +67,11 @@ export function Lessons({ project }: { project: Project }) {
           </details>
         ) : null}
       </div>
-
-      <div className="stack">
-        <ContextSplit project={project} />
-        {examples.length ? (
-          <div className="card stack" style={{ gap: '0.75rem' }}>
-            <h3>Examples</h3>
-            {(['B', 'note'] as const).map((route) => {
-              const shown = examples.filter((e) => lessonOf(e.lesson_id)?.route === route)
-              return shown.length ? (
-                <div key={route} className="stack" style={{ gap: '0.375rem' }}>
-                  <span className="row faint"><RouteBadge route={route} />{route === 'B' ? 'in every call until the adapter owns them' : 'sent only with their concept'}</span>
-                  <div className="row wrap">{shown.map((e) => <Glyph key={e.id} svg={e.content} size="small" title={e.concept} />)}</div>
-                </div>
-              ) : null
-            })}
-          </div>
-        ) : null}
-        <Fold title={<h3>What the model receives</h3>}>
-          <div className="mono" style={{ maxHeight: '24rem', overflow: 'auto' }}>{message}</div>
-        </Fold>
-      </div>
     </div>
   )
 }
 
-// Where a lesson lives now: code, the prompt, training, or the adapter's weights.
+// Where a lesson lives now: code, the prompt, training calls, or the adapter's weights.
 function where(lesson: Lesson, trained: boolean) {
   if (lesson.status === 'needs_rephrase') return 'nowhere yet'
   if (lesson.expressible_as === 'parameter') return 'code'
@@ -94,7 +86,7 @@ function Row({ lesson, quote, trained, open, toggle }: { lesson: Lesson; quote: 
   const evidence = Boolean(lesson.probe?.probes?.length)
   return (
     <>
-      <tr className={evidence ? 'clickable' : undefined} onClick={evidence ? toggle : undefined}>
+      <tr id={`lesson-${lesson.id}`} className={[evidence ? 'clickable' : '', open ? 'open' : ''].join(' ').trim() || undefined} onClick={evidence ? toggle : undefined}>
         <td>
           <div>{lesson.statement}</div>
           {quote && lesson.feedback ? <div className="faint clamp">{lesson.signal}: “{lesson.feedback}”</div> : null}

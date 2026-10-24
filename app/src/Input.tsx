@@ -1,13 +1,13 @@
-// Studio: give taste, generate, react to outputs, confirm the lessons the router extracts and see why each was routed.
+// Input: give taste, generate, react to outputs, and confirm the lessons extraction finds. Each routed lesson links to Routing.
 import { useState } from 'react'
 import { api, type Lesson, type Output, type Project } from './api'
-import { Probes } from './Probes'
+import { go } from './routes'
 import { Button, Glyph, Icon, RouteBadge } from './ui'
 
 type Props = { project: Project; reload: () => Promise<void>; notify: (text: string) => void }
 type Run = (key: string, fn: () => Promise<unknown>, done?: string) => Promise<void>
 
-export function Studio({ project, reload, notify }: Props) {
+export function Input({ project, reload, notify }: Props) {
   const [direction, setDirection] = useState('')
   const [concepts, setConcepts] = useState('')
   const [busy, setBusy] = useState<string | null>(null)
@@ -92,17 +92,20 @@ export function Studio({ project, reload, notify }: Props) {
 
       <div className="stack">
         <div className="card">
-          <h2>Lessons to confirm</h2>
-          {pending.length ? pending.map((l) => <Pending key={l.id} lesson={l} project={project} run={run} busy={busy} />) : <div className="empty">Critique, approve or pick icons; the lessons appear here</div>}
+          <h2>Extracted lessons</h2>
+          {pending.length ? pending.map((l) => <Pending key={l.id} lesson={l} project={project} run={run} busy={busy} notify={notify} />) : <div className="empty">Critique, approve or pick icons; the lessons they contain appear here to confirm</div>}
         </div>
         {routed.length ? (
           <div className="card">
-            <h3>Routed</h3>
-            {routed.map((l, i) => (
-              <div key={l.id} className="lesson">
-                <div className="row" style={{ alignItems: 'flex-start' }}><RouteBadge route={l.route} /><span className="grow" style={{ fontSize: 'var(--sm)' }}>{l.statement}</span></div>
-                {i === 0 ? <><span className="faint">{l.reason}</span><Probes lesson={l} /></> : null}
-              </div>
+            <h3>Just routed</h3>
+            {routed.map((l) => (
+              <button key={l.id} className="lesson link" onClick={() => go(project.id, 'routing', l.id)}>
+                <div className="row" style={{ alignItems: 'flex-start' }}>
+                  <RouteBadge route={l.route} />
+                  <span className="grow" style={{ fontSize: 'var(--sm)' }}>{l.statement}</span>
+                  <Icon name="next" size={14} />
+                </div>
+              </button>
             ))}
           </div>
         ) : null}
@@ -136,7 +139,7 @@ function measuring(lesson: Lesson, stability: string) {
   return 'Counting its tokens…'
 }
 
-function Pending({ lesson, project, run, busy }: { lesson: Lesson; project: Project; run: Run; busy: string | null }) {
+function Pending({ lesson, project, run, busy, notify }: { lesson: Lesson; project: Project; run: Run; busy: string | null; notify: (text: string) => void }) {
   const [stability, setStability] = useState('permanent')
   const key = `confirm-${lesson.id}`
   return (
@@ -156,7 +159,7 @@ function Pending({ lesson, project, run, busy }: { lesson: Lesson; project: Proj
           </div>
           <span className="grow" />
           <button className="icon-btn" title="Reject" disabled={busy !== null} onClick={() => run(`reject-${lesson.id}`, () => api.reject(project.id, lesson.id))}><Icon name="close" /></button>
-          <Button small kind="primary" disabled={busy !== null} onClick={() => run(key, () => api.confirm(project.id, lesson.id, stability), 'Lesson routed')}>
+          <Button small kind="primary" disabled={busy !== null} onClick={() => run(key, async () => notify(`Routed ${(await api.confirm(project.id, lesson.id, stability)).route}`))}>
             <Icon name="check" /> Route
           </Button>
         </div>
