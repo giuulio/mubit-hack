@@ -1,4 +1,5 @@
-/* Tokens follow the Luma style guide (luma.com/style-guide): grey scale, text alphas, type scale, radii, inputs. */
+/* Tokens follow the Luma style guide (luma.com/style-guide): grey scale, text alphas, type scale, radii, inputs.
+   Type follows grub.cam: Figtree for titles, Public Sans for body and controls, self-hosted through fontsource (main.tsx). */
 :root {
   --black-rgb: 21, 21, 21;
   --gray-10: #f8f8f8;
@@ -28,7 +29,9 @@
   --button-text: #fff;
   --icon-filter: none;
 
-  --font: -apple-system, BlinkMacSystemFont, "Apple Color Emoji", Inter, Roboto, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font: "Public Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Figtree Variable", ui-sans-serif, system-ui, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
   --xs: 0.8125rem;
   --sm: 0.875rem;
   --md: 1rem;
@@ -62,6 +65,7 @@
 html, body, #root { height: 100%; margin: 0; }
 body { font-family: var(--font); font-size: var(--md); color: var(--text); background: var(--bg-2); -webkit-font-smoothing: antialiased; }
 h1, h2, h3 { margin: 0; font-weight: 600; line-height: 1.2; }
+h1, h2, .display { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.01em; }
 h1 { font-size: var(--xxxl); }
 h2 { font-size: var(--lg); }
 h3 { font-size: var(--sm); color: var(--text-2); font-weight: 500; }
@@ -69,7 +73,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 
 .shell { display: grid; grid-template-columns: 15rem 1fr; height: 100%; }
 .sidebar { background: var(--bg); border-right: 1px solid var(--line); padding: 1.25rem 0.75rem; display: flex; flex-direction: column; gap: 0.25rem; }
-.brand { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; padding: 0 0.5rem 1rem; }
+.brand { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-weight: 700; padding: 0 0.5rem 1rem; }
 .nav-item { display: flex; align-items: center; gap: 0.625rem; padding: 0.5rem; border-radius: var(--radius); border: 0; background: none; cursor: pointer; text-align: left; font-size: var(--sm); color: var(--text-2); transition: var(--transition); }
 .nav-item:hover { background: var(--bg-2); color: var(--text); }
 .nav-item.active { background: var(--bg-3); color: var(--text); font-weight: 500; }
@@ -89,7 +93,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .halves { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; align-items: start; }
 .muted { color: var(--text-2); font-size: var(--sm); }
 .faint { color: var(--text-3); font-size: var(--xs); }
-.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: var(--xs); white-space: pre-wrap; word-break: break-word; }
+.mono { font-family: var(--mono); font-size: var(--xs); white-space: pre-wrap; word-break: break-word; }
 
 .input { height: calc(2.25rem + 2px); padding: 0.625rem 0.875rem; border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--bg); line-height: 1; outline: none; transition: var(--transition); min-width: 0; }
 .input:hover { border-color: var(--text-3); }
