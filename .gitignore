@@ -6,3 +6,5 @@ __pycache__/
 .venv/
 .cache/
 runs/**/index.html
+app/dist/
+*.log
