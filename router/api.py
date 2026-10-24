@@ -78,7 +78,8 @@ class Items(BaseModel):
 
 @app.get("/api/domains")
 def domains():
-    return ["icons"]
+    """Domain plugins: any top-level package with a domain.py (see AGENTS.md)."""
+    return sorted(d.parent.name for d in store.ROOT.glob("*/domain.py"))
 
 
 @app.get("/api/projects")

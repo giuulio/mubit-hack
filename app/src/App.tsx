@@ -15,6 +15,8 @@ export default function App() {
   const [tab, setTab] = useState<(typeof tabs)[number]>('Studio')
   const [toast, setToast] = useState<string | null>(null)
   const [naming, setNaming] = useState<string | null>(null)
+  const [domains, setDomains] = useState<string[]>(['icons'])
+  const [domain, setDomain] = useState('icons')
 
   const notify = useCallback((text: string) => {
     setToast(text)
@@ -33,12 +35,13 @@ export default function App() {
   }, [current, loadProjects])
 
   useEffect(() => { loadProjects().catch((e) => notify(String(e))) }, [loadProjects, notify])
+  useEffect(() => { api.domains().then(setDomains).catch(() => undefined) }, [])
   useEffect(() => { if (current) api.project(current).then(setProject).catch((e) => notify(String(e))) }, [current, notify])
 
   const create = async () => {
     if (!naming?.trim()) return
     try {
-      const p = await api.create(naming.trim(), 'icons')
+      const p = await api.create(naming.trim(), domain)
       setNaming(null)
       await loadProjects()
       setCurrent(p.id)
@@ -63,6 +66,9 @@ export default function App() {
         ) : (
           <div className="row" style={{ padding: '0.25rem' }}>
             <input className="input grow" autoFocus placeholder="Name" value={naming} onChange={(e) => setNaming(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && create()} />
+            {domains.length > 1 ? (
+              <select className="input" value={domain} onChange={(e) => setDomain(e.target.value)}>{domains.map((d) => <option key={d}>{d}</option>)}</select>
+            ) : null}
             <Button small onClick={create}><Icon name="check" /></Button>
           </div>
         )}

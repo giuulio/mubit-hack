@@ -66,13 +66,17 @@ The router decides from signals it can compute, not from an open-ended judgement
 | Enforceability | Can a validator or post-processor in the harness check or apply it? |
 | Reproducibility | Does the provider produce the fix when given the lesson in context, without seeing the fixed output? If not, Mubit has nothing correct to learn from |
 
-| Route | When | Where it lives |
-| --- | --- | --- |
-| **A** | Volatile, rare, or enforceable by code | STYLE.md and harness validators, permanently |
-| **B** | Stable, frequent, costly to state (often only showable by example) and reproducible | Weights; in context only during training replays |
-| **A∧B** | Stable, frequent, cheap to state and reproducible | STYLE.md until the adapter passes the lesson's probe set without it, then retired |
+Every non-volatile lesson starts in context: that is the only way the provider produces training data with it, and the only way the user sees its effect at once. Routes therefore describe where a lesson **ends up**:
 
-A lesson that is not reproducible stays in A until it is rewritten as one that is.
+| Route | When | Final state |
+| --- | --- | --- |
+| **A** | A parameter code can apply, or a lesson the user marks as temporary | In code or context permanently |
+| **A∧B** | Stable, effective in context, cheap to state (≤ 60 tokens) | Trained into the weights and kept in context as cheap insurance |
+| **B** | Stable, effective in context, costly (typically example outputs) | Trained into the weights, then removed from context once the absorption test passes |
+| note | Applies to one output only | A note for that concept; the style does not change |
+| rephrase | Changed fewer than half of the probes in context | Flagged: Mubit cannot learn what the provider does not produce |
+
+Mubit records the provider's raw reply before the harness applies parameters, so the adapter never learns parameter lessons: those stay owned by code. The policy is in `router/route.py`; its evaluation in [docs/stages/routing.md](docs/stages/routing.md).
 
 ## Recording rules
 

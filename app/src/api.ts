@@ -56,6 +56,7 @@ async function call<T>(path: string, body?: unknown): Promise<T> {
 }
 
 export const api = {
+  domains: () => call<string[]>('/domains'),
   projects: () => call<ProjectSummary[]>('/projects'),
   create: (name: string, domain: string) => call<Project>('/projects', { name, domain }),
   project: (id: string) => call<Project>(`/projects/${id}`),

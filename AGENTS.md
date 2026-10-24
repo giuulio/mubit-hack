@@ -23,14 +23,18 @@ Hard constraints:
 | `ideas/` | Project ideas, one per file. Format: [ideas/README.md](ideas/README.md) |
 | `AGENTS.md` | This file |
 | `ARCHITECTURE.md`, `USE_CASE.md` | The lesson router and the chosen use case |
-| `router/` | Domain-agnostic architecture stages: Mubit client, extraction (`python -m router.eval_extraction`) |
-| `icons/` | Icon domain: fixed task prompt, SVG validators, slop score, extraction rules, experiment runner (`python -m icons.run`) |
+| `router/` | The platform core, domain-agnostic: pipeline stages, routing policy, judges, project store, CLI (`python -m router`), API (`router/api.py`) |
+| `icons/` | The icon domain plugin: task prompt, context assembly, SVG checks and post-processing, slop score, experiment runner (`python -m icons.run`) |
+| `app/` | Interface: Vite + React + TypeScript; projects with Studio, Lessons and Model views |
+| `projects/` | Project state, one `project.json` per project |
 | `docs/stages/` | One evaluation note per architecture stage |
-| `style/` | Hidden target style (`target.md`) and hand-drawn seed icons |
+| `style/` | Hidden target style (`target.md`) and hand-drawn seed icons for the first spike |
 | `data/` | Concept lists and labelled feedback for evaluation |
-| `runs/` | Experiment outputs per run; HTML sheets are regenerated, not committed |
+| `runs/` | Experiment outputs per run; HTML sheets and logs are not committed |
 
-Python setup: `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`; Lucide is fetched into `.cache/` with npm on first use.
+A domain plugin is a module `<domain>/domain.py` exposing `system_prompt`, `user_message`, `parse_output`, `postprocess`, `problems`, `render`, `concepts`, `parameters`, `description` and `rules`; see `icons/domain.py`.
+
+Run: `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`, then `.venv/bin/uvicorn router.api:app --port 8000` and, in `app/`, `npm install && npm run dev` (http://localhost:5173). Lucide is fetched into `.cache/` with npm on first use.
 
 ## Writing conventions
 
