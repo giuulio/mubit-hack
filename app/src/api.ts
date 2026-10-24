@@ -18,16 +18,25 @@ export type Lesson = {
   concept: string | null
   feedback: string | null
   signal: string
-  probe?: { probes?: string[] }
+  probe?: Probe
   absorption?: { share: number; n: number }
   retired?: string
+  confirmed?: string
+}
+
+// The effect test: probe concepts drawn with and without the lesson; verdicts are numbered over the pairs where both parsed.
+export type Probe = {
+  probes?: string[]
+  with?: (string | null)[]
+  without?: (string | null)[]
+  verdicts?: { pair: number; lesson_side: string; verdict: string | null }[]
 }
 
 export type Output = { id: string; concept: string; content: string | null; problems: string[]; input_tokens: number; output_tokens: number; runs: number; seconds: number; t: string }
 export type Example = { id: string; lesson_id: string; concept: string; content: string }
 export type EvalRow = { config: string; n: number; valid: number; style: number | null; recognisable: number | null; input_tokens: number | null; runs_per_call: number | null; seconds: number | null }
 export type Evaluation = { id: string; t: string; concepts: string[]; rows: EvalRow[]; outputs: Record<string, { concept: string; content: string | null }[]> }
-export type Batch = { batch: number; t: string; calls: number; valid: number; context_tokens: number }
+export type Batch = { batch: number; t: string; calls: number; valid: number; context_tokens: number; lessons_in_context?: string[] }
 export type AdapterVersion = { version: string; status: string; note: string; t: string }
 
 export type Project = {

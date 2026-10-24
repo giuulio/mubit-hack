@@ -84,7 +84,7 @@ export default function App() {
             <div className="header">
               <h1 className="grow">{project.name}</h1>
               <span className="chip">{project.domain}</span>
-              <span className="chip">{project.model}</span>
+              <span className="chip">{project.model} via Mubit</span>
             </div>
             <div className="tabs">
               {tabs.map((t) => <button key={t} className={`tab${t === tab ? ' active' : ''}`} onClick={() => setTab(t)}>{t}</button>)}
@@ -93,7 +93,7 @@ export default function App() {
             {tab === 'Lessons' ? <Lessons project={project} /> : null}
             {tab === 'Model' ? <Model project={project} reload={reload} notify={notify} /> : null}
           </>
-        ) : <Home projects={projects} open={setCurrent} create={() => setNaming('')} />}
+        ) : <Home projects={projects} open={setCurrent} />}
       </main>
       {toast ? <div className="toast">{toast}</div> : null}
     </div>

@@ -14,19 +14,3 @@ export function Line({ values, height = 96 }: { values: number[]; height?: numbe
     </svg>
   )
 }
-
-export function Bars({ items, max, format = (v) => v.toFixed(1) }: { items: { label: string; value: number | null }[]; max: number; format?: (v: number) => string }) {
-  return (
-    <div className="stack" style={{ gap: '0.5rem' }}>
-      {items.map((item) => (
-        <div key={item.label} className="row">
-          <span className="faint" style={{ width: '11rem', flex: 'none' }}>{item.label}</span>
-          <div className="grow" style={{ background: 'var(--bg-2)', borderRadius: 4, height: 10 }}>
-            <div style={{ width: `${((item.value ?? 0) / max) * 100}%`, background: 'var(--text)', height: '100%', borderRadius: 4 }} />
-          </div>
-          <span className="faint" style={{ width: '3.5rem', textAlign: 'right' }}>{item.value === null ? '—' : format(item.value)}</span>
-        </div>
-      ))}
-    </div>
-  )
-}

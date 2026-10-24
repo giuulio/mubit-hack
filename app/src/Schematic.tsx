@@ -7,8 +7,8 @@ const nodes: Record<string, Node> = {
   feedback: { x: 12, y: 122, w: 136, title: 'Feedback', sub: 'taste · critique · pick' },
   extract: { x: 182, y: 122, w: 136, title: 'Extract', sub: 'atomic lessons' },
   route: { x: 352, y: 122, w: 150, title: 'Route', sub: 'cost · effect · stability' },
-  context: { x: 556, y: 34, w: 176, title: 'Context', sub: 'instant · editable', accent: 'var(--blue)' },
-  weights: { x: 556, y: 210, w: 176, title: 'Weights', sub: 'Mubit adapter', accent: 'var(--cranberry)' },
+  context: { x: 556, y: 34, w: 176, title: 'Context', sub: 'instant · paid per call', accent: 'var(--blue)' },
+  weights: { x: 556, y: 210, w: 176, title: 'Weights', sub: 'Mubit adapter · owned', accent: 'var(--cranberry)' },
   evaluate: { x: 784, y: 122, w: 164, title: 'Evaluate', sub: 'frontier · context · weights' },
 }
 
@@ -20,7 +20,7 @@ function Box({ node }: { node: Node }) {
     <g>
       <rect x={node.x} y={node.y} width={node.w} height={H} rx="12" fill="var(--bg)" stroke="var(--line-strong)" />
       {node.accent ? <rect x={node.x} y={node.y + 14} width="3" height={H - 28} rx="1.5" fill={node.accent} /> : null}
-      <text x={node.x + 16} y={node.y + 24} fontSize="14" fontWeight="600" fill="var(--text)">{node.title}</text>
+      <text x={node.x + 16} y={node.y + 24} fontSize="14" fontWeight="700" fontFamily="var(--font-display)" fill="var(--text)">{node.title}</text>
       <text x={node.x + 16} y={node.y + 42} fontSize="11.5" fill="var(--text-3)">{node.sub}</text>
     </g>
   )
